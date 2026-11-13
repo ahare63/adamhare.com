@@ -154,6 +154,10 @@
     "venue": "Blog post, first published by The Startup on Medium",
     "links": [
       {
+        "label": "Medium (The Startup)",
+        "url": "https://medium.com/swlh/explainable-vs-interpretable-ai-an-intuitive-example-6baf8fc6d402"
+      },
+      {
         "label": "Substack",
         "url": "https://ahare63.substack.com/p/explainable-vs-interpretable-ai-an-intuitive-example-6baf8fc6d402"
       }

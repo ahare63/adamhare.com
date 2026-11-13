@@ -13,7 +13,7 @@ Live shelf availability for any book across 35+ New York bookstores. I use it se
 
 New York’s bookstores sell through a handful of different store platforms, so instead of custom code for each store, the app has seven store-platform adapters, one per platform. Each site gets its own rate limit, and a replay-based test suite lets the adapters be tested without sending requests to the stores. Built with TypeScript and Next.js.
 
-### Trip Language Trainer
+### [Trip Language Trainer](https://github.com/ahare63/trip-trainer)
 
 A spaced-repetition app for Mandarin, Korean, and Japanese, with 255 cards. The first version was built in an evening.
 
@@ -21,7 +21,7 @@ In progress: an agent conversation partner for practice, and an evaluation gate 
 
 ## Research Projects
 
-This section covers my research and academic work: papers and presentations, and more detail on the projects behind them, most from my time at Princeton and Oxford. For what I build outside work now, see[Independent Projects](/projects).
+This section covers my research and academic work: papers and presentations, and more detail on the projects behind them, most from my time at Princeton and Oxford. For what I build outside work now, see [Independent Projects](/projects).
 
 ## Academic Projects
 

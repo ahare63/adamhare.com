@@ -95,7 +95,13 @@ th { font-weight: 600; }
   text-decoration: none; color: var(--ink);
   margin-right: auto;
 }
-.brand img { height: 2.1rem; width: auto; }
+.brand img {
+  height: 2.1rem; width: 2.1rem; object-fit: contain;
+  background: #673ab7;            /* the old site's logo container purple */
+  filter: invert(1) hue-rotate(180deg); /* white glyph on purple (bg inverts back) */
+  border-radius: 4px;
+  padding: 0.2rem;
+}
 .brand span { font-size: 1.25rem; font-weight: 600; letter-spacing: 0.01em; }
 
 .site-nav { display: flex; gap: 1.3rem; flex-wrap: wrap; }
@@ -175,13 +181,14 @@ main.wide { max-width: var(--max-wide); }
 
 .map-wrap { margin: 1.8rem 0; }
 .map-wrap svg { width: 100%; height: auto; }
-.map-wrap svg path, .map-wrap svg circle { fill: #e8e5dd; stroke: #fff; stroke-width: 0.5; }
+/* Map palette matches the old site's embed: #4F86D9 visited / #D5D8DE unvisited. */
+.map-wrap svg path, .map-wrap svg circle { fill: #d5d8de; stroke: #fff; stroke-width: 0.5; }
 .map-wrap .visited, .map-wrap .visited path, .map-wrap .visited circle {
-  fill: var(--accent) !important;
+  fill: #4f86d9 !important;
   cursor: pointer;
 }
 .map-wrap .visited:hover, .map-wrap .visited:hover path, .map-wrap .visited:hover circle {
-  fill: var(--accent-hover) !important;
+  fill: #7faae8 !important;
 }
 .map-title { font-size: 0.95rem; font-weight: 600; color: var(--ink); margin-bottom: 0.5rem; }
 .map-tooltip[hidden] { display: none; }

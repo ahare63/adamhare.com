@@ -15,7 +15,8 @@ const groups = [
 
   <h2>Papers &amp; Presentations</h2>
   <p>
-    Erdős number: 4 · Dijkstra number: 4 — see also
+    <a href="https://www.csauthors.net/distance/paul-erdos/adam-hare">Erdős number: 4</a> ·
+    <a href="https://www.csauthors.net/distance/edsger-w-dijkstra/adam-hare">Dijkstra number: 4</a> — see also
     <a href="https://scholar.google.com/citations?user=YXOt7y0AAAAJ">Google Scholar</a> and
     <a href="https://orcid.org/0000-0003-3681-6135">ORCID</a>.
   </p>
@@ -28,9 +29,9 @@ const groups = [
         <ul class="pubs">
           {items.map((p) => (
             <li>
-              <em>{p.title}</em>. {p.authors}.{p.venue && <> {p.venue}.</>}
+              <em>{p.title}</em>{`. ${p.authors}.`}{p.venue ? ` ${p.venue}.` : ''}
               {p.links.length > 0 && (
-                <> {p.links.map((l, i) => (
+                <>{' '}{p.links.map((l, i) => (
                   <>{i > 0 && ' · '}<a href={l.url}>{l.label}</a></>
                 ))}</>
               )}

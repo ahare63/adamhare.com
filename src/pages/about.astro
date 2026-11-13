@@ -1,8 +1,29 @@
 ---
 import Base from '../layouts/Base.astro';
 import * as md from '../content/about.md';
+
+// The page is long, so each h3 subsection (roles, degrees) collapses; the
+// first in each h2 group (current role, most recent degree) starts open.
+let html = await md.compiledContent();
+let openNext = false;
+html = html.replace(
+  /(<h2[^>]*>[\s\S]*?<\/h2>)|(<h3[^>]*>[\s\S]*?<\/h3>)([\s\S]*?)(?=<h3|<h2|$)/g,
+  (m, h2, heading, body) => {
+    if (h2) { openNext = true; return h2; }
+    const attr = openNext ? ' open' : '';
+    openNext = false;
+    return `<details${attr}><summary>${heading}</summary>${body}</details>`;
+  }
+);
 ---
 <Base title={md.frontmatter.title} description={md.frontmatter.description}>
   <h1>{md.frontmatter.title}</h1>
-  <md.Content />
+  <div class="about" set:html={html} />
+
+  <style>
+    .about :global(img) { max-height: 220px; width: auto; max-width: 100%; }
+    .about :global(details) { border-top: 1px solid var(--rule); }
+    .about :global(summary) { cursor: pointer; padding: 0.45rem 0; }
+    .about :global(summary h3) { display: inline; margin: 0; }
+  </style>
 </Base>

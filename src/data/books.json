@@ -3,107 +3,128 @@
     {
       "title": "The Great Gatsby",
       "author": "F. Scott Fitzgerald",
-      "category": "top"
+      "category": "top",
+      "image": "/images/books/c78e16f34fd2e7743f925a25e98c3306.jpg"
     },
     {
       "title": "The Waves",
       "author": "Virginia Woolf",
-      "category": "top"
+      "category": "top",
+      "image": "/images/books/f6ea52d995e82ff0bd03f451ad517dd2.jpg"
     },
     {
       "title": "The Things They Carried",
       "author": "Tim O'Brien",
-      "category": "top"
+      "category": "top",
+      "image": "/images/books/04010ffe82f7af90f4db70c3b64d0bbd.jpg"
     },
     {
       "title": "Turtle Diary",
       "author": "Russell Hoban",
-      "category": "fiction"
+      "category": "fiction",
+      "image": "/images/books/e8bca4ab516e3cd66c1d1484310ad016.jpg"
     },
     {
       "title": "Flowers for Algernon",
       "author": "Daniel Keyes",
-      "category": "fiction"
+      "category": "fiction",
+      "image": "/images/books/ace5252ef5f98599b17ae2bf8c82370b.jpg"
     },
     {
       "title": "Rebecca",
       "author": "Daphne du Maurier",
-      "category": "fiction"
+      "category": "fiction",
+      "image": "/images/books/700aa4efbd6e87d90fc7abaef16306cb.jpg"
     },
     {
       "title": "Contact",
       "author": "Carl Sagan",
-      "category": "fiction"
+      "category": "fiction",
+      "image": "/images/books/d0898c2ccabfa5cea93853083e677026.jpg"
     },
     {
       "title": "Stoner",
       "author": "John Williams",
-      "category": "fiction"
+      "category": "fiction",
+      "image": "/images/books/19432544c4ec60dd7d4edb8e88f3ce20.jpg"
     },
     {
       "title": "The Spectator Bird",
       "author": "Wallace Stegner",
-      "category": "fiction"
+      "category": "fiction",
+      "image": "/images/books/072afc1ebf821a47eae7001e43d77553.jpg"
     },
     {
       "title": "The Power Broker",
       "author": "Robert A. Caro",
-      "category": "non-fiction"
+      "category": "non-fiction",
+      "image": "/images/books/ce3c180bcbcedd571620f78711aded65.jpg"
     },
     {
       "title": "What If?",
       "author": "Randall Munroe",
-      "category": "non-fiction"
+      "category": "non-fiction",
+      "image": "/images/books/1fdb57a3f32ae747a4b62992587557f6.jpg"
     },
     {
       "title": "Battle Cry of Freedom",
       "author": "James McPherson",
-      "category": "non-fiction"
+      "category": "non-fiction",
+      "image": "/images/books/a4a85011e6c8d46a9e3de35912c98715.jpg"
     },
     {
       "title": "Usual Cruelty",
       "author": "Alec Karakatanis",
-      "category": "non-fiction"
+      "category": "non-fiction",
+      "image": "/images/books/e681bed7c36c455205d290a90a0c9cf0.jpg"
     },
     {
       "title": "Achilles in Vietnam",
       "author": "Jonathan Shay",
-      "category": "non-fiction"
+      "category": "non-fiction",
+      "image": "/images/books/e447162251d42427cff3c9c06e123017.jpg"
     },
     {
       "title": "\"A Problem From Hell\"",
       "author": "Samantha Power",
-      "category": "non-fiction"
+      "category": "non-fiction",
+      "image": "/images/books/4777b41e559c32b86ed1a955e9d2da91.jpg"
     },
     {
       "title": "Twenty Love Poems and a Song of Despair",
       "author": "Pablo Neruda",
-      "category": "poetry"
+      "category": "poetry",
+      "image": "/images/books/6c1935938a9a021dba8acb698c3d8795.jpg"
     },
     {
       "title": "The Iliad",
       "author": "Homer",
-      "category": "poetry"
+      "category": "poetry",
+      "image": "/images/books/a1a3f5ea8b187ef321241b51c7926149.jpg"
     },
     {
       "title": "Gilgamesh",
       "author": "Sophus Helle",
-      "category": "poetry"
+      "category": "poetry",
+      "image": "/images/books/1d771763492fd2959656928cde0aaf96.jpg"
     },
     {
       "title": "100 Selected Poems",
       "author": "ee cummings",
-      "category": "poetry"
+      "category": "poetry",
+      "image": "/images/books/8deafb2815ab4b1c0200a5ee39d96b39.jpg"
     },
     {
       "title": "The Best of It",
       "author": "Kay Ryan",
-      "category": "poetry"
+      "category": "poetry",
+      "image": "/images/books/5a90c5c6fc2e190ddb4c72ee6ddf5f62.jpg"
     },
     {
       "title": "Eros the Bittersweet",
       "author": "Anne Carson",
-      "category": "poetry"
+      "category": "poetry",
+      "image": "/images/books/b533d981c74e7adcc74fdfdcf7e72806.jpg"
     }
   ]
 }
