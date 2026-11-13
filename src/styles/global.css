@@ -116,6 +116,22 @@ th { font-weight: 600; }
   padding-bottom: 2px;
 }
 
+.banner {
+  height: clamp(150px, 26vw, 300px);
+  background-size: cover;
+  position: relative;
+}
+.banner::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0) 60%);
+}
+.banner:not(:has(.banner-inner))::after { display: none; }
+.banner-inner {
+  position: absolute; inset: auto 0 0 0; z-index: 1;
+  max-width: var(--max-wide); margin: 0 auto; padding: 0 1.25rem 1.1rem;
+}
+.banner-inner h1 { color: #fff; margin: 0; text-shadow: 0 1px 8px rgba(0, 0, 0, 0.45); }
+
 main {
   max-width: var(--max-text);
   margin: 0 auto;

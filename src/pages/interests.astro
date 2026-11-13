@@ -2,8 +2,7 @@
 import Base from '../layouts/Base.astro';
 import * as md from '../content/interests.md';
 ---
-<Base title={md.frontmatter.title} description={md.frontmatter.description}>
-  <h1>{md.frontmatter.title}</h1>
+<Base title={md.frontmatter.title} description={md.frontmatter.description} banner="/images/banners/interests.jpg" bannerTitle={md.frontmatter.title}>
   <div class="card-grid">
     <a class="card" href="/books"><h3>Books</h3><p>Favorites and a yearly reading log</p></a>
     <a class="card" href="/music"><h3>Music &amp; Concerts</h3><p>Every major concert, with stats</p></a>

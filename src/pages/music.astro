@@ -8,8 +8,7 @@ for (const c of concerts) counts.set(c.artist, (counts.get(c.artist) ?? 0) + 1);
 const top = [...counts.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).slice(0, 8);
 const max = top.length ? top[0][1] : 1;
 ---
-<Base title={md.frontmatter.title} description={md.frontmatter.description} wide>
-  <h1>{md.frontmatter.title}</h1>
+<Base title={md.frontmatter.title} description={md.frontmatter.description} wide banner="/images/banners/music.jpg" bannerTitle={md.frontmatter.title}>
   <md.Content />
 
   <p class="concert-stats sans">

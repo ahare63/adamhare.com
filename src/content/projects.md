@@ -19,10 +19,6 @@ A spaced-repetition app for Mandarin, Korean, and Japanese, with 255 cards. The 
 
 In progress: an agent conversation partner for practice, and an evaluation gate that checks generated cards before they are added.
 
-## Research Projects
-
-This section covers my research and academic work: papers and presentations, and more detail on the projects behind them, most from my time at Princeton and Oxford. For what I build outside work now, see [Independent Projects](/projects).
-
 ## Academic Projects
 
 This section is meant to showcase some work I've done in the past in a bit more detail.

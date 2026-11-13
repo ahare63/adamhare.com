@@ -1,6 +1,8 @@
 ---
 import '../styles/global.css';
-const { title, description = 'Adam Hare — Head of AI at Zoomi. Projects, research, and interests.', wide = false } = Astro.props;
+// banner: image path for a photo strip under the header; when set together with
+// bannerTitle, the strip carries the page's <h1> (the page must not render its own).
+const { title, description = 'Adam Hare — Head of AI at Zoomi. Projects, research, and interests.', wide = false, banner, bannerTitle, bannerPosition = 'center' } = Astro.props;
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 const nav = [
   ['/about', 'About'],
@@ -33,6 +35,11 @@ const current = (href) => (path === href || sub[path] === href ? 'page' : undefi
         {nav.map(([href, label]) => <a href={href} aria-current={current(href)}>{label}</a>)}
       </nav>
     </header>
+    {banner && (
+      <div class="banner" style={`background-image:url(${banner});background-position:${bannerPosition}`}>
+        {bannerTitle && <div class="banner-inner"><h1>{bannerTitle}</h1></div>}
+      </div>
+    )}
     <main id="main" class:list={[{ wide }]}>
       <slot />
     </main>

@@ -16,8 +16,7 @@ html = html.replace(
   }
 );
 ---
-<Base title={md.frontmatter.title} description={md.frontmatter.description}>
-  <h1>{md.frontmatter.title}</h1>
+<Base title={md.frontmatter.title} description={md.frontmatter.description} banner="/images/banners/about.jpg" bannerTitle={md.frontmatter.title}>
   <div class="about" set:html={html} />
 
   <style>

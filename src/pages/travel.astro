@@ -26,8 +26,7 @@ const stateCount = travel.states.length - (hasDC ? 1 : 0);
 const years = abroad.flatMap((c) => (c.years.match(/\d{4}/g) || []).map(Number));
 const firstYear = years.length ? Math.min(...years) : 2017;
 ---
-<Base title="Travel" description="Countries and US states Adam Hare has visited, with photos." wide>
-  <h1>Travel</h1>
+<Base title="Travel" description="Countries and US states Adam Hare has visited, with photos." wide banner="/images/banners/travel.jpg" bannerTitle="Travel">
   <div class="prose" set:html={introHtml} />
 
   <p class="travel-stats sans">

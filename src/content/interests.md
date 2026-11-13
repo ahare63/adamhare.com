@@ -11,7 +11,7 @@ I write Within & Without, essays on literature and history, on Substack at [ahar
 
 ## Journal club
 
-I run a journal club, now in its third year, for up to 30 people. Speakers have included founders from the AI startups Pangram and Nori and a Nebula Award-winning author, and talks have ranged from the Odyssey to medicine and mushrooms.
+I run a journal club, now in its third year, for up to 30 people. Speakers have included the founders of the AI startups Pangram and Nori, as well as a Nebula Award-winning author. Talks have ranged from the *Odyssey* to medicine and mushrooms.
 
 ## Interviewing
 
