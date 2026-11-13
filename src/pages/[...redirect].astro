@@ -1,0 +1,31 @@
+---
+// Redirect stubs for old Google-Sites URLs so existing external links keep working.
+export function getStaticPaths() {
+  const map = {
+    'about-me': '/about',
+    'academic-background': '/about',
+    'work-experience': '/about',
+    'independent-projects': '/projects',
+    'research-projects': '/projects',
+    'papers-presentations': '/projects',
+    'personal-interests': '/interests',
+    'music-concerts': '/music',
+    'peers': '/interests',
+    'home': '/',
+  };
+  return Object.entries(map).map(([slug, target]) => ({ params: { redirect: slug }, props: { target } }));
+}
+const { target } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content={`0; url=${target}`} />
+    <link rel="canonical" href={new URL(target, Astro.site)} />
+    <title>Redirecting…</title>
+  </head>
+  <body>
+    <p>This page has moved to <a href={target}>{target}</a>.</p>
+  </body>
+</html>

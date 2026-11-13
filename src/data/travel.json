@@ -1,0 +1,90 @@
+{
+  "countries": [
+    {
+      "code": "GB",
+      "name": "United Kingdom"
+    },
+    {
+      "code": "IE",
+      "name": "Ireland"
+    },
+    {
+      "code": "IT",
+      "name": "Italy"
+    },
+    {
+      "code": "VA",
+      "name": "Vatican City"
+    },
+    {
+      "code": "AT",
+      "name": "Austria"
+    },
+    {
+      "code": "DE",
+      "name": "Germany"
+    },
+    {
+      "code": "CH",
+      "name": "Switzerland"
+    },
+    {
+      "code": "LI",
+      "name": "Liechtenstein"
+    },
+    {
+      "code": "FR",
+      "name": "France"
+    },
+    {
+      "code": "GR",
+      "name": "Greece"
+    },
+    {
+      "code": "CA",
+      "name": "Canada"
+    },
+    {
+      "code": "ES",
+      "name": "Spain"
+    },
+    {
+      "code": "US",
+      "name": "United States"
+    }
+  ],
+  "states": [
+    {
+      "code": "OH",
+      "name": "Ohio"
+    },
+    {
+      "code": "PA",
+      "name": "Pennsylvania"
+    },
+    {
+      "code": "NJ",
+      "name": "New Jersey"
+    },
+    {
+      "code": "NY",
+      "name": "New York"
+    },
+    {
+      "code": "WI",
+      "name": "Wisconsin"
+    },
+    {
+      "code": "TX",
+      "name": "Texas"
+    },
+    {
+      "code": "IL",
+      "name": "Illinois"
+    },
+    {
+      "code": "MA",
+      "name": "Massachusetts"
+    }
+  ]
+}

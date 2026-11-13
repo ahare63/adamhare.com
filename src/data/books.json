@@ -1,0 +1,109 @@
+{
+  "favorites": [
+    {
+      "title": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "category": "top"
+    },
+    {
+      "title": "The Waves",
+      "author": "Virginia Woolf",
+      "category": "top"
+    },
+    {
+      "title": "The Things They Carried",
+      "author": "Tim O'Brien",
+      "category": "top"
+    },
+    {
+      "title": "Turtle Diary",
+      "author": "Russell Hoban",
+      "category": "fiction"
+    },
+    {
+      "title": "Flowers for Algernon",
+      "author": "Daniel Keyes",
+      "category": "fiction"
+    },
+    {
+      "title": "Rebecca",
+      "author": "Daphne du Maurier",
+      "category": "fiction"
+    },
+    {
+      "title": "Contact",
+      "author": "Carl Sagan",
+      "category": "fiction"
+    },
+    {
+      "title": "Stoner",
+      "author": "John Williams",
+      "category": "fiction"
+    },
+    {
+      "title": "The Spectator Bird",
+      "author": "Wallace Stegner",
+      "category": "fiction"
+    },
+    {
+      "title": "The Power Broker: Robert Moses and the Fall of New York",
+      "author": "Robert A. Caro",
+      "category": "non-fiction"
+    },
+    {
+      "title": "What If?: Serious Scientific Answers to Absurd Hypothetical Questions",
+      "author": "Randall Munroe",
+      "category": "non-fiction"
+    },
+    {
+      "title": "Battle Cry of Freedom",
+      "author": "James McPherson",
+      "category": "non-fiction"
+    },
+    {
+      "title": "Usual Cruelty: The Complicity of Lawyers in the Criminal Injustice System",
+      "author": "Alec Karakatanis",
+      "category": "non-fiction"
+    },
+    {
+      "title": "Achilles in Vietnam",
+      "author": "Jonathan Shay",
+      "category": "non-fiction"
+    },
+    {
+      "title": "\"A Problem From Hell\": America and the Age of Genocide",
+      "author": "Samantha Power",
+      "category": "non-fiction"
+    },
+    {
+      "title": "Twenty Love Poems and a Song of Despair",
+      "author": "Pablo Neruda",
+      "category": "poetry"
+    },
+    {
+      "title": "The Iliad",
+      "author": "Homer",
+      "category": "poetry"
+    },
+    {
+      "title": "Gilgamesh",
+      "author": "Sophus Helle",
+      "category": "poetry"
+    },
+    {
+      "title": "100 Selected Poems",
+      "author": "ee cummings",
+      "category": "poetry"
+    },
+    {
+      "title": "The Best of It",
+      "author": "Kay Ryan",
+      "category": "poetry"
+    },
+    {
+      "title": "Eros the Bittersweet",
+      "author": "Anne Carson",
+      "category": "poetry"
+    }
+  ]
+}

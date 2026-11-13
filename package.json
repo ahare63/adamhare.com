@@ -1,0 +1,19 @@
+{
+  "name": "adamhare.com",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "test": "vitest run",
+    "test:integrity": "npm run build && vitest run tests/integrity.test.js"
+  },
+  "dependencies": {
+    "astro": "^5.1.0"
+  },
+  "devDependencies": {
+    "vitest": "^2.1.8"
+  }
+}

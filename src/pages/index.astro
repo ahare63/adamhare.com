@@ -1,0 +1,42 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base description="Adam Hare — technical generalist leading AI products end to end. Head of AI at Zoomi, based in New York City.">
+  <div class="home-hero">
+    <img class="portrait" src="/images/home/portrait.jpg" alt="Adam Hare" width="220" height="220" />
+    <div>
+      <h1>Hello! I’m Adam Hare.</h1>
+      <p class="lede">
+        I’m a technical generalist who leads AI products end to end. I’m Head of AI at
+        <a href="https://zoomiinc.com">Zoomi, Inc</a>, a research-driven AI learning platform, where I own the
+        roadmap, the client relationships, and delivery — and I still work hands-on in design and code.
+        I live in New York City.
+      </p>
+      <p>
+        This site covers my background, my work, my independent projects, and what I do outside work.
+        You can find my current résumé
+        <a href="https://drive.google.com/open?id=1-CdQRuN3z2tnZ2HZfcWtx97496zCuqgfmxBYf-A6KhY">here</a>.
+      </p>
+    </div>
+  </div>
+
+  <div class="card-grid">
+    <a class="card" href="/about"><h3>About</h3><p>Background, work experience, and education — and the story behind the Linear A logo.</p></a>
+    <a class="card" href="/projects"><h3>Projects</h3><p>Independent projects built with Claude Code, plus research from Princeton and Oxford.</p></a>
+    <a class="card" href="/interests"><h3>Interests</h3><p>Writing, a journal club, and pages on books, music &amp; concerts, and travel.</p></a>
+    <a class="card" href="/travel"><h3>Travel</h3><p>Interactive maps of every country and US state I’ve visited, with photos.</p></a>
+  </div>
+
+  <style>
+    .home-hero {
+      display: flex; gap: 1.8rem; align-items: flex-start; flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+    .portrait {
+      width: 180px; height: 180px; object-fit: cover; border-radius: 50%;
+      flex-shrink: 0; margin-top: 0.4rem;
+    }
+    .home-hero > div { flex: 1 1 20rem; }
+    h1 { margin-top: 0.4rem; }
+  </style>
+</Base>
