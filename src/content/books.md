@@ -3,7 +3,7 @@ title: "Books"
 description: "Books I have read for pleasure since 2017, listed by year with the most recent first."
 ---
 
-I read a lot and my tastes are rather varied. Below is a list of books I've read for pleasure starting in 2017, with the most recent at the top. I exceeded 130 books read in 2023 - you can check out the details on Goodreads [here](https://www.goodreads.com/user/year_in_books/2023/88910269).
+I read a lot and my tastes are rather varied. Below I've included a few favorites. Further down is a list of books I've read for pleasure starting in 2017, with the most recent at the top. I exceeded 130 books read in 2023 - you can check out the details on Goodreads [here](https://www.goodreads.com/user/year_in_books/2023/88910269).
 
 ## 2026
 
@@ -699,5 +699,3 @@ I read a lot and my tastes are rather varied. Below is a list of books I've read
 - *Superintelligence: Paths, Dangers, Strategies* by Nick Bostrom
 - *The Princess Bride* by William Goldman
 - *The Screwtape Letters* by C.S. Lewis
-
-## Long-term projects

@@ -33,6 +33,8 @@ const label = `Map of ${title ?? map}: ${regions.length} visited regions highlig
       const el = svg.querySelector(`#${code.toLowerCase()}`) || svg.querySelector(`#${code}`);
       if (!el) continue;
       el.classList.add('visited');
+      // Marker circles keyed by class (e.g. the DC dot on the US map) follow their region.
+      for (const dot of svg.querySelectorAll(`circle.${CSS.escape(code.toLowerCase())}`)) dot.classList.add('visited');
       if (!el.dataset.tipBound) {
         el.dataset.tipBound = '1';
         el.addEventListener('mousemove', (e) => showTip(el.dataset.tipName, e.clientX, e.clientY));

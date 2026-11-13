@@ -126,5 +126,23 @@
       "category": "poetry",
       "image": "/images/books/b533d981c74e7adcc74fdfdcf7e72806.jpg"
     }
+  ],
+  "longTerm": [
+    {
+      "title": "Constitutional Law",
+      "author": "Erwin Chemerinsky",
+      "note": "(casebook)",
+      "image": "/images/books/d11e4ef7b554c523992337facfb39887.jpg"
+    },
+    {
+      "title": "The New Oxford Annotated Bible",
+      "image": "/images/books/1b4f76ab1a9e4530de8699693ccb9cdb.jpg"
+    },
+    {
+      "title": "Ο Μεγάλος Γκάτσμπυ",
+      "author": "F. Scott Fitzgerald, trans. Άρις Μπερλής",
+      "note": "(Greek translation of The Great Gatsby)",
+      "image": "/images/books/ecc81349943c82a89b5ff16f9eb1c6ba.jpg"
+    }
   ]
 }

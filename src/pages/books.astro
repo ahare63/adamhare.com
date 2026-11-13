@@ -14,8 +14,9 @@ html = html.replace(
     const n = (body.match(/<li/g) || []).length;
     const heading = `${open}${year}<span class="count"> · ${n} book${n === 1 ? '' : 's'}</span>${close}`;
     const attr = first ? ' open' : '';
+    const lead = first ? '<h2>Recently Read</h2>' : '';
     first = false;
-    return `<details${attr}><summary>${heading}</summary>${body}</details>`;
+    return `${lead}<details${attr}><summary>${heading}</summary>${body}</details>`;
   }
 );
 
@@ -25,9 +26,15 @@ const groups = [
   ['non-fiction', 'Non-fiction'],
   ['poetry', 'Poetry'],
 ];
+
+// Intro paragraphs sit above the favorites; the year list follows them.
+const listStart = html.indexOf('<h2>Recently Read</h2>');
+const introHtml = listStart === -1 ? '' : html.slice(0, listStart);
+const listHtml = listStart === -1 ? html : html.slice(listStart);
 ---
-<Base title="Books" description="What Adam Hare reads: favorites and a yearly reading log.">
+<Base wide title="Books" description="What Adam Hare reads: favorites and a yearly reading log.">
   <h1>Books</h1>
+  <div class="prose" set:html={introHtml} />
 
   <h2>Some of My Favorites</h2>
   {groups.map(([cat, label]) => {
@@ -35,7 +42,7 @@ const groups = [
     return items.length ? (
       <>
         {label && <h3>{label}</h3>}
-        <ul class="favorites">
+        <ul class="favorites" style={`--n:${items.length}`} data-n={items.length}>
           {items.map((b) => (
             <li>
               {b.image && <img src={b.image} alt={b.title} loading="lazy" />}
@@ -47,14 +54,37 @@ const groups = [
     ) : null;
   })}
 
-  <div class="prose" set:html={html} />
+  {booksData.longTerm.length > 0 && (
+    <>
+      <h2>Long-term Projects</h2>
+      <ul class="favorites" style={`--n:${booksData.longTerm.length}`} data-n={booksData.longTerm.length}>
+        {booksData.longTerm.map((b) => (
+          <li>
+            {b.image && <img src={b.image} alt={b.title} loading="lazy" />}
+            <span class="meta">
+              <em>{b.title}</em>{b.author && <> by {b.author}</>}{b.note && <> {b.note}</>}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </>
+  )}
+
+  <div class="prose" set:html={listHtml} />
 
   <style>
     .favorites {
       list-style: none; padding: 0; margin: 1rem 0 1.6rem;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr));
+      grid-template-columns: repeat(var(--n), minmax(0, 1fr));
       gap: 1.2rem;
+    }
+    .favorites[data-n="3"] { max-width: 32rem; }
+    @media (max-width: 700px) {
+      .favorites[data-n="6"] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+    @media (max-width: 420px) {
+      .favorites[data-n="6"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     .favorites li { margin: 0; display: flex; flex-direction: column; gap: 0.5rem; }
     .favorites img {

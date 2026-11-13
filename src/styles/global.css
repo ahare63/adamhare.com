@@ -189,6 +189,14 @@ main.wide { max-width: var(--max-wide); }
 .map-wrap .visited:hover, .map-wrap .visited:hover path, .map-wrap .visited:hover circle {
   fill: #7faae8 !important;
 }
+/* The US map draws state borders as separate open paths; they must never be
+   filled (CSS fill would override their fill="none" attribute). */
+.map-wrap svg .borders path, .map-wrap svg path.separator1 {
+  fill: none !important;
+  stroke: #fff;
+  stroke-width: 1;
+}
+.map-wrap svg path.separator1 { stroke: #b0b0b0; stroke-width: 2; }
 .map-title { font-size: 0.95rem; font-weight: 600; color: var(--ink); margin-bottom: 0.5rem; }
 .map-tooltip[hidden] { display: none; }
 .map-tooltip {

@@ -64,7 +64,9 @@ const firstYear = years.length ? Math.min(...years) : 2017;
     US map from <a href="https://commons.wikimedia.org/wiki/File:Blank_US_Map_(states_only).svg">Wikimedia Commons</a> (CC0).
   </p>
 
-  <style>
+  <!-- Global on purpose: the live sheet refresh re-creates the list items in
+       the browser, and scoped styles don't reach script-created elements. -->
+  <style is:global>
     .travel-stats { font-size: 1.05rem; }
     .travel-note { color: var(--ink-soft); font-size: 0.85rem; }
     .country-list { margin: 1rem 0 2rem; }

@@ -7,11 +7,11 @@ Outside work, I read, listen to music and podcasts, study history and languages,
 
 ## Writing
 
-I write Within & Without, essays on literature and history, on Substack at[ahare63.substack.com](https://ahare63.substack.com/).
+I write Within & Without, essays on literature and history, on Substack at [ahare63.substack.com](https://ahare63.substack.com/).
 
 ## Journal club
 
-I run a journal club, now in its third year, for up to 30 people. Speakers have included people from the AI startups Pangram and Nori and a Nebula Award-winning author, and talks have ranged from the Odyssey to medicine and mushrooms.
+I run a journal club, now in its third year, for up to 30 people. Speakers have included founders from the AI startups Pangram and Nori and a Nebula Award-winning author, and talks have ranged from the Odyssey to medicine and mushrooms.
 
 ## Interviewing
 
