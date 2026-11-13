@@ -8,3 +8,5 @@ Originally from Dayton, Ohio, I earned a Bachelor’s degree magna cum laude in 
 ## About the logo
 
 In the upper left hand corner and on the tab, there's a symbol that looks a bit like a capital "A". This is from [Linear A](https://en.wikipedia.org/wiki/Linear_A), an ancient language used by the Minoan civilization on the island of Crete almost 4000 years ago. This language has not yet been deciphered, despite success in a younger derivative language (Linear B). The study of ancient languages was a partial basis for early cryptography efforts in the UK which, through Bletchley Park, eventually led to modern computing. I'm optimistic that computing can return the favor by advancing our understanding of the ancient world by, for instance, shedding light on Linear A. I chose this particular symbol as it contains all three letters in my initials (A, T, H).
+
+Linear B, on the other hand, can be read and written: [see your name in Linear B](/linear-b).

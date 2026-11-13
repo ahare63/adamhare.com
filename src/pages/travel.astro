@@ -31,7 +31,7 @@ const firstVisit = (c) => { const ys = (c.years.match(/\d{4}/g) || []).map(Numbe
 const timeline = abroad.map((c) => ({ code: c.code, name: c.name, first: firstVisit(c) }));
 const timelineJson = JSON.stringify(timeline).replace(/</g, '\\u003c');
 ---
-<Base title="Travel" description="Countries and US states Adam Hare has visited, with photos." wide banner="/images/banners/travel.jpg" bannerTitle="Travel">
+<Base title="Travel" description="Countries and US states Adam Hare has visited, with photos." wide banner="/images/banners/travel.jpg" bannerTitle="Travel" bannerPosition="center 30%">
   <div class="prose" set:html={introHtml} />
 
   <p class="travel-stats sans">

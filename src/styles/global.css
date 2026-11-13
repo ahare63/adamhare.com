@@ -117,7 +117,7 @@ th { font-weight: 600; }
 }
 
 .banner {
-  height: clamp(150px, 26vw, 300px);
+  height: clamp(170px, 30vw, 360px);
   background-size: cover;
   position: relative;
 }
@@ -182,17 +182,14 @@ main.wide { max-width: var(--max-wide); }
 .card h3 { margin: 0 0 0.3rem; font-size: 1.05rem; color: var(--accent); }
 .card p { margin: 0; font-size: 0.9rem; color: var(--ink-soft); }
 
+/* Masonry: every photo keeps its own aspect ratio (no cropping). */
 .photo-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-  gap: 1.2rem;
+  columns: 3 15rem;
+  column-gap: 1.2rem;
   margin: 1.6rem 0;
 }
-.photo-grid figure { margin: 0; }
-.photo-grid img {
-  width: 100%; aspect-ratio: 4/3; object-fit: cover;
-  border-radius: 4px;
-}
+.photo-grid figure { margin: 0 0 1.2rem; break-inside: avoid; }
+.photo-grid img { width: 100%; height: auto; display: block; border-radius: 4px; }
 
 .map-wrap { margin: 1.8rem 0; }
 .map-wrap svg { width: 100%; height: auto; }

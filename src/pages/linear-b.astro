@@ -1,0 +1,104 @@
+---
+import Base from '../layouts/Base.astro';
+import { transliterate } from '../lib/linear-b.js';
+
+const example = 'Adam Hare';
+const initial = transliterate(example);
+---
+<Base title="Your Name in Linear B" description="Type a name and see it spelled the way a Mycenaean scribe would have written it, in Linear B.">
+  <Fragment slot="head">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Linear+B&display=swap" rel="stylesheet" />
+  </Fragment>
+
+  <h1>Your name in Linear B</h1>
+  <p class="lede">
+    The logo on this site is a sign from Linear A, which nobody can read. Its descendant, Linear B, was
+    deciphered in 1952 — so you can write in it. Type a name:
+  </p>
+
+  <p>
+    <label class="visually-hidden" for="lb-input">Name to write in Linear B</label>
+    <input id="lb-input" type="text" value={example} maxlength="60" autocomplete="off" spellcheck="false" />
+  </p>
+
+  <div id="lb-output" class="lb-output" aria-live="polite">
+    {initial.map((w) => (
+      <span class="lb-word">
+        {w.syllables.map((s) => (
+          <span class="lb-syl"><span class="lb-glyph">{s.char}</span><span class="lb-latin">{s.syl}</span></span>
+        ))}
+      </span>
+    ))}
+  </div>
+  <p id="lb-empty" class="lb-empty" hidden>Type some letters to see them as syllable signs.</p>
+
+  <h2>Why it looks different from what you typed</h2>
+  <p>
+    Linear B is a syllabary: about sixty signs, each standing for a vowel or a consonant plus a vowel. It was
+    built for an earlier language and fits Greek awkwardly, so the scribes of Knossos and Pylos followed a set
+    of spelling habits. This page applies the same ones:
+  </p>
+  <ul>
+    <li><strong>No L.</strong> L and R share one series of signs, so <em>Lily</em> becomes <em>ri-ri</em>.</li>
+    <li><strong>No voicing or breath.</strong> B is written as P, G as K, and H is not written at all.</li>
+    <li><strong>Endings disappear.</strong> A final S, N, M, R or L is left off: <em>Knossos</em> is written <em>ko-no-so</em>.</li>
+    <li><strong>Clusters are broken up.</strong> A stop borrows the next vowel (<em>tripos</em> → <em>ti-ri-po</em>), while
+      R, L, M, N and S before another consonant are usually dropped (<em>khalkos</em>, “bronze” → <em>ka-ko</em>).</li>
+  </ul>
+  <p>
+    The spelling works from letters, not pronunciation, so treat the result as a scribe’s best guess at a
+    foreign name. The story of the logo itself is on the <a href="/about">About</a> page.
+  </p>
+
+  <style is:global>
+    /* Global: the output is re-rendered by script, which scoped styles don't reach. */
+    #lb-input {
+      width: 100%; max-width: 24rem; padding: 0.55rem 0.8rem;
+      font: inherit; font-size: 1.1rem;
+      border: 1px solid var(--rule); border-radius: 6px; background: #fff; color: var(--ink);
+    }
+    .lb-output {
+      display: flex; flex-wrap: wrap; gap: 0.6rem 2.2rem;
+      margin: 1.2rem 0 0.6rem; padding: 1.4rem 1.2rem;
+      background: #fff; border: 1px solid var(--rule); border-radius: 8px;
+      min-height: 7rem; align-items: flex-end;
+    }
+    .lb-word { display: flex; flex-wrap: wrap; gap: 0.35rem 0.5rem; }
+    .lb-syl { display: flex; flex-direction: column; align-items: center; min-width: 2.6rem; }
+    .lb-glyph {
+      font-family: "Noto Sans Linear B", "Aegean", "Segoe UI Historic", sans-serif;
+      font-size: 3rem; line-height: 1.25; color: var(--ink);
+    }
+    .lb-latin { font-size: 0.8rem; color: var(--ink-soft); letter-spacing: 0.03em; }
+    .lb-empty { color: var(--ink-soft); }
+    .visually-hidden {
+      position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap;
+    }
+  </style>
+
+  <script>
+    import { transliterate } from '../lib/linear-b.js';
+    const input = document.getElementById('lb-input');
+    const output = document.getElementById('lb-output');
+    const empty = document.getElementById('lb-empty');
+    function render() {
+      const words = transliterate(input.value);
+      output.replaceChildren(
+        ...words.map((w) => {
+          const word = document.createElement('span');
+          word.className = 'lb-word';
+          for (const s of w.syllables) {
+            const syl = document.createElement('span'); syl.className = 'lb-syl';
+            const glyph = document.createElement('span'); glyph.className = 'lb-glyph'; glyph.textContent = s.char;
+            const latin = document.createElement('span'); latin.className = 'lb-latin'; latin.textContent = s.syl;
+            syl.append(glyph, latin);
+            word.append(syl);
+          }
+          return word;
+        })
+      );
+      empty.hidden = words.length > 0;
+    }
+    input.addEventListener('input', render);
+  </script>
+</Base>

@@ -16,8 +16,11 @@ html = html.replace(
   }
 );
 ---
-<Base title={md.frontmatter.title} description={md.frontmatter.description}>
-  <h1>{md.frontmatter.title}</h1>
+<Base title={md.frontmatter.title} description={md.frontmatter.description} banner="/images/banners/background.jpg" bannerTitle={md.frontmatter.title} bannerPosition="center 45%">
+  <p class="lede">
+    Where I’ve worked and what I studied: my roles at Zoomi, the Air Force Institute of Technology and
+    LexisNexis, and my degrees from Oxford and Princeton. Each entry expands for the details.
+  </p>
   <div class="background" set:html={html} />
 
   <style>
