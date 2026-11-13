@@ -36,7 +36,7 @@ _Spring - Fall 2019_
 - This project was my Master's dissertation at Oxford.
 - I began exploring the field of explainable/interpretable AI for this project and quickly became interested in how these tools could be applied to algorithmically generated profiles based on social media data. Such profiles have the potential to impact life-altering decisions and yet few users are aware of what is or can be inferred about them based on their social media accounts. The Mockingbird tool allows users to see algorithmic profiles based on their Twitter data, view explanations for many of them, and intelligently alter their tweets to change their algorithmic profiles.
 
-- After doing some research on existing techniques, I built the Mockingbird tool (available at [mockingbird.hip.cat](http://mockingbird.hip.cat/) - enter username as "test" for a demo).
+- After doing some research on existing techniques, I built the Mockingbird tool (formerly hosted at mockingbird.hip.cat; no longer online, but the [code and report are on GitHub](https://github.com/ahare63/mockingbird)).
 - This tool first scrapes Twitter data using a modified version of the [Twint](https://github.com/twintproject/twint) library.
 
 - Mockingbird then generates more than twenty algorithmic profiles. Some of these profiles use existing tools such as lexicons and pre-trained networks, although I also trained several neural networks for profiling purposes.
@@ -58,7 +58,7 @@ _Spring 2019_
 - After reproducing the NMT and Biattentive Classification Networks (BCN) models from this paper, I added two novel extensions with another student. We tried replaced the LSTM-based encoder with CNN and Transformer encoders, and found that they tended to boost performance over the LSTM-based encoder.
 - This project was done using Python's keras and tensorflow 2.0 libraries on Google Colabratory notebooks, making use of the GPUs provided there.
 
-- A [poster](https://github.com/ahare63/AML-CoVe/blob/master/conference-poster.pdf) detailing the extensions was presented at the [Oxford Computer Science Conference 2019](https://oxfordcsc.com/) with the title "An Exploration of Contextualized Word Vectors for Sentiment Analysis."
+- A [poster](https://github.com/ahare63/AML-CoVe/blob/master/conference-poster.pdf) detailing the extensions was presented at the [Oxford Computer Science Conference 2019](https://www.cs.ox.ac.uk/news/1691-full.html) with the title "An Exploration of Contextualized Word Vectors for Sentiment Analysis."
 
 ### News, Satire, Fake News
 
