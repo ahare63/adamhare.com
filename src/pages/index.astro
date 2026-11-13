@@ -1,5 +1,30 @@
 ---
 import Base from '../layouts/Base.astro';
+import * as booksMd from '../content/books.md';
+import essays from '../data/essays.json';
+import concerts from '../data/concerts.json';
+
+// "Lately" is derived at build time from data that is already kept current:
+// the newest bullet in books.md, the Substack snapshot, and the concert list.
+const esc = (t) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const [latestYear = ''] = booksMd.rawContent().split(/^## /m).slice(1);
+const [yearLine = '', ...yearLines] = latestYear.split('\n');
+const yearBullets = yearLines.filter((l) => l.startsWith('- '));
+const latestBook = yearBullets[0]
+  ? esc(yearBullets[0].slice(2)).replace(/\*([^*]+)\*/g, '<em>$1</em>')
+  : null;
+
+const fmtMonth = (iso) =>
+  new Date(`${iso}T12:00:00Z`).toLocaleDateString('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' });
+const latestEssays = essays.slice(0, 2);
+
+// A concert only counts as "lately" for about three months.
+const RECENT_MS = 100 * 24 * 60 * 60 * 1000;
+const lastShow = concerts[0];
+const lastShowTime = lastShow ? Date.parse(lastShow.date) : NaN;
+const recentShow = Number.isFinite(lastShowTime) && Date.now() - lastShowTime < RECENT_MS && Date.now() >= lastShowTime
+  ? lastShow
+  : null;
 ---
 <Base description="Adam Hare — technical generalist leading AI products end to end. Head of AI at Zoomi, based in New York City." banner="/images/banners/home.jpg">
   <div class="home-hero">
@@ -20,14 +45,61 @@ import Base from '../layouts/Base.astro';
     </div>
   </div>
 
+  <section class="lately" aria-labelledby="lately-heading">
+    <h2 id="lately-heading">Lately</h2>
+    <div class="lately-grid">
+      {latestBook && (
+        <div>
+          <span class="label">Reading</span>
+          <p>Just finished <Fragment set:html={latestBook} /> — book {yearBullets.length} of {yearLine.trim()}.</p>
+          <a class="more" href="/books">Everything I’ve read →</a>
+        </div>
+      )}
+      {latestEssays.length > 0 && (
+        <div>
+          <span class="label">Writing</span>
+          <ul>
+            {latestEssays.map((e) => (
+              <li><a href={e.url}>{e.title}</a> <span class="when">{fmtMonth(e.date)}</span></li>
+            ))}
+          </ul>
+          <a class="more" href="https://ahare63.substack.com/">Within &amp; Without →</a>
+        </div>
+      )}
+      {recentShow && (
+        <div>
+          <span class="label">Listening</span>
+          <p>Saw {recentShow.artist}{recentShow.city ? ` in ${recentShow.city}` : ''}, {recentShow.date}.</p>
+          <a class="more" href="/music">Every concert →</a>
+        </div>
+      )}
+    </div>
+  </section>
+
   <div class="card-grid">
-    <a class="card" href="/about"><h3>About</h3><p>Background, work experience, and education — and the story behind the Linear A logo.</p></a>
+    <a class="card" href="/about"><h3>About</h3><p>A short bio, and the story behind the Linear A logo.</p></a>
+    <a class="card" href="/background"><h3>Background</h3><p>Work experience and education, from Princeton and Oxford to Zoomi.</p></a>
     <a class="card" href="/projects"><h3>Projects</h3><p>Independent projects built with Claude Code, plus research from Princeton and Oxford.</p></a>
     <a class="card" href="/interests"><h3>Interests</h3><p>Writing, a journal club, and pages on books, music &amp; concerts, and travel.</p></a>
     <a class="card" href="/books"><h3>Books</h3><p>Favorites, long-term projects, and everything I’ve read since 2017.</p></a>
   </div>
 
   <style>
+    .lately { margin: 0.5rem 0 2rem; }
+    .lately h2 { margin-top: 1.5rem; }
+    .lately-grid {
+      display: grid; gap: 1.6rem;
+      grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+    }
+    .lately .label {
+      display: block; font-size: 0.75rem; letter-spacing: 0.09em; text-transform: uppercase;
+      color: var(--ink-soft); margin-bottom: 0.35rem;
+    }
+    .lately p, .lately ul { margin: 0 0 0.4rem; font-size: 0.96rem; }
+    .lately ul { list-style: none; padding: 0; }
+    .lately li { margin-bottom: 0.45rem; }
+    .lately .when { display: block; font-size: 0.8rem; color: var(--ink-soft); }
+    .lately .more { font-size: 0.85rem; }
     .home-hero {
       display: flex; gap: 1.8rem; align-items: flex-start; flex-wrap: wrap;
       margin-bottom: 1.5rem;

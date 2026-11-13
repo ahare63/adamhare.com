@@ -32,8 +32,7 @@ const listStart = html.indexOf('<h2>Recently Read</h2>');
 const introHtml = listStart === -1 ? '' : html.slice(0, listStart);
 const listHtml = listStart === -1 ? html : html.slice(listStart);
 ---
-<Base wide title="Books" description="What Adam Hare reads: favorites and a yearly reading log.">
-  <h1>Books</h1>
+<Base wide title="Books" description="What Adam Hare reads: favorites and a yearly reading log." banner="/images/banners/books.jpg" bannerTitle="Books">
   <div class="prose" set:html={introHtml} />
 
   <h2>Some of My Favorites</h2>

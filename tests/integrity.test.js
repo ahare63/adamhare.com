@@ -51,8 +51,8 @@ describe('built site integrity', () => {
   it('old Google-Sites URLs land on the right new pages', () => {
     const redirects = {
       'about-me': '/about',
-      'academic-background': '/about',
-      'work-experience': '/about',
+      'academic-background': '/background',
+      'work-experience': '/background',
       'independent-projects': '/projects',
       'research-projects': '/projects',
       'papers-presentations': '/projects',
@@ -70,7 +70,7 @@ describe('built site integrity', () => {
   });
 
   it('every page carries the site shell: nav, footer links, favicon', () => {
-    const mains = ['index.html', 'about/index.html', 'projects/index.html',
+    const mains = ['index.html', 'about/index.html', 'background/index.html', 'projects/index.html',
       'interests/index.html', 'books/index.html', 'music/index.html', 'travel/index.html'];
     for (const m of mains) {
       const p = join(DIST, m);
@@ -82,6 +82,17 @@ describe('built site integrity', () => {
       expect(html).toContain('mailto:adamt1195@gmail.com');
       expect(html).toMatch(/rel="icon"/);
     }
+  });
+
+  it('home page shows the Lately strip with the newest book and essay', () => {
+    const html = readFileSync(join(DIST, 'index.html'), 'utf-8');
+    expect(html).toContain('Lately');
+    const essays = JSON.parse(readFileSync(new URL('../src/data/essays.json', import.meta.url), 'utf-8'));
+    if (essays.length) expect(html, 'latest essay link').toContain(essays[0].url);
+    const books = readFileSync(new URL('../src/content/books.md', import.meta.url), 'utf-8');
+    const firstBullet = books.split(/^## /m)[1].split('\n').find((l) => l.startsWith('- '));
+    const title = firstBullet.match(/\*([^*]+)\*/)[1];
+    expect(html, `newest book "${title}"`).toContain(title.replace(/&/g, '&amp;'));
   });
 
   it('travel page embeds both interactive maps fed by travel data', () => {

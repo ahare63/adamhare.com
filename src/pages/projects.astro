@@ -3,6 +3,18 @@ import Base from '../layouts/Base.astro';
 import * as md from '../content/projects.md';
 import publications from '../data/publications.json';
 
+// Each academic project (h3 under "Academic Projects") collapses, closed by
+// default; h3s under other h2s stay as plain headings.
+let html = await md.compiledContent();
+let inAcademic = false;
+html = html.replace(
+  /(<h2[^>]*>[\s\S]*?<\/h2>)|(<h3[^>]*>[\s\S]*?<\/h3>)([\s\S]*?)(?=<h3|<h2|$)/g,
+  (m, h2, heading, body) => {
+    if (h2) { inAcademic = /Academic Projects/.test(h2); return h2; }
+    return inAcademic ? `<details><summary>${heading}</summary>${body}</details>` : m;
+  }
+);
+
 const groups = [
   ['published', 'Published'],
   ['preprint', 'Preprints'],
@@ -11,7 +23,7 @@ const groups = [
 ---
 <Base title={md.frontmatter.title} description={md.frontmatter.description}>
   <h1>{md.frontmatter.title}</h1>
-  <md.Content />
+  <div class="projects" set:html={html} />
 
   <h2>Papers &amp; Presentations</h2>
   <p>
@@ -43,6 +55,9 @@ const groups = [
   })}
 
   <style>
+    .projects :global(details) { border-top: 1px solid var(--rule); }
+    .projects :global(summary) { cursor: pointer; padding: 0.45rem 0; }
+    .projects :global(summary h3) { display: inline; margin: 0; }
     .pubs { list-style: none; padding: 0; }
     .pubs li { margin-bottom: 0.8rem; }
   </style>

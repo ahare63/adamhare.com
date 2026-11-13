@@ -18,6 +18,7 @@ npm run dev              # local preview at localhost:4321
 npm run build            # production build to dist/
 npm test                 # data tests
 npm run test:integrity   # build + link/asset/redirect checks
+npm run fetch            # refresh travel + essays snapshots
 node scripts/fetch-travel.mjs  # refresh src/data/travel.json from the sheet
 ```
 

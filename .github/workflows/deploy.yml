@@ -31,6 +31,8 @@ jobs:
           enablement: true
       - name: Refresh travel data from the Google Sheet
         run: node scripts/fetch-travel.mjs || echo "sheet unreachable; using committed snapshot"
+      - name: Refresh essays from Substack
+        run: node scripts/fetch-essays.mjs || echo "feed unreachable; using committed snapshot"
       - run: npm run build
       - run: npx vitest run
       - uses: actions/upload-pages-artifact@v3

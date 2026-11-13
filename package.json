@@ -7,6 +7,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "fetch": "node scripts/fetch-travel.mjs && node scripts/fetch-essays.mjs",
     "test": "vitest run",
     "test:integrity": "npm run build && vitest run tests/integrity.test.js"
   },

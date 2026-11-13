@@ -6,6 +6,7 @@ const { title, description = 'Adam Hare — Head of AI at Zoomi. Projects, resea
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 const nav = [
   ['/about', 'About'],
+  ['/background', 'Background'],
   ['/projects', 'Projects'],
   ['/interests', 'Interests'],
 ];
@@ -52,6 +53,12 @@ const current = (href) => (path === href || sub[path] === href ? 'page' : undefi
           </a>
           <a href="https://www.linkedin.com/in/ahare63/" aria-label="LinkedIn" title="LinkedIn">
             <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M0 1.15C0 .52.53 0 1.18 0h13.64C15.47 0 16 .52 16 1.15v13.7c0 .63-.53 1.15-1.18 1.15H1.18A1.17 1.17 0 0 1 0 14.85V1.15Zm4.94 12.24V6.17H2.54v7.22h2.4ZM3.74 5.18c.84 0 1.36-.55 1.36-1.24-.02-.71-.52-1.25-1.34-1.25-.82 0-1.36.54-1.36 1.25 0 .69.52 1.24 1.33 1.24h.01Zm5.08 8.21V9.36c0-.22.02-.43.08-.59.17-.43.57-.88 1.23-.88.87 0 1.22.66 1.22 1.63v3.87h2.4V9.25c0-2.22-1.18-3.25-2.76-3.25-1.27 0-1.84.7-2.17 1.19v.02h-.01l.01-.02V6.17h-2.4c.03.68 0 7.22 0 7.22h2.4Z"/></svg>
+          </a>
+          <a href="https://scholar.google.com/citations?user=YXOt7y0AAAAJ" aria-label="Google Scholar" title="Google Scholar">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.242 13.769 0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
+          </a>
+          <a href="https://ahare63.substack.com/" aria-label="Substack" title="Substack">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>
           </a>
           <a href="mailto:adamt1195@gmail.com" aria-label="Email" title="Email">
             <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/></svg>

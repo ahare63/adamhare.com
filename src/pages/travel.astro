@@ -25,6 +25,11 @@ const hasDC = travel.states.some((s) => s.code === 'DC');
 const stateCount = travel.states.length - (hasDC ? 1 : 0);
 const years = abroad.flatMap((c) => (c.years.match(/\d{4}/g) || []).map(Number));
 const firstYear = years.length ? Math.min(...years) : 2017;
+const lastYear = years.length ? Math.max(...years) : firstYear;
+// Slider data: each country's first-visit year (null = undated, always shown).
+const firstVisit = (c) => { const ys = (c.years.match(/\d{4}/g) || []).map(Number); return ys.length ? Math.min(...ys) : null; };
+const timeline = abroad.map((c) => ({ code: c.code, name: c.name, first: firstVisit(c) }));
+const timelineJson = JSON.stringify(timeline).replace(/</g, '\\u003c');
 ---
 <Base title="Travel" description="Countries and US states Adam Hare has visited, with photos." wide banner="/images/banners/travel.jpg" bannerTitle="Travel">
   <div class="prose" set:html={introHtml} />
@@ -34,6 +39,13 @@ const firstYear = years.length ? Math.min(...years) : 2017;
     <strong>{stateCount}{hasDC ? ' + DC' : ''}</strong> US states · first trip abroad <strong>{firstYear}</strong>
   </p>
   <p class="travel-note" id="travel-note" role="status" hidden></p>
+
+  <div class="time-slider">
+    <label for="year-slider">Countries visited through <output id="year-out" for="year-slider">{lastYear}</output></label>
+    <input type="range" id="year-slider" min={firstYear - 1} max={lastYear} value={lastYear} step="1" />
+    <button type="button" id="year-play" aria-label="Play the map from the first trip to now">▶ Play</button>
+  </div>
+  <script type="application/json" id="travel-timeline" set:html={timelineJson} />
 
   <VisitedMap map="world" regions={worldRegions} title="Countries" />
   <details class="country-list">
@@ -68,6 +80,17 @@ const firstYear = years.length ? Math.min(...years) : 2017;
   <style is:global>
     .travel-stats { font-size: 1.05rem; }
     .travel-note { color: var(--ink-soft); font-size: 0.85rem; }
+    .time-slider {
+      display: flex; align-items: center; gap: 0.9rem; flex-wrap: wrap;
+      margin: 1.4rem 0 0; font-size: 0.95rem;
+    }
+    .time-slider output { font-weight: 600; font-variant-numeric: tabular-nums; }
+    .time-slider input[type="range"] { flex: 1 1 12rem; max-width: 26rem; accent-color: #4f86d9; }
+    .time-slider button {
+      font: inherit; font-size: 0.85rem; padding: 0.25rem 0.75rem; cursor: pointer;
+      border: 1px solid var(--rule); border-radius: 6px; background: #fff; color: var(--ink);
+    }
+    .time-slider button:hover { border-color: var(--accent); }
     .country-list { margin: 1rem 0 2rem; }
     .country-list summary { cursor: pointer; color: var(--accent); }
     .country-list ul {
@@ -90,13 +113,48 @@ const firstYear = years.length ? Math.min(...years) : 2017;
     // on page load without a site rebuild. Falls back silently to the
     // build-time snapshot already rendered.
     import { fetchSheet } from '../lib/travel-map.js';
+
+    // Time slider: show only countries first visited in or before the chosen year.
+    const firstVisit = (c) => { const ys = (c.years.match(/\d{4}/g) || []).map(Number); return ys.length ? Math.min(...ys) : null; };
+    let timeline = JSON.parse(document.getElementById('travel-timeline').textContent || '[]');
+    const slider = document.getElementById('year-slider');
+    const yearOut = document.getElementById('year-out');
+    const playBtn = document.getElementById('year-play');
+    const worldWrap = document.querySelector('[data-map="world"]');
+    function renderYear() {
+      const y = Number(slider.value);
+      yearOut.textContent = y < Number(slider.min) + 1 ? `before ${y + 1}` : String(y);
+      const shown = timeline.filter((c) => c.first === null || c.first <= y);
+      window.applyVisited(worldWrap, Object.fromEntries([['US', 'United States'], ...shown.map((c) => [c.code, c.name])]));
+    }
+    slider.addEventListener('input', renderYear);
+    let timer = null;
+    function stop() { clearInterval(timer); timer = null; playBtn.textContent = '▶ Play'; }
+    playBtn.addEventListener('click', () => {
+      if (timer) return stop();
+      slider.value = slider.min;
+      renderYear();
+      playBtn.textContent = '❚❚ Pause';
+      timer = setInterval(() => {
+        if (Number(slider.value) >= Number(slider.max)) return stop();
+        slider.value = String(Number(slider.value) + 1);
+        renderYear();
+      }, 900);
+    });
     try {
       const { countries, states, unknown } = await fetchSheet();
       const abroad = countries.filter((c) => c.code !== 'US');
       if (abroad.length) {
-        const world = Object.fromEntries([['US', 'United States'], ...abroad.map((c) => [c.code, c.name])]);
         const us = Object.fromEntries(states.map((s) => [s.code, s.name]));
-        window.applyVisited(document.querySelector('[data-map="world"]'), world);
+        timeline = abroad.map((c) => ({ code: c.code, name: c.name, first: firstVisit(c) }));
+        const dated = timeline.map((c) => c.first).filter((v) => v !== null);
+        if (dated.length) {
+          const atEnd = slider.value === slider.max;
+          slider.min = String(Math.min(...dated) - 1);
+          slider.max = String(Math.max(...dated));
+          if (atEnd) slider.value = slider.max;
+        }
+        renderYear();
         window.applyVisited(document.querySelector('[data-map="us"]'), us);
         const hasDC = states.some((s) => s.code === 'DC');
         const years = abroad.flatMap((c) => (c.years.match(/\d{4}/g) || []).map(Number));
