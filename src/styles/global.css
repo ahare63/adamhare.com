@@ -98,7 +98,6 @@ th { font-weight: 600; }
 .brand img {
   height: 2.1rem; width: 2.1rem; object-fit: contain;
   background: #673ab7;            /* the old site's logo container purple */
-  filter: invert(1) hue-rotate(180deg); /* white glyph on purple (bg inverts back) */
   border-radius: 4px;
   padding: 0.2rem;
 }
