@@ -20,6 +20,7 @@ export const ALIASES = {
   iran: 'IR', bolivia: 'BO', venezuela: 'VE', tanzania: 'TZ', moldova: 'MD', palestine: 'PS', taiwan: 'TW',
   bahamas: 'BS', 'the bahamas': 'BS', gambia: 'GM', 'the gambia': 'GM', congo: 'CG', drc: 'CD', 'dr congo': 'CD',
   'democratic republic of the congo': 'CD', 'st lucia': 'LC', 'st kitts and nevis': 'KN', brunei: 'BN', 'east timor': 'TL',
+  'hong kong': 'HK', macau: 'MO', macao: 'MO', // ICU names these "... SAR China", so Intl lookup misses them
 };
 
 export const STATES = {
@@ -83,7 +84,13 @@ export function rowsToData(cRows, sRows) {
     const n = norm(name);
     const code = ALIASES[n] || nameToIso[n] || nameToIso[n.replace(/^the /, '')];
     if (!code) { unknown.push(name); continue; }
-    countries.push({ code, name, years: (r[1] || '').trim() });
+    const years = (r[1] || '').trim();
+    const dup = countries.find((c) => c.code === code); // e.g. England + Scotland both → GB
+    if (dup) {
+      if (years && !dup.years.includes(years)) dup.years = dup.years ? `${dup.years}, ${years}` : years;
+      continue;
+    }
+    countries.push({ code, name, years });
   }
   const states = [];
   for (const r of sRows.slice(1)) {

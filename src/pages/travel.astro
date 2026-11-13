@@ -34,7 +34,7 @@ const firstYear = years.length ? Math.min(...years) : 2017;
     <strong>{abroad.length}</strong> countries beyond the US ·
     <strong>{stateCount}{hasDC ? ' + DC' : ''}</strong> US states · first trip abroad <strong>{firstYear}</strong>
   </p>
-  <p class="travel-note" id="travel-note" hidden></p>
+  <p class="travel-note" id="travel-note" role="status" hidden></p>
 
   <VisitedMap map="world" regions={worldRegions} title="Countries" />
   <details class="country-list">
@@ -47,6 +47,14 @@ const firstYear = years.length ? Math.min(...years) : 2017;
   </details>
 
   <VisitedMap map="us" regions={travel.states} title="US States" />
+  <details class="country-list">
+    <summary>Every state</summary>
+    <ul id="state-list">
+      {travel.states.toSorted((a, b) => a.name.localeCompare(b.name)).map((s) => (
+        <li><span>{s.name}</span></li>
+      ))}
+    </ul>
+  </details>
 
   <div class="prose" set:html={photosHtml} />
 
@@ -110,11 +118,23 @@ const firstYear = years.length ? Math.min(...years) : 2017;
               return li.outerHTML;
             }).join('');
         }
-        if (unknown.length) {
-          const note = document.getElementById('travel-note');
-          note.textContent = `Couldn't place on the map (check spelling in the sheet): ${unknown.join(', ')}`;
-          note.hidden = false;
+        const stateList = document.getElementById('state-list');
+        if (stateList) {
+          stateList.innerHTML = states
+            .toSorted((a, b) => a.name.localeCompare(b.name))
+            .map((s) => {
+              const li = document.createElement('li');
+              const n = document.createElement('span'); n.textContent = s.name;
+              li.append(n);
+              return li.outerHTML;
+            }).join('');
         }
+      }
+      // Surface sheet problems even when nothing mapped at all.
+      if (unknown.length) {
+        const note = document.getElementById('travel-note');
+        note.textContent = `Couldn't place on the map (check spelling in the sheet): ${unknown.join(', ')}`;
+        note.hidden = false;
       }
     } catch {
       /* offline or sheet unreachable — snapshot already rendered */

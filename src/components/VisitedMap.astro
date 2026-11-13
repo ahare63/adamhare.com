@@ -7,11 +7,14 @@ let svg = (map === 'world' ? worldSvg : usSvg)
   .replace(/<\?xml[^>]*\?>/g, '')
   .replace(/<!DOCTYPE[^>]*>/g, '');
 const data = Object.fromEntries(regions.map((r) => [r.code, r.name]));
+// <-escape so no region name can ever close the JSON <script> island.
+const dataJson = JSON.stringify(data).replace(/</g, '\\u003c');
+const label = `Map of ${title ?? map}: ${regions.length} visited regions highlighted`;
 ---
 <figure class="map-wrap" data-map={map}>
-  {title && <figcaption class="map-title">{title} · {regions.length} so far</figcaption>}
-  <div class="map-svg" set:html={svg} />
-  <script type="application/json" data-visited set:html={JSON.stringify(data)} />
+  {title && <figcaption class="map-title">{title} · <span data-count>{regions.length}</span> so far</figcaption>}
+  <div class="map-svg" role="img" aria-label={label} set:html={svg} />
+  <script type="application/json" data-visited set:html={dataJson} />
 </figure>
 
 <script>
@@ -20,6 +23,8 @@ const data = Object.fromEntries(regions.map((r) => [r.code, r.name]));
   window.applyVisited = function (wrap, visited) {
     const svg = wrap.querySelector('svg');
     if (!svg) return;
+    const count = wrap.querySelector('[data-count]');
+    if (count) count.textContent = String(Object.keys(visited).length);
     for (const el of svg.querySelectorAll('.visited')) el.classList.remove('visited');
     for (const [code, name] of Object.entries(visited)) {
       const el = svg.querySelector(`#${code.toLowerCase()}`) || svg.querySelector(`#${code}`);

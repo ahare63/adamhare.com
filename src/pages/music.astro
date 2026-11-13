@@ -31,10 +31,11 @@ const max = top.length ? top[0][1] : 1;
   <p>
     <input type="text" id="concert-filter" placeholder="Filter by artist or city" aria-label="Filter concerts by artist or city" />
   </p>
-  <div class="table-scroll">
+  <p id="filter-status" role="status" aria-live="polite" class="sans"></p>
+  <div class="table-scroll" tabindex="0" role="region" aria-label="All concerts">
     <table>
       <thead>
-        <tr><th>Artist</th><th>City</th><th>Date</th></tr>
+        <tr><th scope="col">Artist</th><th scope="col">City</th><th scope="col">Date</th></tr>
       </thead>
       <tbody id="concert-rows">
         {concerts.map((c) => (
@@ -63,13 +64,17 @@ const max = top.length ? top[0][1] : 1;
   <script>
     const input = document.getElementById('concert-filter');
     const rows = document.querySelectorAll('#concert-rows tr');
+    const status = document.getElementById('filter-status');
     input.addEventListener('input', () => {
       const q = input.value.trim().toLowerCase();
+      let shown = 0;
       rows.forEach((tr) => {
         const [artist, city] = tr.children;
         const match = !q || artist.textContent.toLowerCase().includes(q) || city.textContent.toLowerCase().includes(q);
         tr.hidden = !match;
+        if (match) shown++;
       });
+      status.textContent = q ? `Showing ${shown} of ${rows.length} shows` : '';
     });
   </script>
 </Base>

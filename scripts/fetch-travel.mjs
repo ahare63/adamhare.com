@@ -6,11 +6,19 @@ import { fetchSheet } from '../src/lib/travel-map.js';
 
 const { countries, states, unknown } = await fetchSheet();
 
-if (unknown.length) {
-  console.error('Could not map these sheet entries (fix spelling in the sheet):', unknown.join(', '));
-  process.exitCode = 1;
+// Refuse to overwrite the committed snapshot with depleted data: unmapped
+// entries (sheet typos, or an error page parsed as CSV) must fail loudly,
+// BEFORE writing, so CI falls back to the snapshot instead of deploying
+// a map with countries silently dropped.
+if (unknown.length || countries.length === 0 || states.length === 0) {
+  console.error(
+    unknown.length
+      ? `Could not map these sheet entries (fix spelling in the sheet): ${unknown.join(', ')}`
+      : 'Sheet returned no usable rows.'
+  );
+  process.exit(1);
 }
 
 const out = new URL('../src/data/travel.json', import.meta.url);
 writeFileSync(out, JSON.stringify({ countries, states }, null, 2) + '\n');
-console.log(`travel.json: ${countries.length} countries, ${states.length} states${unknown.length ? ` (${unknown.length} unmapped!)` : ''}`);
+console.log(`travel.json: ${countries.length} countries, ${states.length} states`);
