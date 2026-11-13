@@ -6,7 +6,8 @@ Personal site, built with [Astro](https://astro.build) and deployed to GitHub Pa
 
 - **Add a book**: edit `src/content/books.md` — add one `- *Title* by Author` bullet under the right
   `## YEAR` heading (create the heading if it's a new year). Per-year counts are computed at build time;
-  never type them. Committing to `main` (the GitHub web editor works) redeploys the site automatically.
+  never type them. To list works read inside a collection, indent them four spaces under the
+  collection's bullet (`    - *Antigone* …`); nested items are shown but not counted. Committing to `main` (the GitHub web editor works) redeploys the site automatically.
 - **Travel maps**: edit the "Travel-Public" Google Sheet (Countries / States tabs). The live page re-fetches
   the sheet on every visit, so changes show up immediately; the build also snapshots it
 

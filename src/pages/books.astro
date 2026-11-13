@@ -6,12 +6,23 @@ import * as booksMd from '../content/books.md';
 // Per-year counts are computed here, never typed by hand: each "## 2026"
 // heading gets " · N books" appended, where N is the number of list items
 // until the next heading.
+// Only top-level items count as books: a nested item is a work read inside
+// a collection, which the list counts once.
+function countTopLevel(body) {
+  let depth = 0, n = 0;
+  for (const m of body.matchAll(/<(\/?)(ul|ol|li)\b/g)) {
+    if (m[2] === 'li') { if (!m[1] && depth === 1) n++; }
+    else depth += m[1] ? -1 : 1;
+  }
+  return n;
+}
+
 let html = await booksMd.compiledContent();
 let first = true;
 html = html.replace(
   /(<h2[^>]*>)(\d{4})([\s\S]*?<\/h2>)([\s\S]*?)(?=<h2|$)/g,
   (m, open, year, close, body) => {
-    const n = (body.match(/<li/g) || []).length;
+    const n = countTopLevel(body);
     const heading = `${open}${year}<span class="count"> · ${n} book${n === 1 ? '' : 's'}</span>${close}`;
     const attr = first ? ' open' : '';
     const lead = first ? '<h2>Recently Read</h2>' : '';

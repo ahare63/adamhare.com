@@ -170,15 +170,15 @@ I read a lot and my tastes are rather varied. Below I've included a few favorite
 - *The Saga of Grettir the Strong*, trans. Bernard Scudder
 - *How Iceland Changed the World* by Egill Bjarnason
 - *The Sagas of Icelanders (Penguin Classics Deluxe Edition), including:*
-- *Egil's Saga*, trans. Bernard Scudder
-- *The Saga of the People of Vatnsdal*, trans. Andrew Wawn
-- *The Saga of the People of Laxardal & Bolli Bollason's Tale*, trans. Keneva Kunz
-- *The Saga of Hrafnkel Frey's Godi*, trans. Terry Gunnell
-- *The Saga of the Confederates*, trans. Ruth C. Ellison
-- *Gisli Sursson's Saga trans. Martin S. Regal*
-- *The Saga of Gunnlaug Serpent-tongue*, trans. Katrina C. Attwood
-- *The Saga of Ref the Sly*, trans. George Clark
-- *The Vinland Sagas (The Saga of the Greenlanders & Eirik the Red's Saga)*, trans. Keneva Kunz
+    - *Egil's Saga*, trans. Bernard Scudder
+    - *The Saga of the People of Vatnsdal*, trans. Andrew Wawn
+    - *The Saga of the People of Laxardal & Bolli Bollason's Tale*, trans. Keneva Kunz
+    - *The Saga of Hrafnkel Frey's Godi*, trans. Terry Gunnell
+    - *The Saga of the Confederates*, trans. Ruth C. Ellison
+    - *Gisli Sursson's Saga trans. Martin S. Regal*
+    - *The Saga of Gunnlaug Serpent-tongue*, trans. Katrina C. Attwood
+    - *The Saga of Ref the Sly*, trans. George Clark
+    - *The Vinland Sagas (The Saga of the Greenlanders & Eirik the Red's Saga)*, trans. Keneva Kunz
 - *Njal's Saga*, trans. Robert Cook
 - *Intermezzo* by Sally Rooney
 - *My Name Is Red* by Orhan Pamuk, trans. Erdağ M. Göknar
@@ -254,7 +254,7 @@ I read a lot and my tastes are rather varied. Below I've included a few favorite
 - *Grendel* by John Gardner
 - *Norse Mythology* by Neil Gaiman
 - *Selections from The Best American Science Fiction and Fantasy 2023*, ed. R. F. Kuang
-- *"Termination Stories for the Cyberpunk Dystopia Protagonist"* by Isabel J. Kim
+    - *"Termination Stories for the Cyberpunk Dystopia Protagonist"* by Isabel J. Kim
 - *The Iliad* by Homer, trans. Emily Wilson
 - *The Rubáiyát* by Omar Khayyám, trans. Edward FitzGerald
 - *Songs and Poems* by Alfred Lord Tennyson
@@ -274,11 +274,11 @@ I read a lot and my tastes are rather varied. Below I've included a few favorite
 - *Hamlet and the Vision of Darkness* by Rhodri Lewis
 - *Rosencrantz and Guildenstern Are Dead* by Tom Stoppard
 - *Selections from The Short Stories of F. Scott Fitzgerald: A New Collection* by F. Scott Fitzgerald, ed. Matthew J. Bruccoli
-- *"Head and Shoulders"*
-- *"The Curious Case of Benjamin Button"*
-- *"Babylon Revisited"*
-- *"Six of One"*
-- *"Crazy Sunday"*
+    - *"Head and Shoulders"*
+    - *"The Curious Case of Benjamin Button"*
+    - *"Babylon Revisited"*
+    - *"Six of One"*
+    - *"Crazy Sunday"*
 - *My Lost City: Personal Essays, 1920-1940* by F. Scott Fitzgerald
 - *The Anthropocene Reviewed* by John Green
 - *An Abundance of Katherines* by John Green
@@ -471,27 +471,27 @@ I read a lot and my tastes are rather varied. Below I've included a few favorite
 - *This Is Water: Some Thoughts, Delivered on a Significant Occasion, about Living a Compassionate Life* by David Foster Wallace
 - *Zuleika Dobson: Or, an Oxford Love Story* by Max Beerbohm
 - *Selections from The David Foster Wallace Reader* by David Foster Wallace
-- *"The Planet Trillaphon as It Stands in Relation to the Bad Thing" (short story)*
-- *From Girl with Curious Hair (short story collection)*
-- *"Little Expressionless Animals"*
-- *"My Appearance"*
-- *From Brief Interviews with Hideous Men (short story collection)*
-- *"A Radically Condensed History of Postindustrial Life"*
-- *"B.I. #14"*
-- *"B.I. #40"*
-- *"Forever Overhead"*
-- *"The Depressed Person"*
-- *From Oblivion (short story collection)*
-- *"Good Old Neon"*
-- *"Incarnations of Burned Children"*
-- *"The Suffering Channel"*
-- *Teaching Materials (in toto)*
-- *Nonfiction*
-- *"E Unibus Pluram"*
-- *"Getting Away from Already Pretty Much Being Away from It All"*
-- *"A Supposedly Fun Thing I'll Never Do Again"*
-- *"The View from Mrs. Thompson's"*
-- *"Consider the Lobster"*
+    - "The Planet Trillaphon as It Stands in Relation to the Bad Thing" (short story)*
+    - *From Girl with Curious Hair (short story collection)*
+    - *"Little Expressionless Animals"*
+    - *"My Appearance"*
+    - *From Brief Interviews with Hideous Men (short story collection)*
+    - *"A Radically Condensed History of Postindustrial Life"*
+    - *"B.I. #14"*
+    - *"B.I. #40"*
+    - *"Forever Overhead"*
+    - *"The Depressed Person"*
+    - *From Oblivion (short story collection)*
+    - *"Good Old Neon"*
+    - *"Incarnations of Burned Children"*
+    - *"The Suffering Channel"*
+    - *Teaching Materials (in toto)*
+    - *Nonfiction*
+    - *"E Unibus Pluram"*
+    - *"Getting Away from Already Pretty Much Being Away from It All"*
+    - *"A Supposedly Fun Thing I'll Never Do Again"*
+    - *"The View from Mrs. Thompson's"*
+    - *"Consider the Lobster"*
 - *Someone Who Will Love You in All Your Damaged Glory: Stories* by Raphael Bob-Waksberg
 - *The Loser* by Thomas Bernhard, trans. Jack Dawson
 - *I'd Die for You and Other Lost Stories* by F. Scott Fitzgerald, ed. Anne Margaret Daniel

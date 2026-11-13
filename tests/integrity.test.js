@@ -84,6 +84,14 @@ describe('built site integrity', () => {
     }
   });
 
+  it('books page counts only top-level books per year (nested items are works within a collection)', () => {
+    const html = readFileSync(join(DIST, 'books/index.html'), 'utf-8');
+    // Finished years, checked against the counts on the original site.
+    for (const [year, n] of [['2024', 66], ['2023', 135], ['2022', 111], ['2021', 30], ['2017', 14]]) {
+      expect(html, `${year} should show ${n} books`).toMatch(new RegExp(`${year}<span[^>]*> · ${n} books</span>`));
+    }
+  });
+
   it('home page shows the Lately strip with the newest book and essay', () => {
     const html = readFileSync(join(DIST, 'index.html'), 'utf-8');
     expect(html).toContain('Lately');
