@@ -1,0 +1,48 @@
+---
+import Base from '../layouts/Base.astro';
+import * as md from '../content/projects.md';
+import publications from '../data/publications.json';
+
+const groups = [
+  ['published', 'Published'],
+  ['preprint', 'Preprints'],
+  ['other', 'Other writing & talks'],
+];
+---
+<Base title={md.frontmatter.title} description={md.frontmatter.description}>
+  <h1>{md.frontmatter.title}</h1>
+  <md.Content />
+
+  <h2>Papers &amp; Presentations</h2>
+  <p>
+    Erdős number: 4 · Dijkstra number: 4 — see also
+    <a href="https://scholar.google.com/citations?user=YXOt7y0AAAAJ">Google Scholar</a> and
+    <a href="https://orcid.org/0000-0003-3681-6135">ORCID</a>.
+  </p>
+
+  {groups.map(([status, label]) => {
+    const items = publications.filter((p) => p.status === status);
+    return items.length ? (
+      <>
+        <h3>{label}</h3>
+        <ul class="pubs">
+          {items.map((p) => (
+            <li>
+              <em>{p.title}</em>. {p.authors}.{p.venue && <> {p.venue}.</>}
+              {p.links.length > 0 && (
+                <> {p.links.map((l, i) => (
+                  <>{i > 0 && ' · '}<a href={l.url}>{l.label}</a></>
+                ))}</>
+              )}
+            </li>
+          ))}
+        </ul>
+      </>
+    ) : null;
+  })}
+
+  <style>
+    .pubs { list-style: none; padding: 0; }
+    .pubs li { margin-bottom: 0.8rem; }
+  </style>
+</Base>

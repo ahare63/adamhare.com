@@ -1,0 +1,162 @@
+[
+  {
+    "title": "BATS: A Spectral Biclustering Approach to Single Document Topic Modeling and Segmentation",
+    "authors": "Adam Hare, Qiong Wu, Sirui Wang, Yuwei Tu, Zhenming Liu, Christopher G. Brinton, Yanhua Li",
+    "status": "published",
+    "venue": "ACM Transactions on Intelligent Systems and Technology (TIST)",
+    "links": [
+      {
+        "label": "ACM",
+        "url": "https://dl.acm.org/doi/10.1145/3468268"
+      },
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2008.02218"
+      }
+    ]
+  },
+  {
+    "title": "On Extending NLP Techniques from the Categorical to the Latent Space: KL Divergence, Zipf's Law, and Similarity Search",
+    "authors": "Adam Hare, Yu Chen, Yinan Liu, Zhenming Liu, Christopher G. Brinton",
+    "status": "preprint",
+    "venue": "arXiv",
+    "links": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2012.01941"
+      }
+    ]
+  },
+  {
+    "title": "Algorithmic Explanations: To Become a Mockingbird",
+    "authors": "Adam Hare",
+    "status": "other",
+    "venue": "MSc dissertation, University of Oxford; advised by Max Van Kleek",
+    "links": [
+      {
+        "label": "Oxford Research Archive",
+        "url": "https://ora.ox.ac.uk/objects/uuid:48898f6d-f06e-4495-82a2-4a131758f097"
+      }
+    ]
+  },
+  {
+    "title": "Learned or Lost? Reproducing Learned in Translation: Contextualized Word Vector",
+    "authors": "Adam Hare",
+    "status": "other",
+    "venue": "Final paper for Advanced Machine Learning 2019, University of Oxford",
+    "links": [
+      {
+        "label": "Report",
+        "url": "https://github.com/ahare63/AML-CoVe/blob/master/report.pdf"
+      },
+      {
+        "label": "Course",
+        "url": "https://www.cs.ox.ac.uk/teaching/courses/2018-2019/advml/"
+      }
+    ]
+  },
+  {
+    "title": "Classifying News, Satire, and \"Fake News\": An SVM and Deep Learning Approach",
+    "authors": "Adam Hare",
+    "status": "other",
+    "venue": "Undergraduate senior thesis, Princeton University; advised by Alain Kornhauser",
+    "links": [
+      {
+        "label": "DataSpace",
+        "url": "https://dataspace.princeton.edu/jspui/handle/88435/dsp012n49t445m"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/ahare63/News-Satire-Fake-News/blob/master/seniorThesis.pdf"
+      }
+    ]
+  },
+  {
+    "title": "An Investigation into Different Architectures for Learning Word Representations",
+    "authors": "Adam Hare, Lisa Schut, Hans Hanley, Aditya Agarwal",
+    "status": "other",
+    "venue": "Presented at Oxford Computer Science Conference 2019",
+    "links": [
+      {
+        "label": "Poster",
+        "url": "https://github.com/ahare63/AML-CoVe/blob/master/conference-poster.pdf"
+      },
+      {
+        "label": "Conference",
+        "url": "https://oxfordcsc.com/2019-conference/"
+      }
+    ]
+  },
+  {
+    "title": "The Epic of Gilgamesh",
+    "authors": "Adam Hare",
+    "status": "other",
+    "venue": "Journal Club 2024",
+    "links": [
+      {
+        "label": "Slides",
+        "url": "https://docs.google.com/presentation/d/1cwMryBD6PNsDHFB8Mr8qRLA3pdgtWFqXtcm5ln2RTas/edit?usp=sharing"
+      }
+    ]
+  },
+  {
+    "title": "Leap More, Perchance to Dream (on Hamlet, Sleep No More, and Finnegans Wake)",
+    "authors": "Adam Hare",
+    "status": "other",
+    "venue": "Journal Club 2025",
+    "links": [
+      {
+        "label": "Slides",
+        "url": "https://docs.google.com/presentation/d/1jVHMO4r_hBhccx6nEdmd7lrELxqj6vN2yaOdbLoiNaU/edit?usp=sharing"
+      }
+    ]
+  },
+  {
+    "title": "Adapting Homer's Odyssey",
+    "authors": "Adam Hare",
+    "status": "other",
+    "venue": "Journal Club 2026",
+    "links": [
+      {
+        "label": "Slides",
+        "url": "https://docs.google.com/presentation/d/1-EnmMM_vTr8PN_LmMknkM34kf6Ed6nssggC4SSr5Pr4/edit?usp=sharing"
+      }
+    ]
+  },
+  {
+    "title": "Within & Without",
+    "authors": "Adam Hare",
+    "status": "other",
+    "venue": "Substack: essays on literature and history",
+    "links": [
+      {
+        "label": "Substack",
+        "url": "https://ahare63.substack.com/"
+      }
+    ]
+  },
+  {
+    "title": "Slaughterhouse-Five series",
+    "authors": "Adam Hare",
+    "status": "other",
+    "venue": "Substack blog series",
+    "links": [
+      {
+        "label": "Substack",
+        "url": "https://ahare63.substack.com/p/slaughterhouse-five-a-series-introduction-25e2f34baeea"
+      }
+    ]
+  },
+  {
+    "title": "Explainable vs Interpretable AI: An Intuitive Example",
+    "authors": "Adam Hare",
+    "status": "other",
+    "venue": "Blog post, first published by The Startup on Medium",
+    "links": [
+      {
+        "label": "Substack",
+        "url": "https://ahare63.substack.com/p/explainable-vs-interpretable-ai-an-intuitive-example-6baf8fc6d402"
+      }
+    ]
+  }
+]

@@ -5,7 +5,7 @@ description: "Adam Hare is a technical generalist who leads AI products end to e
 
 Hello! I’m Adam Hare, a technical generalist who leads AI products end to end. I’m Head of AI at Zoomi, Inc, a research-driven AI learning platform, where I own the roadmap, the client relationships, and delivery, and I still work hands-on in design and code. I live in New York City.
 
-This site covers my background, my work, my independent projects, and what I do outside work. You can find my current résumé[here](https://drive.google.com/file/d/1xjcznKJJsqxp_oCw-L_vDVOf7YfeQjws/view).
+This site covers my background, my work, my independent projects, and what I do outside work. You can find my current résumé [here](https://drive.google.com/file/d/1xjcznKJJsqxp_oCw-L_vDVOf7YfeQjws/view).
 
 ![Adam Hare](/images/home/439a982137c1d4ddce2c760fb531e634.jpg)
 

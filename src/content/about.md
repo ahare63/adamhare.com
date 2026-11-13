@@ -18,7 +18,6 @@ Philadelphia, Pennsylvania (remote, from New York City)
 **At a Glance**
 
 - **Core Technologies:** Hands-on: Python, JavaScript, SQL (Postgres), React. Through coding agents: C#/.NET, TypeScript, AWS serverless (Lambda, SQS, RDS)
-
 - **Role Summary:** Head of AI at a research-driven AI learning platform. I own the AI and product roadmap, the major client relationships, and delivery, and I still work hands-on in design and code.
 
 - **Overall Impact:** I manage an offshore contract engineering team (five people, now two) and kept delivery on pace as it shrank by taking on product management, QA, and data science myself through coding agents. Specific work includes:
@@ -26,25 +25,20 @@ Philadelphia, Pennsylvania (remote, from New York City)
 **Product & Leadership**
 
 - Own the AI and product roadmap: gather client requirements, set technical direction, and manage delivery
-
 - Design product flows and interfaces in Figma, by hand and with Claude, and write the specs the team builds from
 
 - Lead Zoomi’s major client relationships and demos across executive coaching, general education, and federal training
-
 - Moved the team to agentic development with Claude Code, including automatic documentation and a daily digest of Jira, repository, and AWS activity
 
 - Replaced manual QA with agents that hold every non-admin role: they verify ticket fixes, reproduce reported bugs, run regression across SCORM content, and post video recordings of their runs
-
 - Hired and managed three interns
 
 **LLM & Agentic Systems**
 
 - Launched a two-agent conversational assistant, in production with about 5,000 learners: a platform guide for navigation and FAQs, and an in-context tutor that answers questions about on-screen content using the learner’s analytics
-
 - Grounded both agents with retrieval over a vector store, live learning data, and proprietary clickstream motifs
 
 - Taking an agentic report builder to production: a tool-calling agent writes SQL over curated read-only views in a sandboxed database role, and the server renders charts from the real query results
-
 - Designed its evaluation gate: a hand-verified question set in multiple phrasings, requiring 95% accuracy and identical answers across runs. It caught a production model fabricating a chart.
 
 - Shipped LLM pipelines that automatically summarize and title learning content across the platform
@@ -52,11 +46,9 @@ Philadelphia, Pennsylvania (remote, from New York City)
 **Research & Engineering**
 
 - Designed content recommendations (topic vectors, nearest-neighbor search), helped turn behavioral motifs into real-time recommendations, and built the learner-ability model
-
 - Run a multi-tenant SaaS platform on AWS serverless (.NET, React, Postgres), directing coding agents across the stack
 
 - Published topic-modeling research in ACM TIST and a first-author NLP preprint on arXiv (see Papers & Presentations)
-
 - **Skills Gained:** Owning a product end to end, from client requirements to delivery; building and evaluating LLM agents; managing a small remote team; directing coding agents across a production stack
 
 - **The Team:** An offshore contract engineering team, Zoomi’s leadership, and client stakeholders; earlier, other software engineers, data scientists, and the sales and QA teams
@@ -72,11 +64,9 @@ Wright-Patterson Air Force Base, Dayton, Ohio
 **At a Glance**
 
 - **Core Technologies:** Rust, Cargo, C
-
 - **Project Summary:** Wrote embedded software for satellite platform designed for a variety of payloads
 
 - **Overall Impact:** Led a team writing API and service for the radio system, contributed to HDLC Crate
-
 - **Skills Gained:** Embedded systems programming, working collaboratively, introduction to SCRUM and other workflow practices
 
 - **The Team:** Worked with other software engineers, electrical engineers, mechanical engineers
@@ -100,11 +90,9 @@ Dayton, Ohio
 **At a Glance**
 
 - **Core Technologies:** Enterprise Control Language (ECL), High Performance Cluster Computing (HPCC)
-
 - **Project Summary:** Completed a project to provide a measure of accuracy on record matches
 
 - **Overall Impact:** Feature added directly to customer-facing web application
-
 - **Skills Gained:** Experience with the Extract, Transform, and Load (ETL) model, using cluster computing with millions of records
 
 - **The Team:** Worked mostly alone with supervision from a mentor
@@ -114,20 +102,6 @@ Dayton, Ohio
 I chose this internship to learn what data processing looks like in practice and gain experience with cluster computing. The first few weeks of the internship were centered around learning Enterprise Control Language (ECL) on data from IMDb. These wound up being several tables of a few million rows each. ECL is somewhat similar to Hadoop and uses much the same syntax as SQL. I learned about how to extract, transform, and load (ETL) data. The exercises taught me how to think critically about the data received as input and all of the inconsistencies it might have. Some of the assignments required designing algorithms to return information about the movie (such as the top-billed actor). Often, I strove to make a simple and naïve algorithm that was efficient and a more elaborate one that was more accurate. This exercise helped me to consider problems in several different ways and design solutions that were best suited to a customer's needs.
 
 After I finished learning ECL, I began work on an algorithm to determine how well records were matched. One of LNSSI's major web applications attempts to match heterogeneous data on certain fields and return a combined record. These matches were often "fuzzy," in that some fields had to be guessed at or slight discrepancies ignored due to inaccurately input data. My task was to consider the major fields used by LNSSI's customers and provide a confidence score for how well the records were matched. This required considering the relative importance for different fields and how much variance should be accepted for each. The idea was that this could then be evaluated by humans to improve record matching for their specific dataset. I worked on this project alone with supervision from a full-time software engineer. At the end of the project, I was told that my confidence score was being added to the primary customer-facing web application provided by the company.
-
-Email: [adamt1195@gmail.com](mailto:adamt1195@gmail.com)Location: New York City
-
-[[A:https://www.linkedin.com/in/ahare63/|
-
-]][[A:https://scholar.google.com/citations?user=YXOt7y0AAAAJ|
-
-]][[A:https://github.com/ahare63|
-
-]][[A:mailto:adamt1195@gmail.com|
-
-]][[A:https://ahare63.substack.com/|
-
-]]
 
 ## Education
 
@@ -140,15 +114,12 @@ Oxford, England
 **At a Glance**
 
 - **College:** Trinity College
-
 - **Major:** Computer Science
 
 - **Concentration:** Machine Learning and Artificial Intelligence
-
 - **Degree Type:** Master of Science (MSc)
 
 - **Degree Class:** Distinction (highest possible honors)
-
 - **Award Date:** 4 October 2019
 
 - **Graduation Date:** 18 January 2020
@@ -172,15 +143,12 @@ The full text is available on my [GitHub](https://github.com/ahare63/mockingbird
 **Relevant Coursework**
 
 - "Advanced Machine Learning" - A new course focused on deep learning applications in NLP and Bayesian approaches to model fitting. See [Projects](/projects) for more information on the final project.
-
 - "Artificial Intelligence" - An introduction to AI, with a focus on search algorithms and problem formulation. Several practicals in Java.
 
 - "Computational Learning Theory" - A high-level approach to the bounds of machine learning, with a focus on Probably Approximately Correct (PAC) learning and its variants. Heavy on proofs, challenging but interesting.
-
 - "Computers in Society" - An interdisciplinary look at the ethical questions raised by computers and information technology in the modern age.
 
 - "Databases" - A general course on databases, using PostgreSQL. Covers the theory behind the design of database systems (relational algebra, relational calculus, etc), the actual practical SQL programming, and some information on how SQL works behind the scenes.
-
 - "Database Systems Implementation" - An expansion of the Databases course from the previous term, with a focus on implementation in C++. Final project involved implementing concepts not yet standard, such as skew-sensitive processing (conducted in Python using the pandas library).
 
 - "Foundations of Computer Science" - Since this degree is a conversion from Operations Research to Computer Science for me, I took this course to ensure I have all of the underlying theory I need. Focuses on basic models of computation (DFA, PDA, Turing Machines), reductions, and some complexity theory.
@@ -194,11 +162,9 @@ Princeton, New Jersey
 **At a Glance**
 
 - **Major:** Operations Research & Financial Engineering (ORFE)
-
 - **Minor:** Applications of Computing
 
 - **Degree Type:** Bachelor of Science in Engineering (BSE)
-
 - **GPA:** 3.9/4.0
 
 - **Honors:** magna cum laude, Tau Beta Pi, Sigma Xi, S. S. Wilks Memorial Prize
@@ -232,56 +198,34 @@ As part of my time at Princeton, I spent one semester at Worcester College of th
 _At Princeton_
 
 - "Computing & Optimization for the Physical and Social Sciences" - This ORFE course mixed proof-based math with MATLAB to teach approaches to solving convex optimization problems. This included regression, convex analysis, semi-definite and linear programming, gradient descent methods, relaxation of hard or intractable problems, and reduction.
-
 - "Information Security" - This class covered topics in online and occasionally physical security. It melded theory with current applications and projects (in Java and Python) included implementing the Diffie-Hellman key exchange algorithm, using SQL injections and CSRF attacks to gather information from websites, and using computer forensics on a simulated target computer.
 
 - "Data Structures & Algorithms" - Based in Java, this course focused on fundamental data structures (trees, graphs, lists) and algorithms (sorts, flow on graphs). It also included higher level methods for thinking about the efficiency of these approaches (time/space complexity, reduction, tractability).
-
 - "Intro to Programming Systems" - Using C and occasionally x86-64 assembly, this course taught the lower-level basics of computers, including pointers, threading, and memory allocation. Projects included creating a buffer overflow attack and building a Linux shell.
 
 - "Regression & Applied Time Series" - This ORFE class used a financial lens to consider concepts such as the Gaussian Copula, quantiles, Monte Carlo simulation, basic regression techniques (autoregressive, moving average, least squares), and time series. Projects written in R included both simulations and analyses of real world data.
-
 - "Transportation Systems Analysis" - An ORFE course that covered the history and future of transportation in the world, largely from an optimization perspective. A major focus was on autonomous vehicles, and I worked on a project in Java for assigning routes to hypothetical autonomous taxis in a simulated city.
 
 - "Probability & Stochastic Systems" - Cross-listed with the Math department, this ORFE class provided a rigorous mathematical approach to topics in probability including Poisson processes, Brownian Motion, and Markov Chains. After completing this class myself, I tutored another student in it through the university.
-
 - "Fundamentals of Statistics" - An introduction to probability and statistics in MATLAB.
 
 - "Networks: Friends, Money, and Bytes" - An Electrical Engineering/Computer Science course that addressed twenty major topics in modern networks, including PageRank, rating systems, online courses, and Internet protocols. The final team project used MATLAB to analyze the New York City subway system as a graph, finding which stations and lines were most important to overall network flow.
-
 - "Linear Programming & Optimization" - A course dedicated entirely to linear programming and its applications, written in AMPL. The final project used SVMs to process handwriting.
 
 _At Oxford_
 
 - "Machine Learning" - An introductory course for ML, we covered topics such as regression, SVMs, neural networks, collaborative filtering, regularization, and LASSO. A large part of the class was centered around my project which used a neural network and collaborative filtering to attempt to predict my Facebook friend's political leanings from their page likes - see [Projects](/projects) for more details.
-
 - "Computational Game Theory" - This was a high-level approach to game theory, covering topics such as Nash equilibria, mixed strategies, voting methods, and auction theory.
 
 - "Graph Theory" - A class in mathematics, it provided a basic foundation for graph theory including coloring, Euler paths, graph searching algorithms, trees, and reachability. It also helped me to formalize my proofs.
-
 - "Computational Linguistics" - An introduction to the field, this class focused on how to consider language computationally, focusing mostly on vectorization.
 
 **Other Activities**
 
 - McGraw Center Tutor. For three years, I worked weekly at the McGraw center, teaching current Princeton students courses I'd already taken. These included Calculus I and II, Linear Algebra, Physics I, Microeconomics, and Macroeconomics. I enjoyed these sessions and believe they helped improve my ability to communicate with others and explain complex ideas simply.
-
 - Global Ambassador. After my semester at Oxford, I volunteered a few times to be a resource for other students considering study abroad. This included meeting directly with students, being on panels, and communicating over email.
 
 - Tau Beta Pi. My senior year I joined Tau Beta Pi, an engineering honor society limited to the top 1/5 of the engineering class. As part of this program, I led a weekly tour of the Engineering Quadrangle to prospective students, explaining the kind of work each department does and what my experience had been.
-
-Email: [adamt1195@gmail.com](mailto:adamt1195@gmail.com)Location: New York City
-
-[[A:https://www.linkedin.com/in/ahare63/|
-
-]][[A:https://scholar.google.com/citations?user=YXOt7y0AAAAJ|
-
-]][[A:https://github.com/ahare63|
-
-]][[A:mailto:adamt1195@gmail.com|
-
-]][[A:https://ahare63.substack.com/|
-
-]]
 
 ## About the logo
 

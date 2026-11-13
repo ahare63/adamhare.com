@@ -3,1366 +3,701 @@ title: "Books"
 description: "Books I have read for pleasure since 2017, listed by year with the most recent first."
 ---
 
-I read a lot and my tastes are rather varied. Further down is a list of books I've read for pleasure starting in 2017, with the most recent at the top. I exceeded 130 books read in 2023 - you can check out the details on Goodreads [here](https://www.goodreads.com/user/year_in_books/2023/88910269).
+I read a lot and my tastes are rather varied. Below is a list of books I've read for pleasure starting in 2017, with the most recent at the top. I exceeded 130 books read in 2023 - you can check out the details on Goodreads [here](https://www.goodreads.com/user/year_in_books/2023/88910269).
+
+## 2026
+
+- *Taipei Story* by R.F. Kuang
+- *The Nine Cloud Dream* by Kim Man-jung, trans. Heinz Insu Fenkl
+- *The Korean Myths* by Heinz Insu Fenkl and Bella M Dalton-Fenkl
+- *Human Acts* by Han Kang, trans. Deborah Smith
+- *A Concise History of Korea: From Antiquity to the Present* by Michael J. Seth
+- *Small Gods* by Terry Pratchett
+- *The Story of Hong Gildong*, trans. Minsoo Kang
+- *Mestra* by Madeline Miller
+- *Rebecca* by Daphne du Maurier
+- *Operation Heartbreak* by Duff Cooper
+- *Mason & Dixon* by Thomas Pynchon
+- *Son of a Smaller Hero* by Mordecai Richler
+- *The Waves* by Virginia Woolf
+- *The Mysterious Flame of Queen Loana* by Umberto Eco, trans. Geoffrey Brock
+- *The Ulysses Theme* by W.B. Stanford
+- *Omeros* by Derek Walcott
+- *The Juniper Tree* by Barbara Comyns
+- *The Distaff Side: Representing the Female in Homer's Odyssey*, ed. Beth Cohen
+- *The Penelopiad* by Margaret Atwood
+- *1177 B.C.: The Year Civilization Collapsed* by Eric H. Cline
+- *Philoctetes* by Sophocles, trans. David Grene in Sophocles II, ed. David Grene and Richard Lattimore
+- *Ajax* by Sophocles, trans. John Moore in Sophocles II, ed. David Grene and Richard Lattimore
+- *Iphigeneia at Aulis* by Euripides, trans. W.S. Merwin and George E. Dimock, Jr.
+- *The Odyssey* by Homer, trans. Daniel Mendelsohn
+- *Theogony and Works and Days* by Hesiod, trans. M.L. West
+- *Crossing the Wine-Dark Sea: Journies Through Ancient Literature* by Emily Wilson
+- *Mont Saint Michel* by Gérard Dalmaz, trans. Chrisoula Petridis
+- *1066 and All That* by W.C. Sellar & R.J. Yeatman
+- *Perspectives* by Laurent Binet, trans. Sam Taylor
+- *Macbeth* by William Shakespeare (Arden Third Series)
+- *Lives of the Saints* by Nancy Lemann
+- *Sublimation* by Isabel J. Kim
+- *Sylvia Beach and the Lost Generation: A History of Literary Paris in the Twenties & Thirties* by Noel Riley Fitch
+- *The Greater Journey: Americans in Paris* by David McCullough
+- *Still Life with Bottle* by Ralph Steadman
+- *Les Misérables* by Victor Hugo, trans. Christine Donougher
+- *The Face of Battle* by John Keegan
+- *Hadrian's Wall* by Adrian Goldsworthy
+- *Birds of America* by Lorrie Moore
+- *An Officer and a Spy* by Robert Harris
+- *Mont-Saint-Michel and Chartres* by Henry Adams (Mont-Saint-Michel chapters only)
+- *The Burgundians: A Vanished Empire* by Bart Van Loo, trans. Nancy Forest-Flier
+- *Turtle Diary* by Russell Hoban
+- *Gravity's Rainbow* by Thomas Pynchon
+- *Early Irish Myths and Sagas*, trans. Jeffrey Gantz
+- *The Táin*, trans. Thomas Kinsella
+- *Beowulf: Translation and Commentary, Revised and Expanded trans. Tom Shippey*, ed. Leonard Neidorf
+- *The Footnote\* \*A Curious History* by Anthony Grafton
+- *The History of the Siege of Lisbon* by José Saramago, trans. Giovanni Pontiero
+- *Message* by Fernando Pessoa, trans. Ana-Maria Chaves
+- *The Chronicle of the Last Pagans* by Pierre Chuvin, trans. B. A. Archer
+- *Asterix the Gaul* by René Goscinny and Albert Uderzo
+- *Ulysses in Hand: The Rosenbach Manuscript* by Michael J. Barsanti
+- *All the Names* by José Saramago, trans. Margaret Jull Costa
+- *Common Sense* by Thomas Paine
+- *Sleep No More and the Discourses of Shakespeare Performance* by D. J. Hopkins
+- *The Aesthetics of Chaosmos: The Middle Ages of James Joyce* by Umberto Eco, trans. Ellen Esrock
+- *The Guide to James Joyce's Ulysses* by Patrick Hastings
+- *Ulysses* by James Joyce, along with some of Ulysses Annotated by Don Gifford with Robert J. Seidman (second edition)
+- *The Psychgeist of Pop Culture: Sleep No More ed. Rachel Kowert and Betsy Sullivan*
+- *The Lost Colony: Last Rights* by Grady Klein
+- *The Lost Colony: The Red Menace* by Grady Klein
+- *The Lost Colony: The Snodgrass Conspiracy* by Grady Klein
+- *The Tobacco Shop* by Fernando Pessoa as Álvaro de Campos, trans. Richard Zenith
+- *The Tragedy of Pedro and Inês* by Maria Zulmira Albuquerque Furtado Marques, trans. Emília Maria Marques Barroso
+- *The Year of the Death of Ricardo Reis* by José Saramago, trans. Giovanni Pontiero
+- *Pessoa* by Richard Zenith
+- *Lisbon: What the Tourist Should See* by Fernando Pessoa
+- *The Lusíad* by Luis Vaz de Camões, trans. Landeg White
+- *Great Tales and Poems* by Edgar Allan Poe
+- *Always Astonished: Selected Prose* by Fernando Pessoa, trans. & ed. Edwin Honig
+- *The Complete Poems of Alberto Caeiro* by Fernando Pessoa, trans. Margaret Jull Costa & Patricio Ferrari, ed. Jerónimo Pizarro & Patricio Ferrari
+- *Five Moral Pieces* by Umberto Eco, trans. Alastair McEwan
+- *Serendipties: Language and Lunacy* by Umberto Eco, trans. William Weaver
+- *Hares*, ed. D. Wyn Hughes
+- *I Have More Souls Than One* by Fernando Pessoa, trans. Jonathan Griffin
+- *Postscript to the Name of the Rose* by Umberto Eco, trans. William Weaver
+- *Foucault's Pendulum* by Umberto Eco, trans. William Weaver
+
+## 2025
+
+- *Copaganda: How Police and the Media Manipulate Our News* by Alec Karakatsanis
+- *Journey by Moonlight* by Antal Szerb, trans. Len Rix
+- *This Way Up: When Maps Go Wrong* by Jay Foreman and Mark Cooper-Jones
+- *Pinch, Volume 45, Issue 1, Spring 2025*
+- *American Short Fiction, Volume 28, Issue 82, Summer 2025*
+- *Sargent and Paris*, ed. Stephanie L. Herdrich
+- *From Hell* by Alan Moore and Eddie Campbell
+- *Cold People* by Tom Rob Smith
+- *The Phantom of the Opera* by Gaston Leroux, trans. David Coward
+- *Deciphering Aztec Heiroglyphs: A Guide to Nahuatl Writing* by Gordon Whittaker
+- *The Aztec Myths: A Guide to the Ancient Stories and Legends* by Camilla Townsend
+- *The Conquest of New Spain* by Bernal Díaz, trans. J. M. Cohen
+- *Mexico: A 500-Year History* by Paul Gillingham
+- *Mexico: From the Olmecs to the Aztecs* by Michael D. Coe, Javier Urcid, and Rex Koontz
+- *Fifth Sun: A New History of the Aztecs* by Camilla Townsend
+- *Master and Commander* by Patrick O'Brian
+- *Late in the Day: Stories of Women and Men* by Claire Keegan
+- *Team of Rivals: The Political Genius of Abraham Lincoln* by Doris Kearns Goodwin
+- *A Wizard of Earthsea* by Ursula K. Le Guin
+- *Southern Storm: Sherman's March to the Sea* by Noah Andre Trudeau
+- *Crossroads of Freedom: Antietam* by James McPherson
+- *Landscape Turned Red: The Battle of Antietam* by Stephen W. Sears
+- *Confederates in the Attic: Dispatches from the Unfinished Civil War* by Tony Horwitz
+- *Midnight Rising: John Brown and the Raid that Sparked the Civil War* by Tony Horwitz
+- *Edda* by Snorri Sturluson, trans. Anthony Faulkes
+- *Edinburgh Castle: Official Souvenir Guide* by Peter Yeoman
+- *They Thought They Were Free: The Germans, 1933-45* by Milton Mayer
+- *The Supreme Court Footnote: A Surprising History* by Peter Charles Hoffer
+- *Erebus: The Story of a Ship* by Michael Palin
+- *Kronberg: A Living Castle* by Anette Molbech and Kurt Rodahl Hoppe
+- *The Viking Sorceress: Step into the Lost World of the Vikings* by Rane Willerslev, et al
+- *The Story of Amis & Amile Done Out of the Ancient French Into English* by William Morris
+- *The Saga of the Volsungs*, trans. Jesse L. Byock
+- *The Saga of King Hrolf Kraki*, trans. Jesse L. Byock
+- *The Long Ships* by Frans G. Bengtsson, trans. Michael Meyer
+- *The Book of Splendor* by Francis Sherwood
+- *The Unbearable Lightness of Being* by Milan Kundera, trans. Michael Henry Heim
+- *The Golem Redux: From Prague to Post-Holocaust Fiction* by Elizabeth R. Baer
+- *The Poetic Edda*, trans. Carolyne Larrington
+- *HHhH* by Laurent Binet, trans. Sam Taylor
+- *Children of Ash and Elm: A History of the Vikings* by Neil Price
+- *The Golem* by Gustav Meyrink, trans. Mike Mitchell
+- *Saxo Grammaticus and the Life of Hamlet* by William F. Hansen
+- *Strapless: John Singer Sargent and the Fall of Madame X* by Deborah Davis
+- *The Song of the Cathar Wars: A History of the Albigensian Crusade* by William of Tudela and Anonymous, trans. Janet Shirley
+- *The War on Heresy* by R. I. Moore
+- *The Book of Kells: Official Guide* by Bernard Meehan
+- *The Name of the Rose* by Umberto Eco, trans. William Weaver
+- *The Lover* by Marguerite Duras, trans. Barbara Bray
+- *Interpreter of Maladies* by Jhumpa Lahiri
+- *Finnegans Wake* by James Joyce
+- *A Skeleton Key to Finnegans Wake* by Joseph Campbell and Henry Morton Robinson, ed. Edmund L. Epstein
+- *A Reader's Guide to Finnegans Wake* by William York Tindall
+- *American Short Fiction, Volume 28, Issue 81, Spring 2025*
+- *The Great Gatsby* by F. Scott Fitzgerald
+- *Tell Them of Battles, Kings & Elephants* by Mathias Énard, trans. Charlotte Mandell
+- *On Heroes and Tombs* by Ernesto Sabato, trans. Helen R. Lane
+- *The Wife of Bath: A Biography* by Marion Turner
+- *The City of Carcassonne* by Jean-Pierre Panouillé
+- *Chemistry* by Weike Wang
+- *F. Scott Fitzgerald On Writing*, ed. Larry W. Phillips
+- *Twenty-Nine Goodbyes: An Introduction to Chinese Poetry* by Timothy Billings
+- *Bel Canto* by Ann Patchett
+- *Dr. Faustus* by Christopher Marlowe, ed. Brian Gibbons (from New Mermaids Christopher Marlowe - Four Plays)
+- *Goethe's Faust* by Johann Wolfgang von Goethe, trans. Walter Kaufmann (all of Part I with excerpts from Part II)
+- *American Short Fiction, Volume 27, Issue 80, Fall 2024*
+- *The Denial of Death* by Ernest Becker
+- *Anagrams* by Lorrie Moore
+- *Back to Manderley: A Sleep No More Companion: Volume I* by Robert L. Camaj
+
+## 2024
+
+- *The Hero with a Thousand Faces* by Joseph Campbell
+- *Witches and Jesuits: Shakespeare's Macbeth* by Garry Wills
+- *The Lord of the Rings* by J.R.R. Tolkien (includes The Fellowship of the Ring, The Two Towers, & The Return of the King)
+- *Ilium* by Dan Simmons
+- *The Albigensian Crusade* by Jonathan Sumption
+- *Eyrbyggja Saga*, trans. Hermann Pálsson and Paul Edwards
+- *Istanbul: A Tale of Three Cities* by Bettany Hughes
+- *The Saga of Grettir the Strong*, trans. Bernard Scudder
+- *How Iceland Changed the World* by Egill Bjarnason
+- *The Sagas of Icelanders (Penguin Classics Deluxe Edition), including:*
+- *Egil's Saga*, trans. Bernard Scudder
+- *The Saga of the People of Vatnsdal*, trans. Andrew Wawn
+- *The Saga of the People of Laxardal & Bolli Bollason's Tale*, trans. Keneva Kunz
+- *The Saga of Hrafnkel Frey's Godi*, trans. Terry Gunnell
+- *The Saga of the Confederates*, trans. Ruth C. Ellison
+- *Gisli Sursson's Saga trans. Martin S. Regal*
+- *The Saga of Gunnlaug Serpent-tongue*, trans. Katrina C. Attwood
+- *The Saga of Ref the Sly*, trans. George Clark
+- *The Vinland Sagas (The Saga of the Greenlanders & Eirik the Red's Saga)*, trans. Keneva Kunz
+- *Njal's Saga*, trans. Robert Cook
+- *Intermezzo* by Sally Rooney
+- *My Name Is Red* by Orhan Pamuk, trans. Erdağ M. Göknar
+- *Invisible Cities* by Italo Calvino, trans. William Weaver
+- *Macbeth* by William Shakespeare, ed. Stephen Orgel (The Penguin Shakespeare)
+- *HHhH* by Laurent Binet, trans. Sam Taylor
+- *Lives of the Monster Dogs* by Kirsten Bakis
+- *The Great Gatsby* by F. Scott Fitzgerald
+- *Three Parts Dead* by Max Gladstone
+- *The Spanish Tragedy* by Thomas Kyd, ed. J. R. Mulryne and Andrew Gurr
+- *Autobiography of a Corpse* by Sigizmund Krzhizhanovsky, trans. Joanne Turnbull and Nikolai Formozov
+- *The Sources of Hamlet* by Israel Gollancz (includes translations of Saxo Grammaticus and Belleforest)
+- *Song of Solomon* by Toni Morrison
+- *Hamlet in Iceland: The Ambales Saga* by Israel Gollancz
+- *The New Jim Crow: Mass Incarceration in the Age of Colorblindness* by Michelle Alexander
+- *Light Years* by James Salter
+- *Four Quartets* by T.S. Eliot
+- *Turtle Diary* by Russell Hoban
+- *The Paper Menagerie and Other Stories* by Ken Liu
+- *Chinese Calligraphy: From Pictograph to Ideogram: The History of 214 Essential Chinese/Japanese Characters* by Edoardo Fazzioli
+- *The Beauty* by Aliya Whiteley ("The Beauty" only)
+- *Devotions: The Selected Poems of Mary Oliver* by Mary Oliver
+- *The Sound and the Fury* by William Faulkner
+- *The Wright Brothers* by David McCullough
+- *Cassandra at the Wedding* by Dorothy Baker
+- *Edward Hopper's New York* by Kim Conaty
+- *Battle for the Marble Palace: Abe Fortas, Earl Warren, Lyndon Johnson, Richard Nixon, and the Forging of the Modern Supreme Court* by Michael Bobelian
+- *Richard Serra: Torqued Ellipses* by Lynne Cooke, Michael Govan, and Mark Taylor
+- *The Languages of China* by S. Robert Ramsey
+- *So Much Blue* by Percival Everett
+- *The Sun Also Rises* by Ernest Hemingway
+- *American Short Fiction, Volume 27, Issue 79, Spring 2024*
+- *The Malady of Death* by Marguerite Duras, trans. Barbara Bray
+- *Like Life* by Lorrie Moore
+- *Poems Retrieved* by Frank O'Hara
+- *The Canterbury Tales* by Geoffrey Chaucer from The Riverside Chaucer (in the original Middle English)
+- *To Say Nothing of the Dog* by Connie Willis
+- *Pitch Dark* by Renata Adler
+- *Love Poems of Catullus* by Catullus, ed. Tynan Kogane, various translators
+- *Laughter in the Dark* by Vladimir Nabokov
+- *Kingdom of Characters: The Language Revolution That Made China Modern* by Jing Tsu
+- *The Passage of Power: The Years of Lyndon Johnson, Vol. IV* by Robert A. Caro
+- *The Plot Against America* by Philip Roth
+- *Presumed Guilty: How the Supreme Court Empowered the Police and Subverted Civil Rights* by Erwin Chemerinsky
+- *Atonement* by Ian McEwan
+- *Save Me the Waltz* by Zelda Fitzgerald
+- *Hamlet: The Texts of 1603 and 1623* by William Shakespeare (Arden 3rd Edition, Q1 and F)
+- *Liberation Day* by George Saunders
+- *War of the Foxes* by Richard Siken
+- *Hamlet* by William Shakespeare (Arden 3rd Edition, Q2)
+- *Journey Into the Past* by Stefan Zweig, trans. Anthea Bell
+- *Giovanni's Room* by James Baldwin
+- *A Familiar Beast* by Panio Gianopoulos
+- *Till We Have Faces* by C.S. Lewis
+- *Best Barbarians: Poems* by Roger Reeves
+- *On Photography* by Susan Sontag
+
+## 2023
+
+- *The Song of Roland and Other Poems of Charlemange*, trans. Simon Gaunt and Karen Pratt
+- *Nutshell* by Ian McEwan
+- *Master of the Senate: The Years of Lyndon Johnson, Vol. III* by Robert A. Caro
+- *The Archive of Feelings* by Peter Stamm, trans. Michael Hofmann
+- *The Captain's Verses* by Pablo Neruda, trans. Donald D. Walsh
+- *Hamlet in Purgatory* by Stephen Greenblatt
+- *Natural Causes* by Nina Lykke, trans. B. L. Crook
+- *Paradise Lost* by John Milton
+- *19 Ways of Looking at Wang Wei: With More Ways* by Eliot Weinberger
+- *Nine Stories* by J. D. Salinger
+- *Raise High the Roof Beam, Carpenters and Seymour an Introduction* by J. D. Salinger
+- *In the Lake of the Woods* by Tim O'Brien
+- *Outline* by Rachel Cusk
+- *Grendel* by John Gardner
+- *Norse Mythology* by Neil Gaiman
+- *Selections from The Best American Science Fiction and Fantasy 2023*, ed. R. F. Kuang
+- *"Termination Stories for the Cyberpunk Dystopia Protagonist"* by Isabel J. Kim
+- *The Iliad* by Homer, trans. Emily Wilson
+- *The Rubáiyát* by Omar Khayyám, trans. Edward FitzGerald
+- *Songs and Poems* by Alfred Lord Tennyson
+- *Unruly: A History of England's Kings and Queens* by David Mitchell
+- *Portnoy's Compliant* by Philip Roth
+- *What Happens in Hamlet* by John Dover Wilson
+- *On Love* by Charles Bukowski
+- *Collected Poems* by Philip Larkin
+- *Stoner* by John Williams
+- *A Year in the Life of William Shakespeare: 1599* by James Shapiro
+- *The Three-Text Hamlet: Parallel Texts of the First and Second Quartos and First Folio* by William Shakespeare, ed. Paul Bertram and Bernice W. Kilman
+- *Alive: New and Collected Poems* by Emily Willis
+- *An Apprenticeship or the Book of Pleasures* by Clarice Lispector, trans. Stefan Tobler
+- *Gilgamesh trans. Sophus Helle*
+- *I Have Seen the Bluest Blue* by Natalee Cruz
+- *Transparent Things* by Vladimir Nabokov
+- *Hamlet and the Vision of Darkness* by Rhodri Lewis
+- *Rosencrantz and Guildenstern Are Dead* by Tom Stoppard
+- *Selections from The Short Stories of F. Scott Fitzgerald: A New Collection* by F. Scott Fitzgerald, ed. Matthew J. Bruccoli
+- *"Head and Shoulders"*
+- *"The Curious Case of Benjamin Button"*
+- *"Babylon Revisited"*
+- *"Six of One"*
+- *"Crazy Sunday"*
+- *My Lost City: Personal Essays, 1920-1940* by F. Scott Fitzgerald
+- *The Anthropocene Reviewed* by John Green
+- *An Abundance of Katherines* by John Green
+- *Just Kids* by Patti Smith
+- *red doc>* by Anne Carson
+- *Autobiography of Red* by Anne Carson
+- *Piranesi* by Susanna Clarke
+- *Good Omens: The Nice and Accurate Prophecies of Agnes Nutter, Witch* by Terry Pratchett and Neil Gaiman
+- *Shutter Island* by Dennis Lehane
+- *Galatea: A Short Story* by Madeline Miller
+- *Hamlet: Poem Unlimited* by Harold Bloom
+- *Jane Eyre* by Charlotte Brontë
+- *Eros the Bittersweet: An Essay* by Anne Carson
+- *The Shadow Docket: How the Supreme Court Uses Stealth Rulings to Amass Power and Undermine the Republic* by Stephen Vladeck
+- *Hamlet* by William Shakespeare (Wordsworth Classics Edition)
+- *Erratic Facts* by Kay Ryan
+- *The Nenoquich* by Henry Bean
+- *The Best of It: New and Selected Poems* by Kay Ryan
+- *Working* by Robert A. Caro
+- *Flesh and Blood: Poems* by C. K. Williams
+- *Mrs. Dalloway* by Virginia Woolf
+- *Franny and Zooey* by J. D. Salinger
+- *Extracting the Stone of Madness: Poems 1962-1972* by Alejandra Pizarnik, trans. Yvette Siegert
+- *Means of Ascent: The Years of Lyndon Johnson, Vol. II* by Robert A. Caro
+- *Glass, Irony & God* by Anne Carson
+- *The Mouse That Roared* by Leonard Wibberley
+- *The Secret History* by Donna Tartt
+- *The Path to Power: The Years of Lyndon Johnson, Vol. I* by Robert A. Caro
+- *The Red Wheelbarrow and Other Poems* by William Carlos Williams
+- *Time is a Mother* by Ocean Vuong
+- *Kairos* by Jenny Erpenbeck, trans. Michael Hofmann
+- *A Dream of Mind* by C. K. Williams
+- *Four in Hand: Poems* by Alicia Mountain
+- *Love and Other Poems* by Alex Dimitrov
+- *Selected Poems* by Emily Dickinson
+- *The Book of Laughter and Forgetting* by Milan Kundera, trans. Michael Henry Heim
+- *Trimalchio: An Early Version of The Great Gatsby* by F. Scott Fitzgerald
+- *The Vegetable* by F. Scott Fitzgerald
+- *Young Once* by Patrick Modiano, trans. Damion Searls
+- *Cold Enough for Snow* by Jessica Au
+- *Gatsby's Oxford: Scott, Zelda, and the Jazz Age Invasion of Britain: 1904 - 1929* by Christopher A. Snyder
+- *The Remains of the Day* by Kazuo Ishiguro
+- *If On a Winter's Night a Traveler* by Italo Calvino, trans. William Weaver
+- *American Short Fiction, Volume 26, Issue 77, Spring 2023*
+- *The Yiddish Policeman's Union* by Michael Chabon
+- *Chess Story* by Stefan Zweig, trans. Joel Rotenberg
+- *Greek Lessons* by Han Kang, trans. Deborah Smith and Emily Yae Won
+- *Forget Thee* by Ian Dreiblatt
+- *Home Bound* by Vanessa A. Bee
+- *Jewish History: A Very Short Introduction* by David N. Myers
+- *Judaism: A Very Short Introduction* by Norman Solomon
+- *Eichmann in Jerusalem: A Report on the Banality of Evil* by Hannah Arendt
+- *A Place of Greater Safety* by Hilary Mantel
+- *Enheduana: The Complete Poems of the World's First Author*, trans. Sophus Helle
+- *Kindest Regards: New and Selected Poems* by Ted Kooser
+- *Hunger* by Lan Samantha Chang
+- *Nothing but the Night* by John Williams
+- *It's the End of the World, My Love* by Alla Gorbunova, trans. Elina Alter
+- *Lunch Poems* by Frank O'Hara
+- *The Sonnets* by William Shakespeare
+- *Midnight's Children* by Salman Rushdie
+- *The Solitude of Prime Numbers* by Paolo Giordano
+- *The Stories of John Cheever* by John Cheever
+- *Goodby, Columbus* by Philip Roth
+- *The Story of Hebrew* by Lewis Glinert
+- *The Sorrows of Young Werther* by Johann Wolfgang von Goethe, trans. Burton Pike
+- *The Seven Moons of Maali Almeida* by Shehan Karunatilaka
+- *The Foucault Reader* by Michel Foucault, ed. Paul Rabinow, various translators
+- *The Unbearable Lightness of Being* by Milan Kundera, trans. Michael Henry Heim
+- *Founding Gods, Inventing Nations: Conquest and Culture Myths from Antiquity to Islam* by William F. McCants
+- *Billy Budd, Sailor* by Herman Melville
+- *Play It As It Lays* by Joan Didion
+- *My Year of Rest and Relaxation* by Ottessa Moshfegh
+- *Thirst for Salt* by Madelaine Lucas
+- *Usual Cruelty: The Complicity of Lawyers in the Criminal Injustice System* by Alec Karakatsanis
+- *Touch* by Olaf Olafsson
+- *Gilgamesh*, trans. Sophus Helle
+- *Bartleby the Scrivener* by Herman Melville
+- *Japanese Mythology* by Juliet Piggott
+- *The Ruined Elegance: Poems* by Fiona Sze-Lorrain
+- *My Cat Yugoslavia* by Pajtim Statovci, trans. David Hackston
+- *erotic poems* by e. e. cummings
+- *Moby-Dick; or, The Whale* by Herman Melville
+- *Life on Mars* by Tracy K. Smith
+- *The Tailor-King: The Rise and Fall of the Anabaptist Kingdom of Münster* by Anthony Arthur
+- *Tomorrow, and Tomorrow, and Tomorrow* by Gabrielle Zevin
+- *I Will Destroy You: Poems* by Nick Flynn
+- *A Writer's Diary* by Virginia Woolf, ed. Leonard Woolf
+- *Winter Recipes from the Collective* by Louise Glück
+- *Crush* by Richard Siken
+- *100 Selected Poems* by e.e. cummings
+- *A History of Japan (Revised Edition)* by R.H.P Mason and J.G. Caiger
+- *Selected Poetry* by Federico García Lorca, various translators
+- *Ava* by Carole Maso
+- *Autobiography of Red* by Anne Carson
+- *The Waste Land and Other Poems* by T. S. Eliot
+- *Rome: Poems* by Dorothea Lasky
+- *Images and Shadows: Part of a Life* by Iris Origo
+- *Elder Race* by Adrian Tchaikovsky
+- *Ariel* by Sylvia Plath
+
+## 2022
+
+- *Last Summer in the City* by Gianfranco Calligarich, trans. Howard Curtis
+- *After Claude* by Iris Owens
+- *Twenty Love Poems and a Song of Despair* by Pablo Neruda, trans. W.S. Merwin
+- *The Devil in the Flesh* by Raymond Radiguet, trans. Robert Baldick
+- *The Drunken Boat: Selected Writings* by Arthur Rimbaud, trans. Mark Polizzotti
+- *On Beauty* by Zadie Smith
+- *The Season of the Hare (poetry anthology)*, ed. Courtney Buoncore
+- *Bitter in the Belly* by John Emil Vincent
+- *Winter Love* by Han Suyin
+- *Lyra's Oxford* by Philip Pullman
+- *The Amber Spyglass* by Philip Pullman (#100)
+- *The Subtle Knife* by Philip Pullman
+- *The Golden Compass* by Philip Pullman
+- *The Reader* by Bernhard Schlink, trans. Carol Brown Janeway
+- *The Memory Police* by Yoko Ogawa, trans. Stephen Snyder
+- *Priest Turned Therapist Treats Fear of God* by Tony Hoagland
+- *Be Here to Love Me at the End of the World* by Sasha Fletcher
+- *Before the Coffee Gets Cold* by Toshikazu Kawaguchi, trans. Geoffrey Trousselot
+- *She is Haunted* by Paige Clark
+- *Nostalgia* by Mircea Cărtărescu, trans. Julian Semilian
+- *Swann's Way (Book One of In Search of Lost Time)* by Marcel Proust, trans. Lydia Davis
+- *The Shawl* by Cynthia Ozick
+- *All Quiet on the Western Front* by Erich Maria Remarque
+- *Two or Three Things I Know for Sure* by Dorothy Allison
+- *Flights of Love* by Bernhard Schlink, trans. John E. Woods
+- *Maus II: A Survivor's Tale: And Here My Troubles Began* by Art Spiegelman
+- *Maus I: A Survivor's Tale: My Father Bleeds History* by Art Spiegelman
+- *The Genius and the Goddess* by Aldous Huxley
+- *The Djinn in the Nightingale's Eye: Five Fairy Stories* by A. S. Byatt
+- *A Sand County Almanac: And Sketches Here and There* by Aldo Leopold
+- *Henri Duchemin and His Shadows* by Emmanuel Bove, trans. Alyson Waters
+- *Augustus* by John Williams
+- *Butcher's Crossing* by John Williams
+- *Exhalation* by Ted Chiang
+- *Sleepless Nights* by Elizabeth Hardwick
+- *The Unhappiness of Being a Single Man* by Franz Kafka, trans. Alexander Starritt
+- *Last Words from Montmartre* by Qiu Miaojin, trans. Ari Larissa Heinrich
+- *The Weight of Ink* by Rachel Kadish
+- *The Hurting Kind* by Ada Limón
+- *Then the War* by Carl Phillips
+- *Refusing Heaven* by Jack Gilbert
+- *Night Sky with Exit Wounds* by Ocean Vuong
+- *A Summer Day in the Company of Ghosts* by Wang Yin, trans. Andrea Lingenfelter
+- *A Musical Hell* by Alejandra Pizarnik, trans. Yvette Siegert
+- *The Things They Carried* by Tim O'Brien
+- *What If? 2: Additional Serious Scientific Answers to Absurd Hypothetical Questions* by Randall Munroe
+- *Turn Up the Ocean: Poems* by Tony Hoagland
+- *James Acaster's Guide to Quitting Social Media: Being the Best YOU You Can Be and Saving Yourself From Loneliness: Volume I* by James Acaster
+- *Lectures on Don Quixote* by Vladimir Nabokov, ed. Fredson Bowers
+- *Don Quixote* by Miguel de Cervantes, trans. Edith Grossman
+- *The Silmarillion* by J. R. R. Tolkien, ed. Christopher Tolkien
+- *The Professor and the Siren* by Giuseppe Tomasi Di Lampedusa, trans. Stephen Twilley
+- *The Old Man and the Sea* by Ernest Hemingway
+- *The Razor's Edge* by W Somerset Maugham
+- *The Complete Persepolis* by Marjane Satrapi
+- *Lesser Known Monsters of the 21st Century* by Kim Fu
+- *Speedboat* by Renata Adler
+- *Contact* by Carl Sagan
+- *About Abortion: Terminating Pregnancy in Twenty-First-Century America* by Carol Sanger
+- *Stories of Your Life and Others* by Ted Chiang
+- *The Seducer's Diary* by Søren Kierkegaard, trans. Howard V. Hong and Edna H. Hong (Excerpted From Either/Or)
+- *The Sea, the Sea* by Iris Murdoch (#50)
+- *Boxer (33 1/3)* by Ryan Pinkard
+- *Dubliners* by James Joyce
+- *The Year of Magical Thinking* by Joan Didion
+- *And the Earth Will Sit on the Moon: Essential Stories* by Nikolai Gogol, trans. Oliver Ready
+- *Tender is the Night* by F. Scott Fitzgerald
+- *Lives and Deaths: Essential Stories* by Leo Tolstoy, trans. Boris Dralyuk
+- *On Grand Strategy* by John Lewis Gaddis
+- *Slouching Towards Bethlehem* by Joan Didion
+- *Either/Or* by Elif Batuman
+- *The Tale of Genji* by Murasaki Shikibu, trans. Royall Tyler
+- *The Selected Poetry of Rainer Maria Rilke* by Rainer Maria Rilke, trans. Stephen Mitchell
+- *The Book of Disquiet* by Fernando Pessoa, ed. Maria José de Lancastre, trans. Margaret Jull Costa
+- *The Selected Poetry of Edna St. Vincent Millay* by Edna St. Vincent Millay
+- *Daytripper* by Fábio Moon, art. Gabriel Bá
+- *Stoner* by John Williams
+- *The Idiot* by Elif Batuman
+- *If This Isn't Nice, What Is?: The Graduation Speeches and Other Words to Live By (Third Edition)* by Kurt Vonnegut
+- *Perfume: The Story of a Murderer* by Patrick Süskind, trans. John E. Woods
+- *The Hour of the Star* by Clarice Lispector, trans. Benjamin Moser
+- *A Visit from the Goon Squad* by Jennifer Egan
+- *The Hard Hours* by Anthony Hecht
+- *Let the World Have You* by Mikko Harvey
+- *Something to Do with Paying Attention* by David Foster Wallace (an excerpt from The Pale King published by McNally Editions)
+- *The Ada Poems* by Cynthia Zarin
+- *This Is Water: Some Thoughts, Delivered on a Significant Occasion, about Living a Compassionate Life* by David Foster Wallace
+- *Zuleika Dobson: Or, an Oxford Love Story* by Max Beerbohm
+- *Selections from The David Foster Wallace Reader* by David Foster Wallace
+- *"The Planet Trillaphon as It Stands in Relation to the Bad Thing" (short story)*
+- *From Girl with Curious Hair (short story collection)*
+- *"Little Expressionless Animals"*
+- *"My Appearance"*
+- *From Brief Interviews with Hideous Men (short story collection)*
+- *"A Radically Condensed History of Postindustrial Life"*
+- *"B.I. #14"*
+- *"B.I. #40"*
+- *"Forever Overhead"*
+- *"The Depressed Person"*
+- *From Oblivion (short story collection)*
+- *"Good Old Neon"*
+- *"Incarnations of Burned Children"*
+- *"The Suffering Channel"*
+- *Teaching Materials (in toto)*
+- *Nonfiction*
+- *"E Unibus Pluram"*
+- *"Getting Away from Already Pretty Much Being Away from It All"*
+- *"A Supposedly Fun Thing I'll Never Do Again"*
+- *"The View from Mrs. Thompson's"*
+- *"Consider the Lobster"*
+- *Someone Who Will Love You in All Your Damaged Glory: Stories* by Raphael Bob-Waksberg
+- *The Loser* by Thomas Bernhard, trans. Jack Dawson
+- *I'd Die for You and Other Lost Stories* by F. Scott Fitzgerald, ed. Anne Margaret Daniel
+- *V for Vendetta* by Alan Moore, art. David Lloyd
+- *All About Love: New Visions* by bell hooks
+- *To Be a Man* by Nicole Krauss
+- *The History of Rome, Books 1-5: The Early History of Rome* by Livy, trans. Aubrey de Sélincourt
+- *No Matter the Wreckage* by Sarah Kay
+- *The Right to Sex: Feminism in the Twenty-First Century* by Amia Srinivasan
+- *Poems on the Underground ed. Judith Chernaik, Gerard Benson, Cicely Herbert*
+- *The Power* by Naomi Alderman
+- *An Amorous Discourse in the Suburbs of Hell* by Deborah Levy
+- *Galatea* by Madeline Miller
+- *The Master and Margarita* by Mikhail Bulgakov, trans. Richard Pevear and Larissa Volokhonsky
+- *Ficciones* by Jorge Luis Borges, trans. Anthony Kerrigan
+- *On the Road* by Jack Kerouac
+- *The Village: A History of Greenwich Village* by John Strausbaugh
+- *The End of the Affair* by Graham Greene
+- *Beautiful World, Where Are You* by Sally Rooney
+- *Ulysses* by James Joyce, ann. Sam Slote, Marc Mamigonian, John Turner
+- *Lectures on Literature* by Vladimir Nabokov (Ulysses section only)
+- *The Posthumous Memoirs of Brás Cubas* by Machado de Assis, trans. Flora Thomson-DeVeaux
+
+## 2021
+
+- *Who's Afraid of Virginia Woolf?* by Edward Albee
+- *King Leopold's Ghost* by Adam Hochschild
+- *The Stranger* by Albert Camus, trans. Matthew Ward
+- *Six Tales of the Jazz Age and Other Stories* by F. Scott Fitzgerald
+- *American Pastoral* by Philip Roth
+- *Seize the Day* by Saul Bellow
+- *Axiom's End* by Lindsay Ellis
+- *The Hours* by Michael Cunningham
+- *Rebecca* by Daphne Du Maurier
+- *Annihilation* by Jeff VanderMeer
+- *How Emotions Are Made: The Secret Life of the Brain* by Lisa Feldman Barrett
+- *Crossing to Safety* by Wallace Stegner
+- *Looking For Alaska* by John Green
+- *The Beautiful and Damned* by F. Scott Fitzgerald
+- *The O. Henry Prize Stories 2016 ed. Laura Furman*
+- *A Haunted House and Other Short Stories* by Virginia Woolf
+- *Infinite Jest* by David Foster Wallace
+- *I'm Thinking of Ending Things* by Ian Reid
+- *The Power Broker: Robert Moses and the Fall of New York* by Robert A. Caro
+- *Metamorphoses* by Ovid, trans. Charles Martin
+- *The Fifth Risk* by Michael Lewis
+- *Good Old Neon* by David Foster Wallace
+- *The Spectator Bird* by Wallace Stegner
+- *Never Let Me Go* by Kazuo Ishiguro
+- *James Acaster's Classic Scrapes* by James Acaster
+- *Back Story* by David Mitchell
+- *Information: A Very Short Introduction* by Luciano Floridi
+- *The Odyssey* by Homer, trans. Emily Wilson
+- *The Roommate* by Rosie Danan
+- *Civilization and Its Discontents* by Sigmund Freud, trans. James Strachey
+
+## 2020
+
+- *Alexander Hamilton* by Ron Chernow
+- *Speaker for the Dead* by Orson Scott Card
+- *A Promised Land* by Barack Obama
+- *Meditations in an Emergency* by Frank O'Hara
+- *Essential Bukowski: Poetry* by Charles Bukowski, ed. Abel Debritto
+- *Go Tell It on the Mountain* by James Baldwin
+- *A Portrait of the Artist as a Young Man* by James Joyce
+- *Narrative of the Life of Fredrick Douglass: An American Slave* by Fredrick Douglass, ed. David W. Blight
+- *Alone Together: Why We Expect More from Technology and Less from Each Other* by Sherry Turkle
+- *Orlando* by Virginia Woolf
+- *Thinking, Fast and Slow* by Daniel Kahneman
+- *"A Problem From Hell": America and the Age of Genocide* by Samantha Power
+- *Why We're Polarized* by Ezra Klein
+- *The Gettysburg Campaign: A Study in Command* by Edwin B. Coddington
+- *Lincoln in the Bardo* by George Saunders
+- *Citizens: A Chronicle of the French Revolution* by Simon Schama
+- *Men Without Women* by Haruki Murakami, trans. Philip Gabriel and Ted Goosen
+- *Conversations With Friends* by Sally Rooney
+- *The Three Theban Plays: Antigone, Oedipus the King, Oedipus at Colonus* by Sophocles, trans. Robert Fagles
+- *The Love of the Last Tycoon* by F. Scott Fitzgerald, ed. Matthew J. Bruccoli
+- *The Waves* by Virginia Woolf
+- *A Dreamer's Tales* by Lord Dunsany
+- *Death in Venice* by Thomas Mann, trans. Joachim Neugroschel
+- *How To* by Randall Munroe
+- *Spoon River Anthology* by Edgar Lee Masters
+
+## 2019
+
+- *Brave New World* by Aldous Huxley
+- *Howl and Other Poems* by Allen Ginsberg
+- *The Power and the Glory* by Graham Greene
+- *Mrs. Dalloway* by Virginia Woolf
+- *Cassandra: A Novel and Four Essays* by Christa Wolf, trans. Jan Van Heurck
+- *Lysistrata* by Aristophanes, trans. Douglass Parker
+- *A Doll's House* by Henrik Ibsen, Bartholomew House translation, ed. Philip Smith
+- *Pride and Prejudice and Zombies* by Jane Austen and Seth Grahame-Smith
+- *Pride and Prejudice* by Jane Austen
+- *History of the Peloponnesian War* by Thucydides, trans. Rex Warner
+- *Reading Lolita in Tehran: A Memoir in Books* by Azar Nafisi
+- *This Side of Paradise* by F. Scott Fitzgerald
+- *Tokyo Ghoul, Volume 1* by Sui Ishida, trans. Joe Yamazaki
+- *Middlesex* by Jeffrey Eugenides
+- *A Room of One's Own* by Virginia Woolf
+- *Heart of Darkness & The Secret Sharer* by Joseph Conrad
+- *Siddhartha* by Herman Hesse, trans. Stanley Appelbaum
+- *The Things They Carried* by Tim O'Brien
+- *Logan's Run* by William F. Nolan and George Clayton Johnson
+- *The Testaments* by Margaret Atwood
+- *The Course of Love* by Alain de Botton
+- *The Waves* by Virginia Woolf
+- *Black Venus* by Angela Carter
+- *The Crack Up (Alma Classics Edition With Notebooks)* by F. Scott Fitzgerald
+- *Storm of Steel* by Ernst Jünger, trans. Michael Hoffmann
+- *The Mighty Dead: Why Homer Matters* by Adam Nicolson
+- *Normal People* by Sally Rooney
+- *Women and Power: A Manifesto (Updated)* by Mary Beard
+- *Wuthering Heights* by Emily Brontë
+- *The Bell Jar* by Sylvia Plath
+- *Trimalchio's Feast* by Petronius, trans. J. P. Sullivan
+- *To The Lighthouse* by Virginia Woolf
+- *The Vegetarian* by Han Kang, trans. Deborah Smith
+- *Pale Fire* by Victor Nabokov
+- *Scott Fitzgerald* by Andrew Turnbull
+- *Autobiography* by Morrissey
+- *Circe* by Madeline Miller
+- *Achilles in Vietnam* by Jonathan Shay
+- *The Turn of the Screw* by Henry James
+- *The Maltese Falcon* by Dashiell Hammett
+- *The Crying of Lot 49* by Thomas Pynchon
+- *The Catcher in the Rye* by J. D. Salinger
+- *The Oresteia* by Aeschylus, trans. Robert Fagles
+- *The Crack Up* by F. Scott Fitzgerald
+- *The Histories* by Herodotus, trans. Tom Holland
+- *Gatsby at Trinity* by Ian Flintoff
+- *If Not, Winter: Fragments of Sappho* by Sappho, trans. Anne Carson
+- *The Song of Achilles* by Madeline Miller
+- *One Flew Over the Cuckoo's Nest* by Ken Kesey
+- *The Twelve Caesars* by Suetonius, trans. Robert Graves
+- *The Symposium* by Plato, trans. Christopher Gill
+- *Sir Gawain and the Green Knight trans. Simon Armitage*
+- *So We Read On: How The Great Gatsby Came to Be and Why It Endures* by Maureen Corrigan
+
+## 2018
+
+- *The Last Lecture* by Randy Pausch
+- *The Guns of August* by Barbara W. Tuchman
+- *A Farewell to Arms* by Ernest Hemingway
+- *I, Robot* by Isaac Asimov
+- *King Lear* by William Shakespeare
+- *The Shadow of the Wind* by Carlos Ruiz Zafón, trans. Lucia Graves
+- *X Y & Z: The Real Story of How Enigma Was Broken* by Dermot Turing
+- *Hamlet* by William Shakespeare
+- *The Diamond as Big as the Ritz* by F. Scott Fitzgerald
+- *Scott Pilgrim's Finest Hour* by Bryan Lee O'Malley
+- *Scott Pilgrim vs. the Universe* by Bryan Lee O'Malley
+- *Scott Pilgrim Gets It Together* by Bryan Lee O'Malley
+- *Scott Pilgrim and the Infinite Sadness* by Bryan Lee O'Malley
+- *Scott Pilgrim vs. the World* by Bryan Lee O'Malley
+- *The Last Samurai* by Helen Dewitt
+- *Scott Pilgrim's Miserable Little Life* by Bryan Lee O'Malley
+- *Faust: Part I* by Goethe, trans. David Luke
+- *Do Androids Dream of Electric Sheep? By Philip K. Dick*
+- *Norwegian Wood* by Haruki Murakami, trans. Jay Rubin
+- *Claudius The God* by Robert Graves
+- *I, Claudius* by Robert Graves
+- *The Communist Manifesto* by Karl Marx and Frederick Engels
+- *The Testament of Gideon Mack* by James Robertson
+- *Useless Magic* by Florence Welch
+- *Beloved* by Toni Morrison
+- *Beowulf*, trans. Seamus Heaney
+- *Gilgamesh (by Sîn-lēqi-unninni)*, trans. Stephen Mitchell
+- *The Metamorphosis* by Franz Kafka, trans. Stanley Corngold
+- *List of the Lost* by Morrissey
+- *The Gallic War* by Julius Caesar, trans. Carolyn Hammond
+- *The History of Love* by Nicole Krauss
+- *The Pearl* by John Steinbeck
+- *Player Piano* by Kurt Vonnegut
+- *The Aeneid* by Virgil, trans. Robert Fagles
+- *The Poems of Catullus* by Catullus, trans. Horace Gregory
+- *Lolita* by Victor Nabokov
+- *Watchmen* by Alan Moore, art. Dave Gibbons
+- *The Odyssey* by Homer, trans. Robert Fagles
+- *The Iliad* by Homer, trans. Robert Fagles
+- *The Picture of Dorian Gray* by Oscar Wilde
+- *The Restaurant at the End of the Universe* by Douglas Adams
+- *The Canterbury Tales* by Geoffery Chaucer, trans. R. M. Lumainsky
+- *The Handmaid's Tale* by Margaret Atwood
+- *Hocus Pocus* by Kurt Vonnegut
+- *The Last Unicorn* by Peter Beagle
+- *The Hitchhiker's Guide to the Galaxy* by Douglas Adams
+- *A Clockwork Orange* by Anthony Burgess
+- *Left Hand of Darkness* by Ursula K. Le Guin
+
+## 2017
+
+- *The Storm Before the Storm* by Mike Duncan
+- *Judgment at Appomattox* by Ralph Peters
+- *Cat's Cradle* by Kurt Vonnegut
+- *This Side of Paradise* by F. Scott Fitzgerald
+- *The Sign of the Four* by Sir Arthur Conan Doyle
+- *A Study in Scarlet* by Sir Arthur Conan Doyle
+- *Prisoners of Geography* by Tim Marshall
+- *When Breath Becomes Air* by Paul Kalanithi
+- *The Graduate* by Charles Webb
+- *The Curious Incident of the Dog in the Nighttime* by Mark Haddon
+- *The Divine Comedy: Inferno* by Dante Alighieri, trans. C. H. Sisson
+- *Superintelligence: Paths, Dangers, Strategies* by Nick Bostrom
+- *The Princess Bride* by William Goldman
+- *The Screwtape Letters* by C.S. Lewis
 
 ## Long-term projects
-
-- Constitutional Law by Erwin Chemerinsky (casebook)
-
-- The New Oxford Annotated Bible
-
-- Ο Μεγάλος Γκάτσμπυ by F. Scott Fitzgerald, trans. Άρις Μπερλής (Greek translation of The Great Gatsby)
-
-##
-
-## Recently read
-
-### 2026
-
-- Taipei Story by R.F. Kuang
-
-- The Nine Cloud Dream by Kim Man-jung, trans. Heinz Insu Fenkl
-
-- The Korean Myths by Heinz Insu Fenkl and Bella M Dalton-Fenkl
-
-- Human Acts by Han Kang, trans. Deborah Smith
-
-- A Concise History of Korea: From Antiquity to the Present by Michael J. Seth
-
-- Small Gods by Terry Pratchett
-
-- The Story of Hong Gildong, trans. Minsoo Kang
-
-- Mestra by Madeline Miller
-
-- Rebecca by Daphne du Maurier
-
-- Operation Heartbreak by Duff Cooper
-
-- Mason & Dixon by Thomas Pynchon
-
-- Son of a Smaller Hero by Mordecai Richler
-
-- The Waves by Virginia Woolf
-
-- The Mysterious Flame of Queen Loana by Umberto Eco, trans. Geoffrey Brock
-
-- The Ulysses Theme by W.B. Stanford
-
-- Omeros by Derek Walcott
-
-- The Juniper Tree by Barbara Comyns
-
-- The Distaff Side: Representing the Female in Homer's Odyssey, ed. Beth Cohen
-
-- The Penelopiad by Margaret Atwood
-
-- 1177 B.C.: The Year Civilization Collapsed by Eric H. Cline
-
-- Philoctetes by Sophocles, trans. David Grene in Sophocles II, ed. David Grene and Richard Lattimore
-
-- Ajax by Sophocles, trans. John Moore in Sophocles II, ed. David Grene and Richard Lattimore
-
-- Iphigeneia at Aulis by Euripides, trans. W.S. Merwin and George E. Dimock, Jr.
-
-- The Odyssey by Homer, trans. Daniel Mendelsohn
-
-- Theogony and Works and Days by Hesiod, trans. M.L. West
-
-- Crossing the Wine-Dark Sea: Journies Through Ancient Literature by Emily Wilson
-
-- Mont Saint Michel by Gérard Dalmaz, trans. Chrisoula Petridis
-
-- 1066 and All That by W.C. Sellar & R.J. Yeatman
-
-- Perspectives by Laurent Binet, trans. Sam Taylor
-
-- Macbeth by William Shakespeare (Arden Third Series)
-
-- Lives of the Saints by Nancy Lemann
-
-- Sublimation by Isabel J. Kim
-
-- Sylvia Beach and the Lost Generation: A History of Literary Paris in the Twenties & Thirties by Noel Riley Fitch
-
-- The Greater Journey: Americans in Paris by David McCullough
-
-- Still Life with Bottle by Ralph Steadman
-
-- Les Misérables by Victor Hugo, trans. Christine Donougher
-
-- The Face of Battle by John Keegan
-
-- Hadrian's Wall by Adrian Goldsworthy
-
-- Birds of America by Lorrie Moore
-
-- An Officer and a Spy by Robert Harris
-
-- Mont-Saint-Michel and Chartres by Henry Adams (Mont-Saint-Michel chapters only)
-
-- The Burgundians: A Vanished Empire by Bart Van Loo, trans. Nancy Forest-Flier
-
-- Turtle Diary by Russell Hoban
-
-- Gravity's Rainbow by Thomas Pynchon
-
-- Early Irish Myths and Sagas, trans. Jeffrey Gantz
-
-- The Táin, trans. Thomas Kinsella
-
-- Beowulf: Translation and Commentary, Revised and Expanded trans. Tom Shippey, ed. Leonard Neidorf
-
-- The Footnote* *A Curious History by Anthony Grafton
-
-- The History of the Siege of Lisbon by José Saramago, trans. Giovanni Pontiero
-
-- Message by Fernando Pessoa, trans. Ana-Maria Chaves
-
-- The Chronicle of the Last Pagans by Pierre Chuvin, trans. B. A. Archer
-
-- Asterix the Gaul by René Goscinny and Albert Uderzo
-
-- Ulysses in Hand: The Rosenbach Manuscript by Michael J. Barsanti
-
-- All the Names by José Saramago, trans. Margaret Jull Costa
-
-- Common Sense by Thomas Paine
-
-- Sleep No More and the Discourses of Shakespeare Performance by D. J. Hopkins
-
-- The Aesthetics of Chaosmos: The Middle Ages of James Joyce by Umberto Eco, trans. Ellen Esrock
-
-- The Guide to James Joyce's Ulysses by Patrick Hastings
-
-- Ulysses by James Joyce, along with some of Ulysses Annotated by Don Gifford with Robert J. Seidman (second edition)
-
-- The Psychgeist of Pop Culture: Sleep No More ed. Rachel Kowert and Betsy Sullivan
-
-- The Lost Colony: Last Rights by Grady Klein
-
-- The Lost Colony: The Red Menace by Grady Klein
-
-- The Lost Colony: The Snodgrass Conspiracy by Grady Klein
-
-- The Tobacco Shop by Fernando Pessoa as Álvaro de Campos, trans. Richard Zenith
-
-- The Tragedy of Pedro and Inês by Maria Zulmira Albuquerque Furtado Marques, trans. Emília Maria Marques Barroso
-
-- The Year of the Death of Ricardo Reis by José Saramago, trans. Giovanni Pontiero
-
-- Pessoa by Richard Zenith
-
-- Lisbon: What the Tourist Should See by Fernando Pessoa
-
-- The Lusíad by Luis Vaz de Camões, trans. Landeg White
-
-- Great Tales and Poems by Edgar Allan Poe
-
-- Always Astonished: Selected Prose by Fernando Pessoa, trans. & ed. Edwin Honig
-
-- The Complete Poems of Alberto Caeiro by Fernando Pessoa, trans. Margaret Jull Costa & Patricio Ferrari, ed. Jerónimo Pizarro & Patricio Ferrari
-
-- Five Moral Pieces by Umberto Eco, trans. Alastair McEwan
-
-- Serendipties: Language and Lunacy by Umberto Eco, trans. William Weaver
-
-- Hares, ed. D. Wyn Hughes
-
-- I Have More Souls Than One by Fernando Pessoa, trans. Jonathan Griffin
-
-- Postscript to the Name of the Rose by Umberto Eco, trans. William Weaver
-
-- Foucault's Pendulum by Umberto Eco, trans. William Weaver
-
-### 2025
-
-- Copaganda: How Police and the Media Manipulate Our News by Alec Karakatsanis
-
-- Journey by Moonlight by Antal Szerb, trans. Len Rix
-
-- This Way Up: When Maps Go Wrong by Jay Foreman and Mark Cooper-Jones
-
-- Pinch, Volume 45, Issue 1, Spring 2025
-
-- American Short Fiction, Volume 28, Issue 82, Summer 2025
-
-- Sargent and Paris, ed. Stephanie L. Herdrich
-
-- From Hell by Alan Moore and Eddie Campbell
-
-- Cold People by Tom Rob Smith
-
-- The Phantom of the Opera by Gaston Leroux, trans. David Coward
-
-- Deciphering Aztec Heiroglyphs: A Guide to Nahuatl Writing by Gordon Whittaker
-
-- The Aztec Myths: A Guide to the Ancient Stories and Legends by Camilla Townsend
-
-- The Conquest of New Spain by Bernal Díaz, trans. J. M. Cohen
-
-- Mexico: A 500-Year History by Paul Gillingham
-
-- Mexico: From the Olmecs to the Aztecs by Michael D. Coe, Javier Urcid, and Rex Koontz
-
-- Fifth Sun: A New History of the Aztecs by Camilla Townsend
-
-- Master and Commander by Patrick O'Brian
-
-- Late in the Day: Stories of Women and Men by Claire Keegan
-
-- Team of Rivals: The Political Genius of Abraham Lincoln by Doris Kearns Goodwin
-
-- A Wizard of Earthsea by Ursula K. Le Guin
-
-- Southern Storm: Sherman's March to the Sea by Noah Andre Trudeau
-
-- Crossroads of Freedom: Antietam by James McPherson
-
-- Landscape Turned Red: The Battle of Antietam by Stephen W. Sears
-
-- Confederates in the Attic: Dispatches from the Unfinished Civil War by Tony Horwitz
-
-- Midnight Rising: John Brown and the Raid that Sparked the Civil War by Tony Horwitz
-
-- Edda by Snorri Sturluson, trans. Anthony Faulkes
-
-- Edinburgh Castle: Official Souvenir Guide by Peter Yeoman
-
-- They Thought They Were Free: The Germans, 1933-45 by Milton Mayer
-
-- The Supreme Court Footnote: A Surprising History by Peter Charles Hoffer
-
-- Erebus: The Story of a Ship by Michael Palin
-
-- Kronberg: A Living Castle by Anette Molbech and Kurt Rodahl Hoppe
-
-- The Viking Sorceress: Step into the Lost World of the Vikings by Rane Willerslev, et al
-
-- The Story of Amis & Amile Done Out of the Ancient French Into English by William Morris
-
-- The Saga of the Volsungs, trans. Jesse L. Byock
-
-- The Saga of King Hrolf Kraki, trans. Jesse L. Byock
-
-- The Long Ships by Frans G. Bengtsson, trans. Michael Meyer
-
-- The Book of Splendor by Francis Sherwood
-
-- The Unbearable Lightness of Being by Milan Kundera, trans. Michael Henry Heim
-
-- The Golem Redux: From Prague to Post-Holocaust Fiction by Elizabeth R. Baer
-
-- The Poetic Edda, trans. Carolyne Larrington
-
-- HHhH by Laurent Binet, trans. Sam Taylor
-
-- Children of Ash and Elm: A History of the Vikings by Neil Price
-
-- The Golem by Gustav Meyrink, trans. Mike Mitchell
-
-- Saxo Grammaticus and the Life of Hamlet by William F. Hansen
-
-- Strapless: John Singer Sargent and the Fall of Madame X by Deborah Davis
-
-- The Song of the Cathar Wars: A History of the Albigensian Crusade by William of Tudela and Anonymous, trans. Janet Shirley
-
-- The War on Heresy by R. I. Moore
-
-- The Book of Kells: Official Guide by Bernard Meehan
-
-- The Name of the Rose by Umberto Eco, trans. William Weaver
-
-- The Lover by Marguerite Duras, trans. Barbara Bray
-
-- Interpreter of Maladies by Jhumpa Lahiri
-
-- Finnegans Wake by James Joyce
-
-- A Skeleton Key to Finnegans Wake by Joseph Campbell and Henry Morton Robinson, ed. Edmund L. Epstein
-
-- A Reader's Guide to Finnegans Wake by William York Tindall
-
-- American Short Fiction, Volume 28, Issue 81, Spring 2025
-
-- The Great Gatsby by F. Scott Fitzgerald
-
-- Tell Them of Battles, Kings & Elephants by Mathias Énard, trans. Charlotte Mandell
-
-- On Heroes and Tombs by Ernesto Sabato, trans. Helen R. Lane
-
-- The Wife of Bath: A Biography by Marion Turner
-
-- The City of Carcassonne by Jean-Pierre Panouillé
-
-- Chemistry by Weike Wang
-
-- F. Scott Fitzgerald On Writing, ed. Larry W. Phillips
-
-- Twenty-Nine Goodbyes: An Introduction to Chinese Poetry by Timothy Billings
-
-- Bel Canto by Ann Patchett
-
-- Dr. Faustus by Christopher Marlowe, ed. Brian Gibbons (from New Mermaids Christopher Marlowe - Four Plays)
-
-- Goethe's Faust by Johann Wolfgang von Goethe, trans. Walter Kaufmann (all of Part I with excerpts from Part II)
-
-- American Short Fiction, Volume 27, Issue 80, Fall 2024
-
-- The Denial of Death by Ernest Becker
-
-- Anagrams by Lorrie Moore
-
-- Back to Manderley: A Sleep No More Companion: Volume I by Robert L. Camaj
-
-### 2024
-
-- The Hero with a Thousand Faces by Joseph Campbell
-
-- Witches and Jesuits: Shakespeare's Macbeth by Garry Wills
-
-- The Lord of the Rings by J.R.R. Tolkien (includes The Fellowship of the Ring, The Two Towers, & The Return of the King)
-
-- Ilium by Dan Simmons
-
-- The Albigensian Crusade by Jonathan Sumption
-
-- Eyrbyggja Saga, trans. Hermann Pálsson and Paul Edwards
-
-- Istanbul: A Tale of Three Cities by Bettany Hughes
-
-- The Saga of Grettir the Strong, trans. Bernard Scudder
-
-- How Iceland Changed the World by Egill Bjarnason
-
-- The Sagas of Icelanders (Penguin Classics Deluxe Edition), including:
-
-- Egil's Saga, trans. Bernard Scudder
-
-- The Saga of the People of Vatnsdal, trans. Andrew Wawn
-
-- The Saga of the People of Laxardal & Bolli Bollason's Tale, trans. Keneva Kunz
-
-- The Saga of Hrafnkel Frey's Godi, trans. Terry Gunnell
-
-- The Saga of the Confederates, trans. Ruth C. Ellison
-
-- Gisli Sursson's Saga trans. Martin S. Regal
-
-- The Saga of Gunnlaug Serpent-tongue, trans. Katrina C. Attwood
-
-- The Saga of Ref the Sly, trans. George Clark
-
-- The Vinland Sagas (The Saga of the Greenlanders & Eirik the Red's Saga), trans. Keneva Kunz
-
-- Njal's Saga, trans. Robert Cook
-
-- Intermezzo by Sally Rooney
-
-- My Name Is Red by Orhan Pamuk, trans. Erdağ M. Göknar
-
-- Invisible Cities by Italo Calvino, trans. William Weaver
-
-- Macbeth by William Shakespeare, ed. Stephen Orgel (The Penguin Shakespeare)
-
-- HHhH by Laurent Binet, trans. Sam Taylor
-
-- Lives of the Monster Dogs by Kirsten Bakis
-
-- The Great Gatsby by F. Scott Fitzgerald
-
-- Three Parts Dead by Max Gladstone
-
-- The Spanish Tragedy by Thomas Kyd, ed. J. R. Mulryne and Andrew Gurr
-
-- Autobiography of a Corpse by Sigizmund Krzhizhanovsky, trans. Joanne Turnbull and Nikolai Formozov
-
-- The Sources of Hamlet by Israel Gollancz (includes translations of Saxo Grammaticus and Belleforest)
-
-- Song of Solomon by Toni Morrison
-
-- Hamlet in Iceland: The Ambales Saga by Israel Gollancz
-
-- The New Jim Crow: Mass Incarceration in the Age of Colorblindness by Michelle Alexander
-
-- Light Years by James Salter
-
-- Four Quartets by T.S. Eliot
-
-- Turtle Diary by Russell Hoban
-
-- The Paper Menagerie and Other Stories by Ken Liu
-
-- Chinese Calligraphy: From Pictograph to Ideogram: The History of 214 Essential Chinese/Japanese Characters by Edoardo Fazzioli
-
-- The Beauty by Aliya Whiteley ("The Beauty" only)
-
-- Devotions: The Selected Poems of Mary Oliver by Mary Oliver
-
-- The Sound and the Fury by William Faulkner
-
-- The Wright Brothers by David McCullough
-
-- Cassandra at the Wedding by Dorothy Baker
-
-- Edward Hopper's New York by Kim Conaty
-
-- Battle for the Marble Palace: Abe Fortas, Earl Warren, Lyndon Johnson, Richard Nixon, and the Forging of the Modern Supreme Court by Michael Bobelian
-
-- Richard Serra: Torqued Ellipses by Lynne Cooke, Michael Govan, and Mark Taylor
-
-- The Languages of China by S. Robert Ramsey
-
-- So Much Blue by Percival Everett
-
-- The Sun Also Rises by Ernest Hemingway
-
-- American Short Fiction, Volume 27, Issue 79, Spring 2024
-
-- The Malady of Death by Marguerite Duras, trans. Barbara Bray
-
-- Like Life by Lorrie Moore
-
-- Poems Retrieved by Frank O'Hara
-
-- The Canterbury Tales by Geoffrey Chaucer from The Riverside Chaucer (in the original Middle English)
-
-- To Say Nothing of the Dog by Connie Willis
-
-- Pitch Dark by Renata Adler
-
-- Love Poems of Catullus by Catullus, ed. Tynan Kogane, various translators
-
-- Laughter in the Dark by Vladimir Nabokov
-
-- Kingdom of Characters: The Language Revolution That Made China Modern by Jing Tsu
-
-- The Passage of Power: The Years of Lyndon Johnson, Vol. IV by Robert A. Caro
-
-- The Plot Against America by Philip Roth
-
-- Presumed Guilty: How the Supreme Court Empowered the Police and Subverted Civil Rights by Erwin Chemerinsky
-
-- Atonement by Ian McEwan
-
-- Save Me the Waltz by Zelda Fitzgerald
-
-- Hamlet: The Texts of 1603 and 1623 by William Shakespeare (Arden 3rd Edition, Q1 and F)
-
-- Liberation Day by George Saunders
-
-- War of the Foxes by Richard Siken
-
-- Hamlet by William Shakespeare (Arden 3rd Edition, Q2)
-
-- Journey Into the Past by Stefan Zweig, trans. Anthea Bell
-
-- Giovanni's Room by James Baldwin
-
-- A Familiar Beast by Panio Gianopoulos
-
-- Till We Have Faces by C.S. Lewis
-
-- Best Barbarians: Poems by Roger Reeves
-
-- On Photography by Susan Sontag
-
-### 2023
-
-- The Song of Roland and Other Poems of Charlemange, trans. Simon Gaunt and Karen Pratt
-
-- Nutshell by Ian McEwan
-
-- Master of the Senate: The Years of Lyndon Johnson, Vol. III by Robert A. Caro
-
-- The Archive of Feelings by Peter Stamm, trans. Michael Hofmann
-
-- The Captain's Verses by Pablo Neruda, trans. Donald D. Walsh
-
-- Hamlet in Purgatory by Stephen Greenblatt
-
-- Natural Causes by Nina Lykke, trans. B. L. Crook
-
-- Paradise Lost by John Milton
-
-- 19 Ways of Looking at Wang Wei: With More Ways by Eliot Weinberger
-
-- Nine Stories by J. D. Salinger
-
-- Raise High the Roof Beam, Carpenters and Seymour an Introduction by J. D. Salinger
-
-- In the Lake of the Woods by Tim O'Brien
-
-- Outline by Rachel Cusk
-
-- Grendel by John Gardner
-
-- Norse Mythology by Neil Gaiman
-
-- Selections from The Best American Science Fiction and Fantasy 2023, ed. R. F. Kuang
-
-- "Termination Stories for the Cyberpunk Dystopia Protagonist" by Isabel J. Kim
-
-- The Iliad by Homer, trans. Emily Wilson
-
-- The Rubáiyát by Omar Khayyám, trans. Edward FitzGerald
-
-- Songs and Poems by Alfred Lord Tennyson
-
-- Unruly: A History of England's Kings and Queens by David Mitchell
-
-- Portnoy's Compliant by Philip Roth
-
-- What Happens in Hamlet by John Dover Wilson
-
-- On Love by Charles Bukowski
-
-- Collected Poems by Philip Larkin
-
-- Stoner by John Williams
-
-- A Year in the Life of William Shakespeare: 1599 by James Shapiro
-
-- The Three-Text Hamlet: Parallel Texts of the First and Second Quartos and First Folio by William Shakespeare, ed. Paul Bertram and Bernice W. Kilman
-
-- Alive: New and Collected Poems by Emily Willis
-
-- An Apprenticeship or the Book of Pleasures by Clarice Lispector, trans. Stefan Tobler
-
-- Gilgamesh trans. Sophus Helle
-
-- I Have Seen the Bluest Blue by Natalee Cruz
-
-- Transparent Things by Vladimir Nabokov
-
-- Hamlet and the Vision of Darkness by Rhodri Lewis
-
-- Rosencrantz and Guildenstern Are Dead by Tom Stoppard
-
-- Selections from The Short Stories of F. Scott Fitzgerald: A New Collection by F. Scott Fitzgerald, ed. Matthew J. Bruccoli
-
-- "Head and Shoulders"
-
-- "The Curious Case of Benjamin Button"
-
-- "Babylon Revisited"
-
-- "Six of One"
-
-- "Crazy Sunday"
-
-- My Lost City: Personal Essays, 1920-1940 by F. Scott Fitzgerald
-
-- The Anthropocene Reviewed by John Green
-
-- An Abundance of Katherines by John Green
-
-- Just Kids by Patti Smith
-
-- red doc> by Anne Carson
-
-- Autobiography of Red by Anne Carson
-
-- Piranesi by Susanna Clarke
-
-- Good Omens: The Nice and Accurate Prophecies of Agnes Nutter, Witch by Terry Pratchett and Neil Gaiman
-
-- Shutter Island by Dennis Lehane
-
-- Galatea: A Short Story by Madeline Miller
-
-- Hamlet: Poem Unlimited by Harold Bloom
-
-- Jane Eyre by Charlotte Brontë
-
-- Eros the Bittersweet: An Essay by Anne Carson
-
-- The Shadow Docket: How the Supreme Court Uses Stealth Rulings to Amass Power and Undermine the Republic by Stephen Vladeck
-
-- Hamlet by William Shakespeare (Wordsworth Classics Edition)
-
-- Erratic Facts by Kay Ryan
-
-- The Nenoquich by Henry Bean
-
-- The Best of It: New and Selected Poems by Kay Ryan
-
-- Working by Robert A. Caro
-
-- Flesh and Blood: Poems by C. K. Williams
-
-- Mrs. Dalloway by Virginia Woolf
-
-- Franny and Zooey by J. D. Salinger
-
-- Extracting the Stone of Madness: Poems 1962-1972 by Alejandra Pizarnik, trans. Yvette Siegert
-
-- Means of Ascent: The Years of Lyndon Johnson, Vol. II by Robert A. Caro
-
-- Glass, Irony & God by Anne Carson
-
-- The Mouse That Roared by Leonard Wibberley
-
-- The Secret History by Donna Tartt
-
-- The Path to Power: The Years of Lyndon Johnson, Vol. I by Robert A. Caro
-
-- The Red Wheelbarrow and Other Poems by William Carlos Williams
-
-- Time is a Mother by Ocean Vuong
-
-- Kairos by Jenny Erpenbeck, trans. Michael Hofmann
-
-- A Dream of Mind by C. K. Williams
-
-- Four in Hand: Poems by Alicia Mountain
-
-- Love and Other Poems by Alex Dimitrov
-
-- Selected Poems by Emily Dickinson
-
-- The Book of Laughter and Forgetting by Milan Kundera, trans. Michael Henry Heim
-
-- Trimalchio: An Early Version of The Great Gatsby by F. Scott Fitzgerald
-
-- The Vegetable by F. Scott Fitzgerald
-
-- Young Once by Patrick Modiano, trans. Damion Searls
-
-- Cold Enough for Snow by Jessica Au
-
-- Gatsby's Oxford: Scott, Zelda, and the Jazz Age Invasion of Britain: 1904 - 1929 by Christopher A. Snyder
-
-- The Remains of the Day by Kazuo Ishiguro
-
-- If On a Winter's Night a Traveler by Italo Calvino, trans. William Weaver
-
-- American Short Fiction, Volume 26, Issue 77, Spring 2023
-
-- The Yiddish Policeman's Union by Michael Chabon
-
-- Chess Story by Stefan Zweig, trans. Joel Rotenberg
-
-- Greek Lessons by Han Kang, trans. Deborah Smith and Emily Yae Won
-
-- Forget Thee by Ian Dreiblatt
-
-- Home Bound by Vanessa A. Bee
-
-- Jewish History: A Very Short Introduction by David N. Myers
-
-- Judaism: A Very Short Introduction by Norman Solomon
-
-- Eichmann in Jerusalem: A Report on the Banality of Evil by Hannah Arendt
-
-- A Place of Greater Safety by Hilary Mantel
-
-- Enheduana: The Complete Poems of the World's First Author, trans. Sophus Helle
-
-- Kindest Regards: New and Selected Poems by Ted Kooser
-
-- Hunger by Lan Samantha Chang
-
-- Nothing but the Night by John Williams
-
-- It's the End of the World, My Love by Alla Gorbunova, trans. Elina Alter
-
-- Lunch Poems by Frank O'Hara
-
-- The Sonnets by William Shakespeare
-
-- Midnight's Children by Salman Rushdie
-
-- The Solitude of Prime Numbers by Paolo Giordano
-
-- The Stories of John Cheever by John Cheever
-
-- Goodby, Columbus by Philip Roth
-
-- The Story of Hebrew by Lewis Glinert
-
-- The Sorrows of Young Werther by Johann Wolfgang von Goethe, trans. Burton Pike
-
-- The Seven Moons of Maali Almeida by Shehan Karunatilaka
-
-- The Foucault Reader by Michel Foucault, ed. Paul Rabinow, various translators
-
-- The Unbearable Lightness of Being by Milan Kundera, trans. Michael Henry Heim
-
-- Founding Gods, Inventing Nations: Conquest and Culture Myths from Antiquity to Islam by William F. McCants
-
-- Billy Budd, Sailor by Herman Melville
-
-- Play It As It Lays by Joan Didion
-
-- My Year of Rest and Relaxation by Ottessa Moshfegh
-
-- Thirst for Salt by Madelaine Lucas
-
-- Usual Cruelty: The Complicity of Lawyers in the Criminal Injustice System by Alec Karakatsanis
-
-- Touch by Olaf Olafsson
-
-- Gilgamesh, trans. Sophus Helle
-
-- Bartleby the Scrivener by Herman Melville
-
-- Japanese Mythology by Juliet Piggott
-
-- The Ruined Elegance: Poems by Fiona Sze-Lorrain
-
-- My Cat Yugoslavia by Pajtim Statovci, trans. David Hackston
-
-- erotic poems by e. e. cummings
-
-- Moby-Dick; or, The Whale by Herman Melville
-
-- Life on Mars by Tracy K. Smith
-
-- The Tailor-King: The Rise and Fall of the Anabaptist Kingdom of Münster by Anthony Arthur
-
-- Tomorrow, and Tomorrow, and Tomorrow by Gabrielle Zevin
-
-- I Will Destroy You: Poems by Nick Flynn
-
-- A Writer's Diary by Virginia Woolf, ed. Leonard Woolf
-
-- Winter Recipes from the Collective by Louise Glück
-
-- Crush by Richard Siken
-
-- 100 Selected Poems by e.e. cummings
-
-- A History of Japan (Revised Edition) by R.H.P Mason and J.G. Caiger
-
-- Selected Poetry by Federico García Lorca, various translators
-
-- Ava by Carole Maso
-
-- Autobiography of Red by Anne Carson
-
-- The Waste Land and Other Poems by T. S. Eliot
-
-- Rome: Poems by Dorothea Lasky
-
-- Images and Shadows: Part of a Life by Iris Origo
-
-- Elder Race by Adrian Tchaikovsky
-
-- Ariel by Sylvia Plath
-
-### 2022
-
-- Last Summer in the City by Gianfranco Calligarich, trans. Howard Curtis
-
-- After Claude by Iris Owens
-
-- Twenty Love Poems and a Song of Despair by Pablo Neruda, trans. W.S. Merwin
-
-- The Devil in the Flesh by Raymond Radiguet, trans. Robert Baldick
-
-- The Drunken Boat: Selected Writings by Arthur Rimbaud, trans. Mark Polizzotti
-
-- On Beauty by Zadie Smith
-
-- The Season of the Hare (poetry anthology), ed. Courtney Buoncore
-
-- Bitter in the Belly by John Emil Vincent
-
-- Winter Love by Han Suyin
-
-- Lyra's Oxford by Philip Pullman
-
-- The Amber Spyglass by Philip Pullman (#100)
-
-- The Subtle Knife by Philip Pullman
-
-- The Golden Compass by Philip Pullman
-
-- The Reader by Bernhard Schlink, trans. Carol Brown Janeway
-
-- The Memory Police by Yoko Ogawa, trans. Stephen Snyder
-
-- Priest Turned Therapist Treats Fear of God by Tony Hoagland
-
-- Be Here to Love Me at the End of the World by Sasha Fletcher
-
-- Before the Coffee Gets Cold by Toshikazu Kawaguchi, trans. Geoffrey Trousselot
-
-- She is Haunted by Paige Clark
-
-- Nostalgia by Mircea Cărtărescu, trans. Julian Semilian
-
-- Swann's Way (Book One of In Search of Lost Time) by Marcel Proust, trans. Lydia Davis
-
-- The Shawl by Cynthia Ozick
-
-- All Quiet on the Western Front by Erich Maria Remarque
-
-- Two or Three Things I Know for Sure by Dorothy Allison
-
-- Flights of Love by Bernhard Schlink, trans. John E. Woods
-
-- Maus II: A Survivor's Tale: And Here My Troubles Began by Art Spiegelman
-
-- Maus I: A Survivor's Tale: My Father Bleeds History by Art Spiegelman
-
-- The Genius and the Goddess by Aldous Huxley
-
-- The Djinn in the Nightingale's Eye: Five Fairy Stories by A. S. Byatt
-
-- A Sand County Almanac: And Sketches Here and There by Aldo Leopold
-
-- Henri Duchemin and His Shadows by Emmanuel Bove, trans. Alyson Waters
-
-- Augustus by John Williams
-
-- Butcher's Crossing by John Williams
-
-- Exhalation by Ted Chiang
-
-- Sleepless Nights by Elizabeth Hardwick
-
-- The Unhappiness of Being a Single Man by Franz Kafka, trans. Alexander Starritt
-
-- Last Words from Montmartre by Qiu Miaojin, trans. Ari Larissa Heinrich
-
-- The Weight of Ink by Rachel Kadish
-
-- The Hurting Kind by Ada Limón
-
-- Then the War by Carl Phillips
-
-- Refusing Heaven by Jack Gilbert
-
-- Night Sky with Exit Wounds by Ocean Vuong
-
-- A Summer Day in the Company of Ghosts by Wang Yin, trans. Andrea Lingenfelter
-
-- A Musical Hell by Alejandra Pizarnik, trans. Yvette Siegert
-
-- The Things They Carried by Tim O'Brien
-
-- What If? 2: Additional Serious Scientific Answers to Absurd Hypothetical Questions by Randall Munroe
-
-- Turn Up the Ocean: Poems by Tony Hoagland
-
-- James Acaster's Guide to Quitting Social Media: Being the Best YOU You Can Be and Saving Yourself From Loneliness: Volume I by James Acaster
-
-- Lectures on Don Quixote by Vladimir Nabokov, ed. Fredson Bowers
-
-- Don Quixote by Miguel de Cervantes, trans. Edith Grossman
-
-- The Silmarillion by J. R. R. Tolkien, ed. Christopher Tolkien
-
-- The Professor and the Siren by Giuseppe Tomasi Di Lampedusa, trans. Stephen Twilley
-
-- The Old Man and the Sea by Ernest Hemingway
-
-- The Razor's Edge by W Somerset Maugham
-
-- The Complete Persepolis by Marjane Satrapi
-
-- Lesser Known Monsters of the 21st Century by Kim Fu
-
-- Speedboat by Renata Adler
-
-- Contact by Carl Sagan
-
-- About Abortion: Terminating Pregnancy in Twenty-First-Century America by Carol Sanger
-
-- Stories of Your Life and Others by Ted Chiang
-
-- The Seducer's Diary by Søren Kierkegaard, trans. Howard V. Hong and Edna H. Hong (Excerpted From Either/Or)
-
-- The Sea, the Sea by Iris Murdoch (#50)
-
-- Boxer (33 1/3) by Ryan Pinkard
-
-- Dubliners by James Joyce
-
-- The Year of Magical Thinking by Joan Didion
-
-- And the Earth Will Sit on the Moon: Essential Stories by Nikolai Gogol, trans. Oliver Ready
-
-- Tender is the Night by F. Scott Fitzgerald
-
-- Lives and Deaths: Essential Stories by Leo Tolstoy, trans. Boris Dralyuk
-
-- On Grand Strategy by John Lewis Gaddis
-
-- Slouching Towards Bethlehem by Joan Didion
-
-- Either/Or by Elif Batuman
-
-- The Tale of Genji by Murasaki Shikibu, trans. Royall Tyler
-
-- The Selected Poetry of Rainer Maria Rilke by Rainer Maria Rilke, trans. Stephen Mitchell
-
-- The Book of Disquiet by Fernando Pessoa, ed. Maria José de Lancastre, trans. Margaret Jull Costa
-
-- The Selected Poetry of Edna St. Vincent Millay by Edna St. Vincent Millay
-
-- Daytripper by Fábio Moon, art. Gabriel Bá
-
-- Stoner by John Williams
-
-- The Idiot by Elif Batuman
-
-- If This Isn't Nice, What Is?: The Graduation Speeches and Other Words to Live By (Third Edition) by Kurt Vonnegut
-
-- Perfume: The Story of a Murderer by Patrick Süskind, trans. John E. Woods
-
-- The Hour of the Star by Clarice Lispector, trans. Benjamin Moser
-
-- A Visit from the Goon Squad by Jennifer Egan
-
-- The Hard Hours by Anthony Hecht
-
-- Let the World Have You by Mikko Harvey
-
-- Something to Do with Paying Attention by David Foster Wallace (an excerpt from The Pale King published by McNally Editions)
-
-- The Ada Poems by Cynthia Zarin
-
-- This Is Water: Some Thoughts, Delivered on a Significant Occasion, about Living a Compassionate Life by David Foster Wallace
-
-- Zuleika Dobson: Or, an Oxford Love Story by Max Beerbohm
-
-- Selections from The David Foster Wallace Reader by David Foster Wallace
-
-- "The Planet Trillaphon as It Stands in Relation to the Bad Thing" (short story)
-
-- From Girl with Curious Hair (short story collection)
-
-- "Little Expressionless Animals"
-
-- "My Appearance"
-
-- From Brief Interviews with Hideous Men (short story collection)
-
-- "A Radically Condensed History of Postindustrial Life"
-
-- "B.I. #14"
-
-- "B.I. #40"
-
-- "Forever Overhead"
-
-- "The Depressed Person"
-
-- From Oblivion (short story collection)
-
-- "Good Old Neon"
-
-- "Incarnations of Burned Children"
-
-- "The Suffering Channel"
-
-- Teaching Materials (in toto)
-
-- Nonfiction
-
-- "E Unibus Pluram"
-
-- "Getting Away from Already Pretty Much Being Away from It All"
-
-- "A Supposedly Fun Thing I'll Never Do Again"
-
-- "The View from Mrs. Thompson's"
-
-- "Consider the Lobster"
-
-- Someone Who Will Love You in All Your Damaged Glory: Stories by Raphael Bob-Waksberg
-
-- The Loser by Thomas Bernhard, trans. Jack Dawson
-
-- I'd Die for You and Other Lost Stories by F. Scott Fitzgerald, ed. Anne Margaret Daniel
-
-- V for Vendetta by Alan Moore, art. David Lloyd
-
-- All About Love: New Visions by bell hooks
-
-- To Be a Man by Nicole Krauss
-
-- The History of Rome, Books 1-5: The Early History of Rome by Livy, trans. Aubrey de Sélincourt
-
-- No Matter the Wreckage by Sarah Kay
-
-- The Right to Sex: Feminism in the Twenty-First Century by Amia Srinivasan
-
-- Poems on the Underground ed. Judith Chernaik, Gerard Benson, Cicely Herbert
-
-- The Power by Naomi Alderman
-
-- An Amorous Discourse in the Suburbs of Hell by Deborah Levy
-
-- Galatea by Madeline Miller
-
-- The Master and Margarita by Mikhail Bulgakov, trans. Richard Pevear and Larissa Volokhonsky
-
-- Ficciones by Jorge Luis Borges, trans. Anthony Kerrigan
-
-- On the Road by Jack Kerouac
-
-- The Village: A History of Greenwich Village by John Strausbaugh
-
-- The End of the Affair by Graham Greene
-
-- Beautiful World, Where Are You by Sally Rooney
-
-- Ulysses by James Joyce, ann. Sam Slote, Marc Mamigonian, John Turner
-
-- Lectures on Literature by Vladimir Nabokov (Ulysses section only)
-
-- The Posthumous Memoirs of Brás Cubas by Machado de Assis, trans. Flora Thomson-DeVeaux
-
-### 2021
-
-- Who's Afraid of Virginia Woolf? by Edward Albee
-
-- King Leopold's Ghost by Adam Hochschild
-
-- The Stranger by Albert Camus, trans. Matthew Ward
-
-- Six Tales of the Jazz Age and Other Stories by F. Scott Fitzgerald
-
-- American Pastoral by Philip Roth
-
-- Seize the Day by Saul Bellow
-
-- Axiom's End by Lindsay Ellis
-
-- The Hours by Michael Cunningham
-
-- Rebecca by Daphne Du Maurier
-
-- Annihilation by Jeff VanderMeer
-
-- How Emotions Are Made: The Secret Life of the Brain by Lisa Feldman Barrett
-
-- Crossing to Safety by Wallace Stegner
-
-- Looking For Alaska by John Green
-
-- The Beautiful and Damned by F. Scott Fitzgerald
-
-- The O. Henry Prize Stories 2016 ed. Laura Furman
-
-- A Haunted House and Other Short Stories by Virginia Woolf
-
-- Infinite Jest by David Foster Wallace
-
-- I'm Thinking of Ending Things by Ian Reid
-
-- The Power Broker: Robert Moses and the Fall of New York by Robert A. Caro
-
-- Metamorphoses by Ovid, trans. Charles Martin
-
-- The Fifth Risk by Michael Lewis
-
-- Good Old Neon by David Foster Wallace
-
-- The Spectator Bird by Wallace Stegner
-
-- Never Let Me Go by Kazuo Ishiguro
-
-- James Acaster's Classic Scrapes by James Acaster
-
-- Back Story by David Mitchell
-
-- Information: A Very Short Introduction by Luciano Floridi
-
-- The Odyssey by Homer, trans. Emily Wilson
-
-- The Roommate by Rosie Danan
-
-- Civilization and Its Discontents by Sigmund Freud, trans. James Strachey
-
-### 2020
-
-- Alexander Hamilton by Ron Chernow
-
-- Speaker for the Dead by Orson Scott Card
-
-- A Promised Land by Barack Obama
-
-- Meditations in an Emergency by Frank O'Hara
-
-- Essential Bukowski: Poetry by Charles Bukowski, ed. Abel Debritto
-
-- Go Tell It on the Mountain by James Baldwin
-
-- A Portrait of the Artist as a Young Man by James Joyce
-
-- Narrative of the Life of Fredrick Douglass: An American Slave by Fredrick Douglass, ed. David W. Blight
-
-- Alone Together: Why We Expect More from Technology and Less from Each Other by Sherry Turkle
-
-- Orlando by Virginia Woolf
-
-- Thinking, Fast and Slow by Daniel Kahneman
-
-- "A Problem From Hell": America and the Age of Genocide by Samantha Power
-
-- Why We're Polarized by Ezra Klein
-
-- The Gettysburg Campaign: A Study in Command by Edwin B. Coddington
-
-- Lincoln in the Bardo by George Saunders
-
-- Citizens: A Chronicle of the French Revolution by Simon Schama
-
-- Men Without Women by Haruki Murakami, trans. Philip Gabriel and Ted Goosen
-
-- Conversations With Friends by Sally Rooney
-
-- The Three Theban Plays: Antigone, Oedipus the King, Oedipus at Colonus by Sophocles, trans. Robert Fagles
-
-- The Love of the Last Tycoon by F. Scott Fitzgerald, ed. Matthew J. Bruccoli
-
-- The Waves by Virginia Woolf
-
-- A Dreamer's Tales by Lord Dunsany
-
-- Death in Venice by Thomas Mann, trans. Joachim Neugroschel
-
-- How To by Randall Munroe
-
-- Spoon River Anthology by Edgar Lee Masters
-
-### 2019
-
-- Brave New World by Aldous Huxley
-
-- Howl and Other Poems by Allen Ginsberg
-
-- The Power and the Glory by Graham Greene
-
-- Mrs. Dalloway by Virginia Woolf
-
-- Cassandra: A Novel and Four Essays by Christa Wolf, trans. Jan Van Heurck
-
-- Lysistrata by Aristophanes, trans. Douglass Parker
-
-- A Doll's House by Henrik Ibsen, Bartholomew House translation, ed. Philip Smith
-
-- Pride and Prejudice and Zombies by Jane Austen and Seth Grahame-Smith
-
-- Pride and Prejudice by Jane Austen
-
-- History of the Peloponnesian War by Thucydides, trans. Rex Warner
-
-- Reading Lolita in Tehran: A Memoir in Books by Azar Nafisi
-
-- This Side of Paradise by F. Scott Fitzgerald
-
-- Tokyo Ghoul, Volume 1 by Sui Ishida, trans. Joe Yamazaki
-
-- Middlesex by Jeffrey Eugenides
-
-- A Room of One's Own by Virginia Woolf
-
-- Heart of Darkness & The Secret Sharer by Joseph Conrad
-
-- Siddhartha by Herman Hesse, trans. Stanley Appelbaum
-
-- The Things They Carried by Tim O'Brien
-
-- Logan's Run by William F. Nolan and George Clayton Johnson
-
-- The Testaments by Margaret Atwood
-
-- The Course of Love by Alain de Botton
-
-- The Waves by Virginia Woolf
-
-- Black Venus by Angela Carter
-
-- The Crack Up (Alma Classics Edition With Notebooks) by F. Scott Fitzgerald
-
-- Storm of Steel by Ernst Jünger, trans. Michael Hoffmann
-
-- The Mighty Dead: Why Homer Matters by Adam Nicolson
-
-- Normal People by Sally Rooney
-
-- Women and Power: A Manifesto (Updated) by Mary Beard
-
-- Wuthering Heights by Emily Brontë
-
-- The Bell Jar by Sylvia Plath
-
-- Trimalchio's Feast by Petronius, trans. J. P. Sullivan
-
-- To The Lighthouse by Virginia Woolf
-
-- The Vegetarian by Han Kang, trans. Deborah Smith
-
-- Pale Fire by Victor Nabokov
-
-- Scott Fitzgerald by Andrew Turnbull
-
-- Autobiography by Morrissey
-
-- Circe by Madeline Miller
-
-- Achilles in Vietnam by Jonathan Shay
-
-- The Turn of the Screw by Henry James
-
-- The Maltese Falcon by Dashiell Hammett
-
-- The Crying of Lot 49 by Thomas Pynchon
-
-- The Catcher in the Rye by J. D. Salinger
-
-- The Oresteia by Aeschylus, trans. Robert Fagles
-
-- The Crack Up by F. Scott Fitzgerald
-
-- The Histories by Herodotus, trans. Tom Holland
-
-- Gatsby at Trinity by Ian Flintoff
-
-- If Not, Winter: Fragments of Sappho by Sappho, trans. Anne Carson
-
-- The Song of Achilles by Madeline Miller
-
-- One Flew Over the Cuckoo's Nest by Ken Kesey
-
-- The Twelve Caesars by Suetonius, trans. Robert Graves
-
-- The Symposium by Plato, trans. Christopher Gill
-
-- Sir Gawain and the Green Knight trans. Simon Armitage
-
-- So We Read On: How The Great Gatsby Came to Be and Why It Endures by Maureen Corrigan
-
-### 2018
-
-- The Last Lecture by Randy Pausch
-
-- The Guns of August by Barbara W. Tuchman
-
-- A Farewell to Arms by Ernest Hemingway
-
-- I, Robot by Isaac Asimov
-
-- King Lear by William Shakespeare
-
-- The Shadow of the Wind by Carlos Ruiz Zafón, trans. Lucia Graves
-
-- X Y & Z: The Real Story of How Enigma Was Broken by Dermot Turing
-
-- Hamlet by William Shakespeare
-
-- The Diamond as Big as the Ritz by F. Scott Fitzgerald
-
-- Scott Pilgrim's Finest Hour by Bryan Lee O'Malley
-
-- Scott Pilgrim vs. the Universe by Bryan Lee O'Malley
-
-- Scott Pilgrim Gets It Together by Bryan Lee O'Malley
-
-- Scott Pilgrim and the Infinite Sadness by Bryan Lee O'Malley
-
-- Scott Pilgrim vs. the World by Bryan Lee O'Malley
-
-- The Last Samurai by Helen Dewitt
-
-- Scott Pilgrim's Miserable Little Life by Bryan Lee O'Malley
-
-- Faust: Part I by Goethe, trans. David Luke
-
-- Do Androids Dream of Electric Sheep? By Philip K. Dick
-
-- Norwegian Wood by Haruki Murakami, trans. Jay Rubin
-
-- Claudius The God by Robert Graves
-
-- I, Claudius by Robert Graves
-
-- The Communist Manifesto by Karl Marx and Frederick Engels
-
-- The Testament of Gideon Mack by James Robertson
-
-- Useless Magic by Florence Welch
-
-- Beloved by Toni Morrison
-
-- Beowulf, trans. Seamus Heaney
-
-- Gilgamesh (by Sîn-lēqi-unninni), trans. Stephen Mitchell
-
-- The Metamorphosis by Franz Kafka, trans. Stanley Corngold
-
-- List of the Lost by Morrissey
-
-- The Gallic War by Julius Caesar, trans. Carolyn Hammond
-
-- The History of Love by Nicole Krauss
-
-- The Pearl by John Steinbeck
-
-- Player Piano by Kurt Vonnegut
-
-- The Aeneid by Virgil, trans. Robert Fagles
-
-- The Poems of Catullus by Catullus, trans. Horace Gregory
-
-- Lolita by Victor Nabokov
-
-- Watchmen by Alan Moore, art. Dave Gibbons
-
-- The Odyssey by Homer, trans. Robert Fagles
-
-- The Iliad by Homer, trans. Robert Fagles
-
-- The Picture of Dorian Gray by Oscar Wilde
-
-- The Restaurant at the End of the Universe by Douglas Adams
-
-- The Canterbury Tales by Geoffery Chaucer, trans. R. M. Lumainsky
-
-- The Handmaid's Tale by Margaret Atwood
-
-- Hocus Pocus by Kurt Vonnegut
-
-- The Last Unicorn by Peter Beagle
-
-- The Hitchhiker's Guide to the Galaxy by Douglas Adams
-
-- A Clockwork Orange by Anthony Burgess
-
-- Left Hand of Darkness by Ursula K. Le Guin
-
-### 2017
-
-- The Storm Before the Storm by Mike Duncan
-
-- Judgment at Appomattox by Ralph Peters
-
-- Cat's Cradle by Kurt Vonnegut
-
-- This Side of Paradise by F. Scott Fitzgerald
-
-- The Sign of the Four by Sir Arthur Conan Doyle
-
-- A Study in Scarlet by Sir Arthur Conan Doyle
-
-- Prisoners of Geography by Tim Marshall
-
-- When Breath Becomes Air by Paul Kalanithi
-
-- The Graduate by Charles Webb
-
-- The Curious Incident of the Dog in the Nighttime by Mark Haddon
-
-- The Divine Comedy: Inferno by Dante Alighieri, trans. C. H. Sisson
-
-- Superintelligence: Paths, Dangers, Strategies by Nick Bostrom
-
-- The Princess Bride by William Goldman
-
-- The Screwtape Letters by C.S. Lewis

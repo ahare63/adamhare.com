@@ -1,9 +1,11 @@
 ---
 // Inline SVG map with regions highlighted from a {code, name} list; hover tooltips.
-import { readFileSync } from 'node:fs';
+import worldSvg from '../assets/maps/world.svg?raw';
+import usSvg from '../assets/maps/us.svg?raw';
 const { map, regions, title } = Astro.props; // map: 'world' | 'us'
-let svg = readFileSync(new URL(`../assets/maps/${map}.svg`, import.meta.url), 'utf-8');
-svg = svg.replace(/<\?xml[^>]*\?>/g, '').replace(/<!DOCTYPE[^>]*>/g, '');
+let svg = (map === 'world' ? worldSvg : usSvg)
+  .replace(/<\?xml[^>]*\?>/g, '')
+  .replace(/<!DOCTYPE[^>]*>/g, '');
 const data = Object.fromEntries(regions.map((r) => [r.code, r.name]));
 ---
 <figure class="map-wrap" data-map={map}>
@@ -14,6 +16,23 @@ const data = Object.fromEntries(regions.map((r) => [r.code, r.name]));
 
 <script>
   let tip = null;
+  // Re-appliable so the Travel page's live sheet refresh can update regions.
+  window.applyVisited = function (wrap, visited) {
+    const svg = wrap.querySelector('svg');
+    if (!svg) return;
+    for (const el of svg.querySelectorAll('.visited')) el.classList.remove('visited');
+    for (const [code, name] of Object.entries(visited)) {
+      const el = svg.querySelector(`#${code.toLowerCase()}`) || svg.querySelector(`#${code}`);
+      if (!el) continue;
+      el.classList.add('visited');
+      if (!el.dataset.tipBound) {
+        el.dataset.tipBound = '1';
+        el.addEventListener('mousemove', (e) => showTip(el.dataset.tipName, e.clientX, e.clientY));
+        el.addEventListener('mouseleave', hideTip);
+      }
+      el.dataset.tipName = name;
+    }
+  };
   function showTip(text, x, y) {
     if (!tip) {
       tip = document.createElement('div');
@@ -30,15 +49,7 @@ const data = Object.fromEntries(regions.map((r) => [r.code, r.name]));
   }
   for (const wrap of document.querySelectorAll('.map-wrap')) {
     const dataEl = wrap.querySelector('[data-visited]');
-    const svg = wrap.querySelector('svg');
-    if (!dataEl || !svg) continue;
-    const visited = JSON.parse(dataEl.textContent || '{}');
-    for (const [code, name] of Object.entries(visited)) {
-      const el = svg.querySelector(`#${code.toLowerCase()}`) || svg.querySelector(`#${code}`);
-      if (!el) continue;
-      el.classList.add('visited');
-      el.addEventListener('mousemove', (e) => showTip(name, e.clientX, e.clientY));
-      el.addEventListener('mouseleave', hideTip);
-    }
+    if (!dataEl) continue;
+    window.applyVisited(wrap, JSON.parse(dataEl.textContent || '{}'));
   }
 </script>

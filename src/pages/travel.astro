@@ -1,0 +1,123 @@
+---
+import Base from '../layouts/Base.astro';
+import VisitedMap from '../components/VisitedMap.astro';
+import travel from '../data/travel.json';
+import * as travelMd from '../content/travel.md';
+
+// Split the markdown at its first <h2> (the Photos section) so the intro
+// sits above the maps and the photos below them.
+const html = await travelMd.compiledContent();
+const cut = html.indexOf('<h2');
+const introHtml = cut === -1 ? html : html.slice(0, cut);
+let photosHtml = cut === -1 ? '' : html.slice(cut);
+
+// Markdown images carry their captions in alt text; turn each into a
+// <figure> with a visible caption and group runs of them into photo grids.
+photosHtml = photosHtml.replace(/<p><img ([^>]*?)\/?><\/p>/g, (m, attrs) => {
+  const alt = (attrs.match(/alt="([^"]*)"/) || [])[1] || '';
+  return `<figure><img ${attrs.replace(/\s*\/$/, '')} loading="lazy" /><figcaption>${alt}</figcaption></figure>`;
+});
+photosHtml = photosHtml.replace(/(?:<figure>[\s\S]+?<\/figure>\s*)+/g, (m) => `<div class="photo-grid">${m}</div>`);
+
+const abroad = travel.countries.filter((c) => c.code !== 'US');
+const worldRegions = [{ code: 'US', name: 'United States' }, ...abroad];
+const hasDC = travel.states.some((s) => s.code === 'DC');
+const stateCount = travel.states.length - (hasDC ? 1 : 0);
+const years = abroad.flatMap((c) => (c.years.match(/\d{4}/g) || []).map(Number));
+const firstYear = years.length ? Math.min(...years) : 2017;
+---
+<Base title="Travel" description="Countries and US states Adam Hare has visited, with photos." wide>
+  <h1>Travel</h1>
+  <div class="prose" set:html={introHtml} />
+
+  <p class="travel-stats sans">
+    <strong>{abroad.length}</strong> countries beyond the US ·
+    <strong>{stateCount}{hasDC ? ' + DC' : ''}</strong> US states · first trip abroad <strong>{firstYear}</strong>
+  </p>
+  <p class="travel-note" id="travel-note" hidden></p>
+
+  <VisitedMap map="world" regions={worldRegions} title="Countries" />
+  <details class="country-list">
+    <summary>Every country, with years</summary>
+    <ul id="country-list">
+      {abroad.toSorted((a, b) => a.name.localeCompare(b.name)).map((c) => (
+        <li><span>{c.name}</span><span class="yrs">{c.years}</span></li>
+      ))}
+    </ul>
+  </details>
+
+  <VisitedMap map="us" regions={travel.states} title="US States" />
+
+  <div class="prose" set:html={photosHtml} />
+
+  <p class="map-credit">
+    World map adapted from <a href="https://github.com/flekschas/simple-world-map">simple-world-map</a>
+    (Al MacDonald / Fritz Lekschas, <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>);
+    US map from <a href="https://commons.wikimedia.org/wiki/File:Blank_US_Map_(states_only).svg">Wikimedia Commons</a> (CC0).
+  </p>
+
+  <style>
+    .travel-stats { font-size: 1.05rem; }
+    .travel-note { color: var(--ink-soft); font-size: 0.85rem; }
+    .country-list { margin: 1rem 0 2rem; }
+    .country-list summary { cursor: pointer; color: var(--accent); }
+    .country-list ul {
+      list-style: none; padding: 0.8rem 0 0;
+      columns: 3; column-gap: 2rem;
+    }
+    .country-list li {
+      display: flex; justify-content: space-between; gap: 1rem;
+      break-inside: avoid; font-size: 0.92rem;
+      border-bottom: 1px solid var(--rule); padding: 0.2rem 0;
+    }
+    .yrs { color: var(--ink-soft); }
+    .map-credit { font-size: 0.78rem; color: var(--ink-soft); margin-top: 2.5rem; }
+    @media (max-width: 700px) { .country-list ul { columns: 2; } }
+    @media (max-width: 480px) { .country-list ul { columns: 1; } }
+  </style>
+
+  <script>
+    // Live refresh from the Travel-Public sheet: edits to the sheet show up
+    // on page load without a site rebuild. Falls back silently to the
+    // build-time snapshot already rendered.
+    import { fetchSheet } from '../lib/travel-map.js';
+    try {
+      const { countries, states, unknown } = await fetchSheet();
+      const abroad = countries.filter((c) => c.code !== 'US');
+      if (abroad.length) {
+        const world = Object.fromEntries([['US', 'United States'], ...abroad.map((c) => [c.code, c.name])]);
+        const us = Object.fromEntries(states.map((s) => [s.code, s.name]));
+        window.applyVisited(document.querySelector('[data-map="world"]'), world);
+        window.applyVisited(document.querySelector('[data-map="us"]'), us);
+        const hasDC = states.some((s) => s.code === 'DC');
+        const years = abroad.flatMap((c) => (c.years.match(/\d{4}/g) || []).map(Number));
+        const stats = document.querySelector('.travel-stats');
+        if (stats) {
+          const strongs = stats.querySelectorAll('strong');
+          strongs[0].textContent = String(abroad.length);
+          strongs[1].textContent = `${states.length - (hasDC ? 1 : 0)}${hasDC ? ' + DC' : ''}`;
+          if (years.length) strongs[2].textContent = String(Math.min(...years));
+        }
+        const list = document.getElementById('country-list');
+        if (list) {
+          list.innerHTML = abroad
+            .toSorted((a, b) => a.name.localeCompare(b.name))
+            .map((c) => {
+              const li = document.createElement('li');
+              const n = document.createElement('span'); n.textContent = c.name;
+              const y = document.createElement('span'); y.className = 'yrs'; y.textContent = c.years;
+              li.append(n, y);
+              return li.outerHTML;
+            }).join('');
+        }
+        if (unknown.length) {
+          const note = document.getElementById('travel-note');
+          note.textContent = `Couldn't place on the map (check spelling in the sheet): ${unknown.join(', ')}`;
+          note.hidden = false;
+        }
+      }
+    } catch {
+      /* offline or sheet unreachable — snapshot already rendered */
+    }
+  </script>
+</Base>
