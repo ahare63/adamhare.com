@@ -117,7 +117,7 @@ I read a lot and my tastes are rather varied. Below I've included a few favorite
 - *They Thought They Were Free: The Germans, 1933-45* by Milton Mayer
 - *The Supreme Court Footnote: A Surprising History* by Peter Charles Hoffer
 - *Erebus: The Story of a Ship* by Michael Palin
-- *Kronberg: A Living Castle* by Anette Molbech and Kurt Rodahl Hoppe
+- *Kronborg: A Living Castle* by Anette Molbech and Kurt Rodahl Hoppe
 - *The Viking Sorceress: Step into the Lost World of the Vikings* by Rane Willerslev, et al
 - *The Story of Amis & Amile Done Out of the Ancient French Into English* by William Morris
 - *The Saga of the Volsungs*, trans. Jesse L. Byock
