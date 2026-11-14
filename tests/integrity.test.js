@@ -136,9 +136,11 @@ describe('built site integrity', () => {
   it('each favorite is a button that opens the book card, linked to its reading-list entry when there is one', () => {
     const html = readFileSync(join(DIST, 'books/index.html'), 'utf-8');
     const island = JSON.parse(html.match(/<script type="application\/json" id="books-data">([\s\S]*?)<\/script>/)[1]);
-    const { favorites } = JSON.parse(readFileSync(new URL('../src/data/books.json', import.meta.url), 'utf-8'));
+    const { favorites, longTerm } = JSON.parse(readFileSync(new URL('../src/data/books.json', import.meta.url), 'utf-8'));
     const buttons = [...html.matchAll(/<button[^>]*class="fav-open"[^>]*>/g)].map((m) => m[0]);
-    expect(buttons.length).toBe(favorites.length);
+    expect(buttons.length).toBe(favorites.length + longTerm.length);
+    const withBlurb = [...favorites, ...longTerm].find((f) => f.blurb);
+    expect(html, 'a favorite\'s own description is on its button').toContain(withBlurb.blurb.slice(0, 40).replace(/&/g, '&amp;'));
     const linked = buttons.map((b) => b.match(/data-i="(\d+)"/)).filter(Boolean).map((m) => island[Number(m[1])].title);
     expect(linked).toContain('The Great Gatsby');
     expect(linked).toContain('Stoner');

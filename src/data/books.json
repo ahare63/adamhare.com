@@ -28,13 +28,15 @@
       "title": "Flowers for Algernon",
       "author": "Daniel Keyes",
       "category": "fiction",
-      "image": "/images/books/ace5252ef5f98599b17ae2bf8c82370b.jpg"
+      "image": "/images/books/ace5252ef5f98599b17ae2bf8c82370b.jpg",
+      "blurb": "Until he was thirty-two, Charlie Gordon — gentle, amiable, oddly engaging — had lived in a kind of mental twilight. He knew knowledge was important and had learned to read and write after a fashion, but he also knew he wasn't nearly as bright as most of the people around him. There was even a white mouse named Algernon who outpaced Charlie in some ways. But a remarkable operation had been performed on Algernon, and now he was a genius among mice. Suppose Charlie underwent a similar operation..."
     },
     {
       "title": "Rebecca",
       "author": "Daphne du Maurier",
       "category": "fiction",
-      "image": "/images/books/700aa4efbd6e87d90fc7abaef16306cb.jpg"
+      "image": "/images/books/700aa4efbd6e87d90fc7abaef16306cb.jpg",
+      "blurb": "“Last night I dreamt I went to Manderley again.” With these words, the reader is ushered into an isolated gray stone mansion on the windswept Cornish coast, as the second Mrs. Maxim de Winter recalls the chilling events that transpired as she began her new life as the young bride of a husband she barely knew. For in every corner of every room were phantoms of a time dead but not forgotten — a past devotedly preserved by the sinister housekeeper, Mrs. Danvers."
     },
     {
       "title": "Contact",
@@ -64,19 +66,22 @@
       "title": "What If?",
       "author": "Randall Munroe",
       "category": "non-fiction",
-      "image": "/images/books/1fdb57a3f32ae747a4b62992587557f6.jpg"
+      "image": "/images/books/1fdb57a3f32ae747a4b62992587557f6.jpg",
+      "blurb": "Fans of xkcd ask Randall Munroe a lot of strange questions. What if you tried to hit a baseball pitched at 90 percent the speed of light? How fast can you hit a speed bump while driving and live? If there was a robot apocalypse, how long would humanity last? In pursuit of answers, Munroe runs computer simulations, pores over stacks of declassified military research memos, solves differential equations, and consults with nuclear reactor operators. His responses are masterpieces of clarity and hilarity, complemented by signature xkcd comics."
     },
     {
       "title": "Battle Cry of Freedom",
       "author": "James McPherson",
       "category": "non-fiction",
-      "image": "/images/books/a4a85011e6c8d46a9e3de35912c98715.jpg"
+      "image": "/images/books/a4a85011e6c8d46a9e3de35912c98715.jpg",
+      "blurb": "Battle Cry of Freedom: The Civil War Era is a military, political, and social history of the American Civil War. The book won the 1989 Pulitzer Prize for History."
     },
     {
       "title": "Usual Cruelty",
       "author": "Alec Karakatanis",
       "category": "non-fiction",
-      "image": "/images/books/e681bed7c36c455205d290a90a0c9cf0.jpg"
+      "image": "/images/books/e681bed7c36c455205d290a90a0c9cf0.jpg",
+      "blurb": "From an award-winning civil rights lawyer, a profound challenge to our society's normalization of the caging of human beings, and the role of the legal profession in perpetuating it."
     },
     {
       "title": "Achilles in Vietnam",
@@ -88,7 +93,8 @@
       "title": "\"A Problem From Hell\"",
       "author": "Samantha Power",
       "category": "non-fiction",
-      "image": "/images/books/4777b41e559c32b86ed1a955e9d2da91.jpg"
+      "image": "/images/books/4777b41e559c32b86ed1a955e9d2da91.jpg",
+      "blurb": "Samantha Power poses a question that haunts our nation's past: Why do American leaders who vow “never again” repeatedly fail to marshal the will and the might to stop genocide? She provides the answer in the form of the suspenseful story of courageous individuals who risked their careers and lives in an effort to get the United States to act."
     },
     {
       "title": "Twenty Love Poems and a Song of Despair",
@@ -106,7 +112,8 @@
       "title": "Gilgamesh",
       "author": "Sophus Helle",
       "category": "poetry",
-      "image": "/images/books/1d771763492fd2959656928cde0aaf96.jpg"
+      "image": "/images/books/1d771763492fd2959656928cde0aaf96.jpg",
+      "blurb": "Gilgamesh dates from as early as 1700 BCE — a thousand years before the Iliad. Lost for almost two millennia, the eleven clay tablets on which the epic was inscribed were discovered in 1853 in the ruins of Nineveh. The epic is the story of literature's first hero — the king of Uruk in what is present-day Iraq — and his journey of self-discovery."
     },
     {
       "title": "100 Selected Poems",
@@ -118,13 +125,15 @@
       "title": "The Best of It",
       "author": "Kay Ryan",
       "category": "poetry",
-      "image": "/images/books/5a90c5c6fc2e190ddb4c72ee6ddf5f62.jpg"
+      "image": "/images/books/5a90c5c6fc2e190ddb4c72ee6ddf5f62.jpg",
+      "blurb": "Kay Ryan was the sixteenth Poet Laureate of the United States, from 2008 to 2010. Here are her own selections of more than two hundred poems, offering both longtime followers and new readers a retrospective of her earlier work as well as a generous selection of new poems."
     },
     {
       "title": "Eros the Bittersweet",
       "author": "Anne Carson",
       "category": "poetry",
-      "image": "/images/books/b533d981c74e7adcc74fdfdcf7e72806.jpg"
+      "image": "/images/books/b533d981c74e7adcc74fdfdcf7e72806.jpg",
+      "blurb": "A book about romantic love, Eros the Bittersweet is Anne Carson's exploration of the concept of “eros” in both classical philosophy and literature. Beginning with, “It was Sappho who first called eros ‘bittersweet.’ No one who has been in love disputes her,” Carson examines her subject from numerous points of view."
     }
   ],
   "longTerm": [
@@ -132,7 +141,8 @@
       "title": "Constitutional Law",
       "author": "Erwin Chemerinsky",
       "note": "(casebook)",
-      "image": "/images/books/d11e4ef7b554c523992337facfb39887.jpg"
+      "image": "/images/books/d11e4ef7b554c523992337facfb39887.jpg",
+      "blurb": "A comprehensive, accessible text that presents the law solely through case excerpts and author-written essays."
     },
     {
       "title": "The New Oxford Annotated Bible",
@@ -142,7 +152,8 @@
       "title": "Ο Μεγάλος Γκάτσμπυ",
       "author": "F. Scott Fitzgerald, trans. Άρις Μπερλής",
       "note": "(Greek translation of The Great Gatsby)",
-      "image": "/images/books/ecc81349943c82a89b5ff16f9eb1c6ba.jpg"
+      "image": "/images/books/ecc81349943c82a89b5ff16f9eb1c6ba.jpg",
+      "blurb": "It is the story of this Jay Gatsby who came so mysteriously to West Egg, of his sumptuous entertainments, and of his love for Daisy Buchanan — a story that ranges from pure lyrical beauty to sheer brutal realism, and is infused with a sense of the strangeness of human circumstance in a heedless universe."
     }
   ]
 }

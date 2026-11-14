@@ -89,6 +89,7 @@ const json = JSON.stringify(books).replace(/</g, '\\u003c');
                 data-title={b.title}
                 data-author={b.author}
                 data-cover={b.image}
+                data-blurb={b.blurb}
               >
                 {b.image && <img src={b.image} alt="" loading="lazy" />}
                 <span class="meta"><em>{b.title}</em> by {b.author}</span>
@@ -106,10 +107,12 @@ const json = JSON.stringify(books).replace(/</g, '\\u003c');
       <ul class="favorites" style={`--n:${booksData.longTerm.length}`} data-n={booksData.longTerm.length}>
         {booksData.longTerm.map((b) => (
           <li>
-            {b.image && <img src={b.image} alt={b.title} loading="lazy" />}
-            <span class="meta">
-              <em>{b.title}</em>{b.author && <> by {b.author}</>}{b.note && <> {b.note}</>}
-            </span>
+            <button type="button" class="fav-open" data-title={b.title} data-author={b.author} data-cover={b.image} data-blurb={b.blurb}>
+              {b.image && <img src={b.image} alt="" loading="lazy" />}
+              <span class="meta">
+                <em>{b.title}</em>{b.author && <> by {b.author}</>}{b.note && <> {b.note}</>}
+              </span>
+            </button>
           </li>
         ))}
       </ul>
@@ -599,9 +602,9 @@ const json = JSON.stringify(books).replace(/</g, '\\u003c');
 
     // A favorite keeps its own hand-picked cover on the card.
     document.querySelectorAll('.fav-open').forEach((f) => f.addEventListener('click', () => {
-      const { i, title, author, cover } = f.dataset;
-      if (i != null) openCard(Number(i), { cover });
-      else openCard(null, { title, author, cover });
+      const { i, title, author, cover, blurb } = f.dataset;
+      if (i != null) openCard(Number(i), { cover, blurb: books[Number(i)].blurb ?? blurb });
+      else openCard(null, { title, author, cover, blurb });
     }));
 
     scrub.addEventListener('input', () => select(Number(scrub.value)));
