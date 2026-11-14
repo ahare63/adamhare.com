@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import * as md from '../content/background.md';
+import { panelize } from '../lib/panels.js';
 
 // The page is long, so each h3 subsection (roles, degrees) collapses; the
 // first in each h2 group (current role, most recent degree) starts open.
@@ -15,18 +16,16 @@ html = html.replace(
     return `<details${attr}><summary>${heading}</summary>${body}</details>`;
   }
 );
+html = panelize(html);
 ---
 <Base title={md.frontmatter.title} description={md.frontmatter.description} banner="/images/banners/background.jpg" bannerTitle={md.frontmatter.title} bannerPosition="center 45%">
   <p class="lede">
     Where I’ve worked and what I studied: my roles at Zoomi, the Air Force Institute of Technology and
     LexisNexis, and my degrees from Oxford and Princeton. Each entry expands for the details.
   </p>
-  <div class="background" set:html={html} />
+  <Fragment set:html={html} />
 
   <style>
-    .background :global(img) { max-height: 220px; width: auto; max-width: 100%; }
-    .background :global(details) { border-top: 1px solid var(--rule); }
-    .background :global(summary) { cursor: pointer; padding: 0.45rem 0; }
-    .background :global(summary h3) { display: inline; margin: 0; }
+    :global(.panel img) { max-height: 220px; width: auto; max-width: 100%; }
   </style>
 </Base>

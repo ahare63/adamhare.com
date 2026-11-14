@@ -196,6 +196,22 @@ html[data-lb="1"] .lb-off { display: inline; }
 .card h3 { margin: 0 0 0.3rem; font-size: 1.05rem; color: var(--accent); }
 .card p { margin: 0; font-size: 0.9rem; color: var(--ink-soft); }
 
+/* Top-level page sections (lib/panels.js): alternating white and tinted panels. */
+.panel {
+  --panel-rule: var(--rule);
+  background: #fff;
+  border-radius: 6px;
+  padding: 0.4rem 1.5rem 1rem;
+  margin: 1.5rem 0;
+}
+main > .panel:first-child { margin-top: 0; }
+.panel:nth-of-type(even) { background: #e9e5da; --panel-rule: #d3cec1; }
+.panel > h2 { border-top: none; margin-top: 1rem; padding-top: 0; }
+.panel details { border-top: 1px solid var(--panel-rule); }
+.panel blockquote { border-left-color: var(--panel-rule); }
+.panel summary { cursor: pointer; padding: 0.45rem 0; }
+.panel summary h3 { display: inline; margin: 0; }
+
 /* Masonry: every photo keeps its own aspect ratio (no cropping). */
 .photo-grid {
   columns: 3 15rem;
@@ -237,4 +253,5 @@ html[data-lb="1"] .lb-off { display: inline; }
   :root { font-size: 16px; }
   h1 { font-size: 1.9rem; }
   .site-header { padding-top: 1rem; }
+  .panel { padding: 0.2rem 1rem 0.8rem; }
 }
