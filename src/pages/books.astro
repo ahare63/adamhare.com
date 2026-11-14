@@ -11,7 +11,6 @@ import { originalLanguage } from '../lib/languages.js';
 import { pagesOf, pageStats, roundedPages } from '../lib/pages.js';
 
 const groups = [
-  ['top', null],
   ['fiction', 'Fiction'],
   ['non-fiction', 'Non-fiction'],
   ['poetry', 'Poetry'],
@@ -94,7 +93,7 @@ const json = JSON.stringify(books).replace(/</g, '\\u003c');
     const items = booksData.favorites.filter((b) => b.category === cat);
     return items.length ? (
       <>
-        {label && <h3>{label}</h3>}
+        <h3>{label}</h3>
         <ul class="favorites" style={`--n:${items.length}`} data-n={items.length}>
           {items.map((b) => (
             <li>
@@ -126,7 +125,7 @@ const json = JSON.stringify(books).replace(/</g, '\\u003c');
             <button type="button" class="fav-open" data-title={b.title} data-author={b.author} data-cover={b.image} data-blurb={b.blurb}>
               {b.image && <img src={b.image} alt="" loading="lazy" />}
               <span class="meta">
-                <em>{b.title}</em>{b.author && <> by {b.author}</>}{b.note && <> {b.note}</>}
+                <em>{b.title}</em>{b.author && <> by {b.author}</>}{b.note && <>{' '}{b.note}</>}
               </span>
             </button>
           </li>
@@ -281,9 +280,13 @@ const json = JSON.stringify(books).replace(/</g, '\\u003c');
       grid-template-columns: repeat(var(--n), minmax(0, 1fr));
       gap: 1.2rem;
     }
-    .favorites[data-n="3"] { max-width: 32rem; }
+    /* Same cover width as a row of six, spread across the full width. */
+    .favorites[data-n="3"] {
+      grid-template-columns: repeat(3, calc((100% - 6rem) / 6));
+      justify-content: space-between;
+    }
     @media (max-width: 700px) {
-      .favorites[data-n="6"] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .favorites[data-n="6"], .favorites[data-n="3"] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     }
     @media (max-width: 420px) {
       .favorites[data-n="6"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }

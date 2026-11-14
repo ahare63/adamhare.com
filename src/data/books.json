@@ -3,19 +3,19 @@
     {
       "title": "The Great Gatsby",
       "author": "F. Scott Fitzgerald",
-      "category": "top",
+      "category": "fiction",
       "image": "/images/books/c78e16f34fd2e7743f925a25e98c3306.jpg"
     },
     {
       "title": "The Waves",
       "author": "Virginia Woolf",
-      "category": "top",
-      "image": "/images/books/f6ea52d995e82ff0bd03f451ad517dd2.jpg"
+      "category": "fiction",
+      "image": "/images/books/the-waves-harvest.jpg"
     },
     {
       "title": "The Things They Carried",
       "author": "Tim O'Brien",
-      "category": "top",
+      "category": "fiction",
       "image": "/images/books/04010ffe82f7af90f4db70c3b64d0bbd.jpg"
     },
     {
@@ -25,13 +25,6 @@
       "image": "/images/books/e8bca4ab516e3cd66c1d1484310ad016.jpg"
     },
     {
-      "title": "Flowers for Algernon",
-      "author": "Daniel Keyes",
-      "category": "fiction",
-      "image": "/images/books/ace5252ef5f98599b17ae2bf8c82370b.jpg",
-      "blurb": "Until he was thirty-two, Charlie Gordon — gentle, amiable, oddly engaging — had lived in a kind of mental twilight. He knew knowledge was important and had learned to read and write after a fashion, but he also knew he wasn't nearly as bright as most of the people around him. There was even a white mouse named Algernon who outpaced Charlie in some ways. But a remarkable operation had been performed on Algernon, and now he was a genius among mice. Suppose Charlie underwent a similar operation..."
-    },
-    {
       "title": "Rebecca",
       "author": "Daphne du Maurier",
       "category": "fiction",
@@ -39,22 +32,10 @@
       "blurb": "“Last night I dreamt I went to Manderley again.” With these words, the reader is ushered into an isolated gray stone mansion on the windswept Cornish coast, as the second Mrs. Maxim de Winter recalls the chilling events that transpired as she began her new life as the young bride of a husband she barely knew. For in every corner of every room were phantoms of a time dead but not forgotten — a past devotedly preserved by the sinister housekeeper, Mrs. Danvers."
     },
     {
-      "title": "Contact",
-      "author": "Carl Sagan",
-      "category": "fiction",
-      "image": "/images/books/d0898c2ccabfa5cea93853083e677026.jpg"
-    },
-    {
-      "title": "Stoner",
+      "title": "Butcher's Crossing",
       "author": "John Williams",
       "category": "fiction",
-      "image": "/images/books/19432544c4ec60dd7d4edb8e88f3ce20.jpg"
-    },
-    {
-      "title": "The Spectator Bird",
-      "author": "Wallace Stegner",
-      "category": "fiction",
-      "image": "/images/books/072afc1ebf821a47eae7001e43d77553.jpg"
+      "image": "/images/books/butchers-crossing.jpg"
     },
     {
       "title": "The Power Broker",

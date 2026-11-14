@@ -212,7 +212,7 @@ describe('built site integrity', () => {
     expect(html, 'a favorite\'s own description is on its button').toContain(withBlurb.blurb.slice(0, 40).replace(/&/g, '&amp;'));
     const linked = buttons.map((b) => b.match(/data-i="(\d+)"/)).filter(Boolean).map((m) => island[Number(m[1])].title);
     expect(linked).toContain('The Great Gatsby');
-    expect(linked).toContain('Stoner');
+    expect(linked).toContain("Butcher's Crossing");
     expect(linked.length).toBeGreaterThanOrEqual(12);
   });
 
