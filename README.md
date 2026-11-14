@@ -18,8 +18,12 @@ Personal site, built with [Astro](https://astro.build) and deployed to GitHub Pa
 - **Read in translation**: a translated book (one with `trans.`) is counted under its original language from
   `src/data/languages.json` (`authors` by lower-cased name, `titles` for books with no author). A new translated
   author needs a line there, otherwise the book is counted as "not recorded".
+- **Books on the Travel map**: a new author needs a line in `src/data/author-countries.json` (ISO-2 codes, more than
+  one if it fits; `titles` for books with no author) to show up in the Travel page's country panel.
 - **Fallback covers**: books not in `library.json` use `src/data/covers.json` (`npm run fetch:covers`, Open Library;
   the id is the number in a `covers.openlibrary.org/b/id/<id>-M.jpg` URL, `null` shows a plain cover).
+- **Concert map**: a concert in a new city needs a line in `src/lib/places.js` (`placeOfCity`) to appear on the Music
+  page's map; `npm test` fails and names any city that is missing.
 - **Travel maps**: edit the "Travel-Public" Google Sheet (Countries / States tabs). The live page re-fetches
   the sheet on every visit, so changes show up immediately; the build also snapshots it
 

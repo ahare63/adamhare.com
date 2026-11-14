@@ -16,4 +16,5 @@
 - Author: Heitordp (derived from Blank USA, w territories.svg)
 - License: CC0 1.0 (public domain dedication)
 - Modifications: added `id="xx"` (lowercase USPS code, includes `dc`) to each state path; the original only had
-  `class="xx"`.
+  `class="xx"`. Added `viewBox="0 0 959 593"` to the root: without it the map is not scaled to its container and
+  is cropped to the top-left corner on narrow screens.

@@ -1,14 +1,8 @@
 ---
 // Inline SVG map with regions highlighted from a {code, name} list; hover tooltips.
-import worldSvg from '../assets/maps/world.svg?raw';
-import usSvg from '../assets/maps/us.svg?raw';
+import { mapSvg } from '../lib/map-svg.js';
 const { map, regions, title } = Astro.props; // map: 'world' | 'us'
-let svg = (map === 'world' ? worldSvg : usSvg)
-  .replace(/<\?xml[^>]*\?>/g, '')
-  .replace(/<!DOCTYPE[^>]*>/g, '')
-  // The source maps ship their own <style> blocks which override our palette
-  // (seen as ugly state colors); strip them so global.css rules apply.
-  .replace(/<style[\s\S]*?<\/style>/g, '');
+const svg = mapSvg(map);
 const data = Object.fromEntries(regions.map((r) => [r.code, r.name]));
 // <-escape so no region name can ever close the JSON <script> island.
 const dataJson = JSON.stringify(data).replace(/</g, '\\u003c');

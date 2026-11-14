@@ -206,4 +206,48 @@ describe('built site integrity', () => {
       expect(html, `map missing visited marker for ${c.code}`).toContain(`"${c.code}"`);
     }
   });
+  it('travel page offers a country panel with books for the US and at least 15 countries, multi-country authors under each country', async () => {
+    const html = readFileSync(join(DIST, 'travel/index.html'), 'utf-8');
+    expect(html).toContain('id="tl-panel"');
+    expect(html).toContain('aria-live="polite"');
+    const chips = html.match(/<div[^>]*id="tl-chips"[^>]*>([\s\S]*?)<\/div>/);
+    expect(chips, 'country chips').not.toBeNull();
+    expect(chips[1]).toContain('United States');
+    const travel = JSON.parse(readFileSync(new URL('../src/data/travel.json', import.meta.url), 'utf-8'));
+    for (const c of travel.countries.filter((x) => x.code !== 'US')) expect(chips[1], `chip for ${c.name}`).toContain(c.name);
+
+    const island = html.match(/<script[^>]*id="travel-places"[^>]*>([\s\S]*?)<\/script>/);
+    expect(island, 'travel-places JSON island').not.toBeNull();
+    const places = JSON.parse(island[1]);
+    expect(places.booksByCountry.us.length, 'books for us').toBeGreaterThan(0);
+    const withBooks = Object.values(places.booksByCountry).filter((l) => l.length > 0);
+    expect(withBooks.length).toBeGreaterThanOrEqual(15);
+    expect(places.concertsByCountry.us.length, 'US concerts').toBeGreaterThan(0);
+
+    const { parseBooks } = await import('../src/lib/books.js');
+    const authorCountries = JSON.parse(readFileSync(new URL('../src/data/author-countries.json', import.meta.url), 'utf-8'));
+    const md = readFileSync(new URL('../src/content/books.md', import.meta.url), 'utf-8');
+    const books = parseBooks(md);
+    const [author, codes] = Object.entries(authorCountries.authors).find(([a, c]) => c.length > 1 && books.some((b) => b.author === a));
+    const book = books.find((b) => b.author === author && !authorCountries.titles[b.title]);
+    const i = places.books.findIndex((b) => b.title === book.title && b.author === author);
+    expect(i, `${book.title} in island`).toBeGreaterThanOrEqual(0);
+    for (const code of codes) expect(places.booksByCountry[code], `${book.title} under ${code}`).toContain(i);
+  });
+
+  it('music page carries the concert map with both maps, the year slider and summary numbers from concerts.json', async () => {
+    const html = readFileSync(join(DIST, 'music/index.html'), 'utf-8').replace(/ data-astro-cid-\w+/g, '');
+    const { placeOfCity } = await import('../src/lib/places.js');
+    const concerts = JSON.parse(readFileSync(new URL('../src/data/concerts.json', import.meta.url), 'utf-8'));
+    const placed = concerts.map((c) => placeOfCity(c.city)).filter(Boolean);
+    const n = (xs) => new Set(xs).size;
+    expect(html).toContain('id="concert-map"');
+    expect(html).toContain('data-map="us"');
+    expect(html).toContain('data-map="world"');
+    expect(html).toContain('id="cm-year"');
+    expect(html).toContain('id="cm-play"');
+    const summary = `<strong>${placed.length}</strong> concerts in <strong>${n(placed.map((p) => p.city))}</strong> cities, `
+      + `<strong>${n(placed.map((p) => p.state).filter(Boolean))}</strong> states and <strong>${n(placed.map((p) => p.country))}</strong> countries`;
+    expect(html).toContain(summary);
+  });
 });
