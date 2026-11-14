@@ -5,8 +5,10 @@ import covers from '../data/covers.json';
 import library from '../data/library.json';
 import * as booksMd from '../content/books.md';
 import languages from '../data/languages.json';
+import pagesData from '../data/pages.json';
 import { parseBooks, coverKey } from '../lib/books.js';
 import { originalLanguage } from '../lib/languages.js';
+import { pagesOf, pageStats, roundedPages } from '../lib/pages.js';
 
 const groups = [
   ['top', null],
@@ -27,7 +29,8 @@ const coverUrl = (b) => {
   if (library[key]?.cover) return library[key].cover;
   return covers[key] != null ? `https://covers.openlibrary.org/b/id/${covers[key]}-M.jpg` : null;
 };
-const books = parseBooks(booksMd.rawContent()).map((b) => ({ ...b, cover: coverUrl(b), blurb: library[coverKey(b)]?.blurb ?? null }));
+const books = parseBooks(booksMd.rawContent()).map((b) => ({ ...b, cover: coverUrl(b), blurb: library[coverKey(b)]?.blurb ?? null, pages: pagesOf(b, pagesData) }));
+const fmt = (n) => n.toLocaleString('en-US');
 
 const tally = (values) => {
   const m = new Map();
@@ -56,12 +59,19 @@ const originals = translatedBooks.map((b) => originalLanguage(b, languages, libr
 const topLanguages = tally(originals).slice(0, 10);
 const unrecorded = originals.filter((l) => !l).length;
 
+const allPages = pageStats(books, pagesData);
+const latestPages = pageStats(latestRows, pagesData);
+const aboutPages = (stats) => `about ${fmt(roundedPages(stats.total))} pages`;
 const tiles = [
-  [String(books.length), 'books read'],
-  [String(latestRows.length), `read in ${latest}`],
+  [String(books.length), 'books read', aboutPages(allPages)],
+  [String(latestRows.length), `read in ${latest}`, aboutPages(latestPages)],
   [String(authors.length), 'distinct authors'],
   [`${Math.round((translated / books.length) * 100)}%`, 'in translation'],
 ];
+
+// The ten longest books by page count (ties keep reading-list order).
+const longest = books.map((b, i) => ({ ...b, i })).filter((b) => b.pages)
+  .sort((a, b) => b.pages.n - a.pages.n || a.i - b.i).slice(0, 10);
 
 const topOfYear = tally(latestRows.map((b) => b.author))[0];
 const latestTopAuthor = !topOfYear ? 'None' : topOfYear[1] === 1 ? 'No repeats' : `${topOfYear[0]} (${topOfYear[1]})`;
@@ -129,10 +139,11 @@ const json = JSON.stringify(books).replace(/</g, '\\u003c');
     <h2 id="bk-heading">Recently Read</h2>
 
     <div class="bk-tiles">
-      {tiles.map(([n, label]) => (
-        <div class="bk-tile"><strong>{n}</strong><span>{label}</span></div>
+      {tiles.map(([n, label, sub]) => (
+        <div class="bk-tile"><strong>{n}</strong><span>{label}</span>{sub && <small>{sub}</small>}</div>
       ))}
     </div>
+    <p class="bk-pages-note">Page totals cover {allPages.counted} of {allPages.of} books with a known length.</p>
 
     <div class="bk-controls">
       <input type="search" id="bk-q" placeholder="Search title, author or translator" aria-label="Search books" autocomplete="off" />
@@ -161,6 +172,10 @@ const json = JSON.stringify(books).replace(/</g, '\\u003c');
           <dt>Books</dt><dd>{latestRows.length}</dd>
           <dt>Most-read author</dt><dd>{latestTopAuthor}</dd>
           <dt>Translations</dt><dd>{latestTranslations}</dd>
+          {latestPages.counted > 0 && <>
+            <dt>Pages</dt><dd>{fmt(latestPages.total)} across {latestPages.counted} of {latestPages.of} books</dd>
+            <dt>Average length</dt><dd>{fmt(Math.round(latestPages.total / latestPages.counted))} pages</dd>
+          </>}
         </dl>
       </aside>
       <ol id="bk-list" class="bk-list">
@@ -215,6 +230,19 @@ const json = JSON.stringify(books).replace(/</g, '\\u003c');
           ))}
         </ul>
         <p class="bk-caption">{translated - unrecorded} of {translated} translated books{unrecorded > 0 && `; original language not recorded for ${unrecorded}`}.</p>
+      </section>
+      <section>
+        <h3>Longest reads</h3>
+        <ul class="bk-bars">
+          {longest.map((b) => (
+            <li>
+              <button type="button" class="bk-book" data-i={b.i}><em>{b.title}</em>{b.author && <span class="bk-by">{b.author}</span>}</button>
+              <span class="bk-count">{fmt(b.pages.n)}{b.pages.approx ? '*' : ''}</span>
+              <div class="bk-meter" style={`width:${(b.pages.n / longest[0].pages.n) * 100}%`}></div>
+            </li>
+          ))}
+        </ul>
+        {longest.some((b) => b.pages.approx) && <p class="bk-caption">* typical length across editions</p>}
       </section>
     </div>
 
@@ -278,6 +306,8 @@ const json = JSON.stringify(books).replace(/</g, '\\u003c');
     .bk-tile { border: 1px solid var(--rule); border-radius: 6px; background: #fff; padding: 0.9rem 1.1rem; }
     .bk-tile strong { display: block; font-size: 2.1rem; line-height: 1.1; font-weight: 600; color: var(--accent); }
     .bk-tile span { font-size: 0.88rem; color: var(--ink-soft); }
+    .bk-tile small { display: block; margin-top: 0.15rem; font-size: 0.78rem; color: var(--ink-soft); }
+    .bk-pages-note { font-size: 0.82rem; color: var(--ink-soft); margin: -0.9rem 0 1.4rem; }
     @media (max-width: 640px) { .bk-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.7rem; } }
 
     .bk-controls { display: flex; flex-wrap: wrap; gap: 0.7rem; margin: 0 0 0.4rem; }
@@ -363,7 +393,7 @@ const json = JSON.stringify(books).replace(/</g, '\\u003c');
     .bk-list li.bk-flash { animation: bk-flash 1.8s ease-out; }
     @keyframes bk-flash { from { background: rgba(31, 78, 121, 0.22); } to { background: transparent; } }
 
-    .bk-pair { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 2.5rem; margin-top: 2.5rem; }
+    .bk-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem; margin-top: 2.5rem; }
     @media (max-width: 900px) { .bk-pair { grid-template-columns: minmax(0, 1fr); } }
     .bk-bars { list-style: none; padding: 0; margin: 0; }
     .bk-bars li { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 1rem; margin-bottom: 0.7rem; }
@@ -373,6 +403,12 @@ const json = JSON.stringify(books).replace(/</g, '\\u003c');
     }
     .bk-name:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 2.5px; }
     .bk-lang { overflow-wrap: anywhere; }
+    .bk-book {
+      padding: 0; border: 0; background: none; font: inherit; text-align: left; color: var(--ink); cursor: pointer;
+      overflow-wrap: anywhere;
+    }
+    .bk-book:hover em { color: var(--accent); text-decoration: underline; text-underline-offset: 2.5px; }
+    .bk-by { display: block; font-size: 0.82rem; color: var(--ink-soft); }
     .bk-count { color: var(--ink-soft); }
     .bk-caption { font-size: 0.85rem; color: var(--ink-soft); margin: 0.2rem 0 0; }
     .bk-meter { grid-column: 1 / -1; height: 0.35rem; margin-top: 0.2rem; border-radius: 3px; background: var(--accent); opacity: 0.75; }
@@ -437,6 +473,8 @@ const json = JSON.stringify(books).replace(/</g, '\\u003c');
     const dots = new Map([...document.querySelectorAll('.bk-col i')].map((d) => [Number(d.dataset.i), d]));
     const first = Number(scrub.min);
     const last = Number(scrub.max);
+
+    const fmt = (n) => n.toLocaleString('en-US');
 
     const el = (tag, cls, text) => {
       const n = document.createElement(tag);
@@ -508,6 +546,14 @@ const json = JSON.stringify(books).replace(/</g, '\\u003c');
         el('dt', null, 'Most-read author'), el('dd', null, !top ? 'None' : top[1] === 1 ? 'No repeats' : `${top[0]} (${top[1]})`),
         el('dt', null, 'Translations'), el('dd', null, String(rows.filter((b) => b.translator).length)),
       );
+      const counted = rows.filter((b) => b.pages);
+      if (counted.length) {
+        const sum = counted.reduce((n, b) => n + b.pages.n, 0);
+        dl.append(
+          el('dt', null, 'Pages'), el('dd', null, `${fmt(sum)} across ${counted.length} of ${rows.length} books`),
+          el('dt', null, 'Average length'), el('dd', null, `${fmt(Math.round(sum / counted.length))} pages`),
+        );
+      }
       note.append(el('div', 'bk-note-year', String(year)), dl);
     }
 
@@ -578,7 +624,8 @@ const json = JSON.stringify(books).replace(/</g, '\\u003c');
       line('bk-d-author', b.author ? `by ${b.author}` : '');
       line('bk-d-trans', b.translator ? `trans. ${b.translator}` : '');
       line('bk-d-note', b.note ? `(${b.note})` : '');
-      line('bk-d-meta', i == null ? '' : `Read in ${b.year} · book ${order[i]} of ${total[b.year]}`);
+      const length = i == null || !b.pages ? '' : ` · ${b.pages.approx ? 'about ' : ''}${fmt(b.pages.n)} pages`;
+      line('bk-d-meta', i == null ? '' : `Read in ${b.year} · book ${order[i]} of ${total[b.year]}${length}`);
       line('bk-d-blurb', b.blurb ?? '');
       $('bk-d-works').hidden = b.works.length === 0;
       $('bk-d-works-list').replaceChildren(...b.works.map((w) => el('li', null, w)));
@@ -619,6 +666,8 @@ const json = JSON.stringify(books).replace(/</g, '\\u003c');
       applyFilter();
       document.querySelector('.bk-controls').scrollIntoView({ behavior: 'smooth', block: 'center' });
     }));
+
+    document.querySelectorAll('.bk-book').forEach((b) => b.addEventListener('click', () => openCard(Number(b.dataset.i))));
 
     // A favorite keeps its own hand-picked cover on the card.
     document.querySelectorAll('.fav-open').forEach((f) => f.addEventListener('click', () => {

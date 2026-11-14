@@ -93,6 +93,12 @@ describe('buildProposal', () => {
     expect(proposal({ entries, book: { ...base, author: 'Nobody Else' } }).librarything.nearest).toHaveLength(5);
   });
 
+  it('passes the page count through, or null', () => {
+    const pages = { n: 432, approx: false, source: 'openlibrary-isbn' };
+    expect(proposal({ pages }).pages).toEqual(pages);
+    expect(proposal().pages).toBeNull();
+  });
+
   it('passes the blurb through', () => {
     expect(proposal({ blurb: 'A novel.' }).blurb).toBe('A novel.');
     expect(proposal().blurb).toBeNull();

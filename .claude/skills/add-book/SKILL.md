@@ -23,17 +23,20 @@ Work from the repo root. The site is Astro; the Books page reads `src/content/bo
      `src/data/languages.json` (e.g. "Italian", "Ancient Greek"). If unsure, say so; do not guess.
 4. **Show the cover, then ask for confirmation.** Download `librarything.cover` into the session scratchpad
    (`curl -sL -o <scratchpad>/cover.jpg "<url>"`), display it with the Read tool, and give the URL. Then
-   give ONE summary: the exact `bulletLine`, year, LibraryThing title and ISBN, cover, blurb, country,
-   language, and anything not found. Ask him to confirm or correct (use AskUserQuestion if available).
+   give ONE summary: the exact `bulletLine`, year, LibraryThing title and ISBN, cover, blurb, page count
+   (`pages`; if `approx` is true say it is a typical length across editions, not his edition), country,
+   language, and anything not found. Ask him to confirm or correct (use AskUserQuestion if available). He may
+   change the page count, e.g. for a partial read give the pages he actually read (then it is exact).
    Never invent a blurb; if `blurb` is null say so and leave it null unless he supplies one.
 5. **Apply** after confirmation. Write the proposal JSON to the scratchpad:
    ```json
    { "bulletLine": "- *…*", "year": 2026, "key": "<key from lookup>",
      "library": { "ltId": "…", "isbn": "…", "cover": "…", "blurb": "…or null" },
      "countries": ["it"], "authorKey": "<author exactly as in the bullet, or null>",
-     "titleKey": "<title when there is no author, else null>", "language": "Italian" }
+     "titleKey": "<title when there is no author, else null>", "language": "Italian",
+     "pages": { "n": 412, "approx": false } }
    ```
-   Use `"library": null` if not on LibraryThing, `countries`/`language` null when already known. Run
+   Use `"library": null` if not on LibraryThing, `countries`/`language` null when already known, `pages` null if there is no count. Run
    `npm run book:add -- <file>`, then `npm run build && npx vitest run`. If anything fails, stop and report;
    do not commit. (`--force` overwrites existing different data; use it only if he asks.)
 6. **Commit and push.** `git add -A src/content/books.md src/data` and commit with the message
@@ -48,5 +51,6 @@ Work from the repo root. The site is Astro; the Books page reads `src/content/bo
 - Wrong cover: edit `cover` for the book's key in `src/data/library.json`, or add a LibraryThing id to
   `src/data/cover-overrides.json` pointing at an image saved under `public/images/books/covers/`.
 - Wrong or missing description: edit `blurb` in `src/data/library.json`.
+- Page count: edit `src/data/pages.json` (`{ "n": 412 }`, add `"approx": true` for a typical length).
 - Country or language: edit `src/data/author-countries.json` or `src/data/languages.json`.
 - Then `npm run build && npx vitest run`, commit, push.
