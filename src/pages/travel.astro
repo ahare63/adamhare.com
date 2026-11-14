@@ -161,7 +161,13 @@ const placesJson = JSON.stringify({ visited: pickable, books, booksByCountry, co
 
     .tl-panel { margin-top: 0.8rem; border: 1px solid var(--rule); border-radius: 8px; background: #fff; padding: 1rem 1.3rem 1.2rem; }
     .tl-prompt, .tl-empty { color: var(--ink-soft); font-size: 0.95rem; margin: 0; }
+    .tl-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
     .tl-panel .tl-name { margin: 0; font-size: 1.4rem; }
+    .tl-close {
+      font: inherit; font-size: 0.85rem; padding: 0.25rem 0.75rem; cursor: pointer;
+      border: 1px solid var(--rule); border-radius: 6px; background: #fff; color: var(--ink);
+    }
+    .tl-close:hover { border-color: var(--accent); }
     .tl-years { color: var(--ink-soft); font-size: 0.9rem; margin: 0.15rem 0 0.4rem; }
     .tl-panel h3 { font-size: 1rem; margin: 1rem 0 0.4rem; }
     .tl-count { color: var(--ink-soft); font-weight: 400; }

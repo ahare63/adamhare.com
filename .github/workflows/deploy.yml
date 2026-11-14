@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
   schedule:
-    - cron: '17 6 * * 1' # weekly refresh so Travel-sheet edits reach the static snapshot
+    - cron: '17 6 * * 1' # weekly refresh so Travel and concerts sheet edits reach the static snapshot
   workflow_dispatch:
 
 permissions:
@@ -31,6 +31,8 @@ jobs:
           enablement: true
       - name: Refresh travel data from the Google Sheet
         run: node scripts/fetch-travel.mjs || echo "sheet unreachable; using committed snapshot"
+      - name: Refresh concerts from the Google Sheet
+        run: node scripts/fetch-concerts.mjs || echo "sheet unreachable or malformed; using committed snapshot"
       - name: Refresh essays from Substack
         run: node scripts/fetch-essays.mjs || echo "feed unreachable; using committed snapshot"
       - name: Match books to LibraryThing for covers and descriptions

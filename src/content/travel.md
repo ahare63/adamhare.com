@@ -3,7 +3,7 @@ title: "Travel"
 description: "Countries and US states I have visited, with photos from trips across Europe and beyond."
 ---
 
-As of January 2017, I had never left the United States. By January 2018, I'd visited eleven other countries. I hope to keep exploring the world whenever I get the chance. Below are maps with all of the countries and US states I've visited so far colored in blue.
+As of January 2017, I had never left the United States, and by January 2018 I had visited eleven other countries. The maps below are built from a list I keep of every country and US state I have visited, colored in blue: drag the year slider or press play to watch them fill in, or click a country to see what I have read by its authors and which concerts I saw there. Photos from the trips are further down.
 
 ## Photos
 

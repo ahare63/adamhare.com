@@ -163,7 +163,14 @@ export function initConcertMap({ root, data }) {
     }
     const m = maps[sel.map];
     const rows = upTo(y).filter((e) => e[m.key] === sel.code).sort((a, b) => b.ts - a.ts);
-    detail.append(el('h3', 'cm-name', names[sel.code]));
+    const head = el('div', 'cm-head');
+    const title = el('div');
+    title.append(el('h3', 'cm-name', names[sel.code]));
+    const close = el('button', 'cm-close', 'Close');
+    close.type = 'button';
+    close.addEventListener('click', () => deselect(true));
+    head.append(title, close);
+    detail.append(head);
     if (!rows.length) {
       detail.append(el('p', 'cm-empty', `No concerts here yet by ${y}.`));
       return;
@@ -173,7 +180,7 @@ export function initConcertMap({ root, data }) {
       if (!byCity.has(e.city)) byCity.set(e.city, []);
       byCity.get(e.city).push(e);
     }
-    detail.append(el('p', 'cm-sub', `${plural(rows.length, 'concert')} in ${plural(byCity.size, 'city', 'cities')}, newest first`));
+    title.append(el('p', 'cm-sub', `${plural(rows.length, 'concert')} in ${plural(byCity.size, 'city', 'cities')}, newest first`));
     const groups = el('div', 'cm-groups' + (byCity.size > 1 ? ' cm-multi' : ''));
     for (const [city, list] of byCity) {
       const sec = el('section', 'cm-group');
@@ -191,9 +198,19 @@ export function initConcertMap({ root, data }) {
     detail.append(groups);
   }
 
+  // Choosing the selected region again clears the selection.
   function choose(map, code) {
-    sel = { map, code };
+    sel = sel?.map === map && sel.code === code ? null : { map, code };
     paint(Number(slider.value));
+  }
+
+  // Closing returns focus to the region that was selected.
+  function deselect(refocus) {
+    if (!sel) return;
+    const { map, code } = sel;
+    sel = null;
+    paint(Number(slider.value));
+    if (refocus) region(maps[map], code)?.focus();
   }
 
   for (const [name, m] of Object.entries(maps)) {
@@ -209,6 +226,10 @@ export function initConcertMap({ root, data }) {
       node.addEventListener('blur', () => { focused = null; drawHalos(m, null, 'focus'); });
     }
   }
+
+  root.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && sel && e.target.closest('.cm-maps, #cm-detail')) deselect(true);
+  });
 
   slider.addEventListener('input', () => paint(Number(slider.value)));
   let timer = null;

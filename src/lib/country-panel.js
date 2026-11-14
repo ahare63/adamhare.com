@@ -61,6 +61,7 @@ export function initCountryPanel({ wrap, chips, panel, data }) {
   let visited = new Map();
   let selected = null;
   let halo = null;
+  let origin = 'region';
 
   const regionOf = (code) => svg.querySelector(`#${code}`);
 
@@ -73,7 +74,14 @@ export function initCountryPanel({ wrap, chips, panel, data }) {
     const c = visited.get(selected);
     const books = (data.booksByCountry[selected] || []).map((i) => data.books[i]);
     const concerts = data.concertsByCountry[selected] || [];
-    panel.append(el('h3', 'tl-name', c.name), el('p', 'tl-years', c.home ? 'Home' : c.years ? `Visited ${c.years}` : 'Visited'));
+    const head = el('div', 'tl-head');
+    const title = el('div');
+    title.append(el('h3', 'tl-name', c.name), el('p', 'tl-years', c.home ? 'Home' : c.years ? `Visited ${c.years}` : 'Visited'));
+    const close = el('button', 'tl-close', 'Close');
+    close.type = 'button';
+    close.addEventListener('click', () => deselect(true));
+    head.append(title, close);
+    panel.append(head);
     const cols = el('div', 'tl-cols' + (concerts.length ? ' tl-two' : ''));
     cols.append(listSection('Books', books, bookRow));
     if (concerts.length) cols.append(listSection('Concerts', concerts, concertRow));
@@ -98,10 +106,23 @@ export function initCountryPanel({ wrap, chips, panel, data }) {
     svg.append(halo);
   }
 
-  function select(code) {
+  // `via` is where the selection came from ('region' or 'chip'); closing returns focus there.
+  function select(code, via) {
     if (!visited.has(code)) return;
+    if (code === selected) return deselect(false);
     selected = code;
+    origin = via;
     sync();
+  }
+
+  function deselect(refocus) {
+    if (!selected) return;
+    const code = selected;
+    selected = null;
+    sync();
+    if (!refocus) return;
+    const target = origin === 'chip' ? [...chips.children].find((b) => b.dataset.code === code) : regionOf(code);
+    target?.focus();
   }
 
   function sync() {
@@ -119,9 +140,9 @@ export function initCountryPanel({ wrap, chips, panel, data }) {
     r.setAttribute('aria-label', `${visited.get(code).name}: show books and concerts`);
     if (r.dataset.tlBound) return;
     r.dataset.tlBound = '1';
-    r.addEventListener('click', () => select(code));
+    r.addEventListener('click', () => select(code, 'region'));
     r.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); select(code); }
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); select(code, 'region'); }
     });
   }
 
@@ -142,12 +163,16 @@ export function initCountryPanel({ wrap, chips, panel, data }) {
         const b = el('button', 'tl-chip', c.name);
         b.type = 'button';
         b.dataset.code = c.code;
-        b.addEventListener('click', () => select(c.code));
+        b.addEventListener('click', () => select(c.code, 'chip'));
         return b;
       }));
     if (selected && !visited.has(selected)) selected = null;
     sync();
   }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && selected && [wrap, chips, panel].some((n) => n.contains(e.target))) deselect(true);
+  });
 
   return { setVisited };
 }

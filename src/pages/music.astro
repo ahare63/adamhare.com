@@ -38,17 +38,6 @@ const mapData = JSON.stringify({ events, names, first: firstYear, last: lastYear
     <strong>{concerts.length}</strong> shows · <strong>{counts.size}</strong> distinct artists
   </p>
 
-  <h2>Most-seen artists</h2>
-  <ul class="bars">
-    {top.map(([artist, n]) => (
-      <li>
-        <span class="bar-name">{artist}</span>
-        <span class="bar-count">{n}</span>
-        <div class="bar" style={`width:${(n / max) * 100}%`}></div>
-      </li>
-    ))}
-  </ul>
-
   <h2>Concert map</h2>
   <section id="concert-map">
     <p class="concert-stats sans"><strong>{events.length}</strong> concerts in <strong>{cityCount}</strong> cities, <strong>{stateCount}</strong> states and <strong>{countryCount}</strong> countries.</p>
@@ -85,6 +74,17 @@ const mapData = JSON.stringify({ events, names, first: firstYear, last: lastYear
     </div>
     <script type="application/json" id="cm-data" set:html={mapData} />
   </section>
+
+  <h2>Most-seen artists</h2>
+  <ul class="bars">
+    {top.map(([artist, n]) => (
+      <li>
+        <span class="bar-name">{artist}</span>
+        <span class="bar-count">{n}</span>
+        <div class="bar" style={`width:${(n / max) * 100}%`}></div>
+      </li>
+    ))}
+  </ul>
 
   <h2>Every concert</h2>
   <p>
@@ -165,7 +165,13 @@ const mapData = JSON.stringify({ events, names, first: firstYear, last: lastYear
 
     .cm-detail { margin-top: 1rem; border: 1px solid var(--rule); border-radius: 8px; background: #fff; padding: 1rem 1.3rem 1.2rem; }
     .cm-prompt, .cm-empty { color: var(--ink-soft); font-size: 0.95rem; margin: 0; }
+    .cm-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
     .cm-detail .cm-name { margin: 0; font-size: 1.4rem; }
+    .cm-close {
+      font: inherit; font-size: 0.85rem; padding: 0.25rem 0.75rem; cursor: pointer;
+      border: 1px solid var(--rule); border-radius: 6px; background: #fff; color: var(--ink);
+    }
+    .cm-close:hover { border-color: var(--accent); }
     .cm-sub { color: var(--ink-soft); font-size: 0.9rem; margin: 0.15rem 0 0.4rem; }
     .cm-groups { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0 2rem; }
     @media (min-width: 860px) { .cm-groups.cm-multi { grid-template-columns: repeat(2, minmax(0, 1fr)); } }

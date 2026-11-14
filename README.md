@@ -22,8 +22,12 @@ Personal site, built with [Astro](https://astro.build) and deployed to GitHub Pa
   one if it fits; `titles` for books with no author) to show up in the Travel page's country panel.
 - **Fallback covers**: books not in `library.json` use `src/data/covers.json` (`npm run fetch:covers`, Open Library;
   the id is the number in a `covers.openlibrary.org/b/id/<id>-M.jpg` URL, `null` shows a plain cover).
-- **Concert map**: a concert in a new city needs a line in `src/lib/places.js` (`placeOfCity`) to appear on the Music
-  page's map; `npm test` fails and names any city that is missing.
+- **Concerts**: edit the public concerts Google Sheet (columns Artist, Date as "D Month YYYY", City; other columns are
+  ignored). Each deploy (every push, and weekly) runs `scripts/fetch-concerts.mjs`, which rewrites
+  `src/data/concerts.json` newest first, or leaves it alone if the sheet is unreachable or malformed. Run
+  `npm run fetch:concerts` to refresh it locally.
+- **Concert map**: a concert in a new city needs one line in the table in `src/lib/places.js` (`placeOfCity`) to appear
+  on the Music page's map; `npm test` fails and names any city that is missing.
 - **Travel maps**: edit the "Travel-Public" Google Sheet (Countries / States tabs). The live page re-fetches
   the sheet on every visit, so changes show up immediately; the build also snapshots it
 
