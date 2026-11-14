@@ -346,12 +346,11 @@
     "cover": "https://ecx.images-amazon.com/images/P/030738862X.01._SX400_SCRM_.jpg",
     "blurb": "Toni Morrison--author of Song of Solomon and Tar Baby--is a writer of remarkable powers: her novels, brilliantly acclaimed for their passion, their dazzling language and their lyric and emotional force, combine the unassailable truths of experience and emotion with the vision of legend and imagination. It is the story--set in post-Civil War Ohio--of Sethe, an escaped slave who has risked death in order to wrench herself from a living death; who has lost a husband and buried a child; who has borne the unthinkable and not gone mad: a woman of \"iron eyes and backbone to match.\""
   },
-  "beowulf: translation and commentary, revised and expanded trans. tom shippey|": {
-    "ltId": "303030333",
-    "isbn": "0393320979",
-    "cover": "https://ecx.images-amazon.com/images/P/0393320979.01._SX400_SCRM_.jpg",
-    "blurb": "Composed toward the end of the first millennium, Beowulf is the elegiac narrative of the adventures of Beowulf, a Scandinavian hero who saves the Danes from the seemingly invincible monster Grendel and, later, from Grendel's mother. He then returns to his own country and dies in old age in a vivid fight against a dragon. The poem is about encountering the monstrous, defeating it, and then having to live on in the exhausted aftermath.",
-    "lang": "ang"
+  "beowulf: translation and commentary, revised and expanded|": {
+    "ltId": null,
+    "isbn": null,
+    "cover": null,
+    "blurb": null
   },
   "beowulf|": {
     "ltId": "303030333",
@@ -1668,6 +1667,12 @@
     "cover": "https://pics.cdn.librarything.com/picsizes/10/25/10253744-b-h600-w300-pv25_597242316e41426b414d6741_v5.jpg",
     "blurb": "Vonnegut's first novel spins the chilling tale of engineer Paul Proteus, who must find a way to live in a world dominated by a super computer and run completely by machines. Paul's rebellion is vintage Vonnegut - wildly funny, deadly serious, and terrifyingly close to reality."
   },
+  "poems on the underground|": {
+    "ltId": "303030075",
+    "isbn": "0141389540",
+    "cover": "https://ecx.images-amazon.com/images/P/0141389540.01._SX400_SCRM_.jpg",
+    "blurb": null
+  },
   "poems retrieved|frank o'hara": {
     "ltId": "303043714",
     "isbn": "0912516194",
@@ -2614,7 +2619,7 @@
     "cover": "https://ecx.images-amazon.com/images/P/1590177193.01._SX400_SCRM_.jpg",
     "blurb": "In the last two years of his life, the Sicilian aristocrat Giuseppe Tomasi di Lampedusa, in addition to his internationally celebrated novel, The Leopard, also composed three shorter pieces of fiction that confirm and expand our picture of his brilliant late-blooming talent. In the parable-like \"Joy and the Law,\" a mediocre clerk in receipt of an unexpected supplement to his Christmas bonus (an awkwardly outsize version of the traditional panettone) finds his visions of domestic bliss upset by unwritten rules of honor and obligation."
   },
-  "the psychgeist of pop culture: sleep no more ed. rachel kowert and betsy sullivan|": {
+  "the psychgeist of pop culture: sleep no more|": {
     "ltId": "307117491",
     "isbn": "110579444X",
     "cover": "https://pics.cdn.librarything.com/picsizes/17/20/17205103-b-h600-w300-pv25_596d2b484267466b414d6741_v5.jpg",

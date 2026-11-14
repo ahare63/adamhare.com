@@ -53,7 +53,7 @@ I read a lot and my tastes are rather varied. Below I've included a few favorite
 - *Gravity's Rainbow* by Thomas Pynchon
 - *Early Irish Myths and Sagas*, trans. Jeffrey Gantz
 - *The Táin*, trans. Thomas Kinsella
-- *Beowulf: Translation and Commentary, Revised and Expanded trans. Tom Shippey*, ed. Leonard Neidorf
+- *Beowulf: Translation and Commentary, Revised and Expanded*, trans. Tom Shippey, ed. Leonard Neidorf
 - *The Footnote\* \*A Curious History* by Anthony Grafton
 - *The History of the Siege of Lisbon* by José Saramago, trans. Giovanni Pontiero
 - *Message* by Fernando Pessoa, trans. Ana-Maria Chaves
@@ -66,7 +66,7 @@ I read a lot and my tastes are rather varied. Below I've included a few favorite
 - *The Aesthetics of Chaosmos: The Middle Ages of James Joyce* by Umberto Eco, trans. Ellen Esrock
 - *The Guide to James Joyce's Ulysses* by Patrick Hastings
 - *Ulysses* by James Joyce, along with some of Ulysses Annotated by Don Gifford with Robert J. Seidman (second edition)
-- *The Psychgeist of Pop Culture: Sleep No More ed. Rachel Kowert and Betsy Sullivan*
+- *The Psychgeist of Pop Culture: Sleep No More*, ed. Rachel Kowert and Betsy Sullivan
 - *The Lost Colony: Last Rights* by Grady Klein
 - *The Lost Colony: The Red Menace* by Grady Klein
 - *The Lost Colony: The Snodgrass Conspiracy* by Grady Klein
@@ -175,7 +175,7 @@ I read a lot and my tastes are rather varied. Below I've included a few favorite
     - *The Saga of the People of Laxardal & Bolli Bollason's Tale*, trans. Keneva Kunz
     - *The Saga of Hrafnkel Frey's Godi*, trans. Terry Gunnell
     - *The Saga of the Confederates*, trans. Ruth C. Ellison
-    - *Gisli Sursson's Saga trans. Martin S. Regal*
+    - *Gisli Sursson's Saga*, trans. Martin S. Regal
     - *The Saga of Gunnlaug Serpent-tongue*, trans. Katrina C. Attwood
     - *The Saga of Ref the Sly*, trans. George Clark
     - *The Vinland Sagas (The Saga of the Greenlanders & Eirik the Red's Saga)*, trans. Keneva Kunz
@@ -268,7 +268,7 @@ I read a lot and my tastes are rather varied. Below I've included a few favorite
 - *The Three-Text Hamlet: Parallel Texts of the First and Second Quartos and First Folio* by William Shakespeare, ed. Paul Bertram and Bernice W. Kilman
 - *Alive: New and Collected Poems* by Emily Willis
 - *An Apprenticeship or the Book of Pleasures* by Clarice Lispector, trans. Stefan Tobler
-- *Gilgamesh trans. Sophus Helle*
+- *Gilgamesh*, trans. Sophus Helle
 - *I Have Seen the Bluest Blue* by Natalee Cruz
 - *Transparent Things* by Vladimir Nabokov
 - *Hamlet and the Vision of Darkness* by Rhodri Lewis
@@ -501,7 +501,7 @@ I read a lot and my tastes are rather varied. Below I've included a few favorite
 - *The History of Rome, Books 1-5: The Early History of Rome* by Livy, trans. Aubrey de Sélincourt
 - *No Matter the Wreckage* by Sarah Kay
 - *The Right to Sex: Feminism in the Twenty-First Century* by Amia Srinivasan
-- *Poems on the Underground ed. Judith Chernaik, Gerard Benson, Cicely Herbert*
+- *Poems on the Underground*, ed. Judith Chernaik, Gerard Benson, Cicely Herbert
 - *The Power* by Naomi Alderman
 - *An Amorous Discourse in the Suburbs of Hell* by Deborah Levy
 - *Galatea* by Madeline Miller
@@ -531,7 +531,7 @@ I read a lot and my tastes are rather varied. Below I've included a few favorite
 - *Crossing to Safety* by Wallace Stegner
 - *Looking For Alaska* by John Green
 - *The Beautiful and Damned* by F. Scott Fitzgerald
-- *The O. Henry Prize Stories 2016 ed. Laura Furman*
+- *The O. Henry Prize Stories 2016*, ed. Laura Furman
 - *A Haunted House and Other Short Stories* by Virginia Woolf
 - *Infinite Jest* by David Foster Wallace
 - *I'm Thinking of Ending Things* by Ian Reid
