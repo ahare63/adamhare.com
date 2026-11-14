@@ -111,12 +111,13 @@ describe('built site integrity', () => {
     const withLibrary = books.filter((b) => library[key(b)]);
     const openLibraryOnly = books.filter((b) => !library[key(b)] && covers[key(b)] != null);
     expect(withLibrary.length, 'library.json should match some books').toBeGreaterThan(0);
+    const openLibrary = (b) => (covers[key(b)] != null ? `https://covers.openlibrary.org/b/id/${covers[key(b)]}-M.jpg` : null);
     for (const b of withLibrary) {
-      expect(b.cover, `cover for ${b.title}`).toBe(library[key(b)].cover);
+      expect(b.cover, `cover for ${b.title}`).toBe(library[key(b)].cover || openLibrary(b));
       expect(b.blurb, `blurb for ${b.title}`).toBe(library[key(b)].blurb ?? null);
     }
     for (const b of openLibraryOnly) {
-      expect(b.cover).toBe(`https://covers.openlibrary.org/b/id/${covers[key(b)]}-M.jpg`);
+      expect(b.cover).toBe(openLibrary(b));
       expect(b.blurb).toBeNull();
     }
     expect(html).toContain('librarything.com/profile/ahare63');

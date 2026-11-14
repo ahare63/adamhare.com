@@ -13,6 +13,8 @@ Personal site, built with [Astro](https://astro.build) and deployed to GitHub Pa
   takes the cover from LibraryThing and the description from Open Library. Run `npm run fetch:library` locally and
   commit `src/data/library.json` to make the result permanent; edit that file to fix a wrong cover or description.
   `librarything/unmatched.txt` lists books it could not pair (usually a title worded differently).
+- **Hand-picked covers**: `src/data/cover-overrides.json` maps a LibraryThing book id to an image (a file in
+  `public/images/books/covers/` or a URL). It is applied when that book is first paired, including books not yet in `books.md`.
 - **Fallback covers**: books not in `library.json` use `src/data/covers.json` (`npm run fetch:covers`, Open Library;
   the id is the number in a `covers.openlibrary.org/b/id/<id>-M.jpg` URL, `null` shows a plain cover).
 - **Travel maps**: edit the "Travel-Public" Google Sheet (Countries / States tabs). The live page re-fetches
