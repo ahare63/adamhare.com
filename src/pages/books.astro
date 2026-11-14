@@ -61,6 +61,13 @@ const topOfYear = tally(latestRows.map((b) => b.author))[0];
 const latestTopAuthor = !topOfYear ? 'None' : topOfYear[1] === 1 ? 'No repeats' : `${topOfYear[0]} (${topOfYear[1]})`;
 const latestTranslations = latestRows.filter((b) => b.translator).length;
 
+// A favorite opens the same card as its reading-list entry (the most recent
+// reading when there are several), matched on main title and author surname.
+const mainTitle = (t) => t.split(/[:(]/)[0].normalize('NFD').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+const surname = (a) => (a || '').split(/,| and /)[0].trim().split(' ').pop().toLowerCase();
+const listIndex = (fav) => books.findIndex((b) => mainTitle(b.title) === mainTitle(fav.title)
+  && [b.author, b.translator].some((name) => name && surname(name) === surname(fav.author)));
+
 const json = JSON.stringify(books).replace(/</g, '\\u003c');
 ---
 <Base wide title="Books" description="What Adam Hare reads: favorites and a yearly reading log." banner="/images/banners/books.jpg" bannerTitle="Books">
@@ -75,8 +82,17 @@ const json = JSON.stringify(books).replace(/</g, '\\u003c');
         <ul class="favorites" style={`--n:${items.length}`} data-n={items.length}>
           {items.map((b) => (
             <li>
-              {b.image && <img src={b.image} alt={b.title} loading="lazy" />}
-              <span class="meta"><em>{b.title}</em> by {b.author}</span>
+              <button
+                type="button"
+                class="fav-open"
+                data-i={listIndex(b) === -1 ? undefined : listIndex(b)}
+                data-title={b.title}
+                data-author={b.author}
+                data-cover={b.image}
+              >
+                {b.image && <img src={b.image} alt="" loading="lazy" />}
+                <span class="meta"><em>{b.title}</em> by {b.author}</span>
+              </button>
             </li>
           ))}
         </ul>
@@ -223,7 +239,11 @@ const json = JSON.stringify(books).replace(/</g, '\\u003c');
     @media (max-width: 420px) {
       .favorites[data-n="6"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
-    .favorites li { margin: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+    .favorites li, .fav-open { margin: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+    .fav-open { padding: 0; border: 0; background: none; font: inherit; text-align: left; cursor: pointer; }
+    .fav-open:hover img { box-shadow: 0 4px 14px rgba(28, 27, 24, 0.2); }
+    .fav-open:hover .meta em { color: var(--accent); }
+    .fav-open:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     .favorites img {
       width: 100%; aspect-ratio: 2/3; object-fit: contain;
       border: 1px solid var(--rule); border-radius: 4px;
@@ -524,8 +544,10 @@ const json = JSON.stringify(books).replace(/</g, '\\u003c');
       return img;
     }
 
-    function openCard(i) {
-      const b = books[i];
+    // `i` is the book's index in the reading list, or null for a favorite that
+    // is not on the list; `shown` overrides what is displayed for that book.
+    function openCard(i, shown) {
+      const b = { works: [], ...(i == null ? {} : books[i]), ...shown };
       openIndex = i;
       $('bk-d-cover').replaceChildren(coverNode(b));
       $('bk-d-title').textContent = b.title;
@@ -533,11 +555,12 @@ const json = JSON.stringify(books).replace(/</g, '\\u003c');
       line('bk-d-author', b.author ? `by ${b.author}` : '');
       line('bk-d-trans', b.translator ? `trans. ${b.translator}` : '');
       line('bk-d-note', b.note ? `(${b.note})` : '');
-      $('bk-d-meta').textContent = `Read in ${b.year} · book ${order[i]} of ${total[b.year]}`;
+      line('bk-d-meta', i == null ? '' : `Read in ${b.year} · book ${order[i]} of ${total[b.year]}`);
       line('bk-d-blurb', b.blurb ?? '');
       $('bk-d-works').hidden = b.works.length === 0;
       $('bk-d-works-list').replaceChildren(...b.works.map((w) => el('li', null, w)));
       $('bk-d-show').textContent = `Show in ${b.year}`;
+      $('bk-d-show').hidden = i == null;
       if (!dialog.open) dialog.showModal();
       dialog.scrollTop = 0;
     }
@@ -572,6 +595,13 @@ const json = JSON.stringify(books).replace(/</g, '\\u003c');
       input.value = b.dataset.q;
       applyFilter();
       document.querySelector('.bk-controls').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }));
+
+    // A favorite keeps its own hand-picked cover on the card.
+    document.querySelectorAll('.fav-open').forEach((f) => f.addEventListener('click', () => {
+      const { i, title, author, cover } = f.dataset;
+      if (i != null) openCard(Number(i), { cover });
+      else openCard(null, { title, author, cover });
     }));
 
     scrub.addEventListener('input', () => select(Number(scrub.value)));

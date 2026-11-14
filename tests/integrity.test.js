@@ -133,6 +133,18 @@ describe('built site integrity', () => {
     expect(list[1], `newest book "${title}"`).toContain(title.replace(/&/g, '&amp;'));
   });
 
+  it('each favorite is a button that opens the book card, linked to its reading-list entry when there is one', () => {
+    const html = readFileSync(join(DIST, 'books/index.html'), 'utf-8');
+    const island = JSON.parse(html.match(/<script type="application\/json" id="books-data">([\s\S]*?)<\/script>/)[1]);
+    const { favorites } = JSON.parse(readFileSync(new URL('../src/data/books.json', import.meta.url), 'utf-8'));
+    const buttons = [...html.matchAll(/<button[^>]*class="fav-open"[^>]*>/g)].map((m) => m[0]);
+    expect(buttons.length).toBe(favorites.length);
+    const linked = buttons.map((b) => b.match(/data-i="(\d+)"/)).filter(Boolean).map((m) => island[Number(m[1])].title);
+    expect(linked).toContain('The Great Gatsby');
+    expect(linked).toContain('Stoner');
+    expect(linked.length).toBeGreaterThanOrEqual(12);
+  });
+
   it('home page shows the Lately strip with the newest book and essay', () => {
     const html = readFileSync(join(DIST, 'index.html'), 'utf-8');
     expect(html).toContain('Lately');
