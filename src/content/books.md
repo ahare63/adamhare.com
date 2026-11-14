@@ -80,7 +80,7 @@ I read a lot and my tastes are rather varied. Below I've included a few favorite
 - *Always Astonished: Selected Prose* by Fernando Pessoa, trans. & ed. Edwin Honig
 - *The Complete Poems of Alberto Caeiro* by Fernando Pessoa, trans. Margaret Jull Costa & Patricio Ferrari, ed. Jerónimo Pizarro & Patricio Ferrari
 - *Five Moral Pieces* by Umberto Eco, trans. Alastair McEwan
-- *Serendipties: Language and Lunacy* by Umberto Eco, trans. William Weaver
+- *Serendipities: Language and Lunacy* by Umberto Eco, trans. William Weaver
 - *Hares*, ed. D. Wyn Hughes
 - *I Have More Souls Than One* by Fernando Pessoa, trans. Jonathan Griffin
 - *Postscript to the Name of the Rose* by Umberto Eco, trans. William Weaver
@@ -233,12 +233,12 @@ I read a lot and my tastes are rather varied. Below I've included a few favorite
 - *Giovanni's Room* by James Baldwin
 - *A Familiar Beast* by Panio Gianopoulos
 - *Till We Have Faces* by C.S. Lewis
-- *Best Barbarians: Poems* by Roger Reeves
+- *Best Barbarian: Poems* by Roger Reeves
 - *On Photography* by Susan Sontag
 
 ## 2023
 
-- *The Song of Roland and Other Poems of Charlemange*, trans. Simon Gaunt and Karen Pratt
+- *The Song of Roland and Other Poems of Charlemagne*, trans. Simon Gaunt and Karen Pratt
 - *Nutshell* by Ian McEwan
 - *Master of the Senate: The Years of Lyndon Johnson, Vol. III* by Robert A. Caro
 - *The Archive of Feelings* by Peter Stamm, trans. Michael Hofmann
@@ -259,7 +259,7 @@ I read a lot and my tastes are rather varied. Below I've included a few favorite
 - *The Rubáiyát* by Omar Khayyám, trans. Edward FitzGerald
 - *Songs and Poems* by Alfred Lord Tennyson
 - *Unruly: A History of England's Kings and Queens* by David Mitchell
-- *Portnoy's Compliant* by Philip Roth
+- *Portnoy's Complaint* by Philip Roth
 - *What Happens in Hamlet* by John Dover Wilson
 - *On Love* by Charles Bukowski
 - *Collected Poems* by Philip Larkin
@@ -323,7 +323,7 @@ I read a lot and my tastes are rather varied. Below I've included a few favorite
 - *The Remains of the Day* by Kazuo Ishiguro
 - *If On a Winter's Night a Traveler* by Italo Calvino, trans. William Weaver
 - *American Short Fiction, Volume 26, Issue 77, Spring 2023*
-- *The Yiddish Policeman's Union* by Michael Chabon
+- *The Yiddish Policemen's Union* by Michael Chabon
 - *Chess Story* by Stefan Zweig, trans. Joel Rotenberg
 - *Greek Lessons* by Han Kang, trans. Deborah Smith and Emily Yae Won
 - *Forget Thee* by Ian Dreiblatt
@@ -342,7 +342,7 @@ I read a lot and my tastes are rather varied. Below I've included a few favorite
 - *Midnight's Children* by Salman Rushdie
 - *The Solitude of Prime Numbers* by Paolo Giordano
 - *The Stories of John Cheever* by John Cheever
-- *Goodby, Columbus* by Philip Roth
+- *Goodbye, Columbus* by Philip Roth
 - *The Story of Hebrew* by Lewis Glinert
 - *The Sorrows of Young Werther* by Johann Wolfgang von Goethe, trans. Burton Pike
 - *The Seven Moons of Maali Almeida* by Shehan Karunatilaka
@@ -557,7 +557,7 @@ I read a lot and my tastes are rather varied. Below I've included a few favorite
 - *Essential Bukowski: Poetry* by Charles Bukowski, ed. Abel Debritto
 - *Go Tell It on the Mountain* by James Baldwin
 - *A Portrait of the Artist as a Young Man* by James Joyce
-- *Narrative of the Life of Fredrick Douglass: An American Slave* by Fredrick Douglass, ed. David W. Blight
+- *Narrative of the Life of Frederick Douglass: An American Slave* by Frederick Douglass, ed. David W. Blight
 - *Alone Together: Why We Expect More from Technology and Less from Each Other* by Sherry Turkle
 - *Orlando* by Virginia Woolf
 - *Thinking, Fast and Slow* by Daniel Kahneman
@@ -649,7 +649,7 @@ I read a lot and my tastes are rather varied. Below I've included a few favorite
 - *Scott Pilgrim and the Infinite Sadness* by Bryan Lee O'Malley
 - *Scott Pilgrim vs. the World* by Bryan Lee O'Malley
 - *The Last Samurai* by Helen Dewitt
-- *Scott Pilgrim's Miserable Little Life* by Bryan Lee O'Malley
+- *Scott Pilgrim's Precious Little Life* by Bryan Lee O'Malley
 - *Faust: Part I* by Goethe, trans. David Luke
 - *Do Androids Dream of Electric Sheep?* by Philip K. Dick
 - *Norwegian Wood* by Haruki Murakami, trans. Jay Rubin

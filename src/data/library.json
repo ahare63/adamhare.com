@@ -17,6 +17,12 @@
     "cover": "https://ecx.images-amazon.com/images/P/0691208018.01._SX400_SCRM_.jpg",
     "blurb": "In 1177 B.C., marauding groups known only as the \"Sea Peoples\" invaded Egypt. The pharaoh’s army and navy managed to defeat them, but the victory so weakened Egypt that it soon slid into decline, as did most of the surrounding civilizations. After centuries of brilliance, the civilized world of the Bronze Age came to an abrupt and cataclysmic end. Kingdoms fell like dominoes over the course of just a few decades. No more Minoans or Mycenaeans. No more Trojans, Hittites, or Babylonians."
   },
+  "19 ways of looking at wang wei: with more ways|eliot weinberger": {
+    "ltId": "303042919",
+    "isbn": "0811226204",
+    "cover": "https://ecx.images-amazon.com/images/P/0811226204.01._SX400_SCRM_.jpg",
+    "blurb": null
+  },
   "a clockwork orange|anthony burgess": {
     "ltId": "303049893",
     "isbn": "0393312836",
@@ -29,6 +35,12 @@
     "isbn": "1538174537",
     "cover": "https://ecx.images-amazon.com/images/P/1538174537.01._SX400_SCRM_.jpg",
     "blurb": "This engaging text provides a concise history of Korea from the beginning of human settlement in the region through the late nineteenth century. Its thorough, chronological narrative equally emphasizes social, cultural, and political history. Students will be especially drawn to descriptions of everyday life for both elite and nonelite members of society during various historical periods. A Concise History of Korea emphasizes how Korean history can be understood as part of an interactive sphere that includes three basic areas: China, Japan, and the Manchurian/Central Asian region."
+  },
+  "a doll's house|henrik ibsen, bartholomew house translation": {
+    "ltId": null,
+    "isbn": null,
+    "cover": "/images/books/covers/a-dolls-house.jpg",
+    "blurb": null
   },
   "a dream of mind|c. k. williams": {
     "ltId": "303041816",
@@ -183,6 +195,12 @@
     "blurb": "Senhor José is a low-grade clerk in the city's Central Registry, where the living and the dead share the same shelf space. A middle-aged bachelor, he has no interest in anything beyond the certificates of birth, marriage, divorce, and death, that are his daily routine. But one day, when he comes across the records of an anonymous young woman, something happens to him. Obsessed, Senhor José sets off to follow the thread that may lead him to the woman-but as he gets closer, he discovers more about her, and about himself, than he would ever have wished.",
     "lang": "por"
   },
+  "alone together: why we expect more from technology and less from each other|sherry turkle": {
+    "ltId": null,
+    "isbn": null,
+    "cover": "/images/books/covers/alone-together.jpg",
+    "blurb": null
+  },
   "always astonished: selected prose|fernando pessoa": {
     "ltId": "304478415",
     "isbn": "0872862283",
@@ -194,6 +212,12 @@
     "isbn": null,
     "cover": "https://pics.cdn.librarything.com/picsizes/17/07/17073021-b-h600-w300-pv25_596e32444241466b414d6741_v5.jpg",
     "blurb": "American Pastoral is a Philip Roth novel published in 1997 concerning Seymour \"Swede\" Levov, a successful Jewish American businessman and former high school star athlete from Newark, New Jersey. Levov's happy and conventional upper middle class life is ruined by the domestic social and political turmoil of the 1960s during the presidency of Lyndon B. Johnson, which in the novel is described as a manifestation of the \"indigenous American berserk\". American Pastoral won the Pulitzer Prize in 1998."
+  },
+  "american short fiction, volume 26, issue 77, spring 2023|": {
+    "ltId": "303049643",
+    "isbn": null,
+    "cover": "https://pics.cdn.librarything.com/picsizes/17/07/17070160-b-h600-w300-pv25_596c42344241466b414d6741_v5.jpg",
+    "blurb": null
   },
   "american short fiction, volume 27, issue 79, spring 2024|": {
     "ltId": "303049622",
@@ -304,6 +328,12 @@
     "cover": "https://pics.cdn.librarything.com/picsizes/10/53/10539504-b-h600-w300-pv25_597644526f41426b414d6741_v5.jpg",
     "blurb": null
   },
+  "back story|david mitchell": {
+    "ltId": null,
+    "isbn": null,
+    "cover": "/images/books/covers/back-story.jpg",
+    "blurb": null
+  },
   "back to manderley: a sleep no more companion: volume i|robert l. camaj": {
     "ltId": "303045475",
     "isbn": null,
@@ -349,7 +379,7 @@
   "beowulf: translation and commentary, revised and expanded|": {
     "ltId": null,
     "isbn": null,
-    "cover": null,
+    "cover": "/images/books/covers/beowulf-shippey.jpg",
     "blurb": null
   },
   "beowulf|": {
@@ -358,6 +388,12 @@
     "cover": "https://ecx.images-amazon.com/images/P/0393320979.01._SX400_SCRM_.jpg",
     "blurb": "Composed toward the end of the first millennium, Beowulf is the elegiac narrative of the adventures of Beowulf, a Scandinavian hero who saves the Danes from the seemingly invincible monster Grendel and, later, from Grendel's mother. He then returns to his own country and dies in old age in a vivid fight against a dragon. The poem is about encountering the monstrous, defeating it, and then having to live on in the exhausted aftermath.",
     "lang": "ang"
+  },
+  "best barbarian: poems|roger reeves": {
+    "ltId": "303042912",
+    "isbn": "1324064455",
+    "cover": "https://ecx.images-amazon.com/images/P/1324064455.01._SX400_SCRM_.jpg",
+    "blurb": null
   },
   "billy budd, sailor|herman melville": {
     "ltId": "303087775",
@@ -532,6 +568,12 @@
     "isbn": "0300246307",
     "cover": "https://ecx.images-amazon.com/images/P/0300246307.01._SX400_SCRM_.jpg",
     "blurb": "Richard Siken's Crush, selected as the 2004 winner of the Yale Younger Poets prize, is a powerful collection of poems driven by obsession and love. Siken writes with ferocity, and his reader hurtles unstoppably with him. His poetry is confessional, gay, savage, and charged with violent eroticism. In the world of American poetry, Siken's voice is striking. In her introduction to the book, competition judge Louise Glück hails the \"cumulative, driving, apocalyptic power, [and] purgatorial recklessness\" of Siken's poems."
+  },
+  "daytripper|fábio moon, art. gabriel bá": {
+    "ltId": "303077306",
+    "isbn": "1401229697",
+    "cover": "https://ecx.images-amazon.com/images/P/1401229697.01._SX400_SCRM_.jpg",
+    "blurb": null
   },
   "death in venice|thomas mann": {
     "ltId": "303049894",
@@ -825,6 +867,24 @@
     "cover": "https://ecx.images-amazon.com/images/P/0385031149.01._SX400_SCRM_.jpg",
     "blurb": "A complete annotated translation of Goethe's \"Faust,\" plus extensive interpretive notes, \"Faust\" illustrations and other visual sources used by Goethe, several pieces of Goethe's correspondence and commentary, eleven contemporary reviews by well-known writers, and ten modern pieces of criticism; also includes a Goethe chronology and selected bibliography."
   },
+  "good old neon|david foster wallace": {
+    "ltId": "303077009",
+    "isbn": "0316182400",
+    "cover": "https://ecx.images-amazon.com/images/P/0316182400.01._SX400_SCRM_.jpg",
+    "blurb": null
+  },
+  "good omens: the nice and accurate prophecies of agnes nutter, witch|terry pratchett and neil gaiman": {
+    "ltId": "303049889",
+    "isbn": "0060853972",
+    "cover": "https://pics.cdn.librarything.com/picsizes/11/51/11515274-b-h600-w300-pv25_596f71317277426b414d6741_v5.jpg",
+    "blurb": "Armageddon only happens once, you know. They don't let you go around again until you get it right. According to the Nice and Accurate Prophecies of Agnes Nutter, Witch - the world's only totally reliable guide to the future, written in 1655, before she exploded - the world will end on a Saturday. Next Saturday, in fact. Just after tea... People have been predicting the end of the world almost from its very beginning, so it's only natural to be sceptical when a new date is set for Judgement Day. This time though, the armies of Good and Evil really do appear to be massing."
+  },
+  "goodbye, columbus|philip roth": {
+    "ltId": "303114408",
+    "isbn": "0679748261",
+    "cover": "https://ecx.images-amazon.com/images/P/0679748261.01._SX400_SCRM_.jpg",
+    "blurb": "Dramatizations of aspects of American life seen through the comic or tragic predicament of American Jews."
+  },
   "gravity's rainbow|thomas pynchon": {
     "ltId": "309796594",
     "isbn": "0143039946",
@@ -990,6 +1050,12 @@
     "blurb": null,
     "lang": "fre"
   },
+  "i'm thinking of ending things|ian reid": {
+    "ltId": null,
+    "isbn": null,
+    "cover": "/images/books/covers/im-thinking-of-ending-things.jpg",
+    "blurb": null
+  },
   "i, claudius|robert graves": {
     "ltId": "303111723",
     "isbn": "067972477X",
@@ -1001,6 +1067,12 @@
     "isbn": "0008279551",
     "cover": "https://ecx.images-amazon.com/images/P/0008279551.01._SX400_SCRM_.jpg",
     "blurb": "I, Robot is a fixup novel of science fiction short stories or essays by American writer Isaac Asimov. The stories originally appeared in the American magazines Super Science Stories and Astounding Science Fiction between 1940 and 1950 and were then compiled into a book for stand-alone publication by Gnome Press in 1950, in an initial edition of 5,000 copies. The stories are woven together by a framing narrative in which the fictional Dr. Susan Calvin tells each story to a reporter (who serves as the narrator) in the 21st century."
+  },
+  "if not, winter: fragments of sappho|sappho": {
+    "ltId": "303043535",
+    "isbn": "1844080811",
+    "cover": "https://ecx.images-amazon.com/images/P/1844080811.01._SX400_SCRM_.jpg",
+    "blurb": "A bilingual edition of the work of the Greek poet Sappho, in a new translation by Anne Carson.Sappho lived on the island of Lesbos from about 630 b.c. She was a musical genius who devoted her life to composing and performing songs. Of the nine books of lyrics Sappho is said to have composed, none of the music is extant and only one poem has survived complete. All the rest are fragments. In If Not, Winter Carson presents all of Sappho's fragments in Greek and in English. Brackets and space give the reader a sense of what is absent as well as what is present on the papyrus."
   },
   "if on a winter's night a traveler|italo calvino": {
     "ltId": "303049424",
@@ -1105,6 +1177,12 @@
     "cover": "https://pics.cdn.librarything.com/picsizes/80/93/8093083-b-h600-w300-pv25_597074396577426b414d6741_v5.jpg",
     "blurb": "Discusses the mythology of Japan, its origins in Shintoism and Buddhism, and the gods, spirits, men, and animals that appear in the many legends and stories."
   },
+  "jewish history: a very short introduction|david n. myers": {
+    "ltId": null,
+    "isbn": null,
+    "cover": "/images/books/covers/jewish-history-vsi.jpg",
+    "blurb": null
+  },
   "journey by moonlight|antal szerb": {
     "ltId": "303028885",
     "isbn": "1805330241",
@@ -1116,6 +1194,12 @@
     "ltId": "303049321",
     "isbn": "1590173678",
     "cover": "https://ecx.images-amazon.com/images/P/1590173678.01._SX400_SCRM_.jpg",
+    "blurb": null
+  },
+  "judaism: a very short introduction|norman solomon": {
+    "ltId": null,
+    "isbn": "9780198930471",
+    "cover": "/images/books/covers/judaism-vsi.jpg",
     "blurb": null
   },
   "judgment at appomattox|ralph peters": {
@@ -1152,6 +1236,12 @@
     "ltId": "303075315",
     "isbn": "0735214735",
     "cover": "https://ecx.images-amazon.com/images/P/0735214735.01._SX400_SCRM_.jpg",
+    "blurb": null
+  },
+  "kronberg: a living castle|anette molbech and kurt rodahl hoppe": {
+    "ltId": null,
+    "isbn": null,
+    "cover": "/images/books/covers/kronborg.jpg",
     "blurb": null
   },
   "landscape turned red: the battle of antietam|stephen w. sears": {
@@ -1465,6 +1555,12 @@
     "cover": "https://ecx.images-amazon.com/images/P/0525522131.01._SX400_SCRM_.jpg",
     "blurb": "It's early 2000 on New York City's Upper East Side, and the alienation of Moshfegh's unnamed young protagonist from others is nearly complete when she initiates her yearlong siesta, during which time she experiences limited personal interactions. Her parents have died; her relationships with her bulimic best friend Reva, an ex-boyfriend, and her drug-pushing psychiatrist are unwholesome. As her pill-popping intensifies, so does her isolation and determination to leave behind the world's travails. She is also beset by dangerous blackouts induced by a powerful medication."
   },
+  "narrative of the life of frederick douglass: an american slave|frederick douglass": {
+    "ltId": "324928630",
+    "isbn": "0312257376",
+    "cover": "https://ecx.images-amazon.com/images/P/0312257376.01._SX400_SCRM_.jpg",
+    "blurb": "This book is an autobiographical account by runaway slave Frederick Douglass that chronicles his experiences with his owners and overseers and discusses how slavery affected both slaves and slaveholders."
+  },
   "natural causes|nina lykke": {
     "ltId": "303048849",
     "isbn": "1948830663",
@@ -1643,6 +1739,12 @@
     "cover": "https://ecx.images-amazon.com/images/P/0226311554.01._SX400_SCRM_.jpg",
     "blurb": null
   },
+  "pinch, volume 45, issue 1, spring 2025|": {
+    "ltId": "303049054",
+    "isbn": null,
+    "cover": "https://pics.cdn.librarything.com/picsizes/17/07/17070150-b-h600-w300-pv25_596b5a344241466b414d6741_v5.jpg",
+    "blurb": null
+  },
   "piranesi|susanna clarke": {
     "ltId": "303083647",
     "isbn": "1635577802",
@@ -1679,6 +1781,12 @@
     "cover": "https://pics.cdn.librarything.com/picsizes/17/07/17070072-b-h600-w300-pv25_597668334241466b414d6741_v5.jpg",
     "blurb": null
   },
+  "portnoy's complaint|philip roth": {
+    "ltId": "303086530",
+    "isbn": "0449202917",
+    "cover": "https://pics.cdn.librarything.com/picsizes/52/25/5225149-c-h600-w300-pv25_593732365477426b414d6741_v5.jpg",
+    "blurb": "Though is caused outrage and controversy at the time of its publication Roth’s comic novel of sexual obsession and frustration is now widely regarded as one of the best novels of the twentieth century."
+  },
   "postscript to the name of the rose|umberto eco": {
     "ltId": "304349844",
     "isbn": "015173156X",
@@ -1689,6 +1797,12 @@
     "ltId": "303075391",
     "isbn": "1324091975",
     "cover": "https://ecx.images-amazon.com/images/P/1324091975.01._SX400_SCRM_.jpg",
+    "blurb": null
+  },
+  "pride and prejudice and zombies|jane austen and seth grahame-smith": {
+    "ltId": null,
+    "isbn": null,
+    "cover": "/images/books/covers/pride-and-prejudice-and-zombies.jpg",
     "blurb": null
   },
   "pride and prejudice|jane austen": {
@@ -1767,38 +1881,74 @@
   "scott pilgrim and the infinite sadness|bryan lee o'malley": {
     "ltId": "303077333",
     "isbn": "0007931077",
-    "cover": "https://ecx.images-amazon.com/images/P/B00O13WVQI.01._SX400_SCRM_.jpg",
+    "cover": "https://covers.openlibrary.org/b/id/9034500-L.jpg",
     "blurb": null
   },
   "scott pilgrim gets it together|bryan lee o'malley": {
     "ltId": "303077333",
     "isbn": "0007931077",
-    "cover": "https://ecx.images-amazon.com/images/P/B00O13WVQI.01._SX400_SCRM_.jpg",
+    "cover": "https://covers.openlibrary.org/b/id/2126595-L.jpg",
     "blurb": null
   },
   "scott pilgrim vs. the universe|bryan lee o'malley": {
     "ltId": "303077333",
     "isbn": "0007931077",
-    "cover": "https://ecx.images-amazon.com/images/P/B00O13WVQI.01._SX400_SCRM_.jpg",
+    "cover": "https://covers.openlibrary.org/b/id/6436321-L.jpg",
     "blurb": "Scott Pilgrim's life is fantastic. He's 23 years old, in a rock band, between jobs, and dating a cute high school girl. Everything's awesome until a seriously mind-blowing delivery girl named Ramona Flowers enters his life."
   },
   "scott pilgrim vs. the world|bryan lee o'malley": {
     "ltId": "303077333",
     "isbn": "0007931077",
-    "cover": "https://ecx.images-amazon.com/images/P/B00O13WVQI.01._SX400_SCRM_.jpg",
+    "cover": "https://covers.openlibrary.org/b/id/960261-L.jpg",
     "blurb": null
   },
   "scott pilgrim's finest hour|bryan lee o'malley": {
     "ltId": "303077333",
     "isbn": "0007931077",
-    "cover": "https://ecx.images-amazon.com/images/P/B00O13WVQI.01._SX400_SCRM_.jpg",
+    "cover": "https://covers.openlibrary.org/b/id/6455385-L.jpg",
     "blurb": "Six of Ramona's seven evil exes dispatched, it should be time for Scott Pilgrim to face Gideon Graves, the biggest and baddest of her former beaus. But didn't Ramona take off at the end of Book 5? Shouldn't that let Scott off the hook? Maybe it should, maybe it shouldn't, but one thing is for certain all of this has been building to Scott Pilgrim's Finest Hour!"
+  },
+  "scott pilgrim's precious little life|bryan lee o'malley": {
+    "ltId": "303077333",
+    "isbn": "0007931077",
+    "cover": "https://covers.openlibrary.org/b/id/960258-L.jpg",
+    "blurb": "Scott Pilgrim's life is fantastic. He's 23 years old, in a rock band, between jobs, and dating a cute high school girl. Everything's awesome until a seriously mind-blowing delivery girl named Ramona Flowers enters his life."
   },
   "seize the day|saul bellow": {
     "ltId": "324928671",
     "isbn": "0142437611",
     "cover": "https://ecx.images-amazon.com/images/P/0142437611.01._SX400_SCRM_.jpg",
     "blurb": "Tommy Wilhelm is a man in his mid-forties, temporarily living in the Hotel Gloriana on the Upper West Side of New York City, the same hotel in which his father has taken residence for a number of years. He is out of place from the beginning, living in a hotel filled with elderly retirees and continuing throughout the novel to be a figure of isolation amidst crowds. The novella traverses one very important day in the life of this self-same Tommy Wilhelm: his \"day of reckoning,\" so to speak."
+  },
+  "selected poetry|federico garcía lorca, various translators": {
+    "ltId": "303042926",
+    "isbn": "0811221628",
+    "cover": "https://ecx.images-amazon.com/images/P/0811221628.01._SX400_SCRM_.jpg",
+    "blurb": null
+  },
+  "selections from the best american science fiction and fantasy 2023|": {
+    "ltId": null,
+    "isbn": null,
+    "cover": "/images/books/covers/best-american-sff-2023.jpg",
+    "blurb": null
+  },
+  "selections from the david foster wallace reader|david foster wallace": {
+    "ltId": "303077009",
+    "isbn": "0316182400",
+    "cover": "https://ecx.images-amazon.com/images/P/0316182400.01._SX400_SCRM_.jpg",
+    "blurb": "Wallace's explorations of morality, self-consciousness, addiction, sports, love, and the many other subjects that occupied him are represented here in both fiction and nonfiction. Collected for the first time are Wallace's first published story, \"The View from Planet Trillaphon as Seen In Relation to the Bad Thing\" and a selection of his work as a writing instructor, including reading lists, grammar guides, and general guidelines for his students. A dozen writers and critics, including Hari Kunzru, Anne Fadiman, and Nam Le, add afterwords to favorite pieces..."
+  },
+  "selections from the short stories of f. scott fitzgerald: a new collection|f. scott fitzgerald": {
+    "ltId": "303076744",
+    "isbn": "068480445X",
+    "cover": "https://ecx.images-amazon.com/images/P/068480445X.01._SX400_SCRM_.jpg",
+    "blurb": "The 43 stories in this collection include both the famous ones and several that are less well known.\" Booklist. \"Collection of 43 short stories that illustrate Fitzgerald's depth and range of literary talent...including commercial work for the Saturday Evening Post."
+  },
+  "serendipities: language and lunacy|umberto eco": {
+    "ltId": "304349820",
+    "isbn": "0156007517",
+    "cover": "https://ecx.images-amazon.com/images/P/0156007517.01._SX400_SCRM_.jpg",
+    "blurb": "Umberto Eco's latest work unlocks the riddles of history in an exploration of the \"linguistics of the lunatic,\" stories told by scholars, scientists, poets, fanatics, and ordinary people in order to make sense of the world. Exploring the \"Force of the False,\" Eco uncovers layers of mistakes that have shaped human history, such as Columbus's assumption that the world was much smaller than it is, leading him to seek out a quick route to the East via the West and thus fortuitously \"discovering\" America."
   },
   "she is haunted|paige clark": {
     "ltId": "303111785",
@@ -2098,6 +2248,12 @@
     "cover": "https://pics.cdn.librarything.com/picsizes/14/82/14820326-b-h600-w300-pv25_5975596a3467426b414d6741_v5.jpg",
     "blurb": null
   },
+  "the canterbury tales|geoffrey chaucer from the riverside chaucer": {
+    "ltId": "303030347",
+    "isbn": "0199552096",
+    "cover": "https://ecx.images-amazon.com/images/P/0199552096.01._SX400_SCRM_.jpg",
+    "blurb": "This edition provides the general information on Chaucer's life, language, and works that one needs for a first reading of Chaucer, and difficult words and constructions are glossed on the pages. The Appendix contains the materials, including the extensive notes and glossary, for a more thorough understanding of Chaucer's works."
+  },
   "the captain's verses|pablo neruda": {
     "ltId": "303041435",
     "isbn": "081121821X",
@@ -2117,6 +2273,13 @@
     "cover": "https://ecx.images-amazon.com/images/P/0674129709.01._SX400_SCRM_.jpg",
     "blurb": null
   },
+  "the city of carcassonne|jean-pierre panouillé": {
+    "ltId": "303114813",
+    "isbn": "2757702432",
+    "cover": "https://ecx.images-amazon.com/images/P/2757702432.01._SX400_SCRM_.jpg",
+    "lang": "fre",
+    "blurb": null
+  },
   "the communist manifesto|karl marx and frederick engels": {
     "ltId": "324923173",
     "isbn": "0717802418",
@@ -2129,6 +2292,13 @@
     "isbn": "0375714839",
     "cover": "https://pics.cdn.librarything.com/picsizes/30/57/3057116-b-h600-w300-pv25_5974796c4c67426b414d6741_v5.jpg",
     "blurb": "Persepolis is the story of Marjane Satrapi's childhood and coming of age within a large and loving family in Tehran during the Islamic Revolution; of the contradictions between private life and public life in a country plagued by political upheaval; of her high school years in Vienna facing the trials of adolescence far from her family; of her homecoming--both sweet and terrible; and, finally, of her self-imposed exile from her beloved homeland."
+  },
+  "the complete poems of alberto caeiro|fernando pessoa": {
+    "ltId": "304331671",
+    "isbn": "0811227804",
+    "cover": "https://ecx.images-amazon.com/images/P/0811227804.01._SX400_SCRM_.jpg",
+    "lang": "por",
+    "blurb": "Here, in Margaret Jull Costa and Patricio Ferrari's splendid new translations, are the complete poems of Alberto Caeiro, the imaginary master of the \"heteronym\" coterie created by the Portuguese modernist Fernando Pessoa. Pessoa conceived Caeiro around 1914 and may have named him loosely after his friend, the poet Ma rio de Sa -Carneiro. What followed was a collection of some of Fernando Pessoa's greatest poems, grouped under the titles The Keeper of Sheep, The Shepherd in Love, and Uncollected Poems."
   },
   "the conquest of new spain|bernal díaz": {
     "ltId": "303028875",
@@ -2178,6 +2348,12 @@
     "ltId": "324928609",
     "isbn": "0140622381",
     "cover": "https://pics.cdn.librarything.com/picsizes/16/37/16377001-b-h600-w300-pv25_59716e6b2b51426b414d6741_v5.jpg",
+    "blurb": null
+  },
+  "the distaff side: representing the female in homer's odyssey|": {
+    "ltId": null,
+    "isbn": "9780195086836",
+    "cover": "/images/books/covers/distaff-side.jpg",
     "blurb": null
   },
   "the divine comedy: inferno|dante alighieri": {
@@ -2320,6 +2496,13 @@
     "cover": "https://ecx.images-amazon.com/images/P/0393328627.01._SX400_SCRM_.jpg",
     "blurb": "Fourteen-year-old Alma Singer is trying to find a cure for her mother's loneliness. Believing that she might discover it in an old book her mother is lovingly translating, she sets out in search of its author. Across New York an old man named Leo Gursky is trying to survive a little bit longer. He spends his days dreaming of the lost love who, sixty years ago in Poland, inspired him to write a book. And although he doesn't know it yet, that book also survived: crossing oceans and generations, and changing lives."
   },
+  "the history of rome, books 1-5: the early history of rome|livy": {
+    "ltId": "303114276",
+    "isbn": "0140448098",
+    "cover": "https://ecx.images-amazon.com/images/P/0140448098.01._SX400_SCRM_.jpg",
+    "lang": "lat",
+    "blurb": "In Livy's epic history of Rome he unashamedly praised his country's virtues and urged against its excesses, in order to keep it great. He dedicated most of his life to writing some 142 volumes of history, the first five of which comprise The Early History of Rome.\" \"With stylistic brilliance and historical imagination Livy (c."
+  },
   "the history of the siege of lisbon|josé saramago": {
     "ltId": "308878822",
     "isbn": "0156006243",
@@ -2440,6 +2623,12 @@
     "cover": "https://ecx.images-amazon.com/images/P/0375700528.01._SX400_SCRM_.jpg",
     "blurb": "Set in the prewar Indochina of Marguerite Duras's childhood, this is the haunting tale of a tumultuous affair between an adolescent French girl and her Chinese lover. In spare yet luminous prose, Duras evokes life on the margins of Saigon in the waning days of France's colonial empire, and its representation in the passionate relationship between two unforgettable outcasts."
   },
+  "the lusíad|luis vaz de camões": {
+    "ltId": "304581276",
+    "isbn": "0199539960",
+    "cover": "https://ecx.images-amazon.com/images/P/0199539960.01._SX400_SCRM_.jpg",
+    "blurb": "Os Lusíadas, usually translated as The Lusiads, is a Portuguese epic poem written by Luís de Camões and first published in 1572. It is widely regarded as the most important work of Portuguese-language literature and is frequently compared to Virgil's Aeneid. The work celebrates the discovery of a sea route to India by the Portuguese explorer Vasco da Gama (1469–1524). The ten cantos of the poem are in ottava rima and total 1,102 stanzas."
+  },
   "the malady of death|marguerite duras": {
     "ltId": "303049819",
     "isbn": "0802130364",
@@ -2506,6 +2695,12 @@
     "cover": "https://ecx.images-amazon.com/images/P/0143131273.01._SX400_SCRM_.jpg",
     "blurb": null,
     "lang": "kor"
+  },
+  "the o. henry prize stories 2016|": {
+    "ltId": null,
+    "isbn": null,
+    "cover": "/images/books/covers/o-henry-prize-stories-2016.jpg",
+    "blurb": "The O. Henry Prize Stories 2016 gathers twenty of the best short stories of the year, selected from thousands published in literary magazines. The winning stories range in setting from Japan at the outset of World War II to a remote cabin in the woods of Wyoming, and the characters that inhabit them range from a misanthropic survivor of an apocalyptic flood to a unicorn hidden in a suburban house. Whether fantastical or realistic, gothic or lyrical, the stories here are uniformly breathtaking."
   },
   "the odyssey|homer": {
     "ltId": "318875013",
@@ -2725,6 +2920,12 @@
     "cover": "https://ecx.images-amazon.com/images/P/0375761233.01._SX400_SCRM_.jpg",
     "blurb": null
   },
+  "the selected poetry of rainer maria rilke|rainer maria rilke": {
+    "ltId": "303043571",
+    "isbn": "0394716361",
+    "cover": "https://pics.cdn.librarything.com/picsizes/43/12/4312215-c-h600-w300-pv25_5935664d5151426b414d6741_v5.jpg",
+    "blurb": null
+  },
   "the seven moons of maali almeida|shehan karunatilaka": {
     "ltId": "303083678",
     "isbn": "132406482X",
@@ -2767,6 +2968,18 @@
     "cover": "https://pics.cdn.librarything.com/picsizes/12/59/12596316-b-h600-w300-pv25_596c77307741426b414d6741_v5.jpg",
     "blurb": "This is the story of the seige of Troy from the perspective of Achilles best-friend Patroclus. Although Patroclus is outcast from his home for disappointing his father he manages to be the only mortal who can keep up with the half-God Archilles. Even though many will know the facts behind the story the telling is fresh and engaging."
   },
+  "the song of roland and other poems of charlemagne|": {
+    "ltId": "303030283",
+    "isbn": "0199655545",
+    "cover": "https://ecx.images-amazon.com/images/P/0199655545.01._SX400_SCRM_.jpg",
+    "blurb": null
+  },
+  "the song of the cathar wars: a history of the albigensian crusade|william of tudela and anonymous": {
+    "ltId": "303114874",
+    "isbn": "0754603881",
+    "cover": "https://ecx.images-amazon.com/images/P/0754603881.01._SX400_SCRM_.jpg",
+    "blurb": null
+  },
   "the sorrows of young werther|johann wolfgang von goethe": {
     "ltId": "303111101",
     "isbn": "0812969901",
@@ -2801,6 +3014,12 @@
     "ltId": "303111846",
     "isbn": "0375724427",
     "cover": "https://ecx.images-amazon.com/images/P/0375724427.01._SX400_SCRM_.jpg",
+    "blurb": null
+  },
+  "the story of amis & amile done out of the ancient french into english|william morris": {
+    "ltId": "303030363",
+    "isbn": "1104400197",
+    "cover": "https://pics.cdn.librarything.com/picsizes/17/06/17069628-b-h600-w300-pv25_596a78324241466b414d6741_v5.jpg",
     "blurb": null
   },
   "the story of hebrew|lewis glinert": {
@@ -2883,6 +3102,13 @@
     "ltId": "303046963",
     "isbn": "0404623301",
     "cover": "https://pics.cdn.librarything.com/picsizes/17/07/17070137-b-h600-w300-pv25_596a6c344241466b414d6741_v5.jpg",
+    "blurb": null
+  },
+  "the tobacco shop|fernando pessoa as álvaro de campos": {
+    "ltId": "307118045",
+    "isbn": "9728323506",
+    "cover": "https://pics.cdn.librarything.com/picsizes/17/20/17205121-b-h600-w300-pv25_596f47484267466b414d6741_v5.jpg",
+    "lang": "por",
     "blurb": null
   },
   "the tragedy of pedro and inês|maria zulmira albuquerque furtado marques": {
@@ -3002,6 +3228,12 @@
     "blurb": "Lisbon circa 1935 comes to life in this story of a doctor who forsakes medicine to recite poetry in the streets, the women in his life, and the ghost who occasionally accompanies him.",
     "lang": "por"
   },
+  "the yiddish policemen's union|michael chabon": {
+    "ltId": "303111067",
+    "isbn": "0007149832",
+    "cover": "https://ecx.images-amazon.com/images/P/0007149832.01._SX400_SCRM_.jpg",
+    "blurb": "For sixty years Jewish refugees and their descendants have prospered in the Federal District of Sitka, a \"temporary\" safe haven created in the wake of the Holocaust and the shocking 1948 collapse of the fledgling state of Israel. The Jews of the Sitka District have created their own little world in the Alaskan panhandle, a vibrant and complex frontier city that moves to the music of Yiddish. But now the District is set to revert to Alaskan control, and their dream is coming to an end."
+  },
   "then the war|carl phillips": {
     "ltId": "303043925",
     "isbn": "0374603766",
@@ -3038,6 +3270,12 @@
     "cover": "https://ecx.images-amazon.com/images/I/519Wpy--UWL._SX400_SCRM_.jpg",
     "blurb": "This Side of Paradise, F. Scott Fitzgerald's romantic and witty first novel, was written when the author was only twenty-three years old. This semi-autobiographical story of the handsome, indulged, and idealistic Princeton student Amory Blaine received critical raves and catapulted Fitzgerald to instant fame. Now, readers can enjoy the newly edited, authorized version of this early classic of the Jazz Age, based on Fitzgerald's original manuscript."
   },
+  "this way up: when maps go wrong|jay foreman and mark cooper-jones": {
+    "ltId": "303028871",
+    "isbn": "133500131X",
+    "cover": "https://ecx.images-amazon.com/images/P/133500131X.01._SX400_SCRM_.jpg",
+    "blurb": null
+  },
   "three parts dead|max gladstone": {
     "ltId": "303114641",
     "isbn": "0765333112",
@@ -3073,6 +3311,12 @@
     "isbn": "0099478293",
     "cover": "https://ecx.images-amazon.com/images/P/0099478293.01._SX400_SCRM_.jpg",
     "blurb": "This novel is an extraordinarily poignant evocation of a lost happiness that lives on in the memory. For years now the Ramsays have spent every summer in their holiday home in Scotland, and they expect these summers will go on forever. In this, her most autobiographical novel, Virginia Woolf captures the intensity of childhood longing and delight, and the shifting complexity of adult relationships. From an acute awareness of transcience, she creates an enduring work of art."
+  },
+  "tokyo ghoul, volume 1|sui ishida": {
+    "ltId": "324928419",
+    "isbn": "1421580365",
+    "cover": "https://ecx.images-amazon.com/images/P/1421580365.01._SX400_SCRM_.jpg",
+    "blurb": "Ghouls live among us, the same as normal people in every way―except their craving for human flesh. Ken Kaneki is an ordinary college student until a violent encounter turns him into the first half-human half-ghoul hybrid. Trapped between two worlds, he must survive Ghoul turf wars, learn more about Ghoul society and master his new powers. Shy Ken Kaneki is thrilled to go on a date with the beautiful Rize. But it turns out that she’s only interested in his body―eating it, that is."
   },
   "tomorrow, and tomorrow, and tomorrow|gabrielle zevin": {
     "ltId": "303049834",
