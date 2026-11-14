@@ -5,6 +5,10 @@ import { linearBLabel } from '../lib/linear-b.js';
 // bannerTitle, the strip carries the page's <h1> (the page must not render its own).
 const { title, description = 'Adam Hare — Head of AI at Zoomi. Projects, research, and interests.', wide = false, banner, bannerTitle, bannerPosition = 'center' } = Astro.props;
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+// Link-preview image: the page's banner photo, or the home page's when it has none.
+const canonical = new URL(path, Astro.site).href;
+const shareImage = new URL(banner || '/images/banners/home.jpg', Astro.site).href;
+const shareTitle = title ? `${title} · Adam Hare` : 'Adam Hare';
 const nav = [
   ['/about', 'About'],
   ['/background', 'Background'],
@@ -23,6 +27,14 @@ const current = (href) => (path === href || sub[path] === href ? 'page' : undefi
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title ? `${title} · Adam Hare` : 'Adam Hare'}</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Adam Hare" />
+    <meta property="og:title" content={shareTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={shareImage} />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" type="image/png" href="/favicon.png?v=3" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
