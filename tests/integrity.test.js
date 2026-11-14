@@ -101,6 +101,27 @@ describe('built site integrity', () => {
     expect(html).toContain('<dialog');
   });
 
+  it('books island carries the cover and blurb chosen from library.json and covers.json', () => {
+    const html = readFileSync(join(DIST, 'books/index.html'), 'utf-8');
+    const books = JSON.parse(html.match(/<script[^>]*id="books-data"[^>]*>([\s\S]*?)<\/script>/)[1]);
+    const data = (p) => JSON.parse(readFileSync(new URL(`../src/data/${p}`, import.meta.url), 'utf-8'));
+    const library = data('library.json');
+    const covers = data('covers.json');
+    const key = (b) => `${b.title}|${b.author}`.toLowerCase();
+    const withLibrary = books.filter((b) => library[key(b)]);
+    const openLibraryOnly = books.filter((b) => !library[key(b)] && covers[key(b)] != null);
+    expect(withLibrary.length, 'library.json should match some books').toBeGreaterThan(0);
+    for (const b of withLibrary) {
+      expect(b.cover, `cover for ${b.title}`).toBe(library[key(b)].cover);
+      expect(b.blurb, `blurb for ${b.title}`).toBe(library[key(b)].blurb ?? null);
+    }
+    for (const b of openLibraryOnly) {
+      expect(b.cover).toBe(`https://covers.openlibrary.org/b/id/${covers[key(b)]}-M.jpg`);
+      expect(b.blurb).toBeNull();
+    }
+    expect(html).toContain('librarything.com/profile/ahare63');
+  });
+
   it('books page server-renders the newest book in the list', () => {
     const html = readFileSync(join(DIST, 'books/index.html'), 'utf-8');
     const md = readFileSync(new URL('../src/content/books.md', import.meta.url), 'utf-8');

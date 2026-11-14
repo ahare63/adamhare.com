@@ -33,6 +33,8 @@ jobs:
         run: node scripts/fetch-travel.mjs || echo "sheet unreachable; using committed snapshot"
       - name: Refresh essays from Substack
         run: node scripts/fetch-essays.mjs || echo "feed unreachable; using committed snapshot"
+      - name: Match books to LibraryThing for covers and descriptions
+        run: node scripts/fetch-library.mjs || echo "LibraryThing or Open Library unreachable; using committed library data"
       - name: Look up covers for newly added books from Open Library
         run: node scripts/fetch-covers.mjs || echo "Open Library unreachable; using committed covers"
       - run: npm run build

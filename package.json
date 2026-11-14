@@ -8,6 +8,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "fetch": "node scripts/fetch-travel.mjs && node scripts/fetch-essays.mjs",
+    "fetch:library": "node scripts/fetch-library.mjs",
     "fetch:covers": "node scripts/fetch-covers.mjs",
     "test": "vitest run",
     "test:integrity": "npm run build && vitest run tests/integrity.test.js"

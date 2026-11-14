@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import booksData from '../data/books.json';
 import covers from '../data/covers.json';
+import library from '../data/library.json';
 import * as booksMd from '../content/books.md';
 import { parseBooks, coverKey } from '../lib/books.js';
 
@@ -18,7 +19,13 @@ const firstHeading = html.indexOf('<h2');
 const introHtml = firstHeading === -1 ? html : html.slice(0, firstHeading);
 
 // All counts are derived from the parsed list; none are typed by hand.
-const books = parseBooks(booksMd.rawContent()).map((b) => ({ ...b, cover: covers[coverKey(b)] ?? null }));
+// Cover precedence: LibraryThing, then Open Library, then the script's placeholder.
+const coverUrl = (b) => {
+  const key = coverKey(b);
+  if (library[key]?.cover) return library[key].cover;
+  return covers[key] != null ? `https://covers.openlibrary.org/b/id/${covers[key]}-M.jpg` : null;
+};
+const books = parseBooks(booksMd.rawContent()).map((b) => ({ ...b, cover: coverUrl(b), blurb: library[coverKey(b)]?.blurb ?? null }));
 
 const tally = (values) => {
   const m = new Map();
@@ -174,7 +181,7 @@ const json = JSON.stringify(books).replace(/</g, '\\u003c');
       </section>
     </div>
 
-    <p class="bk-credit">Covers from <a href="https://openlibrary.org" rel="noopener">Open Library</a></p>
+    <p class="bk-credit">Covers from <a href="https://www.librarything.com/profile/ahare63" rel="noopener">LibraryThing</a> and <a href="https://openlibrary.org" rel="noopener">Open Library</a>; descriptions from <a href="https://openlibrary.org" rel="noopener">Open Library</a></p>
 
     <dialog id="bk-dialog" class="bk-dialog" aria-labelledby="bk-d-title">
       <div class="bk-card">
@@ -186,6 +193,7 @@ const json = JSON.stringify(books).replace(/</g, '\\u003c');
           <p class="bk-d-line" id="bk-d-trans" hidden></p>
           <p class="bk-d-line" id="bk-d-note" hidden></p>
           <p class="bk-d-line" id="bk-d-meta"></p>
+          <p class="bk-d-blurb" id="bk-d-blurb" hidden></p>
           <div class="bk-d-works" id="bk-d-works" hidden>
             <span class="bk-d-label">Includes</span>
             <ul id="bk-d-works-list"></ul>
@@ -357,6 +365,8 @@ const json = JSON.stringify(books).replace(/</g, '\\u003c');
     .bk-d-line { margin: 0 0 0.3rem; overflow-wrap: anywhere; }
     .bk-d-line[hidden], .bk-d-works[hidden] { display: none; }
     #bk-d-meta { margin-top: 0.7rem; font-size: 0.88rem; color: var(--ink-soft); }
+    .bk-d-blurb { margin: 0.7rem 0 0; font-size: 0.88rem; line-height: 1.5; color: var(--ink-soft); }
+    .bk-d-blurb[hidden] { display: none; }
     .bk-d-works { margin-top: 0.8rem; }
     .bk-d-label { font-size: 0.78rem; color: var(--ink-soft); }
     .bk-d-works ul { margin: 0.2rem 0 0; padding-left: 1.1rem; font-size: 0.85rem; max-height: 9rem; overflow: auto; }
@@ -508,8 +518,9 @@ const json = JSON.stringify(books).replace(/</g, '\\u003c');
       const img = el('img');
       img.alt = `Cover of ${b.title}`;
       img.loading = 'lazy';
+      img.referrerPolicy = 'no-referrer';
       img.addEventListener('error', () => img.replaceWith(cloth()));
-      img.src = `https://covers.openlibrary.org/b/id/${b.cover}-M.jpg`;
+      img.src = b.cover;
       return img;
     }
 
@@ -523,6 +534,7 @@ const json = JSON.stringify(books).replace(/</g, '\\u003c');
       line('bk-d-trans', b.translator ? `trans. ${b.translator}` : '');
       line('bk-d-note', b.note ? `(${b.note})` : '');
       $('bk-d-meta').textContent = `Read in ${b.year} · book ${order[i]} of ${total[b.year]}`;
+      line('bk-d-blurb', b.blurb ?? '');
       $('bk-d-works').hidden = b.works.length === 0;
       $('bk-d-works-list').replaceChildren(...b.works.map((w) => el('li', null, w)));
       $('bk-d-show').textContent = `Show in ${b.year}`;
