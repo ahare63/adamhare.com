@@ -123,6 +123,27 @@ describe('built site integrity', () => {
     expect(html).toContain('librarything.com/profile/ahare63');
   });
 
+  it('books page charts the original languages of translated books', async () => {
+    const html = readFileSync(join(DIST, 'books/index.html'), 'utf-8');
+    const { parseBooks, coverKey } = await import('../src/lib/books.js');
+    const { originalLanguage } = await import('../src/lib/languages.js');
+    const data = (p) => JSON.parse(readFileSync(new URL(`../src/data/${p}`, import.meta.url), 'utf-8'));
+    const library = data('library.json');
+    const languages = data('languages.json');
+    const md = readFileSync(new URL('../src/content/books.md', import.meta.url), 'utf-8');
+    const translated = parseBooks(md).filter((b) => b.translator);
+    const counts = new Map();
+    for (const b of translated) {
+      const lang = originalLanguage(b, languages, library[coverKey(b)]?.lang);
+      if (lang) counts.set(lang, (counts.get(lang) ?? 0) + 1);
+    }
+    const [top, n] = [...counts.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))[0];
+    const recorded = [...counts.values()].reduce((a, b) => a + b, 0);
+    expect(html).toContain('Read in translation from');
+    expect(html).toMatch(new RegExp(`${top}</span>\\s*<span class="bk-count"[^>]*>${n}</span>`));
+    expect(html).toContain(`${recorded} of ${translated.length} translated books`);
+  });
+
   it('books page server-renders the newest book in the list', () => {
     const html = readFileSync(join(DIST, 'books/index.html'), 'utf-8');
     const md = readFileSync(new URL('../src/content/books.md', import.meta.url), 'utf-8');
@@ -145,6 +166,24 @@ describe('built site integrity', () => {
     expect(linked).toContain('The Great Gatsby');
     expect(linked).toContain('Stoner');
     expect(linked.length).toBeGreaterThanOrEqual(12);
+  });
+
+  it('every main page spells its nav links in Linear B and offers a way back to English', () => {
+    const mains = ['index.html', 'about/index.html', 'background/index.html', 'projects/index.html',
+      'interests/index.html', 'books/index.html', 'music/index.html', 'travel/index.html', 'linear-b/index.html'];
+    for (const m of mains) {
+      const html = readFileSync(join(DIST, m), 'utf-8');
+      const nav = html.match(/<nav class="site-nav"[\s\S]*?<\/nav>/)[0];
+      const links = [...nav.matchAll(/<a [^>]*>/g)].map((x) => x[0]);
+      expect(links.length, `${m}: nav links`).toBeGreaterThanOrEqual(4);
+      for (const a of links) {
+        const lb = a.match(/data-lb="([^"]+)"/)?.[1];
+        expect(lb, `${m}: ${a}`).toBeTruthy();
+        expect(lb, `${m}: ${a}`).toMatch(/^[\u{10000}-\u{1003F} ]+$/u);
+      }
+      expect(html, `${m}: brand`).toMatch(/<span[^>]*data-lb="[^"]+"[^>]*>Adam Hare<\/span>/);
+      expect(html, `${m}: footer button`).toMatch(/<button[^>]*class="lb-off"[^>]*>Back to English<\/button>/);
+    }
   });
 
   it('home page shows the Lately strip with the newest book and essay', () => {

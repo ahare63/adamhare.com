@@ -42,9 +42,13 @@ function fromExport(rec) {
     entry_stamp: Number.isNaN(stamp) ? undefined : String(stamp),
     language: rec.language_codeA?.[0],
     originaltitle: rec.originaltitle || undefined,
+    original: rec.originallanguage_codeA?.find((c) => c && c !== 'eng'),
     cover: undefined,
   };
 }
+
+// The feed's original-language code is only kept when it is not English.
+const withOriginal = (raw) => (raw.language_original && raw.language_original !== 'eng' ? { ...raw, original: raw.language_original } : raw);
 
 const present = (v) => v !== undefined && v !== null && v !== '';
 
@@ -58,7 +62,7 @@ export function normalizeEntries(sources) {
     const books = src && typeof src.books === 'object' ? src.books : src;
     for (const [key, raw] of Object.entries(books ?? {})) {
       const fromExp = raw.books_id !== undefined;
-      const entry = fromExp ? fromExport(raw) : raw;
+      const entry = fromExp ? fromExport(raw) : withOriginal(raw);
       const id = String(entry.book_id ?? key);
       const prev = byId.get(id);
       if (!prev) { byId.set(id, { entry, fromExp }); continue; }
@@ -75,15 +79,19 @@ export function normalizeEntries(sources) {
 }
 
 // Adds an entry for every book that has none yet and matches a catalogue entry,
-// and fills a missing ISBN on existing entries from the catalogue.
+// and fills a missing ISBN or original-language code on existing entries from
+// the catalogue.
 // `added` lists the keys of the new entries.
 // `overrides` maps a LibraryThing id to a hand-picked cover (local path or URL).
 export function buildLibrary(books, existing, entries, overrides = {}) {
   const library = { ...existing };
   const byLtId = new Map(entries.map((e) => [String(e.book_id), e]));
   for (const [key, entry] of Object.entries(library)) {
-    const isbn = byLtId.get(String(entry.ltId))?.ISBN_cleaned;
-    if (entry.isbn == null && isbn) library[key] = { ...entry, isbn };
+    const found = byLtId.get(String(entry.ltId));
+    const fill = {};
+    if (entry.isbn == null && found?.ISBN_cleaned) fill.isbn = found.ISBN_cleaned;
+    if (entry.lang === undefined && found?.original) fill.lang = found.original;
+    if (Object.keys(fill).length) library[key] = { ...entry, ...fill };
   }
   const unmatched = [];
   const added = [];
@@ -94,7 +102,7 @@ export function buildLibrary(books, existing, entries, overrides = {}) {
     seen.add(key);
     const hit = matchBook(book, entries);
     if (!hit) { unmatched.push(book); continue; }
-    library[key] = { ltId: String(hit.book_id), isbn: hit.ISBN_cleaned || null, cover: overrides[hit.book_id] ?? (hit.cover ? largeCover(hit.cover) : null) };
+    library[key] = { ltId: String(hit.book_id), isbn: hit.ISBN_cleaned || null, cover: overrides[hit.book_id] ?? (hit.cover ? largeCover(hit.cover) : null), ...(hit.original ? { lang: hit.original } : {}) };
     added.push(key);
   }
   return { library: sortByKey(library), unmatched, added };

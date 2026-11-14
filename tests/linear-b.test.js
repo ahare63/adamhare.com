@@ -1,7 +1,7 @@
 // The transliterator follows Mycenaean spelling conventions, so the reference
 // cases are attested Linear B spellings of Greek words and place names.
 import { describe, it, expect } from 'vitest';
-import { transliterate, SIGNS } from '../src/lib/linear-b.js';
+import { transliterate, linearBLabel, SIGNS } from '../src/lib/linear-b.js';
 
 const syl = (text) => transliterate(text).map((w) => w.syllables.map((s) => s.syl).join('-')).join(' ');
 
@@ -42,5 +42,23 @@ describe('Linear B transliteration', () => {
     expect(syl('  José-María!! 42 ')).toBe('jo-se ma-ri-a');
     expect(transliterate('')).toEqual([]);
     expect(transliterate('123 !?')).toEqual([]);
+  });
+});
+
+describe('linearBLabel', () => {
+  const glyphs = (...syls) => syls.map((x) => SIGNS[x]).join('');
+
+  it('joins the signs of each word and separates words with a space', () => {
+    expect(linearBLabel('Knossos')).toBe(glyphs('ko', 'no', 'so'));
+    expect(linearBLabel('Lily Knossos')).toBe(`${glyphs('ri', 'ri')} ${glyphs('ko', 'no', 'so')}`);
+  });
+
+  it('uses only Linear B syllabary characters and spaces', () => {
+    expect(linearBLabel('Adam Hare Background')).toMatch(/^[\u{10000}-\u{1003F} ]+$/u);
+  });
+
+  it('returns an empty string when nothing can be spelled', () => {
+    expect(linearBLabel('')).toBe('');
+    expect(linearBLabel('42 !?')).toBe('');
   });
 });

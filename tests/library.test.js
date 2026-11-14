@@ -197,3 +197,35 @@ describe('buildLibrary with hand-picked covers', () => {
     expect(library['small gods|terry pratchett'].cover).toBe('/images/books/covers/small-gods.jpg');
   });
 });
+
+describe('original language (lang)', () => {
+  const book = [{ year: 1, title: 'Small Gods', author: 'Terry Pratchett' }];
+  const key = 'small gods|terry pratchett';
+
+  it('maps the feed language_original, ignoring English and empty values', () => {
+    expect(normalizeEntries([{ books: { 1: lt({ language_original: 'por' }) } }])[0].original).toBe('por');
+    expect(normalizeEntries([{ books: { 1: lt({ language_original: 'eng' }) } }])[0].original).toBeUndefined();
+    expect(normalizeEntries([{ books: { 1: lt({ language_original: '' }) } }])[0].original).toBeUndefined();
+  });
+
+  it('maps the first non-English code of the export and lets it fill a feed entry that has none', () => {
+    const exp = { books_id: '10', title: 'Small Gods', originallanguage_codeA: ['eng', 'grc'] };
+    expect(normalizeEntries([{ 10: exp }])[0].original).toBe('grc');
+    const feed = { books: { 10: lt({ book_id: '10', language_original: 'eng' }) } };
+    expect(normalizeEntries([feed, { 10: exp }])[0].original).toBe('grc');
+  });
+
+  it('stores lang on a newly added entry only when the catalogue has a non-English original', () => {
+    const entries = (over) => normalizeEntries([{ books: { 10: lt(over) } }]);
+    expect(buildLibrary(book, {}, entries({ language_original: 'por' })).library[key].lang).toBe('por');
+    expect('lang' in buildLibrary(book, {}, entries({ language_original: 'eng' })).library[key]).toBe(false);
+  });
+
+  it('back-fills lang on an existing entry without overwriting one that is set', () => {
+    const entries = normalizeEntries([{ books: { 10: lt({ language_original: 'por' }) } }]);
+    const filled = buildLibrary(book, { [key]: { ltId: '10', isbn: '111', cover: 'c' } }, entries).library[key];
+    expect(filled).toEqual({ ltId: '10', isbn: '111', cover: 'c', lang: 'por' });
+    const kept = buildLibrary(book, { [key]: { ltId: '10', isbn: '111', cover: 'c', lang: 'fre' } }, entries).library[key];
+    expect(kept.lang).toBe('fre');
+  });
+});

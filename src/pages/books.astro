@@ -4,7 +4,9 @@ import booksData from '../data/books.json';
 import covers from '../data/covers.json';
 import library from '../data/library.json';
 import * as booksMd from '../content/books.md';
+import languages from '../data/languages.json';
 import { parseBooks, coverKey } from '../lib/books.js';
+import { originalLanguage } from '../lib/languages.js';
 
 const groups = [
   ['top', null],
@@ -48,7 +50,11 @@ const authors = tally(books.map((b) => b.author));
 const translators = tally(books.map((b) => b.translator));
 const topAuthors = authors.slice(0, 10);
 const topTranslators = translators.slice(0, 8);
-const translated = books.filter((b) => b.translator).length;
+const translatedBooks = books.filter((b) => b.translator);
+const translated = translatedBooks.length;
+const originals = translatedBooks.map((b) => originalLanguage(b, languages, library[coverKey(b)]?.lang));
+const topLanguages = tally(originals).slice(0, 10);
+const unrecorded = originals.filter((l) => !l).length;
 
 const tiles = [
   [String(books.length), 'books read'],
@@ -198,6 +204,18 @@ const json = JSON.stringify(books).replace(/</g, '\\u003c');
           ))}
         </ul>
       </section>
+      <section>
+        <h3>Read in translation from</h3>
+        <ul class="bk-bars">
+          {topLanguages.map(([name, n]) => (
+            <li>
+              <span class="bk-lang">{name}</span><span class="bk-count">{n}</span>
+              <div class="bk-meter" style={`width:${(n / topLanguages[0][1]) * 100}%`}></div>
+            </li>
+          ))}
+        </ul>
+        <p class="bk-caption">{translated - unrecorded} of {translated} translated books{unrecorded > 0 && `; original language not recorded for ${unrecorded}`}.</p>
+      </section>
     </div>
 
     <p class="bk-credit">Covers from <a href="https://www.librarything.com/profile/ahare63" rel="noopener">LibraryThing</a> and <a href="https://openlibrary.org" rel="noopener">Open Library</a>; descriptions from <a href="https://openlibrary.org" rel="noopener">Open Library</a></p>
@@ -345,8 +363,8 @@ const json = JSON.stringify(books).replace(/</g, '\\u003c');
     .bk-list li.bk-flash { animation: bk-flash 1.8s ease-out; }
     @keyframes bk-flash { from { background: rgba(31, 78, 121, 0.22); } to { background: transparent; } }
 
-    .bk-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 2.5rem; margin-top: 2.5rem; }
-    @media (max-width: 700px) { .bk-pair { grid-template-columns: minmax(0, 1fr); } }
+    .bk-pair { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 2.5rem; margin-top: 2.5rem; }
+    @media (max-width: 900px) { .bk-pair { grid-template-columns: minmax(0, 1fr); } }
     .bk-bars { list-style: none; padding: 0; margin: 0; }
     .bk-bars li { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 1rem; margin-bottom: 0.7rem; }
     .bk-name {
@@ -354,7 +372,9 @@ const json = JSON.stringify(books).replace(/</g, '\\u003c');
       overflow-wrap: anywhere;
     }
     .bk-name:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 2.5px; }
+    .bk-lang { overflow-wrap: anywhere; }
     .bk-count { color: var(--ink-soft); }
+    .bk-caption { font-size: 0.85rem; color: var(--ink-soft); margin: 0.2rem 0 0; }
     .bk-meter { grid-column: 1 / -1; height: 0.35rem; margin-top: 0.2rem; border-radius: 3px; background: var(--accent); opacity: 0.75; }
     .bk-credit { font-size: 0.82rem; color: var(--ink-soft); margin: 1.5rem 0 0; }
 

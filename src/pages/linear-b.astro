@@ -32,6 +32,13 @@ const initial = transliterate(example);
   </div>
   <p id="lb-empty" class="lb-empty" hidden>Type some letters to see them as syllable signs.</p>
 
+  <h2>Read the whole site this way</h2>
+  <p>
+    Switch on Linear B mode and the site’s name, menu and page titles are spelled in syllable signs on every
+    page, until you switch it off again.
+  </p>
+  <p><button type="button" id="lb-mode" class="lb-mode" aria-pressed="false">Turn on Linear B mode</button></p>
+
   <h2>Why it looks different from what you typed</h2>
   <p>
     Linear B is a syllabary: about sixty signs, each standing for a vowel or a consonant plus a vowel. It was
@@ -71,6 +78,11 @@ const initial = transliterate(example);
     }
     .lb-latin { font-size: 0.8rem; color: var(--ink-soft); letter-spacing: 0.03em; }
     .lb-empty { color: var(--ink-soft); }
+    .lb-mode {
+      padding: 0.5rem 1rem; font: inherit; cursor: pointer;
+      border: 1px solid var(--accent); border-radius: 6px; background: transparent; color: var(--accent);
+    }
+    .lb-mode:hover, .lb-mode[aria-pressed="true"] { background: var(--accent); color: var(--paper); }
     .visually-hidden {
       position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap;
     }
@@ -78,6 +90,7 @@ const initial = transliterate(example);
 
   <script>
     import { transliterate } from '../lib/linear-b.js';
+    import { isOn, setMode } from '../lib/linear-b-mode.js';
     const input = document.getElementById('lb-input');
     const output = document.getElementById('lb-output');
     const empty = document.getElementById('lb-empty');
@@ -100,5 +113,15 @@ const initial = transliterate(example);
       empty.hidden = words.length > 0;
     }
     input.addEventListener('input', render);
+
+    const toggle = document.getElementById('lb-mode');
+    function syncToggle() {
+      const on = isOn();
+      toggle.setAttribute('aria-pressed', String(on));
+      toggle.textContent = on ? 'Turn off Linear B mode' : 'Turn on Linear B mode';
+    }
+    toggle.addEventListener('click', () => setMode(!isOn()));
+    document.addEventListener('lbchange', syncToggle);
+    syncToggle();
   </script>
 </Base>

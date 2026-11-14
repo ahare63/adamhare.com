@@ -15,6 +15,9 @@ Personal site, built with [Astro](https://astro.build) and deployed to GitHub Pa
   `librarything/unmatched.txt` lists books it could not pair (usually a title worded differently).
 - **Hand-picked covers**: `src/data/cover-overrides.json` maps a LibraryThing book id to an image (a file in
   `public/images/books/covers/` or a URL). It is applied when that book is first paired, including books not yet in `books.md`.
+- **Read in translation**: a translated book (one with `trans.`) is counted under its original language from
+  `src/data/languages.json` (`authors` by lower-cased name, `titles` for books with no author). A new translated
+  author needs a line there, otherwise the book is counted as "not recorded".
 - **Fallback covers**: books not in `library.json` use `src/data/covers.json` (`npm run fetch:covers`, Open Library;
   the id is the number in a `covers.openlibrary.org/b/id/<id>-M.jpg` URL, `null` shows a plain cover).
 - **Travel maps**: edit the "Travel-Public" Google Sheet (Countries / States tabs). The live page re-fetches

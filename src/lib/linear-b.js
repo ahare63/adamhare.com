@@ -90,3 +90,8 @@ export function transliterate(text) {
     .map((word) => ({ word, syllables: spell(word) }))
     .filter((w) => w.syllables.length > 0);
 }
+
+/** A label spelled in Linear B signs, words separated by a space; '' when nothing can be spelled. */
+export function linearBLabel(text) {
+  return transliterate(text).map((w) => w.syllables.map((s) => s.char).join('')).join(' ');
+}
