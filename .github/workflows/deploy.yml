@@ -33,6 +33,8 @@ jobs:
         run: node scripts/fetch-travel.mjs || echo "sheet unreachable; using committed snapshot"
       - name: Refresh essays from Substack
         run: node scripts/fetch-essays.mjs || echo "feed unreachable; using committed snapshot"
+      - name: Look up covers for newly added books from Open Library
+        run: node scripts/fetch-covers.mjs || echo "Open Library unreachable; using committed covers"
       - run: npm run build
       - run: npx vitest run
       - uses: actions/upload-pages-artifact@v3

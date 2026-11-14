@@ -84,12 +84,31 @@ describe('built site integrity', () => {
     }
   });
 
-  it('books page counts only top-level books per year (nested items are works within a collection)', () => {
+  it('books page carries per-year counts from the parser and the interactive controls', () => {
     const html = readFileSync(join(DIST, 'books/index.html'), 'utf-8');
+    const island = html.match(/<script[^>]*id="books-data"[^>]*>([\s\S]*?)<\/script>/);
+    expect(island, 'books JSON island').not.toBeNull();
+    const books = JSON.parse(island[1]);
+    const counts = {};
+    for (const b of books) counts[b.year] = (counts[b.year] ?? 0) + 1;
     // Finished years, checked against the counts on the original site.
     for (const [year, n] of [['2024', 66], ['2023', 135], ['2022', 111], ['2021', 30], ['2017', 14]]) {
-      expect(html, `${year} should show ${n} books`).toMatch(new RegExp(`${year}<span[^>]*> · ${n} books</span>`));
+      expect(counts[year], `${year} should show ${n} books`).toBe(n);
     }
+    expect(html).toContain('id="bk-scrub"');
+    expect(html).toContain('type="search"');
+    expect(html).toContain('id="bk-pull"');
+    expect(html).toContain('<dialog');
+  });
+
+  it('books page server-renders the newest book in the list', () => {
+    const html = readFileSync(join(DIST, 'books/index.html'), 'utf-8');
+    const md = readFileSync(new URL('../src/content/books.md', import.meta.url), 'utf-8');
+    const firstBullet = md.split(/^## /m)[1].split('\n').find((l) => l.startsWith('- '));
+    const title = firstBullet.match(/\*([^*]+)\*/)[1];
+    const list = html.match(/<ol[^>]*id="bk-list"[^>]*>([\s\S]*?)<\/ol>/);
+    expect(list, 'server-rendered list').not.toBeNull();
+    expect(list[1], `newest book "${title}"`).toContain(title.replace(/&/g, '&amp;'));
   });
 
   it('home page shows the Lately strip with the newest book and essay', () => {

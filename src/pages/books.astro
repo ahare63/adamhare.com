@@ -1,35 +1,9 @@
 ---
 import Base from '../layouts/Base.astro';
 import booksData from '../data/books.json';
+import covers from '../data/covers.json';
 import * as booksMd from '../content/books.md';
-
-// Per-year counts are computed here, never typed by hand: each "## 2026"
-// heading gets " · N books" appended, where N is the number of list items
-// until the next heading.
-// Only top-level items count as books: a nested item is a work read inside
-// a collection, which the list counts once.
-function countTopLevel(body) {
-  let depth = 0, n = 0;
-  for (const m of body.matchAll(/<(\/?)(ul|ol|li)\b/g)) {
-    if (m[2] === 'li') { if (!m[1] && depth === 1) n++; }
-    else depth += m[1] ? -1 : 1;
-  }
-  return n;
-}
-
-let html = await booksMd.compiledContent();
-let first = true;
-html = html.replace(
-  /(<h2[^>]*>)(\d{4})([\s\S]*?<\/h2>)([\s\S]*?)(?=<h2|$)/g,
-  (m, open, year, close, body) => {
-    const n = countTopLevel(body);
-    const heading = `${open}${year}<span class="count"> · ${n} book${n === 1 ? '' : 's'}</span>${close}`;
-    const attr = first ? ' open' : '';
-    const lead = first ? '<h2>Recently Read</h2>' : '';
-    first = false;
-    return `${lead}<details${attr}><summary>${heading}</summary>${body}</details>`;
-  }
-);
+import { parseBooks, coverKey } from '../lib/books.js';
 
 const groups = [
   ['top', null],
@@ -38,10 +12,49 @@ const groups = [
   ['poetry', 'Poetry'],
 ];
 
-// Intro paragraphs sit above the favorites; the year list follows them.
-const listStart = html.indexOf('<h2>Recently Read</h2>');
-const introHtml = listStart === -1 ? '' : html.slice(0, listStart);
-const listHtml = listStart === -1 ? html : html.slice(listStart);
+// The intro prose is everything before the first year heading.
+const html = await booksMd.compiledContent();
+const firstHeading = html.indexOf('<h2');
+const introHtml = firstHeading === -1 ? html : html.slice(0, firstHeading);
+
+// All counts are derived from the parsed list; none are typed by hand.
+const books = parseBooks(booksMd.rawContent()).map((b) => ({ ...b, cover: covers[coverKey(b)] ?? null }));
+
+const tally = (values) => {
+  const m = new Map();
+  for (const v of values) if (v) m.set(v, (m.get(v) ?? 0) + 1);
+  return [...m.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+};
+
+// The file lists each year newest-first; reading order is the reverse.
+const byYear = new Map();
+books.forEach((b, i) => {
+  if (!byYear.has(b.year)) byYear.set(b.year, []);
+  byYear.get(b.year).unshift({ ...b, i });
+});
+const years = [...byYear.keys()].sort((a, b) => a - b);
+const firstYear = years[0];
+const latest = years[years.length - 1];
+const latestRows = byYear.get(latest);
+
+const authors = tally(books.map((b) => b.author));
+const translators = tally(books.map((b) => b.translator));
+const topAuthors = authors.slice(0, 10);
+const topTranslators = translators.slice(0, 8);
+const translated = books.filter((b) => b.translator).length;
+
+const tiles = [
+  [String(books.length), 'books read'],
+  [String(latestRows.length), `read in ${latest}`],
+  [String(authors.length), 'distinct authors'],
+  [`${Math.round((translated / books.length) * 100)}%`, 'in translation'],
+];
+
+const topOfYear = tally(latestRows.map((b) => b.author))[0];
+const latestTopAuthor = !topOfYear ? 'None' : topOfYear[1] === 1 ? 'No repeats' : `${topOfYear[0]} (${topOfYear[1]})`;
+const latestTranslations = latestRows.filter((b) => b.translator).length;
+
+const json = JSON.stringify(books).replace(/</g, '\\u003c');
 ---
 <Base wide title="Books" description="What Adam Hare reads: favorites and a yearly reading log." banner="/images/banners/books.jpg" bannerTitle="Books">
   <div class="prose" set:html={introHtml} />
@@ -80,7 +93,113 @@ const listHtml = listStart === -1 ? html : html.slice(listStart);
     </>
   )}
 
-  <div class="prose" set:html={listHtml} />
+  <section class="bk" aria-labelledby="bk-heading">
+    <h2 id="bk-heading">Recently Read</h2>
+
+    <div class="bk-tiles">
+      {tiles.map(([n, label]) => (
+        <div class="bk-tile"><strong>{n}</strong><span>{label}</span></div>
+      ))}
+    </div>
+
+    <div class="bk-controls">
+      <input type="search" id="bk-q" placeholder="Search title, author or translator" aria-label="Search books" autocomplete="off" />
+      <button type="button" id="bk-pull">Pull one off the shelf</button>
+    </div>
+    <p id="bk-status" class="bk-status" role="status" aria-live="polite">{books.length} books since {firstYear}</p>
+
+    <div class="bk-tl" style={`--n:${years.length}`}>
+      <input type="range" id="bk-scrub" min={firstYear} max={latest} step="1" value={latest} aria-label="Year" />
+      <div class="bk-labels">
+        {years.map((y) => <button type="button" class:list={['bk-label', { on: y === latest }]} data-year={y}>{y}</button>)}
+      </div>
+      <div class="bk-plot">
+        {years.map((y) => (
+          <button type="button" class:list={['bk-col', { on: y === latest }]} data-year={y} aria-label={`${y}, ${byYear.get(y).length} books`}>
+            {byYear.get(y).map((b) => <i data-i={b.i}></i>)}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <div class="bk-detail">
+      <aside class="bk-note" id="bk-note" aria-live="polite">
+        <div class="bk-note-year">{latest}</div>
+        <dl>
+          <dt>Books</dt><dd>{latestRows.length}</dd>
+          <dt>Most-read author</dt><dd>{latestTopAuthor}</dd>
+          <dt>Translations</dt><dd>{latestTranslations}</dd>
+        </dl>
+      </aside>
+      <ol id="bk-list" class="bk-list">
+        {latestRows.map((b, n) => (
+          <li>
+            <button type="button" class="bk-row" data-i={b.i}>
+              <span class="bk-lead">#{n + 1}</span>
+              <span class="bk-t">
+                <em>{b.title}</em>
+                <span class="bk-a">{b.author}{b.translator ? ` · trans. ${b.translator}` : ''}</span>
+                {b.works.length > 0 && <span class="bk-w">+ {b.works.length} works</span>}
+              </span>
+            </button>
+          </li>
+        ))}
+      </ol>
+    </div>
+
+    <div class="bk-pair">
+      <section>
+        <h3>Most-read authors</h3>
+        <ul class="bk-bars">
+          {topAuthors.map(([name, n]) => (
+            <li>
+              <button type="button" class="bk-name" data-q={name}>{name}</button>
+              <span class="bk-count">{n}</span>
+              <div class="bk-meter" style={`width:${(n / topAuthors[0][1]) * 100}%`}></div>
+            </li>
+          ))}
+        </ul>
+      </section>
+      <section>
+        <h3>Most-read translators</h3>
+        <ul class="bk-bars">
+          {topTranslators.map(([name, n]) => (
+            <li>
+              <button type="button" class="bk-name" data-q={name}>{name}</button>
+              <span class="bk-count">{n}</span>
+              <div class="bk-meter" style={`width:${(n / topTranslators[0][1]) * 100}%`}></div>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </div>
+
+    <p class="bk-credit">Covers from <a href="https://openlibrary.org" rel="noopener">Open Library</a></p>
+
+    <dialog id="bk-dialog" class="bk-dialog" aria-labelledby="bk-d-title">
+      <div class="bk-card">
+        <div class="bk-cover" id="bk-d-cover"></div>
+        <div class="bk-info">
+          <button type="button" class="bk-close" id="bk-d-close">Close</button>
+          <em class="bk-d-title" id="bk-d-title"></em>
+          <p class="bk-d-line" id="bk-d-author" hidden></p>
+          <p class="bk-d-line" id="bk-d-trans" hidden></p>
+          <p class="bk-d-line" id="bk-d-note" hidden></p>
+          <p class="bk-d-line" id="bk-d-meta"></p>
+          <div class="bk-d-works" id="bk-d-works" hidden>
+            <span class="bk-d-label">Includes</span>
+            <ul id="bk-d-works-list"></ul>
+          </div>
+          <div class="bk-d-actions">
+            <button type="button" id="bk-d-another">Pull another</button>
+            <button type="button" id="bk-d-show"></button>
+          </div>
+        </div>
+      </div>
+    </dialog>
+  </section>
+
+  <script type="application/json" id="books-data" is:inline set:html={json}></script>
 
   <style>
     .favorites {
@@ -103,9 +222,361 @@ const listHtml = listStart === -1 ? html : html.slice(listStart);
     }
     .favorites .meta { font-size: 0.9rem; color: var(--ink-soft); line-height: 1.35; }
     .favorites .meta em { color: inherit; }
-    .prose :global(details) { border-top: 1px solid var(--rule); }
-    .prose :global(summary) { cursor: pointer; padding: 0.4rem 0; }
-    .prose :global(summary h2) { display: inline; margin: 0; }
-    .prose :global(h2 .count) { font-size: 0.95rem; font-weight: 400; color: var(--ink-soft); }
   </style>
+
+  <style is:global>
+    .bk-tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; margin: 1.2rem 0 1.6rem; }
+    .bk-tile { border: 1px solid var(--rule); border-radius: 6px; background: #fff; padding: 0.9rem 1.1rem; }
+    .bk-tile strong { display: block; font-size: 2.1rem; line-height: 1.1; font-weight: 600; color: var(--accent); }
+    .bk-tile span { font-size: 0.88rem; color: var(--ink-soft); }
+    @media (max-width: 640px) { .bk-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.7rem; } }
+
+    .bk-controls { display: flex; flex-wrap: wrap; gap: 0.7rem; margin: 0 0 0.4rem; }
+    .bk-controls input {
+      flex: 1 1 16rem; max-width: 24rem; min-width: 0; padding: 0.45rem 0.7rem;
+      font: inherit; border: 1px solid var(--rule); border-radius: 6px; background: #fff; color: var(--ink);
+    }
+    .bk button, .bk input { font-family: inherit; }
+    .bk-controls input:focus-visible, .bk button:focus-visible, .bk-dialog button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .bk-controls button, .bk-d-actions button, .bk-note-clear {
+      padding: 0.45rem 0.95rem; font: inherit; cursor: pointer;
+      border: 1px solid var(--accent); border-radius: 6px; background: transparent; color: var(--accent);
+    }
+    .bk-controls button:hover, .bk-d-actions button:hover, .bk-note-clear:hover { background: var(--accent); color: var(--paper); }
+    .bk-status { font-size: 0.9rem; color: var(--ink-soft); margin: 0 0 1rem; }
+
+    .bk-tl { --thumb: 20px; --dot: 6px; --per: 4; margin: 1.2rem 0 2.5rem; }
+    @media (min-width: 700px) { .bk-tl { --dot: 8px; --per: 5; } }
+
+    /* The range track runs from the centre of the first column to the centre of the last. */
+    #bk-scrub {
+      -webkit-appearance: none; appearance: none; display: block; background: transparent; cursor: pointer;
+      width: calc(100% - 100% / var(--n) + var(--thumb)); margin: 0 0 0.4rem calc(50% / var(--n) - var(--thumb) / 2);
+      max-width: none; height: var(--thumb); padding: 0;
+    }
+    #bk-scrub::-webkit-slider-runnable-track { height: 2px; background: var(--rule); border-radius: 1px; }
+    #bk-scrub::-moz-range-track { height: 2px; background: var(--rule); border-radius: 1px; }
+    #bk-scrub::-webkit-slider-thumb {
+      -webkit-appearance: none; width: var(--thumb); height: var(--thumb); margin-top: calc((2px - var(--thumb)) / 2);
+      border-radius: 50%; background: var(--accent); border: 3px solid var(--paper); box-shadow: 0 0 0 1px var(--accent);
+    }
+    #bk-scrub::-moz-range-thumb {
+      width: calc(var(--thumb) - 6px); height: calc(var(--thumb) - 6px);
+      border-radius: 50%; background: var(--accent); border: 3px solid var(--paper); box-shadow: 0 0 0 1px var(--accent);
+    }
+    #bk-scrub:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 4px; }
+
+    .bk-labels, .bk-plot { display: grid; grid-template-columns: repeat(var(--n), minmax(0, 1fr)); }
+    .bk-label {
+      padding: 0.15rem 0; border: 0; background: none; font: inherit; font-size: 0.78rem; color: var(--ink-soft); cursor: pointer;
+    }
+    .bk-label:hover { color: var(--accent); }
+    .bk-label.on { color: var(--accent); font-weight: 700; }
+
+    .bk-plot { align-items: end; margin-top: 0.5rem; border-bottom: 1px solid var(--rule); }
+    .bk-col {
+      display: flex; flex-wrap: wrap-reverse; align-content: flex-start; gap: 2px; justify-self: center;
+      width: calc(var(--per) * (var(--dot) + 2px) - 2px); padding: 0; border: 0; background: none; cursor: pointer;
+      margin-bottom: 0.5rem;
+    }
+    .bk-col i { width: var(--dot); height: var(--dot); border-radius: 50%; background: var(--ink-soft); opacity: 0.4; transition: background 0.15s, opacity 0.15s; }
+    .bk-col:hover i { opacity: 0.7; }
+    .bk-col.on i { background: var(--accent); opacity: 1; }
+    .bk-tl.is-filtering .bk-col i:not(.is-dim) { background: var(--accent); opacity: 1; }
+    .bk-col i.is-dim, .bk-col:hover i.is-dim, .bk-col.on i.is-dim { background: var(--ink-soft); opacity: 0.12; }
+    .bk-col:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+    .bk-detail { display: grid; grid-template-columns: 14rem minmax(0, 1fr); gap: 2.5rem; align-items: start; }
+    .bk-note { position: sticky; top: 1rem; padding: 1rem 1.1rem; background: #fff; border: 1px solid var(--rule); border-radius: 6px; }
+    .bk-note-year { font-size: 2.2rem; line-height: 1.1; font-weight: 600; color: var(--accent); margin-bottom: 0.6rem; }
+    .bk-note dl { margin: 0; }
+    .bk-note dt { font-size: 0.78rem; color: var(--ink-soft); margin-top: 0.6rem; }
+    .bk-note dd { margin: 0; overflow-wrap: anywhere; }
+    .bk-note-results { margin: 0 0 0.7rem; overflow-wrap: anywhere; }
+    .bk-note-clear { padding: 0.3rem 0.8rem; font-size: 0.9rem; }
+    @media (max-width: 700px) {
+      .bk-detail { grid-template-columns: minmax(0, 1fr); gap: 1.4rem; }
+      .bk-note { position: static; }
+    }
+
+    .bk-list { list-style: none; padding: 0; margin: 0; }
+    .bk-list li { margin: 0; border-bottom: 1px solid var(--rule); }
+    .bk-row {
+      display: grid; grid-template-columns: 2.9rem minmax(0, 1fr); width: 100%; padding: 0.5rem 0.3rem; margin: 0;
+      border: 0; background: none; font: inherit; color: inherit; text-align: left; cursor: pointer;
+    }
+    .bk-row:hover { background: rgba(31, 78, 121, 0.06); }
+    .bk-lead { color: var(--ink-soft); font-size: 0.85rem; padding-top: 0.15rem; font-variant-numeric: tabular-nums; }
+    .bk-t { overflow-wrap: anywhere; }
+    .bk-a, .bk-w { display: block; font-size: 0.9rem; color: var(--ink-soft); }
+    .bk-w { font-size: 0.8rem; color: var(--accent); }
+    .bk-list li.bk-empty { padding: 0.6rem 0; color: var(--ink-soft); }
+    .bk-list li.bk-flash { animation: bk-flash 1.8s ease-out; }
+    @keyframes bk-flash { from { background: rgba(31, 78, 121, 0.22); } to { background: transparent; } }
+
+    .bk-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 2.5rem; margin-top: 2.5rem; }
+    @media (max-width: 700px) { .bk-pair { grid-template-columns: minmax(0, 1fr); } }
+    .bk-bars { list-style: none; padding: 0; margin: 0; }
+    .bk-bars li { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 1rem; margin-bottom: 0.7rem; }
+    .bk-name {
+      padding: 0; border: 0; background: none; font: inherit; text-align: left; color: var(--ink); cursor: pointer;
+      overflow-wrap: anywhere;
+    }
+    .bk-name:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 2.5px; }
+    .bk-count { color: var(--ink-soft); }
+    .bk-meter { grid-column: 1 / -1; height: 0.35rem; margin-top: 0.2rem; border-radius: 3px; background: var(--accent); opacity: 0.75; }
+    .bk-credit { font-size: 0.82rem; color: var(--ink-soft); margin: 1.5rem 0 0; }
+
+    .bk-dialog {
+      padding: 0; border: 1px solid var(--rule); border-radius: 8px; background: var(--paper); color: var(--ink);
+      width: min(40rem, calc(100vw - 2rem)); max-height: calc(100dvh - 2rem); overflow: auto;
+      box-shadow: 0 12px 40px rgba(28, 27, 24, 0.25);
+    }
+    .bk-dialog::backdrop { background: rgba(28, 27, 24, 0.5); }
+    .bk-card { display: grid; grid-template-columns: 11rem minmax(0, 1fr); gap: 1.5rem; padding: 1.4rem; }
+    .bk-cover {
+      position: relative; width: 100%; aspect-ratio: 2 / 3; border-radius: 3px; overflow: hidden;
+      background: var(--rule); box-shadow: 0 2px 10px rgba(28, 27, 24, 0.2);
+    }
+    .bk-cover img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+    .bk-cloth {
+      position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; gap: 0.6rem;
+      padding: 1rem 0.9rem; text-align: center; color: #f4efe4; overflow: hidden;
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.22), transparent 14%, rgba(255, 255, 255, 0.06));
+      box-shadow: inset 0 0 0 6px transparent, inset 0 0 0 7px rgba(244, 239, 228, 0.35);
+    }
+    .bk-cloth-title { font-size: 1.05rem; font-weight: 600; line-height: 1.25; overflow-wrap: anywhere; }
+    .bk-cloth-author { font-size: 0.78rem; opacity: 0.85; overflow-wrap: anywhere; }
+    .bk-info { min-width: 0; }
+    .bk-close {
+      float: right; margin: 0 0 0.4rem 0.8rem; padding: 0.2rem 0.7rem; font: inherit; font-size: 0.85rem; cursor: pointer;
+      border: 1px solid var(--rule); border-radius: 6px; background: #fff; color: var(--ink-soft);
+    }
+    .bk-close:hover { border-color: var(--accent); color: var(--accent); }
+    .bk-d-title { display: block; font-size: 1.3rem; line-height: 1.25; font-weight: 600; margin-bottom: 0.5rem; overflow-wrap: anywhere; }
+    .bk-d-line { margin: 0 0 0.3rem; overflow-wrap: anywhere; }
+    .bk-d-line[hidden], .bk-d-works[hidden] { display: none; }
+    #bk-d-meta { margin-top: 0.7rem; font-size: 0.88rem; color: var(--ink-soft); }
+    .bk-d-works { margin-top: 0.8rem; }
+    .bk-d-label { font-size: 0.78rem; color: var(--ink-soft); }
+    .bk-d-works ul { margin: 0.2rem 0 0; padding-left: 1.1rem; font-size: 0.85rem; max-height: 9rem; overflow: auto; }
+    .bk-d-works li { margin-bottom: 0.15rem; overflow-wrap: anywhere; }
+    .bk-d-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.1rem; }
+    .bk-d-actions button { font-size: 0.92rem; padding: 0.4rem 0.85rem; }
+    @media (max-width: 560px) {
+      .bk-card { grid-template-columns: minmax(0, 1fr); gap: 1rem; padding: 1.1rem; }
+      .bk-cover { width: 7.5rem; }
+    }
+  </style>
+
+  <script>
+    const books = JSON.parse(document.getElementById('books-data').textContent);
+    const $ = (id) => document.getElementById(id);
+    const input = $('bk-q');
+    const status = $('bk-status');
+    const scrub = $('bk-scrub');
+    const note = $('bk-note');
+    const list = $('bk-list');
+    const dialog = $('bk-dialog');
+    const tl = document.querySelector('.bk-tl');
+    const cols = [...document.querySelectorAll('.bk-col')];
+    const labels = [...document.querySelectorAll('.bk-label')];
+    const dots = new Map([...document.querySelectorAll('.bk-col i')].map((d) => [Number(d.dataset.i), d]));
+    const first = Number(scrub.min);
+    const last = Number(scrub.max);
+
+    const el = (tag, cls, text) => {
+      const n = document.createElement(tag);
+      if (cls) n.className = cls;
+      if (text != null) n.textContent = text;
+      return n;
+    };
+
+    // The file lists each year newest-first; reading order is the reverse.
+    const total = {};
+    const order = [];
+    for (let i = books.length - 1; i >= 0; i--) {
+      const y = books[i].year;
+      total[y] = (total[y] ?? 0) + 1;
+      order[i] = total[y];
+    }
+
+    const haystack = books.map((b) => [b.title, b.author, b.translator].filter(Boolean).join(' ').toLowerCase());
+    const allIndexes = books.map((_, i) => i);
+    let year = last;
+    let query = '';
+    let matches = allIndexes;
+    let openIndex = null;
+
+    // FNV-1a: stable across builds, so an author always gets the same cloth.
+    const hash = (s) => {
+      let h = 2166136261;
+      for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); }
+      return h >>> 0;
+    };
+    // Muted book-cloth colours.
+    const palette = ['#7a3b34', '#3f5a4a', '#35506b', '#8a6a3b', '#5b4468', '#6b6558', '#2f5558', '#8c5a45'];
+
+    const byline = (b) => `${b.author}${b.translator ? ` · trans. ${b.translator}` : ''}`;
+
+    function row(i, lead) {
+      const b = books[i];
+      const li = el('li');
+      li.dataset.i = i;
+      const btn = el('button', 'bk-row');
+      btn.type = 'button';
+      btn.dataset.i = i;
+      const text = el('span', 'bk-t');
+      text.append(el('em', null, b.title), el('span', 'bk-a', byline(b)));
+      if (b.works.length) text.append(el('span', 'bk-w', `+ ${b.works.length} works`));
+      btn.append(el('span', 'bk-lead', lead), text);
+      li.append(btn);
+      return li;
+    }
+
+    function renderNote() {
+      note.replaceChildren();
+      if (query) {
+        const n = matches.length;
+        note.append(el('p', 'bk-note-results', `${n} result${n === 1 ? '' : 's'} for “${input.value.trim()}”`));
+        const clear = el('button', 'bk-note-clear', 'Clear search');
+        clear.type = 'button';
+        clear.addEventListener('click', () => { input.value = ''; applyFilter(); });
+        note.append(clear);
+        return;
+      }
+      const rows = books.filter((b) => b.year === year);
+      const tally = new Map();
+      for (const b of rows) if (b.author) tally.set(b.author, (tally.get(b.author) ?? 0) + 1);
+      const top = [...tally.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))[0];
+      const dl = el('dl');
+      dl.append(
+        el('dt', null, 'Books'), el('dd', null, String(rows.length)),
+        el('dt', null, 'Most-read author'), el('dd', null, !top ? 'None' : top[1] === 1 ? 'No repeats' : `${top[0]} (${top[1]})`),
+        el('dt', null, 'Translations'), el('dd', null, String(rows.filter((b) => b.translator).length)),
+      );
+      note.append(el('div', 'bk-note-year', String(year)), dl);
+    }
+
+    function renderList() {
+      if (query) {
+        list.replaceChildren(...(matches.length
+          ? matches.map((i) => row(i, String(books[i].year)))
+          : [el('li', 'bk-empty', 'No books match.')]));
+        return;
+      }
+      const idx = allIndexes.filter((i) => books[i].year === year).reverse();
+      list.replaceChildren(...idx.map((i, n) => row(i, `#${n + 1}`)));
+    }
+
+    function render() {
+      scrub.value = year;
+      cols.forEach((c) => c.classList.toggle('on', Number(c.dataset.year) === year));
+      labels.forEach((l) => l.classList.toggle('on', Number(l.dataset.year) === year));
+      renderNote();
+      renderList();
+    }
+
+    function applyFilter() {
+      query = input.value.trim().toLowerCase();
+      matches = query ? allIndexes.filter((i) => haystack[i].includes(query)) : allIndexes;
+      tl.classList.toggle('is-filtering', Boolean(query));
+      const hits = new Set(matches);
+      dots.forEach((d, i) => d.classList.toggle('is-dim', Boolean(query) && !hits.has(i)));
+      status.textContent = query
+        ? `${matches.length} result${matches.length === 1 ? '' : 's'}`
+        : `${books.length} books since ${first}`;
+      render();
+    }
+
+    // Choosing a year leaves search mode.
+    function select(y) {
+      year = Math.min(last, Math.max(first, y));
+      input.value = '';
+      applyFilter();
+    }
+
+    function coverNode(b) {
+      const cloth = () => {
+        const c = el('div', 'bk-cloth');
+        c.style.backgroundColor = palette[hash(b.author || b.title) % palette.length];
+        c.append(el('span', 'bk-cloth-title', b.title));
+        if (b.author) c.append(el('span', 'bk-cloth-author', b.author));
+        return c;
+      };
+      if (b.cover == null) return cloth();
+      const img = el('img');
+      img.alt = `Cover of ${b.title}`;
+      img.loading = 'lazy';
+      img.addEventListener('error', () => img.replaceWith(cloth()));
+      img.src = `https://covers.openlibrary.org/b/id/${b.cover}-M.jpg`;
+      return img;
+    }
+
+    function openCard(i) {
+      const b = books[i];
+      openIndex = i;
+      $('bk-d-cover').replaceChildren(coverNode(b));
+      $('bk-d-title').textContent = b.title;
+      const line = (id, text) => { const n = $(id); n.textContent = text; n.hidden = !text; };
+      line('bk-d-author', b.author ? `by ${b.author}` : '');
+      line('bk-d-trans', b.translator ? `trans. ${b.translator}` : '');
+      line('bk-d-note', b.note ? `(${b.note})` : '');
+      $('bk-d-meta').textContent = `Read in ${b.year} · book ${order[i]} of ${total[b.year]}`;
+      $('bk-d-works').hidden = b.works.length === 0;
+      $('bk-d-works-list').replaceChildren(...b.works.map((w) => el('li', null, w)));
+      $('bk-d-show').textContent = `Show in ${b.year}`;
+      if (!dialog.open) dialog.showModal();
+      dialog.scrollTop = 0;
+    }
+
+    // Random book from the current matches, never the one already shown.
+    function pullRandom() {
+      const pool = matches.length > 1 ? matches.filter((i) => i !== openIndex) : matches;
+      if (!pool.length) return;
+      openCard(pool[Math.floor(Math.random() * pool.length)]);
+    }
+
+    function showInYear() {
+      const i = openIndex;
+      dialog.close();
+      year = books[i].year;
+      input.value = '';
+      applyFilter();
+      const li = list.querySelector(`li[data-i="${i}"]`);
+      if (!li) return;
+      li.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      li.classList.add('bk-flash');
+      li.addEventListener('animationend', () => li.classList.remove('bk-flash'), { once: true });
+    }
+
+    input.addEventListener('input', applyFilter);
+    $('bk-pull').addEventListener('click', pullRandom);
+    list.addEventListener('click', (e) => {
+      const btn = e.target.closest('.bk-row');
+      if (btn) openCard(Number(btn.dataset.i));
+    });
+    document.querySelectorAll('.bk-name').forEach((b) => b.addEventListener('click', () => {
+      input.value = b.dataset.q;
+      applyFilter();
+      document.querySelector('.bk-controls').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }));
+
+    scrub.addEventListener('input', () => select(Number(scrub.value)));
+    [...cols, ...labels].forEach((c) => c.addEventListener('click', () => select(Number(c.dataset.year))));
+
+    $('bk-d-close').addEventListener('click', () => dialog.close());
+    $('bk-d-another').addEventListener('click', pullRandom);
+    $('bk-d-show').addEventListener('click', showInYear);
+    dialog.addEventListener('click', (e) => { if (e.target === dialog) dialog.close(); });
+    dialog.addEventListener('close', () => { openIndex = null; });
+
+    document.addEventListener('keydown', (e) => {
+      if (dialog.open || e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+      if (e.target === scrub || e.target === input) return;
+      if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+      e.preventDefault();
+      select(year + (e.key === 'ArrowRight' ? 1 : -1));
+    });
+  </script>
 </Base>
