@@ -1,6 +1,6 @@
 /* Editorial design system for adamhare.com */
 :root {
-  --paper: #faf9f6;
+  --paper: #f3f1ea;
   --ink: #1c1b18;
   --ink-soft: #52504a;
   --rule: #e3e0d8;
@@ -97,7 +97,7 @@ th { font-weight: 600; }
 }
 .brand img {
   height: 2.1rem; width: 2.1rem; object-fit: contain;
-  background: #673ab7;            /* the old site's logo container purple */
+  background: #615595;            /* matches the Substack logo */
   border-radius: 4px;
   padding: 0.2rem;
 }
