@@ -4,10 +4,14 @@ Personal site, built with [Astro](https://astro.build) and deployed to GitHub Pa
 
 ## Everyday edits
 
-- **Add a book**: edit `src/content/books.md` — add one `- *Title* by Author` bullet under the right
-  `## YEAR` heading (create the heading if it's a new year). Per-year counts are computed at build time;
-  never type them. To list works read inside a collection, indent them four spaces under the
-  collection's bullet (`    - *Antigone* …`); nested items appear in the book's detail card but are not counted. Committing to `main` (the GitHub web editor works) redeploys the site automatically.
+- **Add a book**: the quickest way is to ask Claude Code, "add *Title* by Author" (the `add-book` skill in
+  `.claude/skills/`). It looks the book up in your LibraryThing data (`npm run book:lookup`), shows you the cover and
+  one summary to confirm, then saves (`npm run book:add`), commits and pushes. To publish Travel, Concerts or
+  essay changes right away, ask it to publish the site (the `publish-site` skill).
+  Manual fallback: add one `- *Title* by Author` bullet under the right `## YEAR` heading of
+  `src/content/books.md` (create the heading for a new year; counts are computed, never typed; indent works read
+  inside a collection four spaces under its bullet), and a line for a new author in `src/data/author-countries.json`
+  and, for a translated book, in `src/data/languages.json`. Committing to `main` redeploys the site.
 - **Book covers and descriptions**: add the book on LibraryThing (user `ahare63`) as well as in `books.md`. Each
   deploy pairs `books.md` with the 250 newest LibraryThing entries (plus the seed files in `librarything/`) and
   takes the cover from LibraryThing and the description from Open Library. Run `npm run fetch:library` locally and

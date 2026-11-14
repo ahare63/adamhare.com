@@ -18,12 +18,12 @@ const LIBRARY_JSON = new URL('../src/data/library.json', import.meta.url);
 const OVERRIDES_JSON = new URL('../src/data/cover-overrides.json', import.meta.url);
 const SEED_DIR = new URL('../librarything/', import.meta.url);
 const UNMATCHED_TXT = new URL('../librarything/unmatched.txt', import.meta.url);
-const FEED_URL = 'https://www.librarything.com/api_getdata.php?userid=ahare63&responseType=json&max=250&booksort=entry_REV';
+export const FEED_URL = 'https://www.librarything.com/api_getdata.php?userid=ahare63&responseType=json&max=250&booksort=entry_REV';
 const USER_AGENT = 'adamhare.com-site-build';
 const INTERVAL_MS = 1000;
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-const sortByKey = (map) => Object.fromEntries(Object.entries(map).sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0)));
+export const sortByKey = (map) => Object.fromEntries(Object.entries(map).sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0)));
 
 const isIsbn10 = (v) => typeof v === 'string' && /^[0-9]{9}[0-9Xx]$/.test(v);
 const isIsbn13 = (v) => typeof v === 'string' && /^[0-9]{13}$/.test(v);
@@ -77,6 +77,9 @@ export function normalizeEntries(sources) {
   }
   return [...byId.values()].map((v) => v.entry);
 }
+
+// library.json as written to disk: sorted by key, two-space indent.
+export const serializeLibrary = (library) => JSON.stringify(sortByKey(library), null, 2) + '\n';
 
 // Adds an entry for every book that has none yet and matches a catalogue entry,
 // and fills a missing ISBN or original-language code on existing entries from
@@ -177,7 +180,7 @@ async function throttledGet(url) {
   return fetch(url, { headers: { 'User-Agent': USER_AGENT } });
 }
 
-async function getJson(url) {
+export async function getJson(url) {
   const res = await throttledGet(url);
   if (res.status === 404) return null;
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -191,7 +194,7 @@ async function isRealCover(url) {
   return (await res.arrayBuffer()).byteLength > 1000;
 }
 
-async function fetchFeed() {
+export async function fetchFeed() {
   try {
     const res = await fetch(FEED_URL, { headers: { 'User-Agent': USER_AGENT } });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -202,7 +205,7 @@ async function fetchFeed() {
   }
 }
 
-function readSeeds() {
+export function readSeeds() {
   const dir = fileURLToPath(SEED_DIR);
   if (!existsSync(dir)) return [];
   return readdirSync(dir).filter((f) => f.endsWith('.json')).sort()
@@ -220,7 +223,7 @@ async function main() {
   const matched = await fillCovers(built.library, built.added, isRealCover);
   const derived = built.added.filter((k) => !built.library[k].cover && matched[k].cover).length;
   let latest = matched;
-  const save = () => writeFileSync(LIBRARY_JSON, JSON.stringify(latest, null, 2) + '\n');
+  const save = () => writeFileSync(LIBRARY_JSON, serializeLibrary(latest));
   process.on('SIGINT', () => {
     try { save(); } catch (err) { console.error(`fetch-library: ${err.message}`); process.exit(1); }
     process.exit(0);
