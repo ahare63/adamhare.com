@@ -186,6 +186,36 @@ describe('built site integrity', () => {
     }
   });
 
+  it('main pages carry link-preview tags with an absolute image that exists, and a canonical URL', () => {
+    const SITE = 'https://www.adamhare.com';
+    const mains = ['index.html', 'about/index.html', 'background/index.html', 'projects/index.html',
+      'interests/index.html', 'books/index.html', 'music/index.html', 'travel/index.html', 'linear-b/index.html'];
+    const meta = (html, prop) => (html.match(new RegExp(`<meta (?:property|name)="${prop}" content="([^"]*)"`)) || [])[1];
+    for (const m of mains) {
+      const html = readFileSync(join(DIST, m), 'utf-8');
+      const pagePath = '/' + m.replace(/index\.html$/, '').replace(/\/$/, '');
+      expect(meta(html, 'og:title'), `${m} og:title`).toBeTruthy();
+      expect(meta(html, 'og:description'), `${m} og:description`).toBeTruthy();
+      expect(meta(html, 'og:url'), `${m} og:url`).toBe(SITE + pagePath);
+      expect(meta(html, 'twitter:card'), `${m} twitter:card`).toBe('summary_large_image');
+      const image = meta(html, 'og:image');
+      expect(image, `${m} og:image`).toMatch(new RegExp(`^${SITE}/`));
+      expect(existsSync(join(DIST, image.slice(SITE.length + 1))), `${m} og:image file ${image}`).toBe(true);
+      expect(html, `${m} canonical`).toContain(`<link rel="canonical" href="${SITE + pagePath}"`);
+    }
+  });
+
+  it('sitemap lists the real pages only, and robots.txt points at it', () => {
+    const xml = readFileSync(join(DIST, 'sitemap.xml'), 'utf-8');
+    const urls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+    for (const p of ['', '/about', '/background', '/projects', '/interests', '/books', '/music', '/travel', '/linear-b']) {
+      expect(urls, `sitemap should list ${p || '/'}`).toContain('https://www.adamhare.com' + (p || '/'));
+    }
+    expect(urls.some((u) => /about-me|\/lab|404|peers/.test(u)), 'no redirect stubs, lab pages or 404').toBe(false);
+    const robots = readFileSync(join(DIST, 'robots.txt'), 'utf-8');
+    expect(robots).toContain('Sitemap: https://www.adamhare.com/sitemap.xml');
+  });
+
   it('home page shows the Lately strip with the newest book and essay', () => {
     const html = readFileSync(join(DIST, 'index.html'), 'utf-8');
     expect(html).toContain('Lately');
