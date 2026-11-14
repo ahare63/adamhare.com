@@ -17,6 +17,9 @@ Personal site, built with [Astro](https://astro.build) and deployed to GitHub Pa
   takes the cover from LibraryThing and the description from Open Library. Run `npm run fetch:library` locally and
   commit `src/data/library.json` to make the result permanent; edit that file to fix a wrong cover or description.
   `librarything/unmatched.txt` lists books it could not pair (usually a title worded differently).
+- **Page counts**: `src/data/pages.json` holds a page count per book (`npm run fetch:pages` fills new ones: the
+  LibraryThing export, then Open Library by ISBN, then an Open Library search marked `"approx": true`). Edit it by
+  hand to correct one, or to record a partial read (set `n` to the pages actually read, drop `approx`).
 - **Hand-picked covers**: `src/data/cover-overrides.json` maps a LibraryThing book id to an image (a file in
   `public/images/books/covers/` or a URL). It is applied when that book is first paired, including books not yet in `books.md`.
 - **Read in translation**: a translated book (one with `trans.`) is counted under its original language from

@@ -43,6 +43,7 @@ function fromExport(rec) {
     language: rec.language_codeA?.[0],
     originaltitle: rec.originaltitle || undefined,
     original: rec.originallanguage_codeA?.find((c) => c && c !== 'eng'),
+    pages: Number.parseInt(rec.pages, 10) || undefined,
     cover: undefined,
   };
 }
@@ -208,7 +209,7 @@ export async function fetchFeed() {
 export function readSeeds() {
   const dir = fileURLToPath(SEED_DIR);
   if (!existsSync(dir)) return [];
-  return readdirSync(dir).filter((f) => f.endsWith('.json')).sort()
+  return readdirSync(dir).filter((f) => f.endsWith('.json') && !f.endsWith('-cache.json')).sort()
     .map((f) => JSON.parse(readFileSync(new URL(f, SEED_DIR), 'utf-8')));
 }
 

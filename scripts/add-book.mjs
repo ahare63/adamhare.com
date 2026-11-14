@@ -5,17 +5,20 @@
 //   { "bulletLine": "- *…*", "year": 2026, "key": "…",
 //     "library": { "ltId", "isbn", "cover", "blurb" } | null,
 //     "countries": ["it"] | null, "authorKey": "<author as in books.md>" | null,
-//     "titleKey": "<title>" | null, "language": "Italian" | null }
+//     "titleKey": "<title>" | null, "language": "Italian" | null,
+//     "pages": { "n": 412, "approx": false } | null }
 // Existing different values are kept (and reported) unless --force is given.
 import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { parseArgs } from 'node:util';
 import { serializeLibrary, sortByKey } from './fetch-library.mjs';
+import { pageCountOf, serializePages } from './fetch-pages.mjs';
 
 const BOOKS_MD = new URL('../src/content/books.md', import.meta.url);
 const LIBRARY_JSON = new URL('../src/data/library.json', import.meta.url);
 const COUNTRIES_JSON = new URL('../src/data/author-countries.json', import.meta.url);
 const LANGUAGES_JSON = new URL('../src/data/languages.json', import.meta.url);
+const PAGES_JSON = new URL('../src/data/pages.json', import.meta.url);
 
 const YEAR_HEADING = /^##\s+(\d{4})\s*$/;
 
@@ -68,6 +71,7 @@ function validate(p) {
   if ((p.countries != null || p.language != null) && !p.authorKey && !p.titleKey) {
     throw new Error('authorKey or titleKey is needed to record a country or language');
   }
+  if (p.pages != null && !(pageCountOf(p.pages.n) && p.key != null)) throw new Error('pages needs a key and a count n between 10 and 3000');
   if (p.library != null && p.key == null) throw new Error('key is needed to record a library entry');
 }
 
@@ -119,8 +123,11 @@ export function applyProposal(state, proposal, { force = false } = {}) {
     setValue(section, key, proposal.language, 'languages.json', ctx);
   }
 
+  const pages = { ...state.pages };
+  if (proposal.pages) setValue(pages, proposal.key, { n: proposal.pages.n, ...(proposal.pages.approx ? { approx: true } : {}) }, 'pages.json', ctx);
+
   return {
-    booksMd, library: sortByKey(library), countries: sortedSections(countries, byLocale), languages: sortedSections(languages, byCodeUnit), summary, skipped,
+    booksMd, library: sortByKey(library), pages: sortByKey(pages), countries: sortedSections(countries, byLocale), languages: sortedSections(languages, byCodeUnit), summary, skipped,
   };
 }
 
@@ -138,6 +145,7 @@ function main() {
       library: JSON.parse(read(LIBRARY_JSON)),
       countries: JSON.parse(read(COUNTRIES_JSON)),
       languages: JSON.parse(read(LANGUAGES_JSON)),
+      pages: JSON.parse(read(PAGES_JSON)),
     }, JSON.parse(readFileSync(positionals[0], 'utf-8')), { force: values.force });
   } catch (err) {
     console.error(`add-book: ${err.message}; nothing was changed`);
@@ -147,6 +155,7 @@ function main() {
   writeFileSync(LIBRARY_JSON, serializeLibrary(result.library));
   writeFileSync(COUNTRIES_JSON, serializeCountries(result.countries));
   writeFileSync(LANGUAGES_JSON, serializeLanguages(result.languages));
+  writeFileSync(PAGES_JSON, serializePages(result.pages));
   for (const line of result.summary) console.log(line);
   for (const line of result.skipped) console.log(`skipped: ${line}`);
 }

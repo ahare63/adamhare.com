@@ -144,6 +144,54 @@ describe('built site integrity', () => {
     expect(html).toContain(`${recorded} of ${translated.length} translated books`);
   });
 
+  describe('books page page counts', () => {
+    const data = (p) => JSON.parse(readFileSync(new URL(`../src/data/${p}`, import.meta.url), 'utf-8'));
+    const decode = (s) => s.replace(/&amp;/g, '&').replace(/&#39;/g, "'").replace(/&quot;/g, '"');
+    const setup = async () => {
+      const html = readFileSync(join(DIST, 'books/index.html'), 'utf-8');
+      const island = JSON.parse(html.match(/<script[^>]*id="books-data"[^>]*>([\s\S]*?)<\/script>/)[1]);
+      const { parseBooks } = await import('../src/lib/books.js');
+      const { pagesOf, pageStats, roundedPages } = await import('../src/lib/pages.js');
+      const md = readFileSync(new URL('../src/content/books.md', import.meta.url), 'utf-8');
+      return { html, island, books: parseBooks(md), pages: data('pages.json'), pagesOf, pageStats, roundedPages };
+    };
+
+    it('the island carries each book\'s pages', async () => {
+      const { island, books, pages, pagesOf } = await setup();
+      expect(island).toHaveLength(books.length);
+      island.forEach((b, i) => expect(b.pages, b.title).toEqual(pagesOf(books[i], pages)));
+      expect(island.some((b) => b.pages), 'some books have a page count').toBe(true);
+    });
+
+    it('the tiles and their caption match pageStats', async () => {
+      const { html, books, pages, pageStats, roundedPages } = await setup();
+      const all = pageStats(books, pages);
+      const latest = Math.max(...books.map((b) => b.year));
+      const newest = pageStats(books.filter((b) => b.year === latest), pages);
+      const fmt = (n) => roundedPages(n).toLocaleString('en-US');
+      expect(html).toContain(`about ${fmt(all.total)} pages`);
+      expect(html).toContain(`about ${fmt(newest.total)} pages`);
+      expect(html).toContain(`Page totals cover ${all.counted} of ${all.of} books with a known length.`);
+    });
+
+    it('the latest year\'s note shows its page total and average', async () => {
+      const { html, books, pages, pageStats } = await setup();
+      const latest = Math.max(...books.map((b) => b.year));
+      const s = pageStats(books.filter((b) => b.year === latest), pages);
+      expect(html).toContain(`${s.total.toLocaleString('en-US')} across ${s.counted} of ${s.of} books`);
+      expect(html).toContain(`${Math.round(s.total / s.counted).toLocaleString('en-US')} pages`);
+    });
+
+    it('the longest-reads list starts with the longest book', async () => {
+      const { html, books, pages, pagesOf } = await setup();
+      const max = Math.max(...books.map((b) => pagesOf(b, pages)?.n ?? 0));
+      const longest = new Set(books.filter((b) => pagesOf(b, pages)?.n === max).map((b) => b.title));
+      const block = html.slice(html.indexOf('Longest reads'));
+      const first = decode(block.match(/<em[^>]*>([^<]*)<\/em>/)[1]);
+      expect(longest.has(first), `"${first}" should be one of ${[...longest]}`).toBe(true);
+    });
+  });
+
   it('books page server-renders the newest book in the list', () => {
     const html = readFileSync(join(DIST, 'books/index.html'), 'utf-8');
     const md = readFileSync(new URL('../src/content/books.md', import.meta.url), 'utf-8');

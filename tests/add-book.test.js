@@ -48,6 +48,7 @@ const state = () => ({
   library: { 'taipei story|r.f. kuang': { ltId: '1', isbn: null, cover: 'c', blurb: null } },
   countries: { authors: { 'R.F. Kuang': ['us'] }, titles: {} },
   languages: { authors: { 'han kang': 'Korean' }, titles: {} },
+  pages: { 'taipei story|r.f. kuang': { n: 300 } },
 });
 const proposal = (over = {}) => ({
   bulletLine: '- *The Leopard* by Giuseppe Tomasi di Lampedusa, trans. Archibald Colquhoun', year: 2026,
@@ -135,6 +136,37 @@ describe('applyProposal', () => {
     expect(() => applyProposal(state(), proposal({ countries: ['Italy'] }))).toThrow(/country/);
     expect(() => applyProposal(state(), proposal({ authorKey: null, titleKey: null }))).toThrow(/authorKey|titleKey/);
     expect(() => applyProposal(state(), proposal({ language: '' }))).toThrow(/language/);
+  });
+});
+
+describe('applyProposal page counts', () => {
+  const key = 'the leopard|giuseppe tomasi di lampedusa';
+
+  it('adds an exact and an approximate count to pages.json, sorted', () => {
+    const exact = applyProposal(state(), proposal({ pages: { n: 320, approx: false } }));
+    expect(exact.pages[key]).toEqual({ n: 320 });
+    expect(Object.keys(exact.pages)).toEqual(['taipei story|r.f. kuang', key]);
+    const approx = applyProposal(state(), proposal({ pages: { n: 320, approx: true } }));
+    expect(approx.pages[key]).toEqual({ n: 320, approx: true });
+  });
+
+  it('leaves pages.json alone when the proposal has none', () => {
+    expect(applyProposal(state(), proposal({ pages: null })).pages).toEqual(state().pages);
+    expect(applyProposal(state(), proposal()).pages).toEqual(state().pages);
+  });
+
+  it('keeps a different existing count unless forced', () => {
+    const s = state();
+    s.pages[key] = { n: 100 };
+    const kept = applyProposal(s, proposal({ pages: { n: 320 } }));
+    expect(kept.pages[key]).toEqual({ n: 100 });
+    expect(kept.skipped).toHaveLength(1);
+    expect(applyProposal(s, proposal({ pages: { n: 320 } }), { force: true }).pages[key]).toEqual({ n: 320 });
+  });
+
+  it('rejects an implausible count', () => {
+    expect(() => applyProposal(state(), proposal({ pages: { n: 5 } }))).toThrow(/pages/);
+    expect(() => applyProposal(state(), proposal({ pages: { n: 'x' } }))).toThrow(/pages/);
   });
 });
 

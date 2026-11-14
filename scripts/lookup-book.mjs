@@ -10,6 +10,7 @@ import { matchBook, largeCover } from '../src/lib/library-match.js';
 import { countriesOfBook } from '../src/lib/places.js';
 import { originalLanguage } from '../src/lib/languages.js';
 import { fetchFeed, findBlurb, getJson, normalizeEntries, readSeeds } from './fetch-library.mjs';
+import { isbnPages, searchPages } from './fetch-pages.mjs';
 
 const read = (path) => readFileSync(new URL(path, import.meta.url), 'utf-8');
 
@@ -48,7 +49,7 @@ function nearestTitles(title, entries) {
 }
 
 // The proposal for one book, assembled from already-fetched inputs.
-export function buildProposal({ book, entries, booksMd, authorCountries, languages, blurb }) {
+export function buildProposal({ book, entries, booksMd, authorCountries, languages, blurb, pages }) {
   const key = coverKey(book);
   const hit = matchBook(book, entries);
   const countries = countriesOfBook(book, authorCountries);
@@ -62,6 +63,7 @@ export function buildProposal({ book, entries, booksMd, authorCountries, languag
       ? { found: true, ltId: String(hit.book_id), title: hit.title, author: hit.author_fl, isbn: hit.ISBN_cleaned || null, cover: hit.cover ? largeCover(hit.cover) : null }
       : { found: false, nearest: nearestTitles(book.title, entries) },
     blurb: blurb ?? null,
+    pages: pages ?? null,
     country: { known: countries.length ? countries : null },
     language: { needed: translated, known: translated ? originalLanguage(book, languages, hit?.original) : null },
   };
@@ -92,8 +94,19 @@ async function main() {
       console.error(`lookup-book: description lookup failed (${err.message})`);
     }
   }
+  let pages = null;
+  try {
+    const n = hit?.ISBN_cleaned ? await isbnPages(hit.ISBN_cleaned, getJson) : null;
+    if (n) pages = { n, approx: false, source: 'openlibrary-isbn' };
+    else {
+      const median = await searchPages(book, getJson);
+      if (median) pages = { n: median, approx: true, source: 'openlibrary-search' };
+    }
+  } catch (err) {
+    console.error(`lookup-book: page count lookup failed (${err.message})`);
+  }
   const proposal = buildProposal({
-    book, entries, blurb,
+    book, entries, blurb, pages,
     booksMd: read('../src/content/books.md'),
     authorCountries: JSON.parse(read('../src/data/author-countries.json')),
     languages: JSON.parse(read('../src/data/languages.json')),
