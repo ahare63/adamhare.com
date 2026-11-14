@@ -292,7 +292,7 @@
   "Ottessa Moshfegh": ["us"],
   "Ovid": ["it"],
   "Pablo Neruda": ["cl"],
-  "Pajtim Statovci": ["fi"],
+  "Pajtim Statovci": ["xk", "fi"],
   "Panio Gianopoulos": ["us"],
   "Paolo Giordano": ["it"],
   "Patrick Modiano": ["fr"],
@@ -411,7 +411,20 @@
   "William York Tindall": ["us"],
   "Yoko Ogawa": ["jp"],
   "Zadie Smith": ["gb"],
-  "Zelda Fitzgerald": ["us"]
+  "Zelda Fitzgerald": ["us"],
+  "Patrick Hastings": ["us"],
+  "Maria Zulmira Albuquerque Furtado Marques": ["pt"],
+  "Gordon Whittaker": ["de"],
+  "Francis Sherwood": ["us"],
+  "Robert L. Camaj": ["us"],
+  "Lynne Cooke, Michael Govan, and Mark Taylor": ["us"],
+  "Jing Tsu": ["tw", "us"],
+  "Emily Willis": ["us"],
+  "Natalee Cruz": ["us"],
+  "Vanessa A. Bee": ["cm", "us"],
+  "Lewis Glinert": ["gb", "us"],
+  "R.H.P Mason and J.G. Caiger": ["au"],
+  "Paige Clark": ["cn", "us", "au"]
  },
  "titles": {
   "American Short Fiction, Volume 26, Issue 77, Spring 2023": ["us"],
@@ -444,6 +457,9 @@
   "The Sagas of Icelanders (Penguin Classics Deluxe Edition), including:": ["is"],
   "The Song of Roland and Other Poems of Charlemange": ["fr"],
   "The Story of Hong Gildong": ["kr"],
-  "The Táin": ["ie"]
+  "The Táin": ["ie"],
+  "Hares": ["gb"],
+  "Sargent and Paris": ["us"],
+  "The Season of the Hare (poetry anthology)": ["us"]
  }
 }
