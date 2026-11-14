@@ -53,6 +53,20 @@ describe('normalizeEntries with a LibraryThing export', () => {
   });
 });
 
+describe('normalizeEntries page counts', () => {
+  it('carries the export page count as a number', () => {
+    const exp = (pages) => ({ books_id: '10', title: 'T', pages });
+    expect(normalizeEntries([{ 10: exp('432 ') }])[0].pages).toBe(432);
+    expect(normalizeEntries([{ 10: exp(undefined) }])[0].pages).toBeUndefined();
+    expect(normalizeEntries([{ 10: exp('') }])[0].pages).toBeUndefined();
+  });
+
+  it('lets the export supply pages for a feed entry that has none', () => {
+    const feed = { books: { 10: lt({ book_id: '10' }) } };
+    expect(normalizeEntries([feed, { 10: { books_id: '10', title: 'T', pages: '300' } }])[0].pages).toBe(300);
+  });
+});
+
 describe('buildLibrary', () => {
   it('adds matched books with a resized cover and no blurb yet', () => {
     const { library, unmatched } = buildLibrary([{ year: 2026, title: 'Small Gods', author: 'Terry Pratchett' }], {}, [lt()]);
