@@ -1,0 +1,213 @@
+---
+import Base from '../layouts/Base.astro';
+import * as md from '../content/music.md';
+import concerts from '../data/concerts.json';
+import { mapSvg } from '../lib/map-svg.js';
+import { placeOfCity } from '../lib/places.js';
+
+const counts = new Map();
+for (const c of concerts) counts.set(c.artist, (counts.get(c.artist) ?? 0) + 1);
+const top = [...counts.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).slice(0, 8);
+const max = top.length ? top[0][1] : 1;
+
+// Concert map: concerts in a city with no entry in places.js are left off the map.
+const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const events = concerts.flatMap((c) => {
+  const place = placeOfCity(c.city);
+  if (!place) return [];
+  const [d, m, y] = c.date.split(' ');
+  return [{ artist: c.artist, date: c.date, ...place, year: Number(y), ts: Date.UTC(Number(y), months.indexOf(m), Number(d)) }];
+});
+const names = {
+  ny: 'New York', nj: 'New Jersey', oh: 'Ohio', il: 'Illinois', wi: 'Wisconsin', tx: 'Texas', ma: 'Massachusetts',
+  pa: 'Pennsylvania', us: 'United States', gb: 'United Kingdom', ca: 'Canada',
+};
+const distinct = (xs) => new Set(xs.filter(Boolean)).size;
+const cityCount = distinct(events.map((e) => e.city));
+const stateCount = distinct(events.map((e) => e.state));
+const countryCount = distinct(events.map((e) => e.country));
+const years = events.map((e) => e.year);
+const firstYear = Math.min(...years);
+const lastYear = Math.max(...years);
+const mapData = JSON.stringify({ events, names, first: firstYear, last: lastYear }).replace(/</g, '\\u003c');
+---
+<Base title={md.frontmatter.title} description={md.frontmatter.description} wide banner="/images/banners/music.jpg" bannerTitle={md.frontmatter.title}>
+  <md.Content />
+
+  <p class="concert-stats sans">
+    <strong>{concerts.length}</strong> shows · <strong>{counts.size}</strong> distinct artists
+  </p>
+
+  <h2>Concert map</h2>
+  <section id="concert-map">
+    <p class="concert-stats sans"><strong>{events.length}</strong> concerts in <strong>{cityCount}</strong> cities, <strong>{stateCount}</strong> states and <strong>{countryCount}</strong> countries.</p>
+
+    <div class="cm-slider">
+      <label for="cm-year">Concerts through <output id="cm-year-out" for="cm-year">{lastYear}</output></label>
+      <input type="range" id="cm-year" min={firstYear} max={lastYear} value={lastYear} step="1" />
+      <button type="button" id="cm-play" aria-label="Play the map from the first concert to now">▶ Play</button>
+    </div>
+    <p class="cm-through" id="cm-through" role="status"></p>
+
+    <div class="cm-legend" aria-label="Legend: concerts per region">
+      <span class="cm-key"><i class="cm-sw cm-sw0"></i>0</span>
+      <span class="cm-key"><i class="cm-sw cm-sw1"></i>1–2</span>
+      <span class="cm-key"><i class="cm-sw cm-sw2"></i>3–7</span>
+      <span class="cm-key"><i class="cm-sw cm-sw3"></i>8–19</span>
+      <span class="cm-key"><i class="cm-sw cm-sw4"></i>20+</span>
+      <span class="cm-key-note">concerts per region</span>
+    </div>
+
+    <div class="cm-maps">
+      <figure class="map-wrap cm-map" data-map="us">
+        <figcaption class="map-title">US states · <span data-count>0</span> with concerts</figcaption>
+        <div class="map-svg" set:html={mapSvg('us')} />
+      </figure>
+      <figure class="map-wrap cm-map" data-map="world">
+        <figcaption class="map-title">Countries · <span data-count>0</span> with concerts</figcaption>
+        <div class="map-svg" set:html={mapSvg('world')} />
+      </figure>
+    </div>
+
+    <div class="cm-detail" id="cm-detail" aria-live="polite">
+      <p class="cm-prompt">Pick a shaded state or country to list its concerts.</p>
+    </div>
+    <script type="application/json" id="cm-data" set:html={mapData} />
+  </section>
+
+  <h2>Most-seen artists</h2>
+  <ul class="bars">
+    {top.map(([artist, n]) => (
+      <li>
+        <span class="bar-name">{artist}</span>
+        <span class="bar-count">{n}</span>
+        <div class="bar" style={`width:${(n / max) * 100}%`}></div>
+      </li>
+    ))}
+  </ul>
+
+  <h2>Every concert</h2>
+  <p>
+    <input type="text" id="concert-filter" placeholder="Filter by artist or city" aria-label="Filter concerts by artist or city" />
+  </p>
+  <p id="filter-status" role="status" aria-live="polite" class="sans"></p>
+  <div class="table-scroll" tabindex="0" role="region" aria-label="All concerts">
+    <table>
+      <thead>
+        <tr><th scope="col">Artist</th><th scope="col">City</th><th scope="col">Date</th></tr>
+      </thead>
+      <tbody id="concert-rows">
+        {concerts.map((c) => (
+          <tr><td>{c.artist}</td><td>{c.city}</td><td>{c.date}</td></tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  <style>
+    .concert-stats { font-size: 1.05rem; }
+    .bars { list-style: none; padding: 0; max-width: 40rem; }
+    .bars li {
+      display: grid; grid-template-columns: 1fr auto; column-gap: 1rem;
+      margin-bottom: 0.7rem;
+    }
+    .bar-count { color: var(--ink-soft); }
+    .bar { grid-column: 1 / -1; height: 0.5rem; margin-top: 0.15rem; border-radius: 3px; background: var(--accent); }
+    #concert-filter {
+      width: 100%; max-width: 22rem; padding: 0.45rem 0.7rem;
+      font: inherit; border: 1px solid var(--rule); border-radius: 6px; background: #fff; color: var(--ink);
+    }
+    .table-scroll { overflow-x: auto; }
+  </style>
+
+  <style is:global>
+    .cm-slider { display: flex; align-items: center; gap: 0.9rem; flex-wrap: wrap; margin-top: 0.8rem; font-size: 0.95rem; }
+    .cm-slider output { font-weight: 600; font-variant-numeric: tabular-nums; }
+    .cm-slider input[type="range"] { flex: 1 1 12rem; max-width: 26rem; accent-color: #4f86d9; }
+    .cm-slider button {
+      font: inherit; font-size: 0.85rem; padding: 0.25rem 0.75rem; cursor: pointer;
+      border: 1px solid var(--rule); border-radius: 6px; background: #fff; color: var(--ink);
+    }
+    .cm-slider button:hover { border-color: var(--accent); }
+    .cm-through { margin: 0.4rem 0 0; font-size: 0.85rem; color: var(--ink-soft); }
+
+    .cm-legend { display: flex; flex-wrap: wrap; align-items: center; gap: 0.3rem 0.9rem; margin-top: 0.9rem; font-size: 0.8rem; color: var(--ink-soft); }
+    .cm-key { display: inline-flex; align-items: center; gap: 0.35rem; }
+    .cm-sw { width: 1.1rem; height: 0.8rem; border-radius: 2px; display: inline-block; border: 1px solid rgba(0,0,0,0.12); }
+    .cm-sw0 { background: #d5d8de; }
+    .cm-sw1 { background: #d3e2f8; }
+    .cm-sw2 { background: #a0c0ef; }
+    .cm-sw3 { background: #4f86d9; }
+    .cm-sw4 { background: #1d4a8a; }
+
+    .cm-maps { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0 1.5rem; }
+    @media (min-width: 860px) { .cm-maps { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; } }
+    .cm-map svg { display: block; }
+    .cm-map svg .cm-l1, .cm-map svg .cm-l1 path, .cm-map svg .cm-l1 circle { fill: #d3e2f8; }
+    .cm-map svg .cm-l2, .cm-map svg .cm-l2 path, .cm-map svg .cm-l2 circle { fill: #a0c0ef; }
+    .cm-map svg .cm-l3, .cm-map svg .cm-l3 path, .cm-map svg .cm-l3 circle { fill: #4f86d9; }
+    .cm-map svg .cm-l4, .cm-map svg .cm-l4 path, .cm-map svg .cm-l4 circle { fill: #1d4a8a; }
+    .cm-map svg [role="button"] { cursor: pointer; outline: none; }
+    .cm-map svg [role="button"]:hover { opacity: 0.8; }
+
+    /* Selection (solid) and keyboard focus (dashed): a white casing under a dark line. */
+    .cm-map svg .cm-halo-casing, .cm-map svg .cm-halo-casing path, .cm-map svg .cm-halo-casing circle,
+    .cm-map svg .cm-halo-line, .cm-map svg .cm-halo-line path, .cm-map svg .cm-halo-line circle {
+      fill: none; pointer-events: none; stroke-linejoin: round;
+    }
+    .cm-map svg .cm-halo-casing, .cm-map svg .cm-halo-casing path, .cm-map svg .cm-halo-casing circle { stroke: #fff; stroke-width: inherit; }
+    .cm-map svg .cm-halo-line, .cm-map svg .cm-halo-line path, .cm-map svg .cm-halo-line circle { stroke: #0b1f3a; stroke-width: inherit; }
+    .cm-map svg .cm-halo-focus.cm-halo-line, .cm-map svg .cm-halo-focus.cm-halo-line path, .cm-map svg .cm-halo-focus.cm-halo-line circle { stroke-dasharray: 5 3; }
+
+    .cm-map svg .cm-bubbles, .cm-map svg .cm-bubbles * { pointer-events: none; }
+    .cm-map svg .cm-bubbles circle { fill: #fff; stroke: #12365a; }
+    .cm-map svg .cm-bubbles text { fill: #12365a; font-family: system-ui, sans-serif; font-weight: 700; text-anchor: middle; }
+
+    .cm-detail { margin-top: 1rem; border: 1px solid var(--rule); border-radius: 8px; background: #fff; padding: 1rem 1.3rem 1.2rem; }
+    .cm-prompt, .cm-empty { color: var(--ink-soft); font-size: 0.95rem; margin: 0; }
+    .cm-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
+    .cm-detail .cm-name { margin: 0; font-size: 1.4rem; }
+    .cm-close {
+      font: inherit; font-size: 0.85rem; padding: 0.25rem 0.75rem; cursor: pointer;
+      border: 1px solid var(--rule); border-radius: 6px; background: #fff; color: var(--ink);
+    }
+    .cm-close:hover { border-color: var(--accent); }
+    .cm-sub { color: var(--ink-soft); font-size: 0.9rem; margin: 0.15rem 0 0.4rem; }
+    .cm-groups { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0 2rem; }
+    @media (min-width: 860px) { .cm-groups.cm-multi { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    .cm-detail h4 { font-size: 1rem; font-weight: 600; margin: 1rem 0 0.3rem; }
+    .cm-n { color: var(--ink-soft); font-weight: 400; }
+    .cm-list { list-style: none; margin: 0; padding: 0; column-width: 20rem; column-gap: 2rem; }
+    .cm-list li {
+      display: flex; justify-content: space-between; gap: 0.8rem; padding: 0.3rem 0; break-inside: avoid;
+      border-bottom: 1px solid var(--rule); font-size: 0.9rem;
+    }
+    .cm-artist { min-width: 0; overflow-wrap: anywhere; }
+    .cm-when { color: var(--ink-soft); white-space: nowrap; font-variant-numeric: tabular-nums; }
+  </style>
+
+  <script>
+    import { initConcertMap } from '../lib/concert-map.js';
+    initConcertMap({
+      root: document.getElementById('concert-map'),
+      data: JSON.parse(document.getElementById('cm-data').textContent),
+    });
+  </script>
+
+  <script>
+    const input = document.getElementById('concert-filter');
+    const rows = document.querySelectorAll('#concert-rows tr');
+    const status = document.getElementById('filter-status');
+    input.addEventListener('input', () => {
+      const q = input.value.trim().toLowerCase();
+      let shown = 0;
+      rows.forEach((tr) => {
+        const [artist, city] = tr.children;
+        const match = !q || artist.textContent.toLowerCase().includes(q) || city.textContent.toLowerCase().includes(q);
+        tr.hidden = !match;
+        if (match) shown++;
+      });
+      status.textContent = q ? `Showing ${shown} of ${rows.length} shows` : '';
+    });
+  </script>
+</Base>

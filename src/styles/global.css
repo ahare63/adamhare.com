@@ -95,7 +95,12 @@ th { font-weight: 600; }
   text-decoration: none; color: var(--ink);
   margin-right: auto;
 }
-.brand img { height: 2.1rem; width: auto; }
+.brand img {
+  height: 2.1rem; width: 2.1rem; object-fit: contain;
+  background: #673ab7;            /* the old site's logo container purple */
+  border-radius: 4px;
+  padding: 0.2rem;
+}
 .brand span { font-size: 1.25rem; font-weight: 600; letter-spacing: 0.01em; }
 
 .site-nav { display: flex; gap: 1.3rem; flex-wrap: wrap; }
@@ -110,6 +115,22 @@ th { font-weight: 600; }
   border-bottom: 2px solid var(--accent);
   padding-bottom: 2px;
 }
+
+.banner {
+  height: clamp(170px, 30vw, 360px);
+  background-size: cover;
+  position: relative;
+}
+.banner::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0) 60%);
+}
+.banner:not(:has(.banner-inner))::after { display: none; }
+.banner-inner {
+  position: absolute; inset: auto 0 0 0; z-index: 1;
+  max-width: var(--max-wide); margin: 0 auto; padding: 0 1.25rem 1.1rem;
+}
+.banner-inner h1 { color: #fff; margin: 0; text-shadow: 0 1px 8px rgba(0, 0, 0, 0.45); }
 
 main {
   max-width: var(--max-text);
@@ -140,6 +161,20 @@ main.wide { max-width: var(--max-wide); }
 .footer-links a:hover { color: var(--accent); }
 .footer-links svg { width: 1.35rem; height: 1.35rem; fill: currentColor; }
 
+/* Linear B mode (see lib/linear-b-mode.js): chrome text is swapped for glyphs. */
+html[data-lb="1"] body [data-lb] {
+  font-family: "Noto Sans Linear B", "Aegean", "Segoe UI Historic", sans-serif;
+  letter-spacing: 0.12em;
+}
+/* Hold the English back until the script has swapped it, so it never flashes. */
+html[data-lb="1"]:not([data-lb-ready]) body [data-lb] { visibility: hidden; }
+.lb-off {
+  display: none; padding: 0; border: 0; background: none; cursor: pointer;
+  font: inherit; color: var(--accent); text-decoration: underline; text-underline-offset: 2.5px;
+}
+.lb-off:hover { color: var(--accent-hover); }
+html[data-lb="1"] .lb-off { display: inline; }
+
 /* ---- components ---- */
 .lede { font-size: 1.14rem; color: var(--ink-soft); }
 
@@ -161,28 +196,34 @@ main.wide { max-width: var(--max-wide); }
 .card h3 { margin: 0 0 0.3rem; font-size: 1.05rem; color: var(--accent); }
 .card p { margin: 0; font-size: 0.9rem; color: var(--ink-soft); }
 
+/* Masonry: every photo keeps its own aspect ratio (no cropping). */
 .photo-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-  gap: 1.2rem;
+  columns: 3 15rem;
+  column-gap: 1.2rem;
   margin: 1.6rem 0;
 }
-.photo-grid figure { margin: 0; }
-.photo-grid img {
-  width: 100%; aspect-ratio: 4/3; object-fit: cover;
-  border-radius: 4px;
-}
+.photo-grid figure { margin: 0 0 1.2rem; break-inside: avoid; }
+.photo-grid img { width: 100%; height: auto; display: block; border-radius: 4px; }
 
 .map-wrap { margin: 1.8rem 0; }
 .map-wrap svg { width: 100%; height: auto; }
-.map-wrap svg path, .map-wrap svg circle { fill: #e8e5dd; stroke: #fff; stroke-width: 0.5; }
+/* Map palette matches the old site's embed: #4F86D9 visited / #D5D8DE unvisited. */
+.map-wrap svg path, .map-wrap svg circle { fill: #d5d8de; stroke: #fff; stroke-width: 0.5; }
 .map-wrap .visited, .map-wrap .visited path, .map-wrap .visited circle {
-  fill: var(--accent) !important;
+  fill: #4f86d9 !important;
   cursor: pointer;
 }
 .map-wrap .visited:hover, .map-wrap .visited:hover path, .map-wrap .visited:hover circle {
-  fill: var(--accent-hover) !important;
+  fill: #7faae8 !important;
 }
+/* The US map draws state borders as separate open paths; they must never be
+   filled (CSS fill would override their fill="none" attribute). */
+.map-wrap svg .borders path, .map-wrap svg path.separator1 {
+  fill: none !important;
+  stroke: #fff;
+  stroke-width: 1;
+}
+.map-wrap svg path.separator1 { stroke: #b0b0b0; stroke-width: 2; }
 .map-title { font-size: 0.95rem; font-weight: 600; color: var(--ink); margin-bottom: 0.5rem; }
 .map-tooltip[hidden] { display: none; }
 .map-tooltip {

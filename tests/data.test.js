@@ -71,6 +71,18 @@ describe('books data', () => {
   });
 });
 
+describe('essays data', () => {
+  it('parses as an array and every entry has title, https url, and ISO date', () => {
+    const essays = json('src/data/essays.json');
+    expect(Array.isArray(essays)).toBe(true);
+    for (const e of essays) {
+      expect(e.title?.length, JSON.stringify(e)).toBeGreaterThan(0);
+      expect(e.url, e.title).toMatch(/^https:\/\//);
+      expect(e.date, e.title).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+    }
+  });
+});
+
 describe('required assets exist', () => {
   it.each(['public/favicon.png', 'public/images/linear-a.png'])('%s exists', (p) => {
     expect(existsSync(new URL(`../${p}`, import.meta.url))).toBe(true);

@@ -1,0 +1,295 @@
+---
+import Base from '../layouts/Base.astro';
+import VisitedMap from '../components/VisitedMap.astro';
+import travel from '../data/travel.json';
+import * as travelMd from '../content/travel.md';
+import * as booksMd from '../content/books.md';
+import concerts from '../data/concerts.json';
+import authorCountries from '../data/author-countries.json';
+import { parseBooks } from '../lib/books.js';
+import { countriesOfBook, placeOfCity } from '../lib/places.js';
+
+// Split the markdown at its first <h2> (the Photos section) so the intro
+// sits above the maps and the photos below them.
+const html = await travelMd.compiledContent();
+const cut = html.indexOf('<h2');
+const introHtml = cut === -1 ? html : html.slice(0, cut);
+let photosHtml = cut === -1 ? '' : html.slice(cut);
+
+// Markdown images carry their captions in alt text; turn each into a
+// <figure> with a visible caption and group runs of them into photo grids.
+photosHtml = photosHtml.replace(/<p><img ([^>]*?)\/?><\/p>/g, (m, attrs) => {
+  const alt = (attrs.match(/alt="([^"]*)"/) || [])[1] || '';
+  return `<figure><img ${attrs.replace(/\s*\/$/, '')} loading="lazy" /><figcaption>${alt}</figcaption></figure>`;
+});
+photosHtml = photosHtml.replace(/(?:<figure>[\s\S]+?<\/figure>\s*)+/g, (m) => `<div class="photo-grid">${m}</div>`);
+
+const abroad = travel.countries.filter((c) => c.code !== 'US');
+const worldRegions = [{ code: 'US', name: 'United States' }, ...abroad];
+const hasDC = travel.states.some((s) => s.code === 'DC');
+const stateCount = travel.states.length - (hasDC ? 1 : 0);
+const years = abroad.flatMap((c) => (c.years.match(/\d{4}/g) || []).map(Number));
+const firstYear = years.length ? Math.min(...years) : 2017;
+const lastYear = years.length ? Math.max(...years) : firstYear;
+// Slider data: each country's first-visit year (null = undated, always shown).
+const firstVisit = (c) => { const ys = (c.years.match(/\d{4}/g) || []).map(Number); return ys.length ? Math.min(...ys) : null; };
+const timeline = abroad.map((c) => ({ code: c.code, name: c.name, first: firstVisit(c) }));
+const timelineJson = JSON.stringify(timeline).replace(/</g, '\\u003c');
+
+// Country panel data: every book listed under each of its author's countries, and
+// concerts by country. Concerts in a city with no entry in places.js are left out.
+const books = parseBooks(booksMd.rawContent()).map((b) => ({ title: b.title, author: b.author, year: b.year }));
+const booksByCountry = {};
+books.forEach((b, i) => {
+  for (const code of countriesOfBook(b, authorCountries)) (booksByCountry[code] ??= []).push(i);
+});
+const concertsByCountry = {};
+for (const c of concerts) {
+  const place = placeOfCity(c.city);
+  if (place) (concertsByCountry[place.country] ??= []).push({ artist: c.artist, city: place.city, date: c.date });
+}
+const pickable = [
+  { code: 'us', name: 'United States', years: '', home: true },
+  ...abroad.map((c) => ({ code: c.code.toLowerCase(), name: c.name, years: c.years })),
+];
+const placesJson = JSON.stringify({ visited: pickable, books, booksByCountry, concertsByCountry }).replace(/</g, '\\u003c');
+---
+<Base title="Travel" description="Countries and US states Adam Hare has visited, with photos." wide banner="/images/banners/travel.jpg" bannerTitle="Travel" bannerPosition="center 30%">
+  <div class="prose" set:html={introHtml} />
+
+  <p class="travel-stats sans">
+    <strong>{abroad.length}</strong> countries beyond the US ·
+    <strong>{stateCount}{hasDC ? ' + DC' : ''}</strong> US states · first trip abroad <strong>{firstYear}</strong>
+  </p>
+  <p class="travel-note" id="travel-note" role="status" hidden></p>
+
+  <div class="time-slider">
+    <label for="year-slider">Countries visited through <output id="year-out" for="year-slider">{lastYear}</output></label>
+    <input type="range" id="year-slider" min={firstYear - 1} max={lastYear} value={lastYear} step="1" />
+    <button type="button" id="year-play" aria-label="Play the map from the first trip to now">▶ Play</button>
+  </div>
+  <script type="application/json" id="travel-timeline" set:html={timelineJson} />
+
+  <VisitedMap map="world" regions={worldRegions} title="Countries" />
+  <div class="tl-picker">
+    <div class="tl-chips" id="tl-chips" role="group" aria-label="Pick a country">
+      {pickable.toSorted((a, b) => a.name.localeCompare(b.name)).map((c) => (
+        <button type="button" class="tl-chip" data-code={c.code} aria-pressed="false">{c.name}</button>
+      ))}
+    </div>
+    <div class="tl-panel" id="tl-panel" aria-live="polite">
+      <p class="tl-prompt">Pick a country to see what I read and heard there.</p>
+    </div>
+  </div>
+  <script type="application/json" id="travel-places" set:html={placesJson} />
+  <details class="country-list">
+    <summary>Every country, with years</summary>
+    <ul id="country-list">
+      {abroad.toSorted((a, b) => a.name.localeCompare(b.name)).map((c) => (
+        <li><span>{c.name}</span><span class="yrs">{c.years}</span></li>
+      ))}
+    </ul>
+  </details>
+
+  <VisitedMap map="us" regions={travel.states} title="US States" />
+  <details class="country-list">
+    <summary>Every state</summary>
+    <ul id="state-list">
+      {travel.states.toSorted((a, b) => a.name.localeCompare(b.name)).map((s) => (
+        <li><span>{s.name}</span></li>
+      ))}
+    </ul>
+  </details>
+
+  <div class="prose" set:html={photosHtml} />
+
+  <p class="map-credit">
+    World map adapted from <a href="https://github.com/flekschas/simple-world-map">simple-world-map</a>
+    (Al MacDonald / Fritz Lekschas, <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>);
+    US map from <a href="https://commons.wikimedia.org/wiki/File:Blank_US_Map_(states_only).svg">Wikimedia Commons</a> (CC0).
+  </p>
+
+  <!-- Global on purpose: the live sheet refresh re-creates the list items in
+       the browser, and scoped styles don't reach script-created elements. -->
+  <style is:global>
+    .travel-stats { font-size: 1.05rem; }
+    .travel-note { color: var(--ink-soft); font-size: 0.85rem; }
+    .time-slider {
+      display: flex; align-items: center; gap: 0.9rem; flex-wrap: wrap;
+      margin: 1.4rem 0 0; font-size: 0.95rem;
+    }
+    .time-slider output { font-weight: 600; font-variant-numeric: tabular-nums; }
+    .time-slider input[type="range"] { flex: 1 1 12rem; max-width: 26rem; accent-color: #4f86d9; }
+    .time-slider button {
+      font: inherit; font-size: 0.85rem; padding: 0.25rem 0.75rem; cursor: pointer;
+      border: 1px solid var(--rule); border-radius: 6px; background: #fff; color: var(--ink);
+    }
+    .time-slider button:hover { border-color: var(--accent); }
+    .country-list { margin: 1rem 0 2rem; }
+    .country-list summary { cursor: pointer; color: var(--accent); }
+    .country-list ul {
+      list-style: none; padding: 0.8rem 0 0;
+      columns: 3; column-gap: 2rem;
+    }
+    .country-list li {
+      display: flex; justify-content: space-between; gap: 1rem;
+      break-inside: avoid; font-size: 0.92rem;
+      border-bottom: 1px solid var(--rule); padding: 0.2rem 0;
+    }
+    .yrs { color: var(--ink-soft); }
+    .tl-picker { margin: 0.2rem 0 1.4rem; }
+    .tl-chips { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+    .tl-chip {
+      font: inherit; font-size: 0.8rem; padding: 0.2rem 0.6rem; cursor: pointer;
+      border: 1px solid var(--rule); border-radius: 999px; background: #fff; color: var(--ink);
+    }
+    .tl-chip:hover { border-color: var(--accent); }
+    .tl-chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .tl-chip:focus-visible, .map-wrap svg [role="button"]:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+    /* Focus and selection are drawn as strokes on the region's own shapes, never an
+       outline box (a country's group can span far-flung islands). */
+    .map-wrap svg [role="button"] { outline: none; }
+    .map-wrap svg [role="button"]:focus-visible path, .map-wrap svg [role="button"]:focus-visible circle {
+      stroke: #12365a; stroke-width: 1.6;
+    }
+    .map-wrap svg .tl-halo, .map-wrap svg .tl-halo path, .map-wrap svg .tl-halo circle {
+      fill: none !important; stroke: #12365a; stroke-width: 1.4; stroke-linejoin: round; pointer-events: none;
+    }
+    .map-wrap svg .visited[aria-pressed="true"], .map-wrap svg .visited[aria-pressed="true"] path,
+    .map-wrap svg .visited[aria-pressed="true"] circle { fill: #2c5fb0 !important; }
+
+    .tl-panel { margin-top: 0.8rem; border: 1px solid var(--rule); border-radius: 8px; background: #fff; padding: 1rem 1.3rem 1.2rem; }
+    .tl-prompt, .tl-empty { color: var(--ink-soft); font-size: 0.95rem; margin: 0; }
+    .tl-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
+    .tl-panel .tl-name { margin: 0; font-size: 1.4rem; }
+    .tl-close {
+      font: inherit; font-size: 0.85rem; padding: 0.25rem 0.75rem; cursor: pointer;
+      border: 1px solid var(--rule); border-radius: 6px; background: #fff; color: var(--ink);
+    }
+    .tl-close:hover { border-color: var(--accent); }
+    .tl-years { color: var(--ink-soft); font-size: 0.9rem; margin: 0.15rem 0 0.4rem; }
+    .tl-panel h3 { font-size: 1rem; margin: 1rem 0 0.4rem; }
+    .tl-count { color: var(--ink-soft); font-weight: 400; }
+    .tl-cols { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0 2rem; }
+    @media (min-width: 800px) { .tl-cols.tl-two { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); } }
+    .tl-list { list-style: none; margin: 0; padding: 0; }
+    .tl-list li {
+      display: flex; justify-content: space-between; gap: 0.8rem; padding: 0.3rem 0;
+      border-bottom: 1px solid var(--rule); font-size: 0.9rem;
+    }
+    .tl-main { min-width: 0; overflow-wrap: anywhere; }
+    .tl-by { color: var(--ink-soft); }
+    .tl-when { color: var(--ink-soft); white-space: nowrap; font-variant-numeric: tabular-nums; }
+    .tl-more {
+      font: inherit; font-size: 0.85rem; margin-top: 0.5rem; padding: 0.25rem 0.75rem; cursor: pointer;
+      border: 1px solid var(--rule); border-radius: 6px; background: #fff; color: var(--ink);
+    }
+    .tl-more:hover { border-color: var(--accent); }
+    .tl-links { display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem; margin-top: 1.1rem; font-size: 0.9rem; }
+    .map-credit { font-size: 0.78rem; color: var(--ink-soft); margin-top: 2.5rem; }
+    @media (max-width: 700px) { .country-list ul { columns: 2; } }
+    @media (max-width: 480px) { .country-list ul { columns: 1; } }
+  </style>
+
+  <script>
+    // Live refresh from the Travel-Public sheet: edits to the sheet show up
+    // on page load without a site rebuild. Falls back silently to the
+    // build-time snapshot already rendered.
+    import { fetchSheet } from '../lib/travel-map.js';
+    import { initCountryPanel } from '../lib/country-panel.js';
+
+    // Time slider: show only countries first visited in or before the chosen year.
+    const firstVisit = (c) => { const ys = (c.years.match(/\d{4}/g) || []).map(Number); return ys.length ? Math.min(...ys) : null; };
+    let timeline = JSON.parse(document.getElementById('travel-timeline').textContent || '[]');
+    const slider = document.getElementById('year-slider');
+    const yearOut = document.getElementById('year-out');
+    const playBtn = document.getElementById('year-play');
+    const worldWrap = document.querySelector('[data-map="world"]');
+    function renderYear() {
+      const y = Number(slider.value);
+      yearOut.textContent = y < Number(slider.min) + 1 ? `before ${y + 1}` : String(y);
+      const shown = timeline.filter((c) => c.first === null || c.first <= y);
+      window.applyVisited(worldWrap, Object.fromEntries([['US', 'United States'], ...shown.map((c) => [c.code, c.name])]));
+    }
+    slider.addEventListener('input', renderYear);
+
+    // Country panel: clickable countries follow the visited set, whatever the slider shows.
+    const places = JSON.parse(document.getElementById('travel-places').textContent);
+    const picker = initCountryPanel({
+      wrap: worldWrap, chips: document.getElementById('tl-chips'), panel: document.getElementById('tl-panel'), data: places,
+    });
+    picker.setVisited(places.visited);
+    let timer = null;
+    function stop() { clearInterval(timer); timer = null; playBtn.textContent = '▶ Play'; }
+    playBtn.addEventListener('click', () => {
+      if (timer) return stop();
+      slider.value = slider.min;
+      renderYear();
+      playBtn.textContent = '❚❚ Pause';
+      timer = setInterval(() => {
+        if (Number(slider.value) >= Number(slider.max)) return stop();
+        slider.value = String(Number(slider.value) + 1);
+        renderYear();
+      }, 900);
+    });
+    try {
+      const { countries, states, unknown } = await fetchSheet();
+      const abroad = countries.filter((c) => c.code !== 'US');
+      if (abroad.length) {
+        const us = Object.fromEntries(states.map((s) => [s.code, s.name]));
+        timeline = abroad.map((c) => ({ code: c.code, name: c.name, first: firstVisit(c) }));
+        const dated = timeline.map((c) => c.first).filter((v) => v !== null);
+        if (dated.length) {
+          const atEnd = slider.value === slider.max;
+          slider.min = String(Math.min(...dated) - 1);
+          slider.max = String(Math.max(...dated));
+          if (atEnd) slider.value = slider.max;
+        }
+        renderYear();
+        picker.setVisited([places.visited[0], ...abroad.map((c) => ({ code: c.code.toLowerCase(), name: c.name, years: c.years }))]);
+        window.applyVisited(document.querySelector('[data-map="us"]'), us);
+        const hasDC = states.some((s) => s.code === 'DC');
+        const years = abroad.flatMap((c) => (c.years.match(/\d{4}/g) || []).map(Number));
+        const stats = document.querySelector('.travel-stats');
+        if (stats) {
+          const strongs = stats.querySelectorAll('strong');
+          strongs[0].textContent = String(abroad.length);
+          strongs[1].textContent = `${states.length - (hasDC ? 1 : 0)}${hasDC ? ' + DC' : ''}`;
+          if (years.length) strongs[2].textContent = String(Math.min(...years));
+        }
+        const list = document.getElementById('country-list');
+        if (list) {
+          list.innerHTML = abroad
+            .toSorted((a, b) => a.name.localeCompare(b.name))
+            .map((c) => {
+              const li = document.createElement('li');
+              const n = document.createElement('span'); n.textContent = c.name;
+              const y = document.createElement('span'); y.className = 'yrs'; y.textContent = c.years;
+              li.append(n, y);
+              return li.outerHTML;
+            }).join('');
+        }
+        const stateList = document.getElementById('state-list');
+        if (stateList) {
+          stateList.innerHTML = states
+            .toSorted((a, b) => a.name.localeCompare(b.name))
+            .map((s) => {
+              const li = document.createElement('li');
+              const n = document.createElement('span'); n.textContent = s.name;
+              li.append(n);
+              return li.outerHTML;
+            }).join('');
+        }
+      }
+      // Surface sheet problems even when nothing mapped at all.
+      if (unknown.length) {
+        const note = document.getElementById('travel-note');
+        note.textContent = `Couldn't place on the map (check spelling in the sheet): ${unknown.join(', ')}`;
+        note.hidden = false;
+      }
+    } catch {
+      /* offline or sheet unreachable — snapshot already rendered */
+    }
+  </script>
+</Base>

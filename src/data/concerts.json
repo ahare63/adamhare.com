@@ -354,12 +354,6 @@
     "date": "21 June 2015"
   },
   {
-    "artist": "Judas Priest",
-    "venue": "",
-    "city": "Cincinnati, OH",
-    "date": "8 November 2011"
-  },
-  {
     "artist": "KISS",
     "venue": "",
     "city": "Cincinnati, OH",
@@ -370,6 +364,12 @@
     "venue": "",
     "city": "Cincinnati, OH",
     "date": "31 August 2012"
+  },
+  {
+    "artist": "Judas Priest",
+    "venue": "",
+    "city": "Cincinnati, OH",
+    "date": "8 November 2011"
   },
   {
     "artist": "ZZ Top",

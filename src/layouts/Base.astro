@@ -1,12 +1,18 @@
 ---
 import '../styles/global.css';
-const { title, description = 'Adam Hare — Head of AI at Zoomi. Projects, research, and interests.', wide = false } = Astro.props;
+import { linearBLabel } from '../lib/linear-b.js';
+// banner: image path for a photo strip under the header; when set together with
+// bannerTitle, the strip carries the page's <h1> (the page must not render its own).
+const { title, description = 'Adam Hare — Head of AI at Zoomi. Projects, research, and interests.', wide = false, banner, bannerTitle, bannerPosition = 'center' } = Astro.props;
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 const nav = [
   ['/about', 'About'],
+  ['/background', 'Background'],
   ['/projects', 'Projects'],
   ['/interests', 'Interests'],
 ];
+// Linear B spelling of a label for `data-lb`; undefined when nothing can be spelled.
+const lb = (text) => linearBLabel(text) || undefined;
 const sub = { '/books': '/interests', '/music': '/interests', '/travel': '/interests' };
 const current = (href) => (path === href || sub[path] === href ? 'page' : undefined);
 ---
@@ -17,28 +23,36 @@ const current = (href) => (path === href || sub[path] === href ? 'page' : undefi
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title ? `${title} · Adam Hare` : 'Adam Hare'}</title>
     <meta name="description" content={description} />
-    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="icon" type="image/png" href="/favicon.png?v=3" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&display=swap" rel="stylesheet" />
+    <script is:inline>try { if (localStorage.getItem('lb') === '1') document.documentElement.dataset.lb = '1'; } catch (e) {}</script>
+    <slot name="head" />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <a class="brand" href="/">
         <img src="/images/linear-a.png" alt="Linear A glyph, Adam Hare's logo" />
-        <span>Adam Hare</span>
+        <span data-lb={lb('Adam Hare')}>Adam Hare</span>
       </a>
       <nav class="site-nav" aria-label="Site">
-        {nav.map(([href, label]) => <a href={href} aria-current={current(href)}>{label}</a>)}
+        {nav.map(([href, label]) => <a href={href} aria-current={current(href)} data-lb={lb(label)}>{label}</a>)}
       </nav>
     </header>
+    {banner && (
+      <div class="banner" style={`background-image:url(${banner});background-position:${bannerPosition}`}>
+        {bannerTitle && <div class="banner-inner"><h1 data-lb={lb(bannerTitle)}>{bannerTitle}</h1></div>}
+      </div>
+    )}
     <main id="main" class:list={[{ wide }]}>
       <slot />
     </main>
     <footer class="site-footer">
       <div class="inner">
         <span>Adam Hare · New York City</span>
+        <button type="button" class="lb-off">Back to English</button>
         <div class="footer-links">
           <a href="https://github.com/ahare63" aria-label="GitHub" title="GitHub">
             <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
@@ -46,11 +60,21 @@ const current = (href) => (path === href || sub[path] === href ? 'page' : undefi
           <a href="https://www.linkedin.com/in/ahare63/" aria-label="LinkedIn" title="LinkedIn">
             <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M0 1.15C0 .52.53 0 1.18 0h13.64C15.47 0 16 .52 16 1.15v13.7c0 .63-.53 1.15-1.18 1.15H1.18A1.17 1.17 0 0 1 0 14.85V1.15Zm4.94 12.24V6.17H2.54v7.22h2.4ZM3.74 5.18c.84 0 1.36-.55 1.36-1.24-.02-.71-.52-1.25-1.34-1.25-.82 0-1.36.54-1.36 1.25 0 .69.52 1.24 1.33 1.24h.01Zm5.08 8.21V9.36c0-.22.02-.43.08-.59.17-.43.57-.88 1.23-.88.87 0 1.22.66 1.22 1.63v3.87h2.4V9.25c0-2.22-1.18-3.25-2.76-3.25-1.27 0-1.84.7-2.17 1.19v.02h-.01l.01-.02V6.17h-2.4c.03.68 0 7.22 0 7.22h2.4Z"/></svg>
           </a>
+          <a href="https://scholar.google.com/citations?user=YXOt7y0AAAAJ" aria-label="Google Scholar" title="Google Scholar">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.242 13.769 0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
+          </a>
+          <a href="https://ahare63.substack.com/" aria-label="Substack" title="Substack">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>
+          </a>
           <a href="mailto:adamt1195@gmail.com" aria-label="Email" title="Email">
             <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/></svg>
           </a>
         </div>
       </div>
     </footer>
+    <script>
+      import { init } from '../lib/linear-b-mode.js';
+      init();
+    </script>
   </body>
 </html>

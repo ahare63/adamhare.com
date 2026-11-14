@@ -1,0 +1,64 @@
+---
+import Base from '../layouts/Base.astro';
+import * as md from '../content/projects.md';
+import publications from '../data/publications.json';
+
+// Each academic project (h3 under "Academic Projects") collapses, closed by
+// default; h3s under other h2s stay as plain headings.
+let html = await md.compiledContent();
+let inAcademic = false;
+html = html.replace(
+  /(<h2[^>]*>[\s\S]*?<\/h2>)|(<h3[^>]*>[\s\S]*?<\/h3>)([\s\S]*?)(?=<h3|<h2|$)/g,
+  (m, h2, heading, body) => {
+    if (h2) { inAcademic = /Academic Projects/.test(h2); return h2; }
+    return inAcademic ? `<details><summary>${heading}</summary>${body}</details>` : m;
+  }
+);
+
+const groups = [
+  ['published', 'Published'],
+  ['preprint', 'Preprints'],
+  ['other', 'Other writing & talks'],
+];
+---
+<Base title={md.frontmatter.title} description={md.frontmatter.description}>
+  <h1>{md.frontmatter.title}</h1>
+  <div class="projects" set:html={html} />
+
+  <h2>Papers &amp; Presentations</h2>
+  <p>
+    <a href="https://www.csauthors.net/distance/paul-erdos/adam-hare">Erdős number: 4</a> ·
+    <a href="https://www.csauthors.net/distance/edsger-w-dijkstra/adam-hare">Dijkstra number: 4</a> — see also
+    <a href="https://scholar.google.com/citations?user=YXOt7y0AAAAJ">Google Scholar</a> and
+    <a href="https://orcid.org/0000-0003-3681-6135">ORCID</a>.
+  </p>
+
+  {groups.map(([status, label]) => {
+    const items = publications.filter((p) => p.status === status);
+    return items.length ? (
+      <>
+        <h3>{label}</h3>
+        <ul class="pubs">
+          {items.map((p) => (
+            <li>
+              <em>{p.title}</em>{`. ${p.authors}.`}{p.venue ? ` ${p.venue}.` : ''}
+              {p.links.length > 0 && (
+                <>{' '}{p.links.map((l, i) => (
+                  <>{i > 0 && ' · '}<a href={l.url}>{l.label}</a></>
+                ))}</>
+              )}
+            </li>
+          ))}
+        </ul>
+      </>
+    ) : null;
+  })}
+
+  <style>
+    .projects :global(details) { border-top: 1px solid var(--rule); }
+    .projects :global(summary) { cursor: pointer; padding: 0.45rem 0; }
+    .projects :global(summary h3) { display: inline; margin: 0; }
+    .pubs { list-style: none; padding: 0; }
+    .pubs li { margin-bottom: 0.8rem; }
+  </style>
+</Base>

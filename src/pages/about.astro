@@ -1,0 +1,9 @@
+---
+import Base from '../layouts/Base.astro';
+import * as md from '../content/about.md';
+---
+<Base title={md.frontmatter.title} description={md.frontmatter.description} banner="/images/banners/about.jpg" bannerTitle={md.frontmatter.title}>
+  <div class="about">
+    <md.Content />
+  </div>
+</Base>
