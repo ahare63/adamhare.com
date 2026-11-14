@@ -540,11 +540,23 @@
     "cover": "https://ecx.images-amazon.com/images/P/0141181737.01._SX400_SCRM_.jpg",
     "blurb": "Celebrated novella of a middle-aged German writer’s tormented passion for a Polish youth met on holiday in Venice, and its tragic consequences. Powerful evocation of the mysterious forces of death and disintegration in the midst of existence, and the isolation of the artist in 20th-century life. This edition provides an excellent new translation and extensive commentary on many facets of the story."
   },
+  "deciphering aztec hieroglyphs: a guide to nahuatl writing|gordon whittaker": {
+    "ltId": "303028869",
+    "isbn": "0520380371",
+    "cover": "https://ecx.images-amazon.com/images/P/0520380371.01._SX400_SCRM_.jpg",
+    "blurb": "For more than three millennia the cultures of Mesoamerica flourished, yielding the first cities of the Western Hemisphere and developing writing systems that could rival those of the East in their creativity and efficiency. The Nahuatl-speaking Aztecs reigned over one of the greatest imperial civilizations the Americas had ever seen, and until now their intricate and visually stunning hieroglyphs have been overlooked in the story of writing."
+  },
   "devotions: the selected poems of mary oliver|mary oliver": {
     "ltId": "303041433",
     "isbn": "0399563261",
     "cover": "https://ecx.images-amazon.com/images/P/0399563261.01._SX400_SCRM_.jpg",
     "blurb": "Throughout her celebrated career, Mary Oliver has touched countless readers with her brilliantly crafted verse, expounding on her love for the physical world and the powerful bonds between all living things. Identified as \"far and away, this country's best selling poet\" by Dwight Garner, she now returns with a stunning and definitive collection of her writing from the last fifty years."
+  },
+  "do androids dream of electric sheep?|philip k. dick": {
+    "ltId": "303111099",
+    "isbn": "1473222680",
+    "cover": "https://ecx.images-amazon.com/images/P/1473222680.01._SX400_SCRM_.jpg",
+    "blurb": "It was January 2021, and Rick Deckard had a license to kill. Somewhere among the hordes of humans out there, lurked several rogue androids. Deckard's assignment--find them and then...\"retire\" them. Trouble was, the androids all looked exactly like humans, and they didn't want to be found!"
   },
   "don quixote|miguel de cervantes": {
     "ltId": "303076993",
@@ -778,17 +790,17 @@
     "cover": "https://ecx.images-amazon.com/images/P/1643130099.01._SX400_SCRM_.jpg",
     "blurb": "The poet T.S. Eliot. The polo star Tommy Hitchcock. F. Scott and Zelda Fitzgerald. This diverse group of Americans came to Oxford in the first quarter of the twentieth century--the Jazz Age--when the Rhodes Scholar program had just begun and the Great War had enveloped much of Europe. Scott Fitzgerald created his most memorable character--Jay Gatsby, the Oxford man in the pink suit--shortly after his and Zelda's visit to Oxford."
   },
-  "gilgamesh (by sîn-lēqi-unninni)|": {
-    "ltId": "303076094",
-    "isbn": "0300268092",
-    "cover": "https://ecx.images-amazon.com/images/P/0300268092.01._SX400_SCRM_.jpg",
-    "blurb": null
-  },
   "gilgamesh|": {
     "ltId": "303076094",
     "isbn": "0300268092",
     "cover": "https://ecx.images-amazon.com/images/P/0300268092.01._SX400_SCRM_.jpg",
     "blurb": "Gilgamesh dates from as early as 1700 BCE - a thousand years before the Iliad. Lost for almost two millennia, the eleven clay tablets on which the epic was inscribed were discovered in 1853 in the ruins of Nineveh, and the text was not deciphered and fully translated until the end of the century. The epic is the story of literature's first hero - the king of Uruk in what is present-day Iraq - and his journey of self-discovery."
+  },
+  "gilgamesh|sîn-lēqi-unninni, adapted by stephen mitchell": {
+    "ltId": "303030295",
+    "isbn": "0743261690",
+    "cover": "https://ecx.images-amazon.com/images/P/0743261690.01._SX400_SCRM_.jpg",
+    "blurb": "Gilgamesh is considered one of the masterpieces of world literature, and although previously there have been competent scholarly translations of it, until now there has not been a version that is a superlative literary text in its own right. Acclaimed translator Stephen Mitchell's lithe, muscular rendering allows us to enter an ancient masterpiece as if for the first time, to see how startlingly beautiful, intelligent, and alive it is."
   },
   "giovanni's room|james baldwin": {
     "ltId": "303112005",
@@ -1794,6 +1806,12 @@
     "isbn": "0061807400",
     "cover": "https://ecx.images-amazon.com/images/P/0061807400.01._SX400_SCRM_.jpg",
     "blurb": "U.S. Marshal Teddy Daniels and his partner, Chuck Aule, come to Shutter Island's Ashcliffe Hospital in search of an escaped mental patient, but uncover true wickedness as Ashcliffe's mysterious patient treatments propel them to the brink of insanity."
+  },
+  "sir gawain and the green knight|": {
+    "ltId": "303030285",
+    "isbn": "0393334155",
+    "cover": "https://ecx.images-amazon.com/images/P/0393334155.01._SX400_SCRM_.jpg",
+    "blurb": "When the mysterious Green Knight arrives unbidden at the Round Table one Christmas, only Gawain is brave enough to take up his challenge . . .This story, first told in the 1400s, is one of the most enthralling, dramatic and beloved poems in the English tradition. Now, in Simon Armitage, the poem has found its perfect modern translator. Armitage?s retelling of Sir Gawain and the Green Knight captures all of the magic and wonderful storytelling of the original while also revitalising it with his own popular, funny and contemporary voice."
   },
   "six tales of the jazz age and other stories|f. scott fitzgerald": {
     "ltId": "303076683",

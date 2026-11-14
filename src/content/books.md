@@ -97,7 +97,7 @@ I read a lot and my tastes are rather varied. Below I've included a few favorite
 - *From Hell* by Alan Moore and Eddie Campbell
 - *Cold People* by Tom Rob Smith
 - *The Phantom of the Opera* by Gaston Leroux, trans. David Coward
-- *Deciphering Aztec Heiroglyphs: A Guide to Nahuatl Writing* by Gordon Whittaker
+- *Deciphering Aztec Hieroglyphs: A Guide to Nahuatl Writing* by Gordon Whittaker
 - *The Aztec Myths: A Guide to the Ancient Stories and Legends* by Camilla Townsend
 - *The Conquest of New Spain* by Bernal Díaz, trans. J. M. Cohen
 - *Mexico: A 500-Year History* by Paul Gillingham
@@ -629,7 +629,7 @@ I read a lot and my tastes are rather varied. Below I've included a few favorite
 - *One Flew Over the Cuckoo's Nest* by Ken Kesey
 - *The Twelve Caesars* by Suetonius, trans. Robert Graves
 - *The Symposium* by Plato, trans. Christopher Gill
-- *Sir Gawain and the Green Knight trans. Simon Armitage*
+- *Sir Gawain and the Green Knight*, trans. Simon Armitage
 - *So We Read On: How The Great Gatsby Came to Be and Why It Endures* by Maureen Corrigan
 
 ## 2018
@@ -651,7 +651,7 @@ I read a lot and my tastes are rather varied. Below I've included a few favorite
 - *The Last Samurai* by Helen Dewitt
 - *Scott Pilgrim's Miserable Little Life* by Bryan Lee O'Malley
 - *Faust: Part I* by Goethe, trans. David Luke
-- *Do Androids Dream of Electric Sheep? By Philip K. Dick*
+- *Do Androids Dream of Electric Sheep?* by Philip K. Dick
 - *Norwegian Wood* by Haruki Murakami, trans. Jay Rubin
 - *Claudius The God* by Robert Graves
 - *I, Claudius* by Robert Graves
@@ -660,7 +660,7 @@ I read a lot and my tastes are rather varied. Below I've included a few favorite
 - *Useless Magic* by Florence Welch
 - *Beloved* by Toni Morrison
 - *Beowulf*, trans. Seamus Heaney
-- *Gilgamesh (by Sîn-lēqi-unninni)*, trans. Stephen Mitchell
+- *Gilgamesh* by Sîn-lēqi-unninni, adapted by Stephen Mitchell
 - *The Metamorphosis* by Franz Kafka, trans. Stanley Corngold
 - *List of the Lost* by Morrissey
 - *The Gallic War* by Julius Caesar, trans. Carolyn Hammond
