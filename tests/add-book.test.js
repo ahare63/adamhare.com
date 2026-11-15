@@ -49,6 +49,7 @@ const state = () => ({
   countries: { authors: { 'R.F. Kuang': ['us'] }, titles: {} },
   languages: { authors: { 'han kang': 'Korean' }, titles: {} },
   pages: { 'taipei story|r.f. kuang': { n: 300 } },
+  settings: { 'Taipei Story': ['tw'] },
 });
 const proposal = (over = {}) => ({
   bulletLine: '- *The Leopard* by Giuseppe Tomasi di Lampedusa, trans. Archibald Colquhoun', year: 2026,
@@ -136,6 +137,34 @@ describe('applyProposal', () => {
     expect(() => applyProposal(state(), proposal({ countries: ['Italy'] }))).toThrow(/country/);
     expect(() => applyProposal(state(), proposal({ authorKey: null, titleKey: null }))).toThrow(/authorKey|titleKey/);
     expect(() => applyProposal(state(), proposal({ language: '' }))).toThrow(/language/);
+  });
+});
+
+describe('applyProposal settings', () => {
+  it('records where the book is set or what it is about, keyed by its title, sorted', () => {
+    const r = applyProposal(state(), proposal({ settings: ['it'] }));
+    expect(r.settings['The Leopard']).toEqual(['it']);
+    expect(Object.keys(r.settings)).toEqual(['Taipei Story', 'The Leopard']);
+    expect(r.summary.some((l) => l.includes('book-settings.json'))).toBe(true);
+  });
+
+  it('leaves book-settings.json alone when the proposal has none', () => {
+    expect(applyProposal(state(), proposal({ settings: null })).settings).toEqual(state().settings);
+    expect(applyProposal(state(), proposal()).settings).toEqual(state().settings);
+  });
+
+  it('keeps a different existing setting unless forced', () => {
+    const s = state();
+    s.settings['The Leopard'] = ['fr'];
+    const kept = applyProposal(s, proposal({ settings: ['it'] }));
+    expect(kept.settings['The Leopard']).toEqual(['fr']);
+    expect(kept.skipped.some((l) => l.includes('book-settings.json'))).toBe(true);
+    expect(applyProposal(s, proposal({ settings: ['it'] }), { force: true }).settings['The Leopard']).toEqual(['it']);
+  });
+
+  it('rejects settings that are not ISO-2 codes', () => {
+    expect(() => applyProposal(state(), proposal({ settings: ['Italy'] }))).toThrow(/setting/);
+    expect(() => applyProposal(state(), proposal({ settings: [] }))).toThrow(/setting/);
   });
 });
 

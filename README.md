@@ -26,7 +26,10 @@ Personal site, built with [Astro](https://astro.build) and deployed to GitHub Pa
   `src/data/languages.json` (`authors` by lower-cased name, `titles` for books with no author). A new translated
   author needs a line there, otherwise the book is counted as "not recorded".
 - **Books on the Travel map**: a new author needs a line in `src/data/author-countries.json` (ISO-2 codes, more than
-  one if it fits; `titles` for books with no author) to show up in the Travel page's country panel.
+  one if it fits; `titles` for books with no author) to show up in the Travel page's country panel, tagged "from here".
+  `src/data/book-settings.json` adds the countries a book is set in or about (exact `books.md` title → ISO-2 codes,
+  only the most relevant ones; codes must be regions on the world map), tagged "about here".
+  A country in both shows "from & about here".
 - **Fallback covers**: books not in `library.json` use `src/data/covers.json` (`npm run fetch:covers`, Open Library;
   the id is the number in a `covers.openlibrary.org/b/id/<id>-M.jpg` URL, `null` shows a plain cover).
 - **Concerts**: edit the public concerts Google Sheet (columns Artist, Date as "D Month YYYY", City; other columns are

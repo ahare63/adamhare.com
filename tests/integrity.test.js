@@ -310,7 +310,36 @@ describe('built site integrity', () => {
     const book = books.find((b) => b.author === author && !authorCountries.titles[b.title]);
     const i = places.books.findIndex((b) => b.title === book.title && b.author === author);
     expect(i, `${book.title} in island`).toBeGreaterThanOrEqual(0);
-    for (const code of codes) expect(places.booksByCountry[code], `${book.title} under ${code}`).toContain(i);
+    const under = (code) => (places.booksByCountry[code] || []).filter(([j]) => j === i).map(([, why]) => why);
+    for (const code of codes) {
+      const whys = under(code);
+      expect(whys, `${book.title} under ${code}`).toHaveLength(1);
+      expect(['from', 'both'], `${book.title} under ${code}`).toContain(whys[0]);
+    }
+  });
+
+  it('travel page lists books under the countries they are set in or about, tagged against the author\'s country', () => {
+    const html = readFileSync(join(DIST, 'travel/index.html'), 'utf-8');
+    const places = JSON.parse(html.match(/<script[^>]*id="travel-places"[^>]*>([\s\S]*?)<\/script>/)[1]);
+    const whyUnder = (title, code) => {
+      const ids = places.books.flatMap((b, i) => (b.title === title ? [i] : []));
+      expect(ids.length, `${title} in island`).toBeGreaterThan(0);
+      return (places.booksByCountry[code] || []).filter(([i]) => ids.includes(i)).map(([, why]) => why);
+    };
+    expect(whyUnder('HHhH', 'cz')).toEqual(['about', 'about']);
+    expect(whyUnder('HHhH', 'fr')).toEqual(['from', 'from']);
+    expect(whyUnder('Istanbul: A Tale of Three Cities', 'tr')).toEqual(['about']);
+    expect(whyUnder('Fifth Sun: A New History of the Aztecs', 'mx')).toEqual(['about']);
+  });
+
+  it('book-settings.json names only books on the list and countries on the world map', async () => {
+    const { parseBooks } = await import('../src/lib/books.js');
+    const titles = new Set(parseBooks(readFileSync(new URL('../src/content/books.md', import.meta.url), 'utf-8')).map((b) => b.title));
+    const settings = JSON.parse(readFileSync(new URL('../src/data/book-settings.json', import.meta.url), 'utf-8'));
+    const svg = readFileSync(new URL('../src/assets/maps/world.svg', import.meta.url), 'utf-8');
+    const regions = new Set([...svg.matchAll(/\sid="([a-z]{2})"/g)].map((m) => m[1]));
+    expect(Object.keys(settings).filter((t) => !titles.has(t)), 'titles not in books.md').toEqual([]);
+    expect(Object.values(settings).flat().filter((c) => !regions.has(c)), 'codes not on the world map').toEqual([]);
   });
 
   it('music page carries the concert map with both maps, the year slider and summary numbers from concerts.json', async () => {
