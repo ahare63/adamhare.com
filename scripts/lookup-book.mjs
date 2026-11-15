@@ -49,7 +49,7 @@ function nearestTitles(title, entries) {
 }
 
 // The proposal for one book, assembled from already-fetched inputs.
-export function buildProposal({ book, entries, booksMd, authorCountries, languages, blurb, pages }) {
+export function buildProposal({ book, entries, booksMd, authorCountries, languages, settings, blurb, pages }) {
   const key = coverKey(book);
   const hit = matchBook(book, entries);
   const countries = countriesOfBook(book, authorCountries);
@@ -65,6 +65,7 @@ export function buildProposal({ book, entries, booksMd, authorCountries, languag
     blurb: blurb ?? null,
     pages: pages ?? null,
     country: { known: countries.length ? countries : null },
+    setting: { known: settings?.[book.title] ?? null },
     language: { needed: translated, known: translated ? originalLanguage(book, languages, hit?.original) : null },
   };
 }
@@ -110,6 +111,7 @@ async function main() {
     booksMd: read('../src/content/books.md'),
     authorCountries: JSON.parse(read('../src/data/author-countries.json')),
     languages: JSON.parse(read('../src/data/languages.json')),
+    settings: JSON.parse(read('../src/data/book-settings.json')),
   });
   process.stdout.write(`${JSON.stringify(proposal, null, 2)}\n`);
 }

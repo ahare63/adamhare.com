@@ -112,6 +112,12 @@ describe('buildProposal', () => {
     expect(byTitle.country).toEqual({ known: ['it'] });
   });
 
+  it('reports a known setting from book-settings.json by exact title, else null', () => {
+    expect(proposal({ settings: { 'The Leopard': ['it'] } }).setting).toEqual({ known: ['it'] });
+    expect(proposal({ settings: { 'the leopard': ['it'] } }).setting).toEqual({ known: null });
+    expect(proposal().setting).toEqual({ known: null });
+  });
+
   it('asks for the original language only when there is a translator', () => {
     expect(proposal().language).toEqual({ needed: false, known: null });
     const withT = { ...base, translator: 'Archibald Colquhoun' };

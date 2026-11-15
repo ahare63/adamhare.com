@@ -6,8 +6,9 @@ import * as travelMd from '../content/travel.md';
 import * as booksMd from '../content/books.md';
 import concerts from '../data/concerts.json';
 import authorCountries from '../data/author-countries.json';
+import bookSettings from '../data/book-settings.json';
 import { parseBooks } from '../lib/books.js';
-import { countriesOfBook, placeOfCity } from '../lib/places.js';
+import { placesOfBook, placeOfCity } from '../lib/places.js';
 
 // Split the markdown at its first <h2> (the Photos section) so the intro
 // sits above the maps and the photos below them.
@@ -36,12 +37,13 @@ const firstVisit = (c) => { const ys = (c.years.match(/\d{4}/g) || []).map(Numbe
 const timeline = abroad.map((c) => ({ code: c.code, name: c.name, first: firstVisit(c) }));
 const timelineJson = JSON.stringify(timeline).replace(/</g, '\\u003c');
 
-// Country panel data: every book listed under each of its author's countries, and
-// concerts by country. Concerts in a city with no entry in places.js are left out.
+// Country panel data: every book listed under its author's countries and the
+// countries it is set in or about, as [index, why], and concerts by country.
+// Concerts in a city with no entry in places.js are left out.
 const books = parseBooks(booksMd.rawContent()).map((b) => ({ title: b.title, author: b.author, year: b.year }));
 const booksByCountry = {};
 books.forEach((b, i) => {
-  for (const code of countriesOfBook(b, authorCountries)) (booksByCountry[code] ??= []).push(i);
+  for (const { code, why } of placesOfBook(b, authorCountries, bookSettings)) (booksByCountry[code] ??= []).push([i, why]);
 });
 const concertsByCountry = {};
 for (const c of concerts) {
@@ -180,6 +182,7 @@ const placesJson = JSON.stringify({ visited: pickable, books, booksByCountry, co
     }
     .tl-main { min-width: 0; overflow-wrap: anywhere; }
     .tl-by { color: var(--ink-soft); }
+    .tl-why { color: var(--ink-soft); font-size: 0.8em; white-space: nowrap; }
     .tl-when { color: var(--ink-soft); white-space: nowrap; font-variant-numeric: tabular-nums; }
     .tl-more {
       font: inherit; font-size: 0.85rem; margin-top: 0.5rem; padding: 0.25rem 0.75rem; cursor: pointer;

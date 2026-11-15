@@ -9,6 +9,18 @@ export function countriesOfBook(book, data) {
   return (book.author && data.authors?.[book.author]) || [];
 }
 
+// Every country a book belongs under, each with why: 'from' (its author's or the
+// work's country), 'about' (where it is set or what it is about) or 'both'.
+// `settings` is src/data/book-settings.json: exact title -> codes.
+export function placesOfBook(book, data, settings) {
+  const about = settings?.[book.title] || [];
+  const from = countriesOfBook(book, data);
+  return [
+    ...from.map((code) => ({ code, why: about.includes(code) ? 'both' : 'from' })),
+    ...about.filter((code) => !from.includes(code)).map((code) => ({ code, why: 'about' })),
+  ];
+}
+
 // Concert city exactly as written in concerts.json -> displayed city and map regions.
 const CITIES = {
   'NYC': { city: 'New York', state: 'ny', country: 'us' },

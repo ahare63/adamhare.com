@@ -2,7 +2,7 @@
 // countries clickable (map regions and chips) and fills a panel with the books
 // and concerts for the chosen country.
 //
-// data: { books: [{title, author, year}], booksByCountry: {code: [index]},
+// data: { books: [{title, author, year}], booksByCountry: {code: [[index, why]]},
 //         concertsByCountry: {code: [{artist, city, date}]} } with lowercase codes.
 
 const SHOW = 12;
@@ -39,11 +39,14 @@ function listSection(heading, rows, makeRow) {
   return sec;
 }
 
+const WHY = { from: 'from here', about: 'about here', both: 'from & about here' };
+
 const bookRow = (b) => {
   const li = el('li');
   const main = el('span', 'tl-main');
   main.append(el('em', '', b.title));
   if (b.author) main.append(el('span', 'tl-by', ` · ${b.author}`));
+  main.append(el('span', 'tl-why', ` · ${WHY[b.why]}`));
   li.append(main, el('span', 'tl-when', String(b.year)));
   return li;
 };
@@ -72,7 +75,7 @@ export function initCountryPanel({ wrap, chips, panel, data }) {
       return;
     }
     const c = visited.get(selected);
-    const books = (data.booksByCountry[selected] || []).map((i) => data.books[i]);
+    const books = (data.booksByCountry[selected] || []).map(([i, why]) => ({ ...data.books[i], why }));
     const concerts = data.concertsByCountry[selected] || [];
     const head = el('div', 'tl-head');
     const title = el('div');

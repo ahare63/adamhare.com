@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
-import { countriesOfBook, placeOfCity } from '../src/lib/places.js';
+import { countriesOfBook, placesOfBook, placeOfCity } from '../src/lib/places.js';
 import { parseBooks } from '../src/lib/books.js';
 
 const data = {
@@ -28,6 +28,33 @@ describe('countriesOfBook', () => {
   it('returns an empty list when nothing matches', () => {
     expect(countriesOfBook({ title: 'X', author: 'Nobody Known' }, data)).toEqual([]);
     expect(countriesOfBook({ title: 'X', author: '' }, data)).toEqual([]);
+  });
+});
+
+describe('placesOfBook', () => {
+  const settings = { HHhH: ['cz'], "Midnight's Children": ['in'], 'The Poetic Edda': ['no'] };
+  const binet = { title: 'HHhH', author: 'Laurent Binet' };
+  const withBinet = { ...data, authors: { ...data.authors, 'Laurent Binet': ['fr'] } };
+
+  it('lists a book under its author\'s country as "from" and its setting as "about"', () => {
+    expect(placesOfBook(binet, withBinet, settings)).toEqual([{ code: 'fr', why: 'from' }, { code: 'cz', why: 'about' }]);
+  });
+
+  it('marks a country that is both origin and setting as "both", once', () => {
+    expect(placesOfBook({ title: "Midnight's Children", author: 'Salman Rushdie' }, data, settings))
+      .toEqual([{ code: 'gb', why: 'from' }, { code: 'in', why: 'both' }]);
+  });
+
+  it('places a book by setting alone when its author is unknown', () => {
+    expect(placesOfBook(binet, data, settings)).toEqual([{ code: 'cz', why: 'about' }]);
+  });
+
+  it('uses the title entry as the origin of an authorless work', () => {
+    expect(placesOfBook({ title: 'The Poetic Edda', author: '' }, data, settings)).toEqual([{ code: 'is', why: 'from' }, { code: 'no', why: 'about' }]);
+  });
+
+  it('returns an empty list when nothing matches', () => {
+    expect(placesOfBook({ title: 'X', author: 'Nobody Known' }, data, settings)).toEqual([]);
   });
 });
 
