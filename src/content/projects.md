@@ -5,7 +5,7 @@ description: "Independent projects built with Claude Code and the academic resea
 
 ## Independent Projects
 
-Projects I build outside work. Both were built with Claude Code.
+Projects I build outside work. All three were built with Claude Code.
 
 ### NYC Book Finder
 
@@ -17,7 +17,11 @@ New York’s bookstores sell through a handful of different store platforms, so 
 
 A spaced-repetition app for Mandarin, Korean, and Japanese, with 255 cards. The first version was built in an evening.
 
-In progress: an agent conversation partner for practice, and an evaluation gate that checks generated cards before they are added.
+### [Book Links](https://github.com/ahare63/book-links)
+
+_Still under construction._ A graph of the links between books: quotations, titles taken from earlier works, mentions, and shared vocabulary and themes. *Tender Is the Night*, for example, links to the Keats ode its title comes from.
+
+Programs propose candidate links from the texts of about 55 books, a language model judges each one, and I review the results in an interactive viewer. Every link keeps its evidence and a confidence score. Built with Python, SQLite, and sigma.js.
 
 ## Academic Projects
 
