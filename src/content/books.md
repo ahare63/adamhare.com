@@ -7,6 +7,7 @@ I read a lot and my tastes are rather varied. Below I've included a few favorite
 
 ## 2026
 
+- *Monkey King: Journey to the West* by Wu Cheng'en, trans. Julia Lovell
 - *Taipei Story* by R.F. Kuang
 - *The Nine Cloud Dream* by Kim Man-jung, trans. Heinz Insu Fenkl
 - *The Korean Myths* by Heinz Insu Fenkl and Bella M Dalton-Fenkl
