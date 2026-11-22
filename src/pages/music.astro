@@ -89,17 +89,17 @@ const mapData = JSON.stringify({ events, names, first: firstYear, last: lastYear
   <h2>Every concert</h2>
   <p class="sans setlist-note">Linked artists go to that night's setlist on <a href="https://www.setlist.fm/">setlist.fm</a>.</p>
   <p>
-    <input type="text" id="concert-filter" placeholder="Filter by artist or city" aria-label="Filter concerts by artist or city" />
+    <input type="text" id="concert-filter" placeholder="Filter by artist, venue or city" aria-label="Filter concerts by artist, venue or city" />
   </p>
   <p id="filter-status" role="status" aria-live="polite" class="sans"></p>
   <div class="table-scroll" tabindex="0" role="region" aria-label="All concerts">
     <table>
       <thead>
-        <tr><th scope="col">Artist</th><th scope="col">City</th><th scope="col">Date</th></tr>
+        <tr><th scope="col">Artist</th><th scope="col">Venue</th><th scope="col">City</th><th scope="col">Date</th></tr>
       </thead>
       <tbody id="concert-rows">
         {concerts.map((c) => (
-          <tr><td>{c.setlist ? <a href={c.setlist} title={`${c.artist} setlist on setlist.fm`}>{c.artist}</a> : c.artist}</td><td>{c.city}</td><td>{c.date}</td></tr>
+          <tr><td>{c.setlist ? <a href={c.setlist} title={`${c.artist} setlist on setlist.fm`}>{c.artist}</a> : c.artist}</td><td>{c.venue}</td><td>{c.city}</td><td>{c.date}</td></tr>
         ))}
       </tbody>
     </table>
@@ -204,8 +204,8 @@ const mapData = JSON.stringify({ events, names, first: firstYear, last: lastYear
       const q = input.value.trim().toLowerCase();
       let shown = 0;
       rows.forEach((tr) => {
-        const [artist, city] = tr.children;
-        const match = !q || artist.textContent.toLowerCase().includes(q) || city.textContent.toLowerCase().includes(q);
+        const [artist, venue, city] = tr.children;
+        const match = !q || [artist, venue, city].some((td) => td.textContent.toLowerCase().includes(q));
         tr.hidden = !match;
         if (match) shown++;
       });
