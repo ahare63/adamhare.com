@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { applyProposal, insertBullet, serializeCountries } from '../scripts/add-book.mjs';
+import { applyOverrides, applyProposal, insertBullet, serializeCountries } from '../scripts/add-book.mjs';
 
 const md = `---
 title: "Books"
@@ -203,5 +203,60 @@ describe('serializeCountries', () => {
   it('writes one-space indent with inline, comma-spaced arrays', () => {
     expect(serializeCountries({ authors: { A: ['fr', 'dz'] }, titles: { T: ['is'] } }))
       .toBe('{\n "authors": {\n  "A": ["fr", "dz"]\n },\n "titles": {\n  "T": ["is"]\n }\n}\n');
+  });
+});
+
+describe('applyProposal changed files', () => {
+  it('reports only the files whose data the proposal changed', () => {
+    const r = applyProposal(state(), proposal({ library: null, countries: null, language: null }));
+    expect(r.changed).toEqual(['booksMd']);
+  });
+
+  it('includes every file the proposal adds to', () => {
+    const r = applyProposal(state(), proposal({ settings: ['it'], pages: { n: 330, approx: false } }));
+    expect(r.changed.sort()).toEqual(['booksMd', 'countries', 'languages', 'library', 'pages', 'settings']);
+  });
+
+  it('does not count a value that is already recorded as a change', () => {
+    const r = applyProposal(state(), proposal({
+      bulletLine: '- *Human Acts* by Han Kang, trans. Deborah Smith', key: 'human acts|han kang',
+      library: null, countries: null, authorKey: 'Han Kang', language: 'Korean',
+    }));
+    expect(r.changed).toEqual(['booksMd']);
+  });
+
+  it('does not count a kept (skipped) value as a change', () => {
+    const r = applyProposal(state(), proposal({
+      bulletLine: '- *Babel* by R.F. Kuang', key: 'babel|r.f. kuang', library: null,
+      countries: ['cn'], authorKey: 'R.F. Kuang', language: null,
+    }));
+    expect(r.skipped.length).toBe(1);
+    expect(r.changed).toEqual(['booksMd']);
+  });
+});
+
+describe('applyOverrides', () => {
+  const draft = () => proposal({ countries: null, language: null, settings: null, pages: { n: 256, approx: true } });
+
+  it('fills countries, settings, language and an exact page count from the flags', () => {
+    const p = applyOverrides(draft(), { countries: 'cn', settings: 'cn, in', language: 'Chinese', pages: '339' });
+    expect(p.countries).toEqual(['cn']);
+    expect(p.settings).toEqual(['cn', 'in']);
+    expect(p.language).toBe('Chinese');
+    expect(p.pages).toEqual({ n: 339, approx: false });
+  });
+
+  it('leaves the draft as it is when no flags are given', () => {
+    expect(applyOverrides(draft(), {})).toEqual(draft());
+  });
+
+  it('does not mutate the draft', () => {
+    const d = draft();
+    applyOverrides(d, { countries: 'cn' });
+    expect(d).toEqual(draft());
+  });
+
+  it('rejects a page count that is not a whole number', () => {
+    expect(() => applyOverrides(draft(), { pages: 'about 300' })).toThrow(/pages/);
   });
 });
