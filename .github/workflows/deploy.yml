@@ -39,6 +39,8 @@ jobs:
         run: node scripts/fetch-essays.mjs || echo "feed unreachable; using committed snapshot"
       - name: Refresh live events from the Google Sheet
         run: node scripts/fetch-live-events.mjs || echo "sheet unreachable or malformed; using committed snapshot"
+      - name: Refresh museums from the Google Sheet
+        run: node scripts/fetch-museums.mjs || echo "sheet unreachable or malformed; using committed snapshot"
       - name: Refresh Letterboxd diary
         run: node scripts/fetch-movies.mjs || echo "feed unreachable or malformed; using committed snapshot"
       - name: Match books to LibraryThing for covers and descriptions

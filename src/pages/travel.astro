@@ -5,6 +5,7 @@ import travel from '../data/travel.json';
 import * as travelMd from '../content/travel.md';
 import * as booksMd from '../content/books.md';
 import concerts from '../data/concerts.json';
+import museums from '../data/museums.json';
 import authorCountries from '../data/author-countries.json';
 import bookSettings from '../data/book-settings.json';
 import { parseBooks } from '../lib/books.js';
@@ -54,6 +55,9 @@ const pickable = [
   { code: 'us', name: 'United States', years: '', home: true },
   ...abroad.map((c) => ({ code: c.code.toLowerCase(), name: c.name, years: c.years })),
 ];
+const museumCount = new Set(museums.map((m) => m.name)).size;
+const museumCountries = new Set(museums.map((m) => m.country)).size;
+const plural = (n, word) => `${word}${n === 1 ? '' : 's'}`;
 const placesJson = JSON.stringify({ visited: pickable, books, booksByCountry, concertsByCountry }).replace(/</g, '\\u003c');
 ---
 <Base title="Travel" description="Countries and US states Adam Hare has visited, with photos." wide banner="/images/banners/travel.jpg" bannerTitle="Travel" bannerPosition="center 30%">
@@ -102,6 +106,31 @@ const placesJson = JSON.stringify({ visited: pickable, books, booksByCountry, co
       ))}
     </ul>
   </details>
+
+  {museums.length > 0 && (
+    <section class="prose museums" aria-labelledby="museums">
+      <h2 id="museums">Museums</h2>
+      <p class="sans">
+        <strong>{museums.length}</strong> {plural(museums.length, 'visit')} to <strong>{museumCount}</strong> {plural(museumCount, 'museum')}
+        in <strong>{museumCountries}</strong> {museumCountries === 1 ? 'country' : 'countries'}
+      </p>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Every museum visit">
+        <table>
+          <thead>
+            <tr><th scope="col">Museum</th><th scope="col">City</th><th scope="col">Country</th><th scope="col">Date</th></tr>
+          </thead>
+          <tbody>
+            {museums.map((m) => (
+              <tr>
+                <td>{m.link ? <a href={m.link}>{m.name}</a> : m.name}</td>
+                <td>{m.city}</td><td>{m.country}</td><td class="nowrap">{m.date}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  )}
 
   <div class="prose" set:html={photosHtml} />
 
@@ -190,6 +219,9 @@ const placesJson = JSON.stringify({ visited: pickable, books, booksByCountry, co
     }
     .tl-more:hover { border-color: var(--accent); }
     .tl-links { display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem; margin-top: 1.1rem; font-size: 0.9rem; }
+    .museums { margin-top: 2.5rem; }
+    .museums .table-scroll { overflow-x: auto; }
+    .museums .nowrap { white-space: nowrap; }
     .map-credit { font-size: 0.78rem; color: var(--ink-soft); margin-top: 2.5rem; }
     @media (max-width: 700px) { .country-list ul { columns: 2; } }
     @media (max-width: 480px) { .country-list ul { columns: 1; } }

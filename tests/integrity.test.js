@@ -284,6 +284,15 @@ describe('built site integrity', () => {
       expect(html, `map missing visited marker for ${c.code}`).toContain(`"${c.code}"`);
     }
   });
+  it('travel page lists every museum visit above the photos, linked to its site', () => {
+    const html = readFileSync(join(DIST, 'travel/index.html'), 'utf-8');
+    const museums = JSON.parse(readFileSync(new URL('../src/data/museums.json', import.meta.url), 'utf-8'));
+    const section = html.slice(html.indexOf('id="museums"'), html.indexOf('id="photos"'));
+    expect(section, 'museums section before the photos').toContain('<table');
+    for (const m of museums) {
+      expect(section).toContain(m.link ? `<a href="${m.link}">${m.name}</a>` : m.name);
+    }
+  });
   it('travel page offers a country panel with books for the US and at least 15 countries, multi-country authors under each country', async () => {
     const html = readFileSync(join(DIST, 'travel/index.html'), 'utf-8');
     expect(html).toContain('id="tl-panel"');
