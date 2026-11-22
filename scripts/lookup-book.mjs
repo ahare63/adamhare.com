@@ -1,8 +1,9 @@
 // Looks up everything needed to add one book and prints a single JSON proposal
-// to stdout; nothing is written to disk. Progress and errors go to stderr.
+// to stdout; the site's files are not touched. With --out, also writes a draft that
+// book:add applies. Progress and errors go to stderr.
 // Run: npm run book:lookup -- --title "The Leopard" --author "Giuseppe Tomasi di Lampedusa" \
-//        [--translator "Archibald Colquhoun"] [--note "re-read"]
-import { readFileSync } from 'node:fs';
+//        [--translator "Archibald Colquhoun"] [--note "re-read"] [--out draft.json]
+import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { parseArgs } from 'node:util';
 import { parseBooks, coverKey } from '../src/lib/books.js';
@@ -70,13 +71,25 @@ export function buildProposal({ book, entries, booksMd, authorCountries, languag
   };
 }
 
+// The proposal in the shape book:add applies. Country, setting and language are left null for
+// book:add's flags; the page count keeps whatever lookup found.
+export function buildDraft(proposal) {
+  const { book, librarything: lt } = proposal;
+  return {
+    bulletLine: proposal.bulletLine, year: book.year, key: proposal.key,
+    library: lt.found ? { ltId: lt.ltId, isbn: lt.isbn, cover: lt.cover, blurb: proposal.blurb } : null,
+    countries: null, authorKey: book.author || null, titleKey: book.author ? null : book.title, language: null, settings: null,
+    pages: proposal.pages ? { n: proposal.pages.n, approx: proposal.pages.approx } : null,
+  };
+}
+
 async function main() {
   const { values } = parseArgs({ options: {
     title: { type: 'string' }, author: { type: 'string', default: '' },
-    translator: { type: 'string' }, note: { type: 'string' },
+    translator: { type: 'string' }, note: { type: 'string' }, out: { type: 'string' },
   } });
   if (!values.title) {
-    console.error('usage: lookup-book --title "…" [--author "…"] [--translator "…"] [--note "…"]');
+    console.error('usage: lookup-book --title "…" [--author "…"] [--translator "…"] [--note "…"] [--out draft.json]');
     process.exit(2);
   }
   const book = {
@@ -114,6 +127,7 @@ async function main() {
     settings: JSON.parse(read('../src/data/book-settings.json')),
   });
   process.stdout.write(`${JSON.stringify(proposal, null, 2)}\n`);
+  if (values.out) writeFileSync(values.out, `${JSON.stringify(buildDraft(proposal), null, 2)}\n`);
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) await main();

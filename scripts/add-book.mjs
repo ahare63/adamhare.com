@@ -1,7 +1,9 @@
 // Applies a confirmed book proposal: the books.md bullet plus the library,
 // author-country, book-setting and original-language data entries. Everything is validated
 // and computed first; files are written only if nothing failed.
-// Run: npm run book:add -- <proposal.json> [--force]
+// Run: npm run book:add -- <proposal.json> [--countries cn] [--settings cn,in] [--language Chinese] [--pages 339] [--force]
+// The flags fill or replace those fields of the proposal (usually a draft from book:lookup --out).
+// Only files whose data changed are rewritten.
 //   { "bulletLine": "- *…*", "year": 2026, "key": "…",
 //     "library": { "ltId", "isbn", "cover", "blurb" } | null,
 //     "countries": ["it"] | null, "authorKey": "<author as in books.md>" | null,
@@ -143,21 +145,45 @@ export function applyProposal(state, proposal, { force = false } = {}) {
   const pages = { ...state.pages };
   if (proposal.pages) setValue(pages, proposal.key, { n: proposal.pages.n, ...(proposal.pages.approx ? { approx: true } : {}) }, 'pages.json', ctx);
 
+  const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+  const changed = ['booksMd', ...Object.entries({ library, countries, languages, settings, pages })
+    .filter(([name, data]) => !same(data, state[name])).map(([name]) => name)];
+
   return {
     booksMd, library: sortByKey(library), pages: sortByKey(pages), countries: sortedSections(countries, byLocale), languages: sortedSections(languages, byCodeUnit),
-    settings: Object.fromEntries(Object.entries(settings).sort(([a], [b]) => byLocale(a, b))), summary, skipped,
+    settings: Object.fromEntries(Object.entries(settings).sort(([a], [b]) => byLocale(a, b))), summary, skipped, changed,
   };
 }
 
+const codeList = (s) => s.split(',').map((c) => c.trim()).filter(Boolean);
+
+// Fills the judgement calls into a draft from book:lookup --out. Flags are strings as typed:
+// countries and settings are comma-separated ISO-2 codes; pages is the exact count he read.
+export function applyOverrides(draft, { countries, settings, language, pages } = {}) {
+  const p = { ...draft };
+  if (countries != null) p.countries = codeList(countries);
+  if (settings != null) p.settings = codeList(settings);
+  if (language != null) p.language = language;
+  if (pages != null) {
+    if (!/^\d+$/.test(pages.trim())) throw new Error(`pages must be a whole number, got "${pages}"`);
+    p.pages = { n: Number(pages), approx: false };
+  }
+  return p;
+}
+
 function main() {
-  const { values, positionals } = parseArgs({ allowPositionals: true, options: { force: { type: 'boolean', default: false } } });
+  const { values, positionals } = parseArgs({ allowPositionals: true, options: {
+    force: { type: 'boolean', default: false },
+    countries: { type: 'string' }, settings: { type: 'string' }, language: { type: 'string' }, pages: { type: 'string' },
+  } });
   if (positionals.length !== 1) {
-    console.error('usage: add-book <proposal.json> [--force]');
+    console.error('usage: add-book <proposal.json> [--countries cn] [--settings cn,in] [--language Chinese] [--pages 339] [--force]');
     process.exit(2);
   }
   const read = (url) => readFileSync(url, 'utf-8');
   let result;
   try {
+    const proposal = applyOverrides(JSON.parse(readFileSync(positionals[0], 'utf-8')), values);
     result = applyProposal({
       booksMd: read(BOOKS_MD),
       library: JSON.parse(read(LIBRARY_JSON)),
@@ -165,17 +191,23 @@ function main() {
       languages: JSON.parse(read(LANGUAGES_JSON)),
       pages: JSON.parse(read(PAGES_JSON)),
       settings: JSON.parse(read(SETTINGS_JSON)),
-    }, JSON.parse(readFileSync(positionals[0], 'utf-8')), { force: values.force });
+    }, proposal, { force: values.force });
   } catch (err) {
     console.error(`add-book: ${err.message}; nothing was changed`);
     process.exit(1);
   }
-  writeFileSync(BOOKS_MD, result.booksMd);
-  writeFileSync(LIBRARY_JSON, serializeLibrary(result.library));
-  writeFileSync(COUNTRIES_JSON, serializeCountries(result.countries));
-  writeFileSync(LANGUAGES_JSON, serializeLanguages(result.languages));
-  writeFileSync(PAGES_JSON, serializePages(result.pages));
-  writeFileSync(SETTINGS_JSON, serializeSettings(result.settings));
+  const outputs = {
+    booksMd: [BOOKS_MD, (r) => r.booksMd],
+    library: [LIBRARY_JSON, (r) => serializeLibrary(r.library)],
+    countries: [COUNTRIES_JSON, (r) => serializeCountries(r.countries)],
+    languages: [LANGUAGES_JSON, (r) => serializeLanguages(r.languages)],
+    pages: [PAGES_JSON, (r) => serializePages(r.pages)],
+    settings: [SETTINGS_JSON, (r) => serializeSettings(r.settings)],
+  };
+  for (const name of result.changed) {
+    const [url, render] = outputs[name];
+    writeFileSync(url, render(result));
+  }
   for (const line of result.summary) console.log(line);
   for (const line of result.skipped) console.log(`skipped: ${line}`);
 }

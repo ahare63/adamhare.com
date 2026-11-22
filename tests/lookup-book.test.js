@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
-import { buildProposal, bulletLine } from '../scripts/lookup-book.mjs';
+import { buildDraft, buildProposal, bulletLine } from '../scripts/lookup-book.mjs';
+import { applyProposal } from '../scripts/add-book.mjs';
 
 const md = `---
 title: "Books"
@@ -130,5 +131,39 @@ describe('buildProposal', () => {
   it('falls back to the LibraryThing original-language code when the data files have none', () => {
     const withT = { ...base, translator: 'Archibald Colquhoun' };
     expect(proposal({ book: withT, entries: [entry({ original: 'ita' })] }).language).toEqual({ needed: true, known: 'Italian' });
+  });
+});
+
+describe('buildDraft', () => {
+  const state = () => ({
+    booksMd: md, library: {}, countries: { authors: {}, titles: {} }, languages: { authors: {}, titles: {} }, pages: {}, settings: {},
+  });
+
+  it('turns a found proposal into one book:add applies as it is', () => {
+    const p = proposal({ blurb: 'A novel.', pages: { n: 320, approx: true, source: 'openlibrary-search' } });
+    const d = buildDraft(p);
+    expect(d).toEqual({
+      bulletLine: p.bulletLine, year: 2026, key: p.key,
+      library: { ltId: '77', isbn: '0375714065', cover: p.librarything.cover, blurb: 'A novel.' },
+      countries: null, authorKey: 'Giuseppe Tomasi di Lampedusa', titleKey: null, language: null, settings: null,
+      pages: { n: 320, approx: true },
+    });
+    const r = applyProposal(state(), d);
+    expect(r.library[p.key].ltId).toBe('77');
+    expect(r.pages[p.key]).toEqual({ n: 320, approx: true });
+  });
+
+  it('has no library entry when LibraryThing had no match', () => {
+    expect(buildDraft(proposal({ entries: [] })).library).toBeNull();
+  });
+
+  it('keys a book with no author by its title', () => {
+    const d = buildDraft(proposal({ book: { ...base, title: 'Beowulf', author: '' }, entries: [] }));
+    expect(d.authorKey).toBeNull();
+    expect(d.titleKey).toBe('Beowulf');
+  });
+
+  it('has no page count when none was found', () => {
+    expect(buildDraft(proposal()).pages).toBeNull();
   });
 });

@@ -8,10 +8,16 @@ description: Add a book the owner just read to adamhare.com (books.md bullet, Li
 Work from the repo root. The site is Astro; the Books page reads `src/content/books.md` and the data files in
 `src/data/`. Never write anything before the user confirms (step 4).
 
+0. **Sync**: `git pull --ff-only` on `main`.
 1. **Get the details** from the user's message: title, author, and optionally a translator (`--translator`)
    and a note such as "re-read" (`--note`). The book should already be on his LibraryThing (user `ahare63`).
-2. **Look it up**: `npm run -s book:lookup -- --title "…" --author "…" [--translator "…"] [--note "…"]`.
-   It prints one JSON object (the proposal) and changes nothing. Read it:
+   He often gives only a short title ("I finished Monkey King"). Then run the lookup with just
+   `--title "<what he said>"` first and take the full title and author from `librarything.nearest`.
+   LibraryThing does not reliably record translators: if the book is translated and more than one translation
+   is plausible, ask which one rather than guessing.
+2. **Look it up**: `npm run -s book:lookup -- --title "…" --author "…" [--translator "…"] [--note "…"] --out <scratchpad>/draft.json`.
+   It prints the proposal JSON to stdout and writes `draft.json`, already in the shape `book:add` applies; the
+   site's files are not touched. Read the printed proposal:
    - `librarything.found` false: show `nearest` and ask whether to proceed without a LibraryThing cover or to
      wait until he has added it. Proceeding means `library: null` in step 5.
    - `alreadyListed` non-empty: tell him (a re-read is fine; just report it).
@@ -32,24 +38,20 @@ Work from the repo root. The site is Astro; the Books page reads `src/content/bo
    (`pages`; if `approx` is true say it is a typical length across editions, not his edition), country,
    setting, language, and anything not found. Ask him to confirm or correct (use AskUserQuestion if available). He may
    change the page count, e.g. for a partial read give the pages he actually read (then it is exact).
-   Never invent a blurb; if `blurb` is null say so and leave it null unless he supplies one.
-5. **Apply** after confirmation. Write the proposal JSON to the scratchpad:
-   ```json
-   { "bulletLine": "- *…*", "year": 2026, "key": "<key from lookup>",
-     "library": { "ltId": "…", "isbn": "…", "cover": "…", "blurb": "…or null" },
-     "countries": ["it"], "authorKey": "<author exactly as in the bullet, or null>",
-     "titleKey": "<title when there is no author, else null>", "language": "Italian", "settings": ["it"],
-     "pages": { "n": 412, "approx": false } }
+   Never invent a blurb; if `blurb` is null say so and leave it null unless he supplies one (then set
+   `library.blurb` in `draft.json`).
+5. **Apply and publish** after confirmation, with the confirmed judgement calls as flags (omit a flag when
+   the value is already known or does not apply; `--pages` only when he gave a count, which is then exact):
+   ```sh
+   npm run book:add -- <scratchpad>/draft.json --countries cn --settings cn,in --language Chinese --pages 339 \
+     && npm run build && npx vitest run
    ```
-   Use `"library": null` if not on LibraryThing, `countries`/`settings`/`language` null when already known or not applicable, `pages` null if there is no count. Run
-   `npm run book:add -- <file>`, then `npm run build && npx vitest run`. If anything fails, stop and report;
-   do not commit. (`--force` overwrites existing different data; use it only if he asks.)
-6. **Commit and push.** `git add -A src/content/books.md src/data` and commit with the message
-   `Books: add <Title>` using the repo's existing git identity (never change git config). Push to `main`: his
-   confirmation in step 4 is the approval to publish content additions. If `main` does not yet contain the
-   site (the `overhaul` branch / PR #1 is not merged), push the current branch instead and tell him it goes
-   live when the PR is merged. Never force-push.
-7. **Report**: the book is added; the site redeploys in a couple of minutes at https://www.adamhare.com/books.
+   `book:add` rewrites only the files whose data changed. If anything fails, stop and report; do not commit.
+   (`--force` overwrites existing different data; use it only if he asks.) Then
+   `git add -A src/content/books.md src/data`, commit as `Books: add <Title>` with the repo's existing git
+   identity (never change git config), and push to `main`: his confirmation in step 4 is the approval to
+   publish content additions. Never force-push.
+6. **Report**: the book is added; the site redeploys in a couple of minutes at https://www.adamhare.com/books.
 
 ## Fixing things later
 
