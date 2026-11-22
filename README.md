@@ -29,7 +29,10 @@ Personal site, built with [Astro](https://astro.build) and deployed to GitHub Pa
   one if it fits; `titles` for books with no author) to show up in the Travel page's country panel, tagged "from here".
   `src/data/book-settings.json` adds the countries a book is set in or about (exact `books.md` title → ISO-2 codes,
   only the most relevant ones; codes must be regions on the world map), tagged "about here".
-  A country in both shows "from & about here".
+  A country in both shows "from & about here". The "Show places I've only read about" toggle (off by default)
+  hatches every country with books but no visit and makes it clickable; it is computed in the browser, so nothing
+  needs adding. A country name that reads badly in English ICU (e.g. "Congo - Kinshasa") gets an entry in `NAMES`
+  in `src/lib/places.js`.
 - **Fallback covers**: books not in `library.json` use `src/data/covers.json` (`npm run fetch:covers`, Open Library;
   the id is the number in a `covers.openlibrary.org/b/id/<id>-M.jpg` URL, `null` shows a plain cover).
 - **Concerts**: edit the public concerts Google Sheet (columns Artist, Date as "D Month YYYY", City; other columns are
