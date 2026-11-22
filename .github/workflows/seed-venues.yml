@@ -1,5 +1,5 @@
 # Temporary: looks up setlist venues once with the SETLIST_FM_API secret and uploads
-# src/data/setlist-venues.json as an artifact, to be committed by hand. Remove after use.
+# src/data/setlist-venues.json as an artifact, to be committed by hand. Remove after use. (run 2: the one 429)
 name: Seed setlist venues
 on:
   push:

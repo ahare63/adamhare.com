@@ -20,7 +20,7 @@ const TAB = 'Concerts';
 const EXPORT = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export`;
 const VENUES = new URL('../src/data/setlist-venues.json', import.meta.url);
 const API = 'https://api.setlist.fm/rest/1.0/setlist/';
-const API_INTERVAL_MS = 600; // the key allows 2 requests a second
+const API_INTERVAL_MS = 1000; // 600 ms (the stated 2/s) drew a 429
 
 async function get(url, as = 'text') {
   const res = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0 (adamhare.com build)' } });
