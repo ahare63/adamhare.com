@@ -110,26 +110,7 @@ export function mergeFeed(data, recent) {
   return { watched, ratings: [...ratings.values()], diary: mergeWatches(data.diary, recent) };
 }
 
-// Summary numbers for the Movies page.
-export function movieStats({ watched, ratings, diary }, { recentCount = 10 } = {}) {
-  const perYear = new Map();
-  for (const w of diary) {
-    const y = Number(w.watched.slice(0, 4));
-    perYear.set(y, (perYear.get(y) ?? 0) + 1);
-  }
-  const histogram = Array.from({ length: 10 }, (_, i) => [(i + 1) / 2, 0]);
-  for (const f of ratings) if (f.rating) histogram[f.rating * 2 - 1][1]++;
-  return {
-    films: watched.length,
-    rated: ratings.length,
-    logged: diary.length,
-    rewatches: diary.filter((w) => w.rewatch).length,
-    perYear: perYear.size ? Array.from({ length: Math.max(...perYear.keys()) - Math.min(...perYear.keys()) + 1 }, (_, i) => {
-      const y = Math.min(...perYear.keys()) + i;
-      return [y, perYear.get(y) ?? 0];
-    }) : [],
-    ratings: histogram,
-    favorites: ratings.filter((f) => f.rating === 5).sort((a, b) => a.title.localeCompare(b.title)),
-    recent: diary.slice(0, recentCount),
-  };
+// Summary for the Movies section of the Stage & Screen page.
+export function movieStats({ watched, ratings, diary }, { recentCount = 5 } = {}) {
+  return { films: watched.length, rated: ratings.length, logged: diary.length, recent: diary.slice(0, recentCount) };
 }

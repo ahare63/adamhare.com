@@ -1,0 +1,65 @@
+---
+import Base from '../layouts/Base.astro';
+import * as md from '../content/stage-screen.md';
+import events from '../data/live-events.json';
+import movies from '../data/movies.json';
+import { movieStats } from '../lib/movies.js';
+
+const LETTERBOXD = 'https://letterboxd.com/ahare63/';
+const byType = new Map();
+for (const e of events) if (e.type) byType.set(e.type, (byType.get(e.type) ?? 0) + 1);
+const typeSummary = [...byType.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+const plural = (n, word) => `${word}${n === 1 ? '' : 's'}`;
+
+const m = movieStats(movies);
+const stars = (r) => '★'.repeat(Math.floor(r)) + (r % 1 ? '½' : '');
+const day = (iso) => new Date(`${iso}T00:00:00Z`).toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
+---
+<Base title={md.frontmatter.title} description={md.frontmatter.description}>
+  <h1>{md.frontmatter.title}</h1>
+  <md.Content />
+
+  <h2>Live shows</h2>
+  <p class="stats sans">
+    <strong>{events.length}</strong> {plural(events.length, 'show')}{typeSummary.map(([t, n]) => <> · <strong>{n}</strong> {t.toLowerCase()}</>)}
+  </p>
+  <div class="table-scroll" tabindex="0" role="region" aria-label="All live shows">
+    <table>
+      <thead>
+        <tr><th scope="col">Show</th><th scope="col">Type</th><th scope="col">Venue</th><th scope="col">City</th><th scope="col">Date</th></tr>
+      </thead>
+      <tbody>
+        {events.map((e) => (
+          <tr>
+            <td>{e.link ? <a href={e.link}>{e.name}</a> : e.name}</td>
+            <td>{e.type}</td><td>{e.venue}</td><td>{e.city}</td><td class="nowrap">{e.date}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Movies</h2>
+  <p class="stats sans">
+    <strong>{m.films}</strong> films watched · <strong>{m.rated}</strong> rated, on <a href={LETTERBOXD}>Letterboxd</a>
+  </p>
+  <h3>Recently watched</h3>
+  <ul class="film-list">
+    {m.recent.map((f) => (
+      <li>
+        <span>{f.title} <span class="soft">({f.year})</span>{f.rewatch && <span class="soft"> rewatch</span>}</span>
+        <span class="soft nowrap">{[f.rating && stars(f.rating), day(f.watched)].filter(Boolean).join(' · ')}</span>
+      </li>
+    ))}
+  </ul>
+  <p><a href={LETTERBOXD}>Reviews and the full list are on Letterboxd →</a></p>
+
+  <style>
+    .stats { font-size: 1.05rem; }
+    .table-scroll { overflow-x: auto; }
+    .nowrap { white-space: nowrap; }
+    .soft { color: var(--ink-soft); }
+    .film-list { list-style: none; padding: 0; max-width: 40rem; }
+    .film-list li { display: flex; justify-content: space-between; gap: 1rem; padding: 0.35rem 0; border-bottom: 1px solid var(--rule); }
+  </style>
+</Base>

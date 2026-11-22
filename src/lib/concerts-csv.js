@@ -3,7 +3,7 @@ import { parseCSV } from './travel-map.js';
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 // "D Month YYYY" -> UTC timestamp, or null when it is not a real calendar date.
-function parseDate(text) {
+export function parseDate(text) {
   const m = text.match(/^(\d{1,2}) ([A-Za-z]+) (\d{4})$/);
   if (!m) return null;
   const month = MONTHS.indexOf(m[2]);

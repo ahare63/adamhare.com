@@ -146,32 +146,14 @@ describe('movieStats', () => {
     ],
     diary: [w('C', '2026-05-01'), w('A', '2026-04-01', 3, true), w('B', '2025-03-01', 5), w('A', '2025-02-01', 4)],
   };
-  const s = movieStats(data);
+  const s = movieStats(data, { recentCount: 10 });
 
   it('counts films from the watched list, not the diary', () => {
-    expect(s.films).toBe(5);
-    expect(s.rated).toBe(3);
-    expect(s.logged).toBe(4);
-    expect(s.rewatches).toBe(1);
+    expect(s).toMatchObject({ films: 5, rated: 3, logged: 4 });
   });
 
-  it('counts diary watches per year, oldest year first', () => {
-    expect(s.perYear).toEqual([[2025, 2], [2026, 2]]);
-  });
-
-  it('shows years with no diary entries as zero', () => {
-    const gap = movieStats({ ...data, diary: [w('X', '2026-01-01'), w('Y', '2023-01-01')] });
-    expect(gap.perYear).toEqual([[2023, 1], [2024, 0], [2025, 0], [2026, 1]]);
-  });
-
-  it('builds a half-star histogram from the ratings list', () => {
-    expect(s.ratings).toHaveLength(10);
-    expect(s.ratings.find(([r]) => r === 5)[1]).toBe(2);
-    expect(s.ratings.find(([r]) => r === 3)[1]).toBe(1);
-  });
-
-  it('lists five-star films alphabetically', () => {
-    expect(s.favorites.map((f) => f.title)).toEqual(['B', 'D']);
+  it('returns only the summary fields the page shows', () => {
+    expect(Object.keys(s).sort()).toEqual(['films', 'logged', 'rated', 'recent']);
   });
 
   it('gives the most recent diary watches', () => {
