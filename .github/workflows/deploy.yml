@@ -33,6 +33,8 @@ jobs:
         run: node scripts/fetch-travel.mjs || echo "sheet unreachable; using committed snapshot"
       - name: Refresh concerts from the Google Sheet
         run: node scripts/fetch-concerts.mjs || echo "sheet unreachable or malformed; using committed snapshot"
+        env:
+          SETLIST_FM_API: ${{ secrets.SETLIST_FM_API }}
       - name: Refresh essays from Substack
         run: node scripts/fetch-essays.mjs || echo "feed unreachable; using committed snapshot"
       - name: Refresh Letterboxd diary
