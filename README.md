@@ -36,6 +36,9 @@ Personal site, built with [Astro](https://astro.build) and deployed to GitHub Pa
   ignored). Each deploy (every push, and weekly) runs `scripts/fetch-concerts.mjs`, which rewrites
   `src/data/concerts.json` newest first, or leaves it alone if the sheet is unreachable or malformed. Run
   `npm run fetch:concerts` to refresh it locally.
+- **Museums**: the Museums tab of the same sheet (columns Name, Date as "D Month YYYY", City, Country; a link on
+  the Name cell becomes the museum's link). `scripts/fetch-museums.mjs` snapshots it into `src/data/museums.json`
+  on each deploy, listed on the Travel page.
 - **Concert map**: a concert in a new city needs one line in the table in `src/lib/places.js` (`placeOfCity`) to appear
   on the Music page's map; `npm test` fails and names any city that is missing.
 - **Travel maps**: edit the "Travel-Public" Google Sheet (Countries / States tabs). The live page re-fetches
