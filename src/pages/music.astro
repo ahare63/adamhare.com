@@ -87,6 +87,7 @@ const mapData = JSON.stringify({ events, names, first: firstYear, last: lastYear
   </ul>
 
   <h2>Every concert</h2>
+  <p class="sans setlist-note">Linked artists go to that night's setlist on <a href="https://www.setlist.fm/">setlist.fm</a>.</p>
   <p>
     <input type="text" id="concert-filter" placeholder="Filter by artist or city" aria-label="Filter concerts by artist or city" />
   </p>
@@ -98,7 +99,7 @@ const mapData = JSON.stringify({ events, names, first: firstYear, last: lastYear
       </thead>
       <tbody id="concert-rows">
         {concerts.map((c) => (
-          <tr><td>{c.artist}</td><td>{c.city}</td><td>{c.date}</td></tr>
+          <tr><td>{c.setlist ? <a href={c.setlist} title={`${c.artist} setlist on setlist.fm`}>{c.artist}</a> : c.artist}</td><td>{c.city}</td><td>{c.date}</td></tr>
         ))}
       </tbody>
     </table>
@@ -118,6 +119,7 @@ const mapData = JSON.stringify({ events, names, first: firstYear, last: lastYear
       font: inherit; border: 1px solid var(--rule); border-radius: 6px; background: #fff; color: var(--ink);
     }
     .table-scroll { overflow-x: auto; }
+    .setlist-note { font-size: 0.9rem; color: var(--ink-soft); }
   </style>
 
   <style is:global>

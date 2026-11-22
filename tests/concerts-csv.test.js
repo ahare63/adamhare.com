@@ -6,17 +6,17 @@ const csv = (...lines) => lines.join('\n') + '\n';
 describe('parseConcerts', () => {
   it('turns rows into concerts in the shape the Music page uses', () => {
     const out = parseConcerts(csv('Artist,Date,City', 'The National,13 September 2024,NYC'));
-    expect(out).toEqual([{ artist: 'The National', venue: '', city: 'NYC', date: '13 September 2024' }]);
+    expect(out).toEqual([{ artist: 'The National', venue: '', city: 'NYC', date: '13 September 2024', setlist: '' }]);
   });
 
   it('trims every field, including a trailing space on the city', () => {
     const out = parseConcerts(csv('Artist,Date,City', ' Hozier , 8 June 2024 ,NYC '));
-    expect(out).toEqual([{ artist: 'Hozier', venue: '', city: 'NYC', date: '8 June 2024' }]);
+    expect(out).toEqual([{ artist: 'Hozier', venue: '', city: 'NYC', date: '8 June 2024', setlist: '' }]);
   });
 
   it('reads only the Artist, Date and City columns, by header name, ignoring others', () => {
     const out = parseConcerts(csv('Notes,City,Seat,Artist,Date', 'private,Boston,12B,Vampire Weekend,6 October 2024'));
-    expect(out).toEqual([{ artist: 'Vampire Weekend', venue: '', city: 'Boston', date: '6 October 2024' }]);
+    expect(out).toEqual([{ artist: 'Vampire Weekend', venue: '', city: 'Boston', date: '6 October 2024', setlist: '' }]);
     expect(JSON.stringify(out)).not.toContain('private');
   });
 
@@ -59,5 +59,27 @@ describe('parseConcerts', () => {
 
   it('throws on an HTML error page instead of a CSV', () => {
     expect(() => parseConcerts('<!DOCTYPE html><html><body>Sign in</body></html>')).toThrow();
+  });
+
+  describe('setlist links', () => {
+    const text = csv('Artist,Date,City', 'Hozier,8 June 2024,NYC', ',,', 'The Beths,1 May 2023,NYC');
+    const url = 'https://www.setlist.fm/setlist/beths/x.html';
+
+    it('pairs the sheet\'s non-empty Artist cells with its rows, in order, skipping blank rows', () => {
+      const cells = [{ row: 2, text: 'Hozier', url: '' }, { row: 4, text: 'The Beths', url }];
+      const out = parseConcerts(text, { cells });
+      expect(out.find((c) => c.artist === 'The Beths').setlist).toBe(url);
+      expect(out.find((c) => c.artist === 'Hozier').setlist).toBe('');
+    });
+
+    it('throws when a cell names a different artist, so links never shift onto the wrong show', () => {
+      const cells = [{ row: 2, text: 'The Beths', url }, { row: 4, text: 'Hozier', url: '' }];
+      expect(() => parseConcerts(text, { cells })).toThrow(/Hozier.*The Beths/);
+    });
+
+    it('throws when the cell count differs from the row count', () => {
+      expect(() => parseConcerts(text, { cells: [{ row: 2, text: 'Hozier', url: '' }] })).toThrow(/1 Artist cells but more concerts/);
+      expect(() => parseConcerts(text, { cells: [{ text: 'Hozier', url: '' }, { text: 'The Beths', url: '' }, { text: 'Extra', url: '' }] })).toThrow(/3 Artist cells but 2 concerts/);
+    });
   });
 });
