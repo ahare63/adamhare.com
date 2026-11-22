@@ -1,0 +1,26 @@
+# Temporary: looks up setlist venues once with the SETLIST_FM_API secret and uploads
+# src/data/setlist-venues.json as an artifact, to be committed by hand. Remove after use.
+name: Seed setlist venues
+on:
+  push:
+    branches: [concert-setlists]
+    paths: ['.github/workflows/seed-venues.yml']
+permissions:
+  contents: read
+jobs:
+  seed:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: node scripts/fetch-concerts.mjs
+        env:
+          SETLIST_FM_API: ${{ secrets.SETLIST_FM_API }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: setlist-venues
+          path: src/data/setlist-venues.json
