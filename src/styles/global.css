@@ -232,6 +232,12 @@ main > .panel:first-child { margin-top: 0; }
 .map-wrap .visited:hover, .map-wrap .visited:hover path, .map-wrap .visited:hover circle {
   fill: #7faae8 !important;
 }
+/* Countries only read about (Travel page toggle): diagonal lines from the map's <pattern id="read-hatch">. */
+.map-wrap .read, .map-wrap .read path, .map-wrap .read circle {
+  fill: url(#read-hatch) !important;
+  cursor: pointer;
+}
+.map-wrap .read:hover path, .map-wrap .read:hover circle, .map-wrap path.read:hover { stroke: #4f86d9; stroke-width: 0.8; }
 /* The US map draws state borders as separate open paths; they must never be
    filled (CSS fill would override their fill="none" attribute). */
 .map-wrap svg .borders path, .map-wrap svg path.separator1 {

@@ -21,6 +21,27 @@ export function placesOfBook(book, data, settings) {
   ];
 }
 
+// ICU's English names that read badly on the page.
+const NAMES = { cd: 'DR Congo', lc: 'Saint Lucia', ba: 'Bosnia and Herzegovina' };
+let regionNames = null;
+
+// Display name of a lowercase ISO-2 country code.
+export function countryName(code) {
+  if (NAMES[code]) return NAMES[code];
+  regionNames ??= new Intl.DisplayNames(['en'], { type: 'region' });
+  return regionNames.of(code.toUpperCase());
+}
+
+// Countries with at least one book that aren't in `visitedCodes`, as [{code, name}] sorted by name.
+// `booksByCountry` is code -> [[index, why]], as built for the Travel page.
+export function readOnlyCountries(booksByCountry, visitedCodes) {
+  const visited = new Set(visitedCodes);
+  return Object.entries(booksByCountry)
+    .filter(([code, list]) => list.length > 0 && !visited.has(code))
+    .map(([code]) => ({ code, name: countryName(code) }))
+    .sort((a, b) => a.name.localeCompare(b.name));
+}
+
 // Concert city exactly as written in concerts.json -> displayed city and map regions.
 const CITIES = {
   'NYC': { city: 'New York', state: 'ny', country: 'us' },

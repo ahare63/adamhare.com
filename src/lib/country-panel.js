@@ -1,6 +1,6 @@
 // Browser-side country picker for the Travel page's world map: makes visited
-// countries clickable (map regions and chips) and fills a panel with the books
-// and concerts for the chosen country.
+// countries, and optionally countries only read about, clickable (map regions
+// and chips) and fills a panel with the books and concerts for the chosen country.
 //
 // data: { books: [{title, author, year}], booksByCountry: {code: [[index, why]]},
 //         concertsByCountry: {code: [{artist, city, date}]} } with lowercase codes.
@@ -62,11 +62,13 @@ const concertRow = (c) => {
 export function initCountryPanel({ wrap, chips, panel, data }) {
   const svg = wrap.querySelector('svg');
   let visited = new Map();
+  let readOnly = new Map();
   let selected = null;
   let halo = null;
   let origin = 'region';
 
   const regionOf = (code) => svg.querySelector(`#${code}`);
+  const infoOf = (code) => visited.get(code) || readOnly.get(code);
 
   function renderPanel() {
     panel.replaceChildren();
@@ -74,12 +76,12 @@ export function initCountryPanel({ wrap, chips, panel, data }) {
       panel.append(el('p', 'tl-prompt', 'Pick a country to see what I read and heard there.'));
       return;
     }
-    const c = visited.get(selected);
+    const c = infoOf(selected);
     const books = (data.booksByCountry[selected] || []).map(([i, why]) => ({ ...data.books[i], why }));
     const concerts = data.concertsByCountry[selected] || [];
     const head = el('div', 'tl-head');
     const title = el('div');
-    title.append(el('h3', 'tl-name', c.name), el('p', 'tl-years', c.home ? 'Home' : c.years ? `Visited ${c.years}` : 'Visited'));
+    title.append(el('h3', 'tl-name', c.name), el('p', 'tl-years', c.home ? 'Home' : !visited.has(selected) ? 'Not visited yet' : c.years ? `Visited ${c.years}` : 'Visited'));
     const close = el('button', 'tl-close', 'Close');
     close.type = 'button';
     close.addEventListener('click', () => deselect(true));
@@ -111,7 +113,7 @@ export function initCountryPanel({ wrap, chips, panel, data }) {
 
   // `via` is where the selection came from ('region' or 'chip'); closing returns focus there.
   function select(code, via) {
-    if (!visited.has(code)) return;
+    if (!infoOf(code)) return;
     if (code === selected) return deselect(false);
     selected = code;
     origin = via;
@@ -124,13 +126,13 @@ export function initCountryPanel({ wrap, chips, panel, data }) {
     selected = null;
     sync();
     if (!refocus) return;
-    const target = origin === 'chip' ? [...chips.children].find((b) => b.dataset.code === code) : regionOf(code);
+    const target = origin === 'chip' ? [...chips.querySelectorAll('button')].find((b) => b.dataset.code === code) : regionOf(code);
     target?.focus();
   }
 
   function sync() {
-    for (const [code] of visited) regionOf(code)?.setAttribute('aria-pressed', String(code === selected));
-    for (const b of chips.children) b.setAttribute('aria-pressed', String(b.dataset.code === selected));
+    for (const code of [...visited.keys(), ...readOnly.keys()]) regionOf(code)?.setAttribute('aria-pressed', String(code === selected));
+    for (const b of chips.querySelectorAll('button')) b.setAttribute('aria-pressed', String(b.dataset.code === selected));
     drawHalo();
     renderPanel();
   }
@@ -140,7 +142,10 @@ export function initCountryPanel({ wrap, chips, panel, data }) {
     if (!r) return;
     r.setAttribute('tabindex', '0');
     r.setAttribute('role', 'button');
-    r.setAttribute('aria-label', `${visited.get(code).name}: show books and concerts`);
+    const { name } = infoOf(code);
+    r.classList.toggle('read', !visited.has(code));
+    r.setAttribute('aria-label', `${name}: show books${data.concertsByCountry[code]?.length ? ' and concerts' : ''}`);
+    window.bindMapTip?.(r, name);
     if (r.dataset.tlBound) return;
     r.dataset.tlBound = '1';
     r.addEventListener('click', () => select(code, 'region'));
@@ -152,30 +157,54 @@ export function initCountryPanel({ wrap, chips, panel, data }) {
   function unbind(code) {
     const r = regionOf(code);
     if (!r) return;
+    r.classList.remove('read');
+    delete r.dataset.tipName;
     for (const a of ['tabindex', 'role', 'aria-label', 'aria-pressed']) r.removeAttribute(a);
   }
 
-  // list: [{code, name, years, home?}] with lowercase codes. Replaces the clickable set.
-  function setVisited(list) {
-    for (const code of visited.keys()) unbind(code);
-    visited = new Map(list.map((c) => [c.code, c]));
-    for (const code of visited.keys()) bind(code);
-    chips.replaceChildren(...[...visited.values()]
-      .sort((a, b) => a.name.localeCompare(b.name))
-      .map((c) => {
-        const b = el('button', 'tl-chip', c.name);
-        b.type = 'button';
-        b.dataset.code = c.code;
-        b.addEventListener('click', () => select(c.code, 'chip'));
-        return b;
-      }));
-    if (selected && !visited.has(selected)) selected = null;
+  const chip = (c, cls) => {
+    const b = el('button', cls, c.name);
+    b.type = 'button';
+    b.dataset.code = c.code;
+    b.addEventListener('click', () => select(c.code, 'chip'));
+    return b;
+  };
+  const byName = (m) => [...m.values()].sort((a, b) => a.name.localeCompare(b.name));
+
+  function renderChips() {
+    chips.replaceChildren(...byName(visited).map((c) => chip(c, 'tl-chip')));
+    if (!readOnly.size) return;
+    chips.append(el('p', 'tl-chip-label', 'Only read about'), ...byName(readOnly).map((c) => chip(c, 'tl-chip read')));
+  }
+
+  // Swaps one clickable set for another; a code still in the other set stays bound.
+  function replace(current, list, other) {
+    for (const code of current.keys()) if (!other.has(code)) unbind(code);
+    return new Map(list.map((c) => [c.code, c]));
+  }
+
+  function rebind() {
+    for (const code of [...readOnly.keys(), ...visited.keys()]) bind(code);
+    renderChips();
+    if (selected && !infoOf(selected)) selected = null;
     sync();
+  }
+
+  // list: [{code, name, years, home?}] with lowercase codes. Replaces the visited set.
+  function setVisited(list) {
+    visited = replace(visited, list, readOnly);
+    rebind();
+  }
+
+  // list: [{code, name}] with lowercase codes, countries with books but no visit. [] hides them.
+  function setReadOnly(list) {
+    readOnly = replace(readOnly, list, visited);
+    rebind();
   }
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && selected && [wrap, chips, panel].some((n) => n.contains(e.target))) deselect(true);
   });
 
-  return { setVisited };
+  return { setVisited, setReadOnly };
 }

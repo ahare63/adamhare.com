@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
-import { countriesOfBook, placesOfBook, placeOfCity } from '../src/lib/places.js';
+import { countriesOfBook, placesOfBook, placeOfCity, countryName, readOnlyCountries } from '../src/lib/places.js';
 import { parseBooks } from '../src/lib/books.js';
 
 const data = {
@@ -55,6 +55,38 @@ describe('placesOfBook', () => {
 
   it('returns an empty list when nothing matches', () => {
     expect(placesOfBook({ title: 'X', author: 'Nobody Known' }, data, settings)).toEqual([]);
+  });
+});
+
+describe('countryName', () => {
+  it('names a country from its code', () => {
+    expect(countryName('jp')).toBe('Japan');
+    expect(countryName('kr')).toBe('South Korea');
+  });
+
+  it('spells out names ICU abbreviates or qualifies', () => {
+    expect(countryName('cd')).toBe('DR Congo');
+    expect(countryName('lc')).toBe('Saint Lucia');
+    expect(countryName('ba')).toBe('Bosnia and Herzegovina');
+  });
+});
+
+describe('readOnlyCountries', () => {
+  const byCountry = { jp: [[0, 'from']], fr: [[1, 'from']], cd: [[2, 'about']], br: [] };
+
+  it('lists countries with books that are not visited, by name', () => {
+    expect(readOnlyCountries(byCountry, ['fr'])).toEqual([
+      { code: 'cd', name: 'DR Congo' },
+      { code: 'jp', name: 'Japan' },
+    ]);
+  });
+
+  it('leaves out countries with an empty book list', () => {
+    expect(readOnlyCountries(byCountry, []).map((c) => c.code)).not.toContain('br');
+  });
+
+  it('is empty when every country with books is visited', () => {
+    expect(readOnlyCountries(byCountry, ['jp', 'fr', 'cd'])).toEqual([]);
   });
 });
 

@@ -1,8 +1,11 @@
 ---
 // Inline SVG map with regions highlighted from a {code, name} list; hover tooltips.
 import { mapSvg } from '../lib/map-svg.js';
-const { map, regions, title } = Astro.props; // map: 'world' | 'us'
-const svg = mapSvg(map);
+const { map, regions, title, hatch = false } = Astro.props; // map: 'world' | 'us'
+// hatch: adds the diagonal-line fill used for countries only read about (Travel page).
+const HATCH = '<defs><pattern id="read-hatch" patternUnits="userSpaceOnUse" width="3.2" height="3.2" patternTransform="rotate(45)">'
+  + '<rect width="3.2" height="3.2" fill="#e4e7ec"/><line x1="0" y1="0" x2="0" y2="3.2" stroke="#4f86d9" stroke-width="1.1"/></pattern></defs>';
+const svg = hatch ? mapSvg(map).replace(/(<svg[^>]*>)/, `$1${HATCH}`) : mapSvg(map);
 const data = Object.fromEntries(regions.map((r) => [r.code, r.name]));
 // <-escape so no region name can ever close the JSON <script> island.
 const dataJson = JSON.stringify(data).replace(/</g, '\\u003c');
@@ -29,13 +32,17 @@ const label = `Map of ${title ?? map}: ${regions.length} visited regions highlig
       el.classList.add('visited');
       // Marker circles keyed by class (e.g. the DC dot on the US map) follow their region.
       for (const dot of svg.querySelectorAll(`circle.${CSS.escape(code.toLowerCase())}`)) dot.classList.add('visited');
-      if (!el.dataset.tipBound) {
-        el.dataset.tipBound = '1';
-        el.addEventListener('mousemove', (e) => showTip(el.dataset.tipName, e.clientX, e.clientY));
-        el.addEventListener('mouseleave', hideTip);
-      }
-      el.dataset.tipName = name;
+      window.bindMapTip(el, name);
     }
+  };
+  // Hover tooltip naming a region; also used by the Travel page for countries only read about.
+  window.bindMapTip = function (el, name) {
+    if (!el.dataset.tipBound) {
+      el.dataset.tipBound = '1';
+      el.addEventListener('mousemove', (e) => { if (el.dataset.tipName) showTip(el.dataset.tipName, e.clientX, e.clientY); });
+      el.addEventListener('mouseleave', hideTip);
+    }
+    el.dataset.tipName = name;
   };
   function showTip(text, x, y) {
     if (!tip) {

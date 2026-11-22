@@ -69,10 +69,15 @@ const placesJson = JSON.stringify({ visited: pickable, books, booksByCountry, co
     <label for="year-slider">Countries visited through <output id="year-out" for="year-slider">{lastYear}</output></label>
     <input type="range" id="year-slider" min={firstYear - 1} max={lastYear} value={lastYear} step="1" />
     <button type="button" id="year-play" aria-label="Play the map from the first trip to now">▶ Play</button>
+    <label class="read-toggle" for="read-toggle"><input type="checkbox" id="read-toggle" /> Show places I've only read about</label>
   </div>
   <script type="application/json" id="travel-timeline" set:html={timelineJson} />
 
-  <VisitedMap map="world" regions={worldRegions} title="Countries" />
+  <VisitedMap map="world" regions={worldRegions} title="Countries" hatch />
+  <div class="read-legend sans" id="read-legend" hidden>
+    <span><i class="sw sw-visited"></i>Visited</span>
+    <span><i class="sw sw-read"></i>Only read about</span>
+  </div>
   <div class="tl-picker">
     <div class="tl-chips" id="tl-chips" role="group" aria-label="Pick a country">
       {pickable.toSorted((a, b) => a.name.localeCompare(b.name)).map((c) => (
@@ -127,6 +132,16 @@ const placesJson = JSON.stringify({ visited: pickable, books, booksByCountry, co
       border: 1px solid var(--rule); border-radius: 6px; background: #fff; color: var(--ink);
     }
     .time-slider button:hover { border-color: var(--accent); }
+    .read-toggle { display: inline-flex; align-items: center; gap: 0.45rem; cursor: pointer; margin-left: 0.7rem; }
+    .read-toggle input { accent-color: #4f86d9; width: 1rem; height: 1rem; margin: 0; }
+    .read-legend { display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem; font-size: 0.82rem; color: var(--ink-soft); margin: -1.2rem 0 0.4rem; }
+    .read-legend span { display: inline-flex; align-items: center; gap: 0.4rem; }
+    .read-legend .sw { width: 1.1rem; height: 0.75rem; border-radius: 2px; display: inline-block; }
+    .sw-visited { background: #4f86d9; }
+    .sw-read { background: repeating-linear-gradient(45deg, #4f86d9 0 1.3px, #e4e7ec 1.3px 4px); }
+    .tl-chip-label { width: 100%; margin: 0.5rem 0 0.1rem; font-size: 0.8rem; color: var(--ink-soft); }
+    .tl-chip.read { border-style: dashed; border-color: #9ab4dc; background: transparent; }
+    .tl-chip.read[aria-pressed="true"] { border-style: solid; }
     .country-list { margin: 1rem 0 2rem; }
     .country-list summary { cursor: pointer; color: var(--accent); }
     .country-list ul {
@@ -201,6 +216,7 @@ const placesJson = JSON.stringify({ visited: pickable, books, booksByCountry, co
     // build-time snapshot already rendered.
     import { fetchSheet } from '../lib/travel-map.js';
     import { initCountryPanel } from '../lib/country-panel.js';
+    import { readOnlyCountries } from '../lib/places.js';
 
     // Time slider: show only countries first visited in or before the chosen year.
     const firstVisit = (c) => { const ys = (c.years.match(/\d{4}/g) || []).map(Number); return ys.length ? Math.min(...ys) : null; };
@@ -222,7 +238,17 @@ const placesJson = JSON.stringify({ visited: pickable, books, booksByCountry, co
     const picker = initCountryPanel({
       wrap: worldWrap, chips: document.getElementById('tl-chips'), panel: document.getElementById('tl-panel'), data: places,
     });
+    // "Only read about" toggle: countries with books and no visit, hatched on the map. Not tied to the slider.
+    const readToggle = document.getElementById('read-toggle');
+    const readLegend = document.getElementById('read-legend');
+    let visitedCodes = places.visited.map((c) => c.code);
+    function renderReadOnly() {
+      readLegend.hidden = !readToggle.checked;
+      picker.setReadOnly(readToggle.checked ? readOnlyCountries(places.booksByCountry, visitedCodes) : []);
+    }
+    readToggle.addEventListener('change', renderReadOnly);
     picker.setVisited(places.visited);
+    renderReadOnly();
     let timer = null;
     function stop() { clearInterval(timer); timer = null; playBtn.textContent = '▶ Play'; }
     playBtn.addEventListener('click', () => {
@@ -250,7 +276,10 @@ const placesJson = JSON.stringify({ visited: pickable, books, booksByCountry, co
           if (atEnd) slider.value = slider.max;
         }
         renderYear();
-        picker.setVisited([places.visited[0], ...abroad.map((c) => ({ code: c.code.toLowerCase(), name: c.name, years: c.years }))]);
+        const live = [places.visited[0], ...abroad.map((c) => ({ code: c.code.toLowerCase(), name: c.name, years: c.years }))];
+        picker.setVisited(live);
+        visitedCodes = live.map((c) => c.code);
+        renderReadOnly();
         window.applyVisited(document.querySelector('[data-map="us"]'), us);
         const hasDC = states.some((s) => s.code === 'DC');
         const years = abroad.flatMap((c) => (c.years.match(/\d{4}/g) || []).map(Number));

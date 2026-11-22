@@ -318,6 +318,22 @@ describe('built site integrity', () => {
     }
   });
 
+  it('travel page offers an off-by-default toggle for countries only read about, with a hatch pattern and a hidden legend', () => {
+    const html = readFileSync(join(DIST, 'travel/index.html'), 'utf-8');
+    const toggle = html.match(/<input[^>]*id="read-toggle"[^>]*>/);
+    expect(toggle, 'read-about toggle').not.toBeNull();
+    expect(toggle[0]).toContain('type="checkbox"');
+    expect(toggle[0]).not.toMatch(/\schecked/);
+    expect(html).toMatch(/<label[^>]*for="read-toggle"[^>]*>[\s\S]*?only read about/i);
+    const world = html.match(/<figure[^>]*data-map="world"[\s\S]*?<\/figure>/)[0];
+    expect(world).toContain('<pattern id="read-hatch"');
+    const us = html.match(/<figure[^>]*data-map="us"[\s\S]*?<\/figure>/)[0];
+    expect(us).not.toContain('read-hatch');
+    const legend = html.match(/<div[^>]*id="read-legend"[^>]*>/);
+    expect(legend, 'read-about legend').not.toBeNull();
+    expect(legend[0]).toMatch(/\shidden/);
+  });
+
   it('travel page lists books under the countries they are set in or about, tagged against the author\'s country', () => {
     const html = readFileSync(join(DIST, 'travel/index.html'), 'utf-8');
     const places = JSON.parse(html.match(/<script[^>]*id="travel-places"[^>]*>([\s\S]*?)<\/script>/)[1]);
