@@ -17,7 +17,7 @@ const nav = [
 ];
 // Linear B spelling of a label for `data-lb`; undefined when nothing can be spelled.
 const lb = (text) => linearBLabel(text) || undefined;
-const sub = { '/books': '/interests', '/music': '/interests', '/travel': '/interests' };
+const sub = { '/books': '/interests', '/movies': '/interests', '/music': '/interests', '/travel': '/interests' };
 const current = (href) => (path === href || sub[path] === href ? 'page' : undefined);
 ---
 <!doctype html>

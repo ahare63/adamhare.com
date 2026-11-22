@@ -1,0 +1,352 @@
+[
+  {
+    "title": "The Cook, the Thief, His Wife & Her Lover",
+    "year": 1989,
+    "watched": "2026-11-20",
+    "rating": null,
+    "rewatch": false
+  },
+  {
+    "title": "Broadcast News",
+    "year": 1987,
+    "watched": "2026-11-17",
+    "rating": 4,
+    "rewatch": false
+  },
+  {
+    "title": "You Can See Everything",
+    "year": 2026,
+    "watched": "2026-10-15",
+    "rating": 5,
+    "rewatch": false
+  },
+  {
+    "title": "The Inventor: Out for Blood in Silicon Valley",
+    "year": 2019,
+    "watched": "2026-10-11",
+    "rating": null,
+    "rewatch": false
+  },
+  {
+    "title": "Lawrence of Arabia",
+    "year": 1962,
+    "watched": "2026-08-30",
+    "rating": 4.5,
+    "rewatch": false
+  },
+  {
+    "title": "Le Notti Bianche",
+    "year": 1957,
+    "watched": "2026-08-02",
+    "rating": 2,
+    "rewatch": false
+  },
+  {
+    "title": "The Odyssey",
+    "year": 2026,
+    "watched": "2026-07-21",
+    "rating": 4,
+    "rewatch": false
+  },
+  {
+    "title": "Zoolander",
+    "year": 2001,
+    "watched": "2026-07-19",
+    "rating": null,
+    "rewatch": false
+  },
+  {
+    "title": "Macbeth",
+    "year": 2015,
+    "watched": "2026-06-30",
+    "rating": 3.5,
+    "rewatch": false
+  },
+  {
+    "title": "The Monuments Men",
+    "year": 2014,
+    "watched": "2026-06-30",
+    "rating": 1.5,
+    "rewatch": false
+  },
+  {
+    "title": "La Belle Époque",
+    "year": 2019,
+    "watched": "2026-06-18",
+    "rating": 4,
+    "rewatch": false
+  },
+  {
+    "title": "Big Fish",
+    "year": 2003,
+    "watched": "2026-06-14",
+    "rating": 3.5,
+    "rewatch": true
+  },
+  {
+    "title": "Les Misérables",
+    "year": 2012,
+    "watched": "2026-06-07",
+    "rating": 3,
+    "rewatch": false
+  },
+  {
+    "title": "Some Like It Hot",
+    "year": 1959,
+    "watched": "2026-06-06",
+    "rating": 4,
+    "rewatch": false
+  },
+  {
+    "title": "Skyfall",
+    "year": 2012,
+    "watched": "2026-06-01",
+    "rating": 4,
+    "rewatch": true
+  },
+  {
+    "title": "Amélie",
+    "year": 2001,
+    "watched": "2026-05-30",
+    "rating": 4,
+    "rewatch": true
+  },
+  {
+    "title": "Waterloo",
+    "year": 1970,
+    "watched": "2026-05-25",
+    "rating": 2,
+    "rewatch": false
+  },
+  {
+    "title": "The Return",
+    "year": 2024,
+    "watched": "2026-05-24",
+    "rating": 2.5,
+    "rewatch": false
+  },
+  {
+    "title": "Ridicule",
+    "year": 1996,
+    "watched": "2026-05-22",
+    "rating": 4,
+    "rewatch": false
+  },
+  {
+    "title": "A Knight's Tale",
+    "year": 2001,
+    "watched": "2026-05-19",
+    "rating": null,
+    "rewatch": true
+  },
+  {
+    "title": "The Drama",
+    "year": 2026,
+    "watched": "2026-04-13",
+    "rating": 3,
+    "rewatch": false
+  },
+  {
+    "title": "Perfect Blue",
+    "year": 1997,
+    "watched": "2026-04-11",
+    "rating": null,
+    "rewatch": false
+  },
+  {
+    "title": "The Mummy Returns",
+    "year": 2001,
+    "watched": "2026-03-29",
+    "rating": 3,
+    "rewatch": true
+  },
+  {
+    "title": "Kingdom of Heaven",
+    "year": 2005,
+    "watched": "2026-03-26",
+    "rating": null,
+    "rewatch": false
+  },
+  {
+    "title": "Being John Malkovich",
+    "year": 1999,
+    "watched": "2026-03-22",
+    "rating": null,
+    "rewatch": true
+  },
+  {
+    "title": "Adaptation.",
+    "year": 2002,
+    "watched": "2026-03-21",
+    "rating": 3.5,
+    "rewatch": true
+  },
+  {
+    "title": "Synecdoche, New York",
+    "year": 2008,
+    "watched": "2026-03-21",
+    "rating": 4.5,
+    "rewatch": true
+  },
+  {
+    "title": "Othello",
+    "year": 2026,
+    "watched": "2026-03-08",
+    "rating": null,
+    "rewatch": false
+  },
+  {
+    "title": "Much Ado About Nothing",
+    "year": 1993,
+    "watched": "2026-03-06",
+    "rating": 4,
+    "rewatch": false
+  },
+  {
+    "title": "Vertigo",
+    "year": 1958,
+    "watched": "2026-02-21",
+    "rating": null,
+    "rewatch": true
+  },
+  {
+    "title": "Bugonia",
+    "year": 2025,
+    "watched": "2026-02-15",
+    "rating": 3.5,
+    "rewatch": false
+  },
+  {
+    "title": "Electroma",
+    "year": 2006,
+    "watched": "2026-01-10",
+    "rating": null,
+    "rewatch": false
+  },
+  {
+    "title": "Wake Up Dead Man",
+    "year": 2025,
+    "watched": "2025-12-23",
+    "rating": 4,
+    "rewatch": false
+  },
+  {
+    "title": "Interstella 5555: The 5tory of the 5ecret 5tar 5ystem",
+    "year": 2003,
+    "watched": "2025-12-21",
+    "rating": 4,
+    "rewatch": false
+  },
+  {
+    "title": "When Harry Met Sally...",
+    "year": 1989,
+    "watched": "2025-12-19",
+    "rating": 4.5,
+    "rewatch": true
+  },
+  {
+    "title": "Phantom of the Paradise",
+    "year": 1974,
+    "watched": "2025-12-18",
+    "rating": null,
+    "rewatch": false
+  },
+  {
+    "title": "Chungking Express",
+    "year": 1994,
+    "watched": "2025-12-07",
+    "rating": 4.5,
+    "rewatch": true
+  },
+  {
+    "title": "Butch Cassidy and the Sundance Kid",
+    "year": 1969,
+    "watched": "2025-12-03",
+    "rating": 4.5,
+    "rewatch": true
+  },
+  {
+    "title": "The Phantom of the Opera",
+    "year": 2004,
+    "watched": "2025-11-19",
+    "rating": null,
+    "rewatch": false
+  },
+  {
+    "title": "Sentimental Value",
+    "year": 2025,
+    "watched": "2025-11-16",
+    "rating": 2.5,
+    "rewatch": false
+  },
+  {
+    "title": "Master and Commander: The Far Side of the World",
+    "year": 2003,
+    "watched": "2025-11-01",
+    "rating": 4,
+    "rewatch": false
+  },
+  {
+    "title": "Mr. Mom",
+    "year": 1983,
+    "watched": "2025-10-26",
+    "rating": null,
+    "rewatch": false
+  },
+  {
+    "title": "Aguirre, the Wrath of God",
+    "year": 1972,
+    "watched": "2025-10-19",
+    "rating": 4,
+    "rewatch": false
+  },
+  {
+    "title": "Amadeus",
+    "year": 1984,
+    "watched": "2025-09-17",
+    "rating": 4.5,
+    "rewatch": false
+  },
+  {
+    "title": "In the Mood for Love 2001",
+    "year": 2001,
+    "watched": "2025-09-13",
+    "rating": null,
+    "rewatch": false
+  },
+  {
+    "title": "In the Mood for Love",
+    "year": 2000,
+    "watched": "2025-09-13",
+    "rating": null,
+    "rewatch": false
+  },
+  {
+    "title": "Seven Samurai",
+    "year": 1954,
+    "watched": "2025-08-23",
+    "rating": null,
+    "rewatch": false
+  },
+  {
+    "title": "Wild Strawberries",
+    "year": 1957,
+    "watched": "2025-08-02",
+    "rating": null,
+    "rewatch": false
+  },
+  {
+    "title": "The Naked Gun",
+    "year": 2025,
+    "watched": "2025-07-31",
+    "rating": 4,
+    "rewatch": false
+  },
+  {
+    "title": "Anthropoid",
+    "year": 2016,
+    "watched": "2025-07-30",
+    "rating": 3,
+    "rewatch": false
+  }
+]
