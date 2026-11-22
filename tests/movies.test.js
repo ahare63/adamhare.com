@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { parseDiaryCsv, parseLetterboxdRss, mergeWatches, movieStats } from '../src/lib/movies.js';
+import { parseDiaryCsv, parseFilmsCsv, parseLetterboxdRss, mergeWatches, mergeFeed, movieStats } from '../src/lib/movies.js';
 
 const csv = (...lines) => lines.join('\n') + '\n';
 const HEADER = 'Date,Name,Year,Letterboxd URI,Rating,Rewatch,Tags,Watched Date';
@@ -91,37 +91,90 @@ describe('mergeWatches', () => {
   });
 });
 
+describe('parseFilmsCsv', () => {
+  it('reads watched.csv into films', () => {
+    expect(parseFilmsCsv(csv('Date,Name,Year,Letterboxd URI', '2019-03-06,"WALL·E",2008,u'))).toEqual([{ title: 'WALL·E', year: 2008 }]);
+  });
+
+  it('reads ratings.csv into films with ratings', () => {
+    expect(parseFilmsCsv(csv('Date,Name,Year,Letterboxd URI,Rating', '2019-03-06,The Princess Bride,1987,u,4'), { rated: true }))
+      .toEqual([{ title: 'The Princess Bride', year: 1987, rating: 4 }]);
+  });
+
+  it('throws when ratings.csv has no Rating column', () => {
+    expect(() => parseFilmsCsv(csv('Date,Name,Year', 'd,X,2000'), { rated: true })).toThrow(/no "Rating" column/);
+  });
+});
+
+describe('mergeFeed', () => {
+  const data = {
+    watched: [{ title: 'A', year: 2000 }],
+    ratings: [{ title: 'A', year: 2000, rating: 3 }],
+    diary: [{ title: 'A', year: 2000, watched: '2026-01-01', rating: 3, rewatch: false }],
+  };
+
+  it('adds feed watches to the diary and new films to the watched list', () => {
+    const out = mergeFeed(data, [{ title: 'B', year: 2001, watched: '2026-02-01', rating: null, rewatch: false }]);
+    expect(out.diary.map((w) => w.title)).toEqual(['B', 'A']);
+    expect(out.watched).toEqual([{ title: 'A', year: 2000 }, { title: 'B', year: 2001 }]);
+    expect(out.ratings).toEqual(data.ratings);
+  });
+
+  it('takes a film\'s rating from its newest rated feed watch', () => {
+    const out = mergeFeed(data, [
+      { title: 'A', year: 2000, watched: '2026-03-01', rating: 4.5, rewatch: true },
+      { title: 'A', year: 2000, watched: '2026-02-01', rating: 4, rewatch: true },
+    ]);
+    expect(out.ratings).toEqual([{ title: 'A', year: 2000, rating: 4.5 }]);
+    expect(out.watched).toHaveLength(1);
+  });
+
+  it('adds a rating for a newly rated film', () => {
+    const out = mergeFeed(data, [{ title: 'C', year: 2002, watched: '2026-02-01', rating: 5, rewatch: false }]);
+    expect(out.ratings).toContainEqual({ title: 'C', year: 2002, rating: 5 });
+  });
+});
+
 describe('movieStats', () => {
   const w = (title, watched, rating = null, rewatch = false, year = 2000) => ({ title, year, watched, rating, rewatch });
-  const watches = [
-    w('C', '2026-05-01', 5),
-    w('A', '2026-04-01', 3, true),
-    w('B', '2025-03-01', 5),
-    w('A', '2025-02-01', 4),
-  ];
-  const s = movieStats(watches);
+  const data = {
+    watched: ['A', 'B', 'C', 'D', 'E'].map((title) => ({ title, year: 2000 })),
+    ratings: [
+      { title: 'B', year: 2000, rating: 5 },
+      { title: 'D', year: 2000, rating: 5 },
+      { title: 'A', year: 2000, rating: 3 },
+    ],
+    diary: [w('C', '2026-05-01'), w('A', '2026-04-01', 3, true), w('B', '2025-03-01', 5), w('A', '2025-02-01', 4)],
+  };
+  const s = movieStats(data);
 
-  it('counts watches, distinct films and rewatches', () => {
-    expect(s.total).toBe(4);
-    expect(s.films).toBe(3);
+  it('counts films from the watched list, not the diary', () => {
+    expect(s.films).toBe(5);
+    expect(s.rated).toBe(3);
+    expect(s.logged).toBe(4);
     expect(s.rewatches).toBe(1);
   });
 
-  it('counts watches per year, oldest year first', () => {
+  it('counts diary watches per year, oldest year first', () => {
     expect(s.perYear).toEqual([[2025, 2], [2026, 2]]);
   });
 
-  it('builds a half-star rating histogram from 0.5 to 5', () => {
+  it('shows years with no diary entries as zero', () => {
+    const gap = movieStats({ ...data, diary: [w('X', '2026-01-01'), w('Y', '2023-01-01')] });
+    expect(gap.perYear).toEqual([[2023, 1], [2024, 0], [2025, 0], [2026, 1]]);
+  });
+
+  it('builds a half-star histogram from the ratings list', () => {
     expect(s.ratings).toHaveLength(10);
     expect(s.ratings.find(([r]) => r === 5)[1]).toBe(2);
-    expect(s.ratings.find(([r]) => r === 0.5)[1]).toBe(0);
+    expect(s.ratings.find(([r]) => r === 3)[1]).toBe(1);
   });
 
-  it('lists five-star films once each, most recently watched first', () => {
-    expect(s.favorites.map((f) => f.title)).toEqual(['C', 'B']);
+  it('lists five-star films alphabetically', () => {
+    expect(s.favorites.map((f) => f.title)).toEqual(['B', 'D']);
   });
 
-  it('gives the most recent watches', () => {
+  it('gives the most recent diary watches', () => {
     expect(s.recent.map((f) => f.title)).toEqual(['C', 'A', 'B', 'A']);
   });
 });

@@ -1,11 +1,11 @@
 ---
 import Base from '../layouts/Base.astro';
 import * as md from '../content/movies.md';
-import watches from '../data/movies.json';
+import data from '../data/movies.json';
 import { movieStats } from '../lib/movies.js';
 
 const PROFILE = 'https://letterboxd.com/ahare63/';
-const s = movieStats(watches);
+const s = movieStats(data);
 const maxYear = Math.max(1, ...s.perYear.map(([, n]) => n));
 const maxRating = Math.max(1, ...s.ratings.map(([, n]) => n));
 const stars = (r) => '★'.repeat(Math.floor(r)) + (r % 1 ? '½' : '');
@@ -16,10 +16,10 @@ const day = (iso) => new Date(`${iso}T00:00:00Z`).toLocaleDateString('en-US', { 
   <md.Content />
 
   <p class="movie-stats sans">
-    <strong>{s.total}</strong> watches · <strong>{s.films}</strong> distinct films · <strong>{s.rewatches}</strong> rewatches
+    <strong>{s.films}</strong> films watched · <strong>{s.rated}</strong> rated · <strong>{s.logged}</strong> diary entries
   </p>
 
-  <h2>Films per year</h2>
+  <h2>Diary entries per year</h2>
   <ul class="bars">
     {s.perYear.map(([year, n]) => (
       <li>

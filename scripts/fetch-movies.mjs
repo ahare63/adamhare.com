@@ -2,8 +2,8 @@
 // Run before build (CI runs it on every deploy). The feed holds only the latest ~50 entries,
 // so the full history comes from scripts/import-letterboxd.mjs. Exits 1 WITHOUT writing
 // when the feed is unreachable or malformed, so the committed snapshot stays in place.
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
-import { parseLetterboxdRss, mergeWatches } from '../src/lib/movies.js';
+import { readFileSync, writeFileSync } from 'node:fs';
+import { parseLetterboxdRss, mergeFeed } from '../src/lib/movies.js';
 
 const FEED_URL = 'https://letterboxd.com/ahare63/rss/';
 const OUT = new URL('../src/data/movies.json', import.meta.url);
@@ -19,12 +19,12 @@ try {
   process.exit(1);
 }
 
-const existing = existsSync(OUT) ? JSON.parse(readFileSync(OUT, 'utf8')) : [];
+const existing = JSON.parse(readFileSync(OUT, 'utf8'));
 const oldestInFeed = recent[recent.length - 1].watched;
-if (existing.length && existing[0].watched < oldestInFeed) {
-  console.warn(`WARNING: the feed starts at ${oldestInFeed}, after the snapshot's newest watch (${existing[0].watched}); ` +
+if (existing.diary.length && existing.diary[0].watched < oldestInFeed) {
+  console.warn(`WARNING: the feed starts at ${oldestInFeed}, after the snapshot's newest watch (${existing.diary[0].watched}); ` +
     'watches in between may be missing. Re-run scripts/import-letterboxd.mjs with a fresh export and commit movies.json.');
 }
-const merged = mergeWatches(existing, recent);
+const merged = mergeFeed(existing, recent);
 writeFileSync(OUT, JSON.stringify(merged, null, 2) + '\n');
-console.log(`movies.json: ${merged.length} watches (${merged.length - existing.length} new)`);
+console.log(`movies.json: ${merged.diary.length} diary entries (${merged.diary.length - existing.diary.length} new), ${merged.watched.length} films`);

@@ -1,10 +1,14 @@
 import { parseCSV } from './travel-map.js';
 
-// A watch is {title, year, watched: 'YYYY-MM-DD', rating: number|null, rewatch: boolean}.
+// movies.json is {watched, ratings, diary}:
+//   watched: every film marked watched [{title, year}] (most were never logged with a date)
+//   ratings: every rated film [{title, year, rating}]
+//   diary:   dated watches [{title, year, watched: 'YYYY-MM-DD', rating: number|null, rewatch: boolean}], newest first
 // Review text is never kept: the site shows a summary and links to Letterboxd.
 
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
 const newestFirst = (a, b) => (a.watched < b.watched ? 1 : a.watched > b.watched ? -1 : 0);
+const filmKey = (f) => `${f.title}\u0000${f.year}`;
 const key = (w) => `${w.title}\u0000${w.year}\u0000${w.watched}`;
 const rating = (text) => (text ? Number(text) : null);
 
@@ -27,6 +31,26 @@ export function parseDiaryCsv(text) {
     watches.push({ title, year: Number(cell('Year')), watched, rating: rating(cell('Rating')), rewatch: cell('Rewatch') === 'Yes' });
   }
   return watches.sort(newestFirst);
+}
+
+// watched.csv -> [{title, year}]; with {rated: true}, ratings.csv -> [{title, year, rating}].
+export function parseFilmsCsv(text, { rated = false } = {}) {
+  const rows = parseCSV(text);
+  const header = (rows[0] || []).map((h) => h.trim());
+  const names = rated ? ['Name', 'Year', 'Rating'] : ['Name', 'Year'];
+  const col = {};
+  for (const name of names) {
+    col[name] = header.indexOf(name);
+    if (col[name] === -1) throw new Error(`${rated ? 'ratings' : 'watched'}.csv has no "${name}" column`);
+  }
+  const films = [];
+  for (const r of rows.slice(1)) {
+    const cell = (name) => (r[col[name]] || '').trim();
+    const title = cell('Name');
+    if (!title) continue;
+    films.push(rated ? { title, year: Number(cell('Year')), rating: Number(cell('Rating')) } : { title, year: Number(cell('Year')) });
+  }
+  return films;
 }
 
 const decode = (s) =>
@@ -70,32 +94,42 @@ export function mergeWatches(existing, incoming) {
   return [...byKey.values()].sort(newestFirst);
 }
 
-// Summary numbers for the Movies page. `watches` must be newest first.
-export function movieStats(watches, { recentCount = 10 } = {}) {
-  const films = new Set(watches.map((w) => `${w.title}\u0000${w.year}`));
+// Adds feed watches to the snapshot: new diary entries, newly watched films, and each film's
+// rating from its newest rated watch in the feed.
+export function mergeFeed(data, recent) {
+  const watched = [...data.watched];
+  const seen = new Set(watched.map(filmKey));
+  const ratings = new Map(data.ratings.map((f) => [filmKey(f), f]));
+  for (const w of [...recent].reverse()) {
+    if (!seen.has(filmKey(w))) {
+      seen.add(filmKey(w));
+      watched.push({ title: w.title, year: w.year });
+    }
+    if (w.rating) ratings.set(filmKey(w), { title: w.title, year: w.year, rating: w.rating });
+  }
+  return { watched, ratings: [...ratings.values()], diary: mergeWatches(data.diary, recent) };
+}
+
+// Summary numbers for the Movies page.
+export function movieStats({ watched, ratings, diary }, { recentCount = 10 } = {}) {
   const perYear = new Map();
-  for (const w of watches) {
+  for (const w of diary) {
     const y = Number(w.watched.slice(0, 4));
     perYear.set(y, (perYear.get(y) ?? 0) + 1);
   }
-  const ratings = Array.from({ length: 10 }, (_, i) => [(i + 1) / 2, 0]);
-  for (const w of watches) if (w.rating) ratings[w.rating * 2 - 1][1]++;
-  const seen = new Set();
-  const favorites = [];
-  for (const w of watches) {
-    const film = `${w.title}\u0000${w.year}`;
-    if (w.rating === 5 && !seen.has(film)) {
-      seen.add(film);
-      favorites.push(w);
-    }
-  }
+  const histogram = Array.from({ length: 10 }, (_, i) => [(i + 1) / 2, 0]);
+  for (const f of ratings) if (f.rating) histogram[f.rating * 2 - 1][1]++;
   return {
-    total: watches.length,
-    films: films.size,
-    rewatches: watches.filter((w) => w.rewatch).length,
-    perYear: [...perYear.entries()].sort((a, b) => a[0] - b[0]),
-    ratings,
-    favorites,
-    recent: watches.slice(0, recentCount),
+    films: watched.length,
+    rated: ratings.length,
+    logged: diary.length,
+    rewatches: diary.filter((w) => w.rewatch).length,
+    perYear: perYear.size ? Array.from({ length: Math.max(...perYear.keys()) - Math.min(...perYear.keys()) + 1 }, (_, i) => {
+      const y = Math.min(...perYear.keys()) + i;
+      return [y, perYear.get(y) ?? 0];
+    }) : [],
+    ratings: histogram,
+    favorites: ratings.filter((f) => f.rating === 5).sort((a, b) => a.title.localeCompare(b.title)),
+    recent: diary.slice(0, recentCount),
   };
 }

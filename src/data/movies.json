@@ -1,352 +1,4116 @@
-[
-  {
-    "title": "The Cook, the Thief, His Wife & Her Lover",
-    "year": 1989,
-    "watched": "2026-11-20",
-    "rating": null,
-    "rewatch": false
-  },
-  {
-    "title": "Broadcast News",
-    "year": 1987,
-    "watched": "2026-11-17",
-    "rating": 4,
-    "rewatch": false
-  },
-  {
-    "title": "You Can See Everything",
-    "year": 2026,
-    "watched": "2026-10-15",
-    "rating": 5,
-    "rewatch": false
-  },
-  {
-    "title": "The Inventor: Out for Blood in Silicon Valley",
-    "year": 2019,
-    "watched": "2026-10-11",
-    "rating": null,
-    "rewatch": false
-  },
-  {
-    "title": "Lawrence of Arabia",
-    "year": 1962,
-    "watched": "2026-08-30",
-    "rating": 4.5,
-    "rewatch": false
-  },
-  {
-    "title": "Le Notti Bianche",
-    "year": 1957,
-    "watched": "2026-08-02",
-    "rating": 2,
-    "rewatch": false
-  },
-  {
-    "title": "The Odyssey",
-    "year": 2026,
-    "watched": "2026-07-21",
-    "rating": 4,
-    "rewatch": false
-  },
-  {
-    "title": "Zoolander",
-    "year": 2001,
-    "watched": "2026-07-19",
-    "rating": null,
-    "rewatch": false
-  },
-  {
-    "title": "Macbeth",
-    "year": 2015,
-    "watched": "2026-06-30",
-    "rating": 3.5,
-    "rewatch": false
-  },
-  {
-    "title": "The Monuments Men",
-    "year": 2014,
-    "watched": "2026-06-30",
-    "rating": 1.5,
-    "rewatch": false
-  },
-  {
-    "title": "La Belle Époque",
-    "year": 2019,
-    "watched": "2026-06-18",
-    "rating": 4,
-    "rewatch": false
-  },
-  {
-    "title": "Big Fish",
-    "year": 2003,
-    "watched": "2026-06-14",
-    "rating": 3.5,
-    "rewatch": true
-  },
-  {
-    "title": "Les Misérables",
-    "year": 2012,
-    "watched": "2026-06-07",
-    "rating": 3,
-    "rewatch": false
-  },
-  {
-    "title": "Some Like It Hot",
-    "year": 1959,
-    "watched": "2026-06-06",
-    "rating": 4,
-    "rewatch": false
-  },
-  {
-    "title": "Skyfall",
-    "year": 2012,
-    "watched": "2026-06-01",
-    "rating": 4,
-    "rewatch": true
-  },
-  {
-    "title": "Amélie",
-    "year": 2001,
-    "watched": "2026-05-30",
-    "rating": 4,
-    "rewatch": true
-  },
-  {
-    "title": "Waterloo",
-    "year": 1970,
-    "watched": "2026-05-25",
-    "rating": 2,
-    "rewatch": false
-  },
-  {
-    "title": "The Return",
-    "year": 2024,
-    "watched": "2026-05-24",
-    "rating": 2.5,
-    "rewatch": false
-  },
-  {
-    "title": "Ridicule",
-    "year": 1996,
-    "watched": "2026-05-22",
-    "rating": 4,
-    "rewatch": false
-  },
-  {
-    "title": "A Knight's Tale",
-    "year": 2001,
-    "watched": "2026-05-19",
-    "rating": null,
-    "rewatch": true
-  },
-  {
-    "title": "The Drama",
-    "year": 2026,
-    "watched": "2026-04-13",
-    "rating": 3,
-    "rewatch": false
-  },
-  {
-    "title": "Perfect Blue",
-    "year": 1997,
-    "watched": "2026-04-11",
-    "rating": null,
-    "rewatch": false
-  },
-  {
-    "title": "The Mummy Returns",
-    "year": 2001,
-    "watched": "2026-03-29",
-    "rating": 3,
-    "rewatch": true
-  },
-  {
-    "title": "Kingdom of Heaven",
-    "year": 2005,
-    "watched": "2026-03-26",
-    "rating": null,
-    "rewatch": false
-  },
-  {
-    "title": "Being John Malkovich",
-    "year": 1999,
-    "watched": "2026-03-22",
-    "rating": null,
-    "rewatch": true
-  },
-  {
-    "title": "Adaptation.",
-    "year": 2002,
-    "watched": "2026-03-21",
-    "rating": 3.5,
-    "rewatch": true
-  },
-  {
-    "title": "Synecdoche, New York",
-    "year": 2008,
-    "watched": "2026-03-21",
-    "rating": 4.5,
-    "rewatch": true
-  },
-  {
-    "title": "Othello",
-    "year": 2026,
-    "watched": "2026-03-08",
-    "rating": null,
-    "rewatch": false
-  },
-  {
-    "title": "Much Ado About Nothing",
-    "year": 1993,
-    "watched": "2026-03-06",
-    "rating": 4,
-    "rewatch": false
-  },
-  {
-    "title": "Vertigo",
-    "year": 1958,
-    "watched": "2026-02-21",
-    "rating": null,
-    "rewatch": true
-  },
-  {
-    "title": "Bugonia",
-    "year": 2025,
-    "watched": "2026-02-15",
-    "rating": 3.5,
-    "rewatch": false
-  },
-  {
-    "title": "Electroma",
-    "year": 2006,
-    "watched": "2026-01-10",
-    "rating": null,
-    "rewatch": false
-  },
-  {
-    "title": "Wake Up Dead Man",
-    "year": 2025,
-    "watched": "2025-12-23",
-    "rating": 4,
-    "rewatch": false
-  },
-  {
-    "title": "Interstella 5555: The 5tory of the 5ecret 5tar 5ystem",
-    "year": 2003,
-    "watched": "2025-12-21",
-    "rating": 4,
-    "rewatch": false
-  },
-  {
-    "title": "When Harry Met Sally...",
-    "year": 1989,
-    "watched": "2025-12-19",
-    "rating": 4.5,
-    "rewatch": true
-  },
-  {
-    "title": "Phantom of the Paradise",
-    "year": 1974,
-    "watched": "2025-12-18",
-    "rating": null,
-    "rewatch": false
-  },
-  {
-    "title": "Chungking Express",
-    "year": 1994,
-    "watched": "2025-12-07",
-    "rating": 4.5,
-    "rewatch": true
-  },
-  {
-    "title": "Butch Cassidy and the Sundance Kid",
-    "year": 1969,
-    "watched": "2025-12-03",
-    "rating": 4.5,
-    "rewatch": true
-  },
-  {
-    "title": "The Phantom of the Opera",
-    "year": 2004,
-    "watched": "2025-11-19",
-    "rating": null,
-    "rewatch": false
-  },
-  {
-    "title": "Sentimental Value",
-    "year": 2025,
-    "watched": "2025-11-16",
-    "rating": 2.5,
-    "rewatch": false
-  },
-  {
-    "title": "Master and Commander: The Far Side of the World",
-    "year": 2003,
-    "watched": "2025-11-01",
-    "rating": 4,
-    "rewatch": false
-  },
-  {
-    "title": "Mr. Mom",
-    "year": 1983,
-    "watched": "2025-10-26",
-    "rating": null,
-    "rewatch": false
-  },
-  {
-    "title": "Aguirre, the Wrath of God",
-    "year": 1972,
-    "watched": "2025-10-19",
-    "rating": 4,
-    "rewatch": false
-  },
-  {
-    "title": "Amadeus",
-    "year": 1984,
-    "watched": "2025-09-17",
-    "rating": 4.5,
-    "rewatch": false
-  },
-  {
-    "title": "In the Mood for Love 2001",
-    "year": 2001,
-    "watched": "2025-09-13",
-    "rating": null,
-    "rewatch": false
-  },
-  {
-    "title": "In the Mood for Love",
-    "year": 2000,
-    "watched": "2025-09-13",
-    "rating": null,
-    "rewatch": false
-  },
-  {
-    "title": "Seven Samurai",
-    "year": 1954,
-    "watched": "2025-08-23",
-    "rating": null,
-    "rewatch": false
-  },
-  {
-    "title": "Wild Strawberries",
-    "year": 1957,
-    "watched": "2025-08-02",
-    "rating": null,
-    "rewatch": false
-  },
-  {
-    "title": "The Naked Gun",
-    "year": 2025,
-    "watched": "2025-07-31",
-    "rating": 4,
-    "rewatch": false
-  },
-  {
-    "title": "Anthropoid",
-    "year": 2016,
-    "watched": "2025-07-30",
-    "rating": 3,
-    "rewatch": false
-  }
-]
+{
+  "watched": [
+    {
+      "title": "Hot Rod",
+      "year": 2007
+    },
+    {
+      "title": "WALL·E",
+      "year": 2008
+    },
+    {
+      "title": "Spirited Away",
+      "year": 2001
+    },
+    {
+      "title": "The Incredibles",
+      "year": 2004
+    },
+    {
+      "title": "Guardians of the Galaxy",
+      "year": 2014
+    },
+    {
+      "title": "School of Rock",
+      "year": 2003
+    },
+    {
+      "title": "Moonrise Kingdom",
+      "year": 2012
+    },
+    {
+      "title": "The Grand Budapest Hotel",
+      "year": 2014
+    },
+    {
+      "title": "Scott Pilgrim vs. the World",
+      "year": 2010
+    },
+    {
+      "title": "The Polar Express",
+      "year": 2004
+    },
+    {
+      "title": "The Princess Bride",
+      "year": 1987
+    },
+    {
+      "title": "Indiana Jones and the Last Crusade",
+      "year": 1989
+    },
+    {
+      "title": "Baby Driver",
+      "year": 2017
+    },
+    {
+      "title": "Ferris Bueller's Day Off",
+      "year": 1986
+    },
+    {
+      "title": "Rushmore",
+      "year": 1998
+    },
+    {
+      "title": "Harry Potter and the Philosopher's Stone",
+      "year": 2001
+    },
+    {
+      "title": "Men in Black",
+      "year": 1997
+    },
+    {
+      "title": "The Little Mermaid",
+      "year": 1989
+    },
+    {
+      "title": "Guardians of the Galaxy Vol. 2",
+      "year": 2017
+    },
+    {
+      "title": "The Lego Movie",
+      "year": 2014
+    },
+    {
+      "title": "The Lego Batman Movie",
+      "year": 2017
+    },
+    {
+      "title": "The Big Sick",
+      "year": 2017
+    },
+    {
+      "title": "It's a Wonderful Life",
+      "year": 1946
+    },
+    {
+      "title": "When Harry Met Sally...",
+      "year": 1989
+    },
+    {
+      "title": "The Iron Giant",
+      "year": 1999
+    },
+    {
+      "title": "I Love You, Man",
+      "year": 2009
+    },
+    {
+      "title": "Anchorman 2: The Legend Continues",
+      "year": 2013
+    },
+    {
+      "title": "A Knight's Tale",
+      "year": 2001
+    },
+    {
+      "title": "Space Jam",
+      "year": 1996
+    },
+    {
+      "title": "About Time",
+      "year": 2013
+    },
+    {
+      "title": "A Charlie Brown Christmas",
+      "year": 1965
+    },
+    {
+      "title": "Back to the Future",
+      "year": 1985
+    },
+    {
+      "title": "Forrest Gump",
+      "year": 1994
+    },
+    {
+      "title": "Groundhog Day",
+      "year": 1993
+    },
+    {
+      "title": "Inside Out",
+      "year": 2015
+    },
+    {
+      "title": "Up",
+      "year": 2009
+    },
+    {
+      "title": "Amélie",
+      "year": 2001
+    },
+    {
+      "title": "Brigsby Bear",
+      "year": 2017
+    },
+    {
+      "title": "Star Wars",
+      "year": 1977
+    },
+    {
+      "title": "Airplane!",
+      "year": 1980
+    },
+    {
+      "title": "Monty Python and the Holy Grail",
+      "year": 1975
+    },
+    {
+      "title": "The Room",
+      "year": 2003
+    },
+    {
+      "title": "The Disaster Artist",
+      "year": 2017
+    },
+    {
+      "title": "Toy Story",
+      "year": 1995
+    },
+    {
+      "title": "Toy Story 2",
+      "year": 1999
+    },
+    {
+      "title": "Toy Story 3",
+      "year": 2010
+    },
+    {
+      "title": "The Sandlot",
+      "year": 1993
+    },
+    {
+      "title": "It's the Easter Beagle, Charlie Brown",
+      "year": 1974
+    },
+    {
+      "title": "A Charlie Brown Thanksgiving",
+      "year": 1973
+    },
+    {
+      "title": "Princess Mononoke",
+      "year": 1997
+    },
+    {
+      "title": "Hercules",
+      "year": 1997
+    },
+    {
+      "title": "Harry Potter and the Chamber of Secrets",
+      "year": 2002
+    },
+    {
+      "title": "Raiders!: The Story of the Greatest Fan Film Ever Made",
+      "year": 2015
+    },
+    {
+      "title": "Popstar: Never Stop Never Stopping",
+      "year": 2016
+    },
+    {
+      "title": "Forgetting Sarah Marshall",
+      "year": 2008
+    },
+    {
+      "title": "The Lord of the Rings: The Fellowship of the Ring",
+      "year": 2001
+    },
+    {
+      "title": "The Lord of the Rings: The Two Towers",
+      "year": 2002
+    },
+    {
+      "title": "The Lord of the Rings: The Return of the King",
+      "year": 2003
+    },
+    {
+      "title": "Elf",
+      "year": 2003
+    },
+    {
+      "title": "Rocky",
+      "year": 1976
+    },
+    {
+      "title": "Big",
+      "year": 1988
+    },
+    {
+      "title": "(500) Days of Summer",
+      "year": 2009
+    },
+    {
+      "title": "Spider-Man: Homecoming",
+      "year": 2017
+    },
+    {
+      "title": "Big Fish",
+      "year": 2003
+    },
+    {
+      "title": "Home Alone",
+      "year": 1990
+    },
+    {
+      "title": "Pirates of the Caribbean: The Curse of the Black Pearl",
+      "year": 2003
+    },
+    {
+      "title": "The Shawshank Redemption",
+      "year": 1994
+    },
+    {
+      "title": "Ant-Man",
+      "year": 2015
+    },
+    {
+      "title": "Lilo & Stitch",
+      "year": 2002
+    },
+    {
+      "title": "The Martian",
+      "year": 2015
+    },
+    {
+      "title": "Ghostbusters",
+      "year": 1984
+    },
+    {
+      "title": "Midnight in Paris",
+      "year": 2011
+    },
+    {
+      "title": "The Shape of Water",
+      "year": 2017
+    },
+    {
+      "title": "Fantastic Beasts: The Crimes of Grindelwald",
+      "year": 2018
+    },
+    {
+      "title": "Incredibles 2",
+      "year": 2018
+    },
+    {
+      "title": "Deadpool 2",
+      "year": 2018
+    },
+    {
+      "title": "John Mulaney: Kid Gorgeous at Radio City",
+      "year": 2018
+    },
+    {
+      "title": "Avengers: Infinity War",
+      "year": 2018
+    },
+    {
+      "title": "Bao",
+      "year": 2018
+    },
+    {
+      "title": "Black Panther",
+      "year": 2018
+    },
+    {
+      "title": "Star Wars: The Last Jedi",
+      "year": 2017
+    },
+    {
+      "title": "Nathan for You: Finding Frances",
+      "year": 2017
+    },
+    {
+      "title": "Justice League",
+      "year": 2017
+    },
+    {
+      "title": "Thor: Ragnarok",
+      "year": 2017
+    },
+    {
+      "title": "Blade Runner 2049",
+      "year": 2017
+    },
+    {
+      "title": "The Emoji Movie",
+      "year": 2017
+    },
+    {
+      "title": "Oh, Hello on Broadway",
+      "year": 2017
+    },
+    {
+      "title": "Wonder Woman",
+      "year": 2017
+    },
+    {
+      "title": "Get Out",
+      "year": 2017
+    },
+    {
+      "title": "Rogue One: A Star Wars Story",
+      "year": 2016
+    },
+    {
+      "title": "Fantastic Beasts and Where to Find Them",
+      "year": 2016
+    },
+    {
+      "title": "Doctor Strange",
+      "year": 2016
+    },
+    {
+      "title": "Suicide Squad",
+      "year": 2016
+    },
+    {
+      "title": "Star Trek Beyond",
+      "year": 2016
+    },
+    {
+      "title": "Captain America: Civil War",
+      "year": 2016
+    },
+    {
+      "title": "Zootopia",
+      "year": 2016
+    },
+    {
+      "title": "Deadpool",
+      "year": 2016
+    },
+    {
+      "title": "Star Wars: The Force Awakens",
+      "year": 2015
+    },
+    {
+      "title": "John Mulaney: The Comeback Kid",
+      "year": 2015
+    },
+    {
+      "title": "The Hunger Games: Mockingjay – Part 2",
+      "year": 2015
+    },
+    {
+      "title": "Jurassic World",
+      "year": 2015
+    },
+    {
+      "title": "Kung Fury",
+      "year": 2015
+    },
+    {
+      "title": "Mad Max: Fury Road",
+      "year": 2015
+    },
+    {
+      "title": "Avengers: Age of Ultron",
+      "year": 2015
+    },
+    {
+      "title": "Ex Machina",
+      "year": 2015
+    },
+    {
+      "title": "Kingsman: The Secret Service",
+      "year": 2014
+    },
+    {
+      "title": "The Hunger Games: Mockingjay – Part 1",
+      "year": 2014
+    },
+    {
+      "title": "Too Many Cooks",
+      "year": 2014
+    },
+    {
+      "title": "Interstellar",
+      "year": 2014
+    },
+    {
+      "title": "The Imitation Game",
+      "year": 2014
+    },
+    {
+      "title": "Unfriended",
+      "year": 2014
+    },
+    {
+      "title": "Dawn of the Planet of the Apes",
+      "year": 2014
+    },
+    {
+      "title": "Captain America: The Winter Soldier",
+      "year": 2014
+    },
+    {
+      "title": "The Hunger Games: Catching Fire",
+      "year": 2013
+    },
+    {
+      "title": "Gravity",
+      "year": 2013
+    },
+    {
+      "title": "Man of Steel",
+      "year": 2013
+    },
+    {
+      "title": "Despicable Me 2",
+      "year": 2013
+    },
+    {
+      "title": "Monsters University",
+      "year": 2013
+    },
+    {
+      "title": "The Great Gatsby",
+      "year": 2013
+    },
+    {
+      "title": "Star Trek Into Darkness",
+      "year": 2013
+    },
+    {
+      "title": "Iron Man 3",
+      "year": 2013
+    },
+    {
+      "title": "G.I. Joe: Retaliation",
+      "year": 2013
+    },
+    {
+      "title": "Skyfall",
+      "year": 2012
+    },
+    {
+      "title": "The Dark Knight Rises",
+      "year": 2012
+    },
+    {
+      "title": "The Amazing Spider-Man",
+      "year": 2012
+    },
+    {
+      "title": "Ice Age: Continental Drift",
+      "year": 2012
+    },
+    {
+      "title": "Abraham Lincoln: Vampire Hunter",
+      "year": 2012
+    },
+    {
+      "title": "Men in Black 3",
+      "year": 2012
+    },
+    {
+      "title": "The Avengers",
+      "year": 2012
+    },
+    {
+      "title": "The Hunger Games",
+      "year": 2012
+    },
+    {
+      "title": "John Mulaney: New in Town",
+      "year": 2012
+    },
+    {
+      "title": "Sherlock Holmes: A Game of Shadows",
+      "year": 2011
+    },
+    {
+      "title": "Captain America: The First Avenger",
+      "year": 2011
+    },
+    {
+      "title": "Harry Potter and the Deathly Hallows: Part 2",
+      "year": 2011
+    },
+    {
+      "title": "Transformers: Dark of the Moon",
+      "year": 2011
+    },
+    {
+      "title": "Green Lantern",
+      "year": 2011
+    },
+    {
+      "title": "Super 8",
+      "year": 2011
+    },
+    {
+      "title": "Thor",
+      "year": 2011
+    },
+    {
+      "title": "Harry Potter and the Deathly Hallows: Part 1",
+      "year": 2010
+    },
+    {
+      "title": "Easy A",
+      "year": 2010
+    },
+    {
+      "title": "Despicable Me",
+      "year": 2010
+    },
+    {
+      "title": "Rubber",
+      "year": 2010
+    },
+    {
+      "title": "Iron Man 2",
+      "year": 2010
+    },
+    {
+      "title": "Sherlock Holmes",
+      "year": 2009
+    },
+    {
+      "title": "Avatar",
+      "year": 2009
+    },
+    {
+      "title": "The Blind Side",
+      "year": 2009
+    },
+    {
+      "title": "G.I. Joe: The Rise of Cobra",
+      "year": 2009
+    },
+    {
+      "title": "Harry Potter and the Half-Blood Prince",
+      "year": 2009
+    },
+    {
+      "title": "Transformers: Revenge of the Fallen",
+      "year": 2009
+    },
+    {
+      "title": "Night at the Museum: Battle of the Smithsonian",
+      "year": 2009
+    },
+    {
+      "title": "Watchmen",
+      "year": 2009
+    },
+    {
+      "title": "Paul Blart: Mall Cop",
+      "year": 2009
+    },
+    {
+      "title": "Madagascar: Escape 2 Africa",
+      "year": 2008
+    },
+    {
+      "title": "Nick and Norah's Infinite Playlist",
+      "year": 2008
+    },
+    {
+      "title": "The Dark Knight",
+      "year": 2008
+    },
+    {
+      "title": "Hancock",
+      "year": 2008
+    },
+    {
+      "title": "Get Smart",
+      "year": 2008
+    },
+    {
+      "title": "The Incredible Hulk",
+      "year": 2008
+    },
+    {
+      "title": "The Chronicles of Narnia: Prince Caspian",
+      "year": 2008
+    },
+    {
+      "title": "Iron Man",
+      "year": 2008
+    },
+    {
+      "title": "Taken",
+      "year": 2008
+    },
+    {
+      "title": "National Treasure: Book of Secrets",
+      "year": 2007
+    },
+    {
+      "title": "Bee Movie",
+      "year": 2007
+    },
+    {
+      "title": "Harry Potter and the Order of the Phoenix",
+      "year": 2007
+    },
+    {
+      "title": "Transformers",
+      "year": 2007
+    },
+    {
+      "title": "Ghost Rider",
+      "year": 2007
+    },
+    {
+      "title": "Eragon",
+      "year": 2006
+    },
+    {
+      "title": "300",
+      "year": 2006
+    },
+    {
+      "title": "Night at the Museum",
+      "year": 2006
+    },
+    {
+      "title": "The Santa Clause 3: The Escape Clause",
+      "year": 2006
+    },
+    {
+      "title": "Cars",
+      "year": 2006
+    },
+    {
+      "title": "Ice Age: The Meltdown",
+      "year": 2006
+    },
+    {
+      "title": "Over the Hedge",
+      "year": 2006
+    },
+    {
+      "title": "High School Musical",
+      "year": 2006
+    },
+    {
+      "title": "Hoodwinked!",
+      "year": 2005
+    },
+    {
+      "title": "The Chronicles of Narnia: The Lion, the Witch and the Wardrobe",
+      "year": 2005
+    },
+    {
+      "title": "Harry Potter and the Goblet of Fire",
+      "year": 2005
+    },
+    {
+      "title": "Madagascar",
+      "year": 2005
+    },
+    {
+      "title": "Star Wars: Episode III – Revenge of the Sith",
+      "year": 2005
+    },
+    {
+      "title": "The SpongeBob SquarePants Movie",
+      "year": 2004
+    },
+    {
+      "title": "National Treasure",
+      "year": 2004
+    },
+    {
+      "title": "Downfall",
+      "year": 2004
+    },
+    {
+      "title": "I, Robot",
+      "year": 2004
+    },
+    {
+      "title": "DodgeBall: A True Underdog Story",
+      "year": 2004
+    },
+    {
+      "title": "Harry Potter and the Prisoner of Azkaban",
+      "year": 2004
+    },
+    {
+      "title": "Troy",
+      "year": 2004
+    },
+    {
+      "title": "Shrek 2",
+      "year": 2004
+    },
+    {
+      "title": "Mean Girls",
+      "year": 2004
+    },
+    {
+      "title": "Scooby-Doo 2: Monsters Unleashed",
+      "year": 2004
+    },
+    {
+      "title": "Hulk",
+      "year": 2003
+    },
+    {
+      "title": "Finding Nemo",
+      "year": 2003
+    },
+    {
+      "title": "Holes",
+      "year": 2003
+    },
+    {
+      "title": "Catch Me If You Can",
+      "year": 2002
+    },
+    {
+      "title": "The Santa Clause 2",
+      "year": 2002
+    },
+    {
+      "title": "The Master of Disguise",
+      "year": 2002
+    },
+    {
+      "title": "Men in Black II",
+      "year": 2002
+    },
+    {
+      "title": "Scooby-Doo",
+      "year": 2002
+    },
+    {
+      "title": "Spirit: Stallion of the Cimarron",
+      "year": 2002
+    },
+    {
+      "title": "Star Wars: Episode II – Attack of the Clones",
+      "year": 2002
+    },
+    {
+      "title": "Ice Age",
+      "year": 2002
+    },
+    {
+      "title": "A Beautiful Mind",
+      "year": 2001
+    },
+    {
+      "title": "Scooby-Doo and the Cyber Chase",
+      "year": 2001
+    },
+    {
+      "title": "Monsters, Inc.",
+      "year": 2001
+    },
+    {
+      "title": "Shrek",
+      "year": 2001
+    },
+    {
+      "title": "Donnie Darko",
+      "year": 2001
+    },
+    {
+      "title": "How the Grinch Stole Christmas",
+      "year": 2000
+    },
+    {
+      "title": "X-Men",
+      "year": 2000
+    },
+    {
+      "title": "The Patriot",
+      "year": 2000
+    },
+    {
+      "title": "Gladiator",
+      "year": 2000
+    },
+    {
+      "title": "Pokémon the Movie 2000",
+      "year": 1999
+    },
+    {
+      "title": "Olive, the Other Reindeer",
+      "year": 1999
+    },
+    {
+      "title": "The Matrix",
+      "year": 1999
+    },
+    {
+      "title": "The Prince of Egypt",
+      "year": 1998
+    },
+    {
+      "title": "A Bug's Life",
+      "year": 1998
+    },
+    {
+      "title": "Star Wars: Episode I – The Phantom Menace",
+      "year": 1999
+    },
+    {
+      "title": "Saving Private Ryan",
+      "year": 1998
+    },
+    {
+      "title": "Pokémon: The First Movie",
+      "year": 1998
+    },
+    {
+      "title": "Pocahontas",
+      "year": 1995
+    },
+    {
+      "title": "Romeo + Juliet",
+      "year": 1996
+    },
+    {
+      "title": "Gattaca",
+      "year": 1997
+    },
+    {
+      "title": "Mulan",
+      "year": 1998
+    },
+    {
+      "title": "The Santa Clause",
+      "year": 1994
+    },
+    {
+      "title": "The Lion King",
+      "year": 1994
+    },
+    {
+      "title": "Naked Gun 33⅓: The Final Insult",
+      "year": 1994
+    },
+    {
+      "title": "Jurassic Park",
+      "year": 1993
+    },
+    {
+      "title": "Aladdin",
+      "year": 1992
+    },
+    {
+      "title": "The Naked Gun 2½: The Smell of Fear",
+      "year": 1991
+    },
+    {
+      "title": "My Cousin Vinny",
+      "year": 1992
+    },
+    {
+      "title": "Wayne's World",
+      "year": 1992
+    },
+    {
+      "title": "Samurai Cop",
+      "year": 1991
+    },
+    {
+      "title": "The Silence of the Lambs",
+      "year": 1991
+    },
+    {
+      "title": "Beauty and the Beast",
+      "year": 1991
+    },
+    {
+      "title": "Back to the Future Part III",
+      "year": 1990
+    },
+    {
+      "title": "Back to the Future Part II",
+      "year": 1989
+    },
+    {
+      "title": "The Naked Gun: From the Files of Police Squad!",
+      "year": 1988
+    },
+    {
+      "title": "Heathers",
+      "year": 1989
+    },
+    {
+      "title": "The Breakfast Club",
+      "year": 1985
+    },
+    {
+      "title": "Blade Runner",
+      "year": 1982
+    },
+    {
+      "title": "Airplane II: The Sequel",
+      "year": 1982
+    },
+    {
+      "title": "WarGames",
+      "year": 1983
+    },
+    {
+      "title": "A Christmas Story",
+      "year": 1983
+    },
+    {
+      "title": "Gremlins",
+      "year": 1984
+    },
+    {
+      "title": "The Karate Kid",
+      "year": 1984
+    },
+    {
+      "title": "The Empire Strikes Back",
+      "year": 1980
+    },
+    {
+      "title": "Willy Wonka & the Chocolate Factory",
+      "year": 1971
+    },
+    {
+      "title": "Frosty the Snowman",
+      "year": 1969
+    },
+    {
+      "title": "Santa Claus Is Comin' to Town",
+      "year": 1970
+    },
+    {
+      "title": "Rear Window",
+      "year": 1954
+    },
+    {
+      "title": "Breakfast at Tiffany's",
+      "year": 1961
+    },
+    {
+      "title": "Rudolph the Red-Nosed Reindeer",
+      "year": 1964
+    },
+    {
+      "title": "It's the Great Pumpkin, Charlie Brown",
+      "year": 1966
+    },
+    {
+      "title": "How the Grinch Stole Christmas!",
+      "year": 1966
+    },
+    {
+      "title": "Bambi",
+      "year": 1942
+    },
+    {
+      "title": "Snow White and the Seven Dwarfs",
+      "year": 1937
+    },
+    {
+      "title": "American Beauty",
+      "year": 1999
+    },
+    {
+      "title": "Se7en",
+      "year": 1995
+    },
+    {
+      "title": "The Usual Suspects",
+      "year": 1995
+    },
+    {
+      "title": "Austin Powers in Goldmember",
+      "year": 2002
+    },
+    {
+      "title": "La La Land",
+      "year": 2016
+    },
+    {
+      "title": "Zombieland",
+      "year": 2009
+    },
+    {
+      "title": "Taxi Driver",
+      "year": 1976
+    },
+    {
+      "title": "Children of Men",
+      "year": 2006
+    },
+    {
+      "title": "Gangs of New York",
+      "year": 2002
+    },
+    {
+      "title": "Life of Brian",
+      "year": 1979
+    },
+    {
+      "title": "Spy Hard",
+      "year": 1996
+    },
+    {
+      "title": "Inception",
+      "year": 2010
+    },
+    {
+      "title": "Dunkirk",
+      "year": 2017
+    },
+    {
+      "title": "Batman Begins",
+      "year": 2005
+    },
+    {
+      "title": "Now You See Me",
+      "year": 2013
+    },
+    {
+      "title": "Cars 2",
+      "year": 2011
+    },
+    {
+      "title": "Journey 2: The Mysterious Island",
+      "year": 2012
+    },
+    {
+      "title": "Spectre",
+      "year": 2015
+    },
+    {
+      "title": "Quantum of Solace",
+      "year": 2008
+    },
+    {
+      "title": "Casino Royale",
+      "year": 2006
+    },
+    {
+      "title": "Goldfinger",
+      "year": 1964
+    },
+    {
+      "title": "Dr. No",
+      "year": 1962
+    },
+    {
+      "title": "GoldenEye",
+      "year": 1995
+    },
+    {
+      "title": "Die Another Day",
+      "year": 2002
+    },
+    {
+      "title": "Thunderball",
+      "year": 1965
+    },
+    {
+      "title": "On Her Majesty's Secret Service",
+      "year": 1969
+    },
+    {
+      "title": "The World Is Not Enough",
+      "year": 1999
+    },
+    {
+      "title": "Tomorrow Never Dies",
+      "year": 1997
+    },
+    {
+      "title": "Moonraker",
+      "year": 1979
+    },
+    {
+      "title": "Eternal Sunshine of the Spotless Mind",
+      "year": 2004
+    },
+    {
+      "title": "Casablanca",
+      "year": 1942
+    },
+    {
+      "title": "The Blues Brothers",
+      "year": 1980
+    },
+    {
+      "title": "Roman Holiday",
+      "year": 1953
+    },
+    {
+      "title": "One Flew Over the Cuckoo's Nest",
+      "year": 1975
+    },
+    {
+      "title": "Alien",
+      "year": 1979
+    },
+    {
+      "title": "The Birds",
+      "year": 1963
+    },
+    {
+      "title": "Prometheus",
+      "year": 2012
+    },
+    {
+      "title": "V for Vendetta",
+      "year": 2005
+    },
+    {
+      "title": "Over the Garden Wall",
+      "year": 2014
+    },
+    {
+      "title": "Cowboys & Aliens",
+      "year": 2011
+    },
+    {
+      "title": "Young Frankenstein",
+      "year": 1974
+    },
+    {
+      "title": "RoboCop",
+      "year": 1987
+    },
+    {
+      "title": "Batman v Superman: Dawn of Justice",
+      "year": 2016
+    },
+    {
+      "title": "Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb",
+      "year": 1964
+    },
+    {
+      "title": "The Graduate",
+      "year": 1967
+    },
+    {
+      "title": "Her",
+      "year": 2013
+    },
+    {
+      "title": "What If",
+      "year": 2013
+    },
+    {
+      "title": "Lost in Translation",
+      "year": 2003
+    },
+    {
+      "title": "The Royal Tenenbaums",
+      "year": 2001
+    },
+    {
+      "title": "Charlie's Angels",
+      "year": 2000
+    },
+    {
+      "title": "Ghostbusters II",
+      "year": 1989
+    },
+    {
+      "title": "Scrooged",
+      "year": 1988
+    },
+    {
+      "title": "Garfield",
+      "year": 2004
+    },
+    {
+      "title": "Stripes",
+      "year": 1981
+    },
+    {
+      "title": "Osmosis Jones",
+      "year": 2001
+    },
+    {
+      "title": "Garfield: A Tail of Two Kitties",
+      "year": 2006
+    },
+    {
+      "title": "Fight Club",
+      "year": 1999
+    },
+    {
+      "title": "Dead Poets Society",
+      "year": 1989
+    },
+    {
+      "title": "American Psycho",
+      "year": 2000
+    },
+    {
+      "title": "Memento",
+      "year": 2000
+    },
+    {
+      "title": "Submarine",
+      "year": 2010
+    },
+    {
+      "title": "The Social Network",
+      "year": 2010
+    },
+    {
+      "title": "The Perks of Being a Wallflower",
+      "year": 2012
+    },
+    {
+      "title": "The Big Short",
+      "year": 2015
+    },
+    {
+      "title": "Logan",
+      "year": 2017
+    },
+    {
+      "title": "10 Cloverfield Lane",
+      "year": 2016
+    },
+    {
+      "title": "Bird Box",
+      "year": 2018
+    },
+    {
+      "title": "Die Hard",
+      "year": 1988
+    },
+    {
+      "title": "Die Hard 2",
+      "year": 1990
+    },
+    {
+      "title": "Live Free or Die Hard",
+      "year": 2007
+    },
+    {
+      "title": "A Good Day to Die Hard",
+      "year": 2013
+    },
+    {
+      "title": "Smokey and the Bandit",
+      "year": 1977
+    },
+    {
+      "title": "The Dukes of Hazzard",
+      "year": 2005
+    },
+    {
+      "title": "The Cannonball Run",
+      "year": 1981
+    },
+    {
+      "title": "Hooper",
+      "year": 1978
+    },
+    {
+      "title": "Smokey and the Bandit II",
+      "year": 1980
+    },
+    {
+      "title": "First Blood",
+      "year": 1982
+    },
+    {
+      "title": "The Expendables",
+      "year": 2010
+    },
+    {
+      "title": "Rocky IV",
+      "year": 1985
+    },
+    {
+      "title": "Antz",
+      "year": 1998
+    },
+    {
+      "title": "Rocky III",
+      "year": 1982
+    },
+    {
+      "title": "Rocky II",
+      "year": 1979
+    },
+    {
+      "title": "The Expendables 2",
+      "year": 2012
+    },
+    {
+      "title": "Demolition Man",
+      "year": 1993
+    },
+    {
+      "title": "Rambo",
+      "year": 2008
+    },
+    {
+      "title": "Rambo: First Blood Part II",
+      "year": 1985
+    },
+    {
+      "title": "Rambo III",
+      "year": 1988
+    },
+    {
+      "title": "Dredd",
+      "year": 2012
+    },
+    {
+      "title": "Fifty Shades of Grey",
+      "year": 2015
+    },
+    {
+      "title": "P.S. I Love You",
+      "year": 2007
+    },
+    {
+      "title": "Love Actually",
+      "year": 2003
+    },
+    {
+      "title": "The Hobbit: An Unexpected Journey",
+      "year": 2012
+    },
+    {
+      "title": "The Hobbit: The Desolation of Smaug",
+      "year": 2013
+    },
+    {
+      "title": "The Hobbit: The Battle of the Five Armies",
+      "year": 2014
+    },
+    {
+      "title": "The Life Aquatic with Steve Zissou",
+      "year": 2004
+    },
+    {
+      "title": "Return of the Jedi",
+      "year": 1983
+    },
+    {
+      "title": "Raiders of the Lost Ark",
+      "year": 1981
+    },
+    {
+      "title": "Apocalypse Now",
+      "year": 1979
+    },
+    {
+      "title": "Indiana Jones and the Kingdom of the Crystal Skull",
+      "year": 2008
+    },
+    {
+      "title": "Indiana Jones and the Temple of Doom",
+      "year": 1984
+    },
+    {
+      "title": "The Fugitive",
+      "year": 1993
+    },
+    {
+      "title": "Air Force One",
+      "year": 1997
+    },
+    {
+      "title": "The Star Wars Holiday Special",
+      "year": 1978
+    },
+    {
+      "title": "Darkest Hour",
+      "year": 2017
+    },
+    {
+      "title": "The Wolf of Wall Street",
+      "year": 2013
+    },
+    {
+      "title": "21 Jump Street",
+      "year": 2012
+    },
+    {
+      "title": "Argo",
+      "year": 2012
+    },
+    {
+      "title": "Lincoln",
+      "year": 2012
+    },
+    {
+      "title": "Tropic Thunder",
+      "year": 2008
+    },
+    {
+      "title": "Star Trek",
+      "year": 2009
+    },
+    {
+      "title": "Inglourious Basterds",
+      "year": 2009
+    },
+    {
+      "title": "In Bruges",
+      "year": 2008
+    },
+    {
+      "title": "No Country for Old Men",
+      "year": 2007
+    },
+    {
+      "title": "Pirates of the Caribbean: At World's End",
+      "year": 2007
+    },
+    {
+      "title": "Reservoir Dogs",
+      "year": 1992
+    },
+    {
+      "title": "Pirates of the Caribbean: Dead Man's Chest",
+      "year": 2006
+    },
+    {
+      "title": "Pirates of the Caribbean: On Stranger Tides",
+      "year": 2011
+    },
+    {
+      "title": "The Lone Ranger",
+      "year": 2013
+    },
+    {
+      "title": "The Da Vinci Code",
+      "year": 2006
+    },
+    {
+      "title": "Mission: Impossible III",
+      "year": 2006
+    },
+    {
+      "title": "King Kong",
+      "year": 2005
+    },
+    {
+      "title": "Charlie and the Chocolate Factory",
+      "year": 2005
+    },
+    {
+      "title": "Minority Report",
+      "year": 2002
+    },
+    {
+      "title": "Cast Away",
+      "year": 2000
+    },
+    {
+      "title": "10 Things I Hate About You",
+      "year": 1999
+    },
+    {
+      "title": "Life Is Beautiful",
+      "year": 1997
+    },
+    {
+      "title": "The Truman Show",
+      "year": 1998
+    },
+    {
+      "title": "The Lost World: Jurassic Park",
+      "year": 1997
+    },
+    {
+      "title": "Independence Day",
+      "year": 1996
+    },
+    {
+      "title": "Mission: Impossible",
+      "year": 1996
+    },
+    {
+      "title": "Fargo",
+      "year": 1996
+    },
+    {
+      "title": "Happy Gilmore",
+      "year": 1996
+    },
+    {
+      "title": "Apollo 13",
+      "year": 1995
+    },
+    {
+      "title": "Braveheart",
+      "year": 1995
+    },
+    {
+      "title": "National Lampoon's Christmas Vacation",
+      "year": 1989
+    },
+    {
+      "title": "Edward Scissorhands",
+      "year": 1990
+    },
+    {
+      "title": "Terminator 2: Judgment Day",
+      "year": 1991
+    },
+    {
+      "title": "Planes, Trains and Automobiles",
+      "year": 1987
+    },
+    {
+      "title": "Predator",
+      "year": 1987
+    },
+    {
+      "title": "Aliens",
+      "year": 1986
+    },
+    {
+      "title": "The Terminator",
+      "year": 1984
+    },
+    {
+      "title": "Clue",
+      "year": 1985
+    },
+    {
+      "title": "A Fish Called Wanda",
+      "year": 1988
+    },
+    {
+      "title": "The Shining",
+      "year": 1980
+    },
+    {
+      "title": "2001: A Space Odyssey",
+      "year": 1968
+    },
+    {
+      "title": "They Shall Not Grow Old",
+      "year": 2018
+    },
+    {
+      "title": "Close Encounters of the Third Kind",
+      "year": 1977
+    },
+    {
+      "title": "Annie Hall",
+      "year": 1977
+    },
+    {
+      "title": "The Exorcist",
+      "year": 1973
+    },
+    {
+      "title": "Blazing Saddles",
+      "year": 1974
+    },
+    {
+      "title": "Jaws",
+      "year": 1975
+    },
+    {
+      "title": "The Producers",
+      "year": 2005
+    },
+    {
+      "title": "Clear History",
+      "year": 2013
+    },
+    {
+      "title": "Larry David: Curb Your Enthusiasm",
+      "year": 1999
+    },
+    {
+      "title": "To Kill a Mockingbird",
+      "year": 1962
+    },
+    {
+      "title": "Vertigo",
+      "year": 1958
+    },
+    {
+      "title": "Sharktopus",
+      "year": 2010
+    },
+    {
+      "title": "Airplane vs Volcano",
+      "year": 2014
+    },
+    {
+      "title": "Plan 9 from Outer Space",
+      "year": 1957
+    },
+    {
+      "title": "Santa Claus Conquers the Martians",
+      "year": 1964
+    },
+    {
+      "title": "Patton",
+      "year": 1970
+    },
+    {
+      "title": "Reign of Fire",
+      "year": 2002
+    },
+    {
+      "title": "Black Hawk Down",
+      "year": 2001
+    },
+    {
+      "title": "King Arthur",
+      "year": 2004
+    },
+    {
+      "title": "Letters from Iwo Jima",
+      "year": 2006
+    },
+    {
+      "title": "Band of Brothers",
+      "year": 2001
+    },
+    {
+      "title": "Fury",
+      "year": 2014
+    },
+    {
+      "title": "Enemy at the Gates",
+      "year": 2001
+    },
+    {
+      "title": "The Mummy",
+      "year": 1999
+    },
+    {
+      "title": "The Mummy Returns",
+      "year": 2001
+    },
+    {
+      "title": "The Bourne Legacy",
+      "year": 2012
+    },
+    {
+      "title": "The Mummy: Tomb of the Dragon Emperor",
+      "year": 2008
+    },
+    {
+      "title": "The Bourne Ultimatum",
+      "year": 2007
+    },
+    {
+      "title": "The Bourne Identity",
+      "year": 2002
+    },
+    {
+      "title": "The Bourne Supremacy",
+      "year": 2004
+    },
+    {
+      "title": "True Grit",
+      "year": 2010
+    },
+    {
+      "title": "The Monuments Men",
+      "year": 2014
+    },
+    {
+      "title": "Finding Forrester",
+      "year": 2000
+    },
+    {
+      "title": "The Right Stuff",
+      "year": 1983
+    },
+    {
+      "title": "Glory",
+      "year": 1989
+    },
+    {
+      "title": "Lucy",
+      "year": 2014
+    },
+    {
+      "title": "Iron Sky",
+      "year": 2012
+    },
+    {
+      "title": "North by Northwest",
+      "year": 1959
+    },
+    {
+      "title": "Rush",
+      "year": 2013
+    },
+    {
+      "title": "Barbarella",
+      "year": 1968
+    },
+    {
+      "title": "Furious 7",
+      "year": 2015
+    },
+    {
+      "title": "The Fate of the Furious",
+      "year": 2017
+    },
+    {
+      "title": "Fast & Furious 6",
+      "year": 2013
+    },
+    {
+      "title": "The Fast and the Furious",
+      "year": 2001
+    },
+    {
+      "title": "The Fast and the Furious: Tokyo Drift",
+      "year": 2006
+    },
+    {
+      "title": "Fast Five",
+      "year": 2011
+    },
+    {
+      "title": "Fast & Furious",
+      "year": 2009
+    },
+    {
+      "title": "Eagle Eye",
+      "year": 2008
+    },
+    {
+      "title": "Halloween",
+      "year": 1978
+    },
+    {
+      "title": "Halloween",
+      "year": 2007
+    },
+    {
+      "title": "Olympus Has Fallen",
+      "year": 2013
+    },
+    {
+      "title": "Red Dawn",
+      "year": 2012
+    },
+    {
+      "title": "Walking with Dinosaurs",
+      "year": 1999
+    },
+    {
+      "title": "Armageddon",
+      "year": 1998
+    },
+    {
+      "title": "Looper",
+      "year": 2012
+    },
+    {
+      "title": "Twelve Monkeys",
+      "year": 1995
+    },
+    {
+      "title": "RED",
+      "year": 2010
+    },
+    {
+      "title": "Christian Mingle",
+      "year": 2014
+    },
+    {
+      "title": "Planet of the Apes",
+      "year": 1968
+    },
+    {
+      "title": "Planet of the Apes",
+      "year": 2001
+    },
+    {
+      "title": "Rise of the Planet of the Apes",
+      "year": 2011
+    },
+    {
+      "title": "War for the Planet of the Apes",
+      "year": 2017
+    },
+    {
+      "title": "Beneath the Planet of the Apes",
+      "year": 1970
+    },
+    {
+      "title": "Escape from the Planet of the Apes",
+      "year": 1971
+    },
+    {
+      "title": "Batman",
+      "year": 1989
+    },
+    {
+      "title": "Batman",
+      "year": 1966
+    },
+    {
+      "title": "The Thing",
+      "year": 1982
+    },
+    {
+      "title": "The Thing",
+      "year": 2011
+    },
+    {
+      "title": "Captain Phillips",
+      "year": 2013
+    },
+    {
+      "title": "The Simpsons Movie",
+      "year": 2007
+    },
+    {
+      "title": "Sully",
+      "year": 2016
+    },
+    {
+      "title": "Angels & Demons",
+      "year": 2009
+    },
+    {
+      "title": "The Pacific",
+      "year": 2010
+    },
+    {
+      "title": "Colonia",
+      "year": 2015
+    },
+    {
+      "title": "Solo: A Star Wars Story",
+      "year": 2018
+    },
+    {
+      "title": "Black Mirror: Hang the DJ",
+      "year": 2017
+    },
+    {
+      "title": "Black Mirror: USS Callister",
+      "year": 2017
+    },
+    {
+      "title": "Black Mirror: Metalhead",
+      "year": 2017
+    },
+    {
+      "title": "Black Mirror: Shut Up and Dance",
+      "year": 2016
+    },
+    {
+      "title": "Black Mirror: Playtest",
+      "year": 2016
+    },
+    {
+      "title": "Black Mirror: Men Against Fire",
+      "year": 2016
+    },
+    {
+      "title": "Black Mirror: San Junipero",
+      "year": 2016
+    },
+    {
+      "title": "The Founder",
+      "year": 2016
+    },
+    {
+      "title": "The Secret Life of Pets",
+      "year": 2016
+    },
+    {
+      "title": "Sherlock: The Abominable Bride",
+      "year": 2016
+    },
+    {
+      "title": "Mission: Impossible – Rogue Nation",
+      "year": 2015
+    },
+    {
+      "title": "Black Mirror: The Waldo Moment",
+      "year": 2013
+    },
+    {
+      "title": "Black Mirror: White Bear",
+      "year": 2013
+    },
+    {
+      "title": "Total Recall",
+      "year": 2012
+    },
+    {
+      "title": "Seeking a Friend for the End of the World",
+      "year": 2012
+    },
+    {
+      "title": "Black Mirror: The National Anthem",
+      "year": 2011
+    },
+    {
+      "title": "Mission: Impossible – Ghost Protocol",
+      "year": 2011
+    },
+    {
+      "title": "Black Mirror: Fifteen Million Merits",
+      "year": 2011
+    },
+    {
+      "title": "Black Mirror: The Entire History of You",
+      "year": 2011
+    },
+    {
+      "title": "Terminator Salvation",
+      "year": 2009
+    },
+    {
+      "title": "Paranormal Activity",
+      "year": 2007
+    },
+    {
+      "title": "Evan Almighty",
+      "year": 2007
+    },
+    {
+      "title": "Talladega Nights: The Ballad of Ricky Bobby",
+      "year": 2006
+    },
+    {
+      "title": "Sky High",
+      "year": 2005
+    },
+    {
+      "title": "The 40 Year Old Virgin",
+      "year": 2005
+    },
+    {
+      "title": "Shaun of the Dead",
+      "year": 2004
+    },
+    {
+      "title": "Super Size Me",
+      "year": 2004
+    },
+    {
+      "title": "Black Mirror: Bandersnatch",
+      "year": 2018
+    },
+    {
+      "title": "Black Mirror: White Christmas",
+      "year": 2014
+    },
+    {
+      "title": "Black Mirror: Black Museum",
+      "year": 2017
+    },
+    {
+      "title": "Black Mirror: Arkangel",
+      "year": 2017
+    },
+    {
+      "title": "Black Mirror: Crocodile",
+      "year": 2017
+    },
+    {
+      "title": "Black Mirror: Nosedive",
+      "year": 2016
+    },
+    {
+      "title": "Black Mirror: Be Right Back",
+      "year": 2013
+    },
+    {
+      "title": "Black Mirror: Hated in the Nation",
+      "year": 2016
+    },
+    {
+      "title": "Terminator 3: Rise of the Machines",
+      "year": 2003
+    },
+    {
+      "title": "Bruce Almighty",
+      "year": 2003
+    },
+    {
+      "title": "Galaxy Quest",
+      "year": 1999
+    },
+    {
+      "title": "Mission: Impossible II",
+      "year": 2000
+    },
+    {
+      "title": "The Boondock Saints",
+      "year": 1999
+    },
+    {
+      "title": "George of the Jungle",
+      "year": 1997
+    },
+    {
+      "title": "Escape from L.A.",
+      "year": 1996
+    },
+    {
+      "title": "101 Dalmatians",
+      "year": 1996
+    },
+    {
+      "title": "Four Weddings and a Funeral",
+      "year": 1994
+    },
+    {
+      "title": "Last Action Hero",
+      "year": 1993
+    },
+    {
+      "title": "Troll 2",
+      "year": 1990
+    },
+    {
+      "title": "Tremors",
+      "year": 1990
+    },
+    {
+      "title": "Spaceballs",
+      "year": 1987
+    },
+    {
+      "title": "Star Trek IV: The Voyage Home",
+      "year": 1986
+    },
+    {
+      "title": "Top Gun",
+      "year": 1986
+    },
+    {
+      "title": "Labyrinth",
+      "year": 1986
+    },
+    {
+      "title": "E.T. the Extra-Terrestrial",
+      "year": 1982
+    },
+    {
+      "title": "Escape from New York",
+      "year": 1981
+    },
+    {
+      "title": "The Jerk",
+      "year": 1979
+    },
+    {
+      "title": "Bullitt",
+      "year": 1968
+    },
+    {
+      "title": "The Great Escape",
+      "year": 1963
+    },
+    {
+      "title": "The Wizard of Oz",
+      "year": 1939
+    },
+    {
+      "title": "The Italian Job",
+      "year": 2003
+    },
+    {
+      "title": "The Transporter",
+      "year": 2002
+    },
+    {
+      "title": "The Pink Panther",
+      "year": 2006
+    },
+    {
+      "title": "Safe",
+      "year": 2012
+    },
+    {
+      "title": "The Pink Panther 2",
+      "year": 2009
+    },
+    {
+      "title": "Oblivion",
+      "year": 2013
+    },
+    {
+      "title": "Sharknado",
+      "year": 2013
+    },
+    {
+      "title": "Sleepwalk with Me",
+      "year": 2012
+    },
+    {
+      "title": "Red Tails",
+      "year": 2012
+    },
+    {
+      "title": "Robin Hood",
+      "year": 2010
+    },
+    {
+      "title": "The Jungle Book",
+      "year": 1967
+    },
+    {
+      "title": "Chicago",
+      "year": 2002
+    },
+    {
+      "title": "Amadeus",
+      "year": 1984
+    },
+    {
+      "title": "The King's Speech",
+      "year": 2010
+    },
+    {
+      "title": "The Vietnam War",
+      "year": 2017
+    },
+    {
+      "title": "What We Do in the Shadows",
+      "year": 2014
+    },
+    {
+      "title": "Caddyshack",
+      "year": 1980
+    },
+    {
+      "title": "England Is Mine",
+      "year": 2017
+    },
+    {
+      "title": "Love and Death",
+      "year": 1975
+    },
+    {
+      "title": "The Maltese Falcon",
+      "year": 1941
+    },
+    {
+      "title": "High Fidelity",
+      "year": 2000
+    },
+    {
+      "title": "One Night Stand: Flight of the Conchords",
+      "year": 2005
+    },
+    {
+      "title": "Flight of the Conchords: Live in London",
+      "year": 2018
+    },
+    {
+      "title": "Avengers: Endgame",
+      "year": 2019
+    },
+    {
+      "title": "Pokémon Detective Pikachu",
+      "year": 2019
+    },
+    {
+      "title": "Eighth Grade",
+      "year": 2018
+    },
+    {
+      "title": "Spider-Man: Into the Spider-Verse",
+      "year": 2018
+    },
+    {
+      "title": "Pete Holmes: Dirty Clean",
+      "year": 2018
+    },
+    {
+      "title": "50/50",
+      "year": 2011
+    },
+    {
+      "title": "Vice",
+      "year": 2018
+    },
+    {
+      "title": "Game of Thrones: The Last Watch",
+      "year": 2019
+    },
+    {
+      "title": "The Lobster",
+      "year": 2015
+    },
+    {
+      "title": "Swiss Army Man",
+      "year": 2016
+    },
+    {
+      "title": "Fear and Loathing in Las Vegas",
+      "year": 1998
+    },
+    {
+      "title": "The Edge of Seventeen",
+      "year": 2016
+    },
+    {
+      "title": "Pulp Fiction",
+      "year": 1994
+    },
+    {
+      "title": "Scarface",
+      "year": 1983
+    },
+    {
+      "title": "Black Mirror: Striking Vipers",
+      "year": 2019
+    },
+    {
+      "title": "Black Mirror: Rachel, Jack and Ashley Too",
+      "year": 2019
+    },
+    {
+      "title": "Black Mirror: Smithereens",
+      "year": 2019
+    },
+    {
+      "title": "We Are Not Princesses",
+      "year": 2018
+    },
+    {
+      "title": "Chernobyl",
+      "year": 2019
+    },
+    {
+      "title": "Always Be My Maybe",
+      "year": 2019
+    },
+    {
+      "title": "BlacKkKlansman",
+      "year": 2018
+    },
+    {
+      "title": "The Last Romantic",
+      "year": 2018
+    },
+    {
+      "title": "I Am Easy to Find",
+      "year": 2019
+    },
+    {
+      "title": "Manhattan",
+      "year": 1979
+    },
+    {
+      "title": "O Brother, Where Art Thou?",
+      "year": 2000
+    },
+    {
+      "title": "Full Metal Jacket",
+      "year": 1987
+    },
+    {
+      "title": "In the Loop",
+      "year": 2009
+    },
+    {
+      "title": "Juno",
+      "year": 2007
+    },
+    {
+      "title": "Spider-Man: Far From Home",
+      "year": 2019
+    },
+    {
+      "title": "Jojo Rabbit",
+      "year": 2019
+    },
+    {
+      "title": "Parasite",
+      "year": 2019
+    },
+    {
+      "title": "A Clockwork Orange",
+      "year": 1971
+    },
+    {
+      "title": "Hunt for the Wilderpeople",
+      "year": 2016
+    },
+    {
+      "title": "Kick-Ass",
+      "year": 2010
+    },
+    {
+      "title": "Yesterday",
+      "year": 2019
+    },
+    {
+      "title": "Ford v Ferrari",
+      "year": 2019
+    },
+    {
+      "title": "Pride & Prejudice",
+      "year": 2005
+    },
+    {
+      "title": "Star Wars: The Rise of Skywalker",
+      "year": 2019
+    },
+    {
+      "title": "Marriage Story",
+      "year": 2019
+    },
+    {
+      "title": "Lady Bird",
+      "year": 2017
+    },
+    {
+      "title": "Palm Springs",
+      "year": 2020
+    },
+    {
+      "title": "The Squid and the Whale",
+      "year": 2005
+    },
+    {
+      "title": "John Mulaney & The Sack Lunch Bunch",
+      "year": 2019
+    },
+    {
+      "title": "Arrival",
+      "year": 2016
+    },
+    {
+      "title": "Midsommar",
+      "year": 2019
+    },
+    {
+      "title": "Pan's Labyrinth",
+      "year": 2006
+    },
+    {
+      "title": "Butch Cassidy and the Sundance Kid",
+      "year": 1969
+    },
+    {
+      "title": "Fiddler on the Roof",
+      "year": 1971
+    },
+    {
+      "title": "Synecdoche, New York",
+      "year": 2008
+    },
+    {
+      "title": "Top Secret!",
+      "year": 1984
+    },
+    {
+      "title": "Being John Malkovich",
+      "year": 1999
+    },
+    {
+      "title": "Chungking Express",
+      "year": 1994
+    },
+    {
+      "title": "Clueless",
+      "year": 1995
+    },
+    {
+      "title": "In the Mood for Love",
+      "year": 2000
+    },
+    {
+      "title": "Legally Blonde",
+      "year": 2001
+    },
+    {
+      "title": "The Worst Person in the World",
+      "year": 2021
+    },
+    {
+      "title": "High School Musical 2",
+      "year": 2007
+    },
+    {
+      "title": "Friendship",
+      "year": 2024
+    },
+    {
+      "title": "Furiosa: A Mad Max Saga",
+      "year": 2024
+    },
+    {
+      "title": "Before Sunrise",
+      "year": 1995
+    },
+    {
+      "title": "Before Sunset",
+      "year": 2004
+    },
+    {
+      "title": "Before Midnight",
+      "year": 2013
+    },
+    {
+      "title": "Grand Theft Hamlet",
+      "year": 2024
+    },
+    {
+      "title": "Conclave",
+      "year": 2024
+    },
+    {
+      "title": "Perfect Days",
+      "year": 2023
+    },
+    {
+      "title": "Days of Being Wild",
+      "year": 1990
+    },
+    {
+      "title": "The Green Knight",
+      "year": 2021
+    },
+    {
+      "title": "Black Bag",
+      "year": 2025
+    },
+    {
+      "title": "Past Lives",
+      "year": 2023
+    },
+    {
+      "title": "Adaptation.",
+      "year": 2002
+    },
+    {
+      "title": "Dream Scenario",
+      "year": 2023
+    },
+    {
+      "title": "The Umbrellas of Cherbourg",
+      "year": 1964
+    },
+    {
+      "title": "Mickey 17",
+      "year": 2025
+    },
+    {
+      "title": "Gladiator II",
+      "year": 2024
+    },
+    {
+      "title": "Dune: Part Two",
+      "year": 2024
+    },
+    {
+      "title": "Soundtrack to a Coup d'Etat",
+      "year": 2024
+    },
+    {
+      "title": "The Holdovers",
+      "year": 2023
+    },
+    {
+      "title": "The Boy and the Heron",
+      "year": 2023
+    },
+    {
+      "title": "Barbie",
+      "year": 2023
+    },
+    {
+      "title": "Oppenheimer",
+      "year": 2023
+    },
+    {
+      "title": "Spider-Man: Across the Spider-Verse",
+      "year": 2023
+    },
+    {
+      "title": "Asteroid City",
+      "year": 2023
+    },
+    {
+      "title": "Babylon",
+      "year": 2022
+    },
+    {
+      "title": "Guillermo del Toro's Pinocchio",
+      "year": 2022
+    },
+    {
+      "title": "All Quiet on the Western Front",
+      "year": 2022
+    },
+    {
+      "title": "Glass Onion",
+      "year": 2022
+    },
+    {
+      "title": "Three Thousand Years of Longing",
+      "year": 2022
+    },
+    {
+      "title": "Aftersun",
+      "year": 2022
+    },
+    {
+      "title": "Top Gun: Maverick",
+      "year": 2022
+    },
+    {
+      "title": "Everything Everywhere All at Once",
+      "year": 2022
+    },
+    {
+      "title": "Nightmare Alley",
+      "year": 2021
+    },
+    {
+      "title": "Dune",
+      "year": 2021
+    },
+    {
+      "title": "The French Dispatch of the Liberty, Kansas Evening Sun",
+      "year": 2021
+    },
+    {
+      "title": "Cyrano",
+      "year": 2021
+    },
+    {
+      "title": "Hamilton",
+      "year": 2020
+    },
+    {
+      "title": "The Banshees of Inisherin",
+      "year": 2022
+    },
+    {
+      "title": "Knives Out",
+      "year": 2019
+    },
+    {
+      "title": "Magpie",
+      "year": 2024
+    },
+    {
+      "title": "A Real Pain",
+      "year": 2024
+    },
+    {
+      "title": "La Chimera",
+      "year": 2023
+    },
+    {
+      "title": "Fallen Leaves",
+      "year": 2023
+    },
+    {
+      "title": "1917",
+      "year": 2019
+    },
+    {
+      "title": "Watchmen",
+      "year": 2019
+    },
+    {
+      "title": "Uncut Gems",
+      "year": 2019
+    },
+    {
+      "title": "Annihilation",
+      "year": 2018
+    },
+    {
+      "title": "Gilmore Girls: A Year in the Life",
+      "year": 2016
+    },
+    {
+      "title": "The End of the Tour",
+      "year": 2015
+    },
+    {
+      "title": "Russian Ark",
+      "year": 2002
+    },
+    {
+      "title": "7 Days in Hell",
+      "year": 2015
+    },
+    {
+      "title": "Tour de Pharmacy",
+      "year": 2017
+    },
+    {
+      "title": "Conspiracy",
+      "year": 2001
+    },
+    {
+      "title": "The Zone of Interest",
+      "year": 2023
+    },
+    {
+      "title": "Superman",
+      "year": 2025
+    },
+    {
+      "title": "Anthropoid",
+      "year": 2016
+    },
+    {
+      "title": "The Naked Gun",
+      "year": 2025
+    },
+    {
+      "title": "Wild Strawberries",
+      "year": 1957
+    },
+    {
+      "title": "Seven Samurai",
+      "year": 1954
+    },
+    {
+      "title": "In the Mood for Love 2001",
+      "year": 2001
+    },
+    {
+      "title": "Aguirre, the Wrath of God",
+      "year": 1972
+    },
+    {
+      "title": "Mr. Mom",
+      "year": 1983
+    },
+    {
+      "title": "Master and Commander: The Far Side of the World",
+      "year": 2003
+    },
+    {
+      "title": "Sentimental Value",
+      "year": 2025
+    },
+    {
+      "title": "The Phantom of the Opera",
+      "year": 2004
+    },
+    {
+      "title": "Phantom of the Paradise",
+      "year": 1974
+    },
+    {
+      "title": "Interstella 5555: The 5tory of the 5ecret 5tar 5ystem",
+      "year": 2003
+    },
+    {
+      "title": "Wake Up Dead Man",
+      "year": 2025
+    },
+    {
+      "title": "Electroma",
+      "year": 2006
+    },
+    {
+      "title": "Bugonia",
+      "year": 2025
+    },
+    {
+      "title": "Much Ado About Nothing",
+      "year": 1993
+    },
+    {
+      "title": "Othello",
+      "year": 2026
+    },
+    {
+      "title": "Kingdom of Heaven",
+      "year": 2005
+    },
+    {
+      "title": "Perfect Blue",
+      "year": 1997
+    },
+    {
+      "title": "The Drama",
+      "year": 2026
+    },
+    {
+      "title": "Ridicule",
+      "year": 1996
+    },
+    {
+      "title": "The Return",
+      "year": 2024
+    },
+    {
+      "title": "Waterloo",
+      "year": 1970
+    },
+    {
+      "title": "Some Like It Hot",
+      "year": 1959
+    },
+    {
+      "title": "Les Misérables",
+      "year": 2012
+    },
+    {
+      "title": "La Belle Époque",
+      "year": 2019
+    },
+    {
+      "title": "Macbeth",
+      "year": 2015
+    },
+    {
+      "title": "Zoolander",
+      "year": 2001
+    },
+    {
+      "title": "The Odyssey",
+      "year": 2026
+    },
+    {
+      "title": "Le Notti Bianche",
+      "year": 1957
+    },
+    {
+      "title": "Lawrence of Arabia",
+      "year": 1962
+    },
+    {
+      "title": "The Inventor: Out for Blood in Silicon Valley",
+      "year": 2019
+    },
+    {
+      "title": "You Can See Everything",
+      "year": 2026
+    },
+    {
+      "title": "Broadcast News",
+      "year": 1987
+    },
+    {
+      "title": "The Cook, the Thief, His Wife & Her Lover",
+      "year": 1989
+    }
+  ],
+  "ratings": [
+    {
+      "title": "WALL·E",
+      "year": 2008,
+      "rating": 5
+    },
+    {
+      "title": "The Princess Bride",
+      "year": 1987,
+      "rating": 4
+    },
+    {
+      "title": "Rushmore",
+      "year": 1998,
+      "rating": 4
+    },
+    {
+      "title": "When Harry Met Sally...",
+      "year": 1989,
+      "rating": 4.5
+    },
+    {
+      "title": "The Iron Giant",
+      "year": 1999,
+      "rating": 4
+    },
+    {
+      "title": "About Time",
+      "year": 2013,
+      "rating": 4
+    },
+    {
+      "title": "Amélie",
+      "year": 2001,
+      "rating": 4
+    },
+    {
+      "title": "Airplane!",
+      "year": 1980,
+      "rating": 5
+    },
+    {
+      "title": "Monty Python and the Holy Grail",
+      "year": 1975,
+      "rating": 5
+    },
+    {
+      "title": "The Room",
+      "year": 2003,
+      "rating": 5
+    },
+    {
+      "title": "Popstar: Never Stop Never Stopping",
+      "year": 2016,
+      "rating": 4
+    },
+    {
+      "title": "Rocky",
+      "year": 1976,
+      "rating": 4
+    },
+    {
+      "title": "(500) Days of Summer",
+      "year": 2009,
+      "rating": 5
+    },
+    {
+      "title": "Big Fish",
+      "year": 2003,
+      "rating": 3.5
+    },
+    {
+      "title": "Skyfall",
+      "year": 2012,
+      "rating": 4
+    },
+    {
+      "title": "Avatar",
+      "year": 2009,
+      "rating": 1
+    },
+    {
+      "title": "Mean Girls",
+      "year": 2004,
+      "rating": 4
+    },
+    {
+      "title": "Gattaca",
+      "year": 1997,
+      "rating": 3.5
+    },
+    {
+      "title": "The Naked Gun 2½: The Smell of Fear",
+      "year": 1991,
+      "rating": 4
+    },
+    {
+      "title": "The Naked Gun: From the Files of Police Squad!",
+      "year": 1988,
+      "rating": 5
+    },
+    {
+      "title": "Blade Runner",
+      "year": 1982,
+      "rating": 5
+    },
+    {
+      "title": "Airplane II: The Sequel",
+      "year": 1982,
+      "rating": 4
+    },
+    {
+      "title": "Rear Window",
+      "year": 1954,
+      "rating": 4.5
+    },
+    {
+      "title": "Breakfast at Tiffany's",
+      "year": 1961,
+      "rating": 3.5
+    },
+    {
+      "title": "American Beauty",
+      "year": 1999,
+      "rating": 4.5
+    },
+    {
+      "title": "La La Land",
+      "year": 2016,
+      "rating": 4.5
+    },
+    {
+      "title": "Taxi Driver",
+      "year": 1976,
+      "rating": 4
+    },
+    {
+      "title": "Children of Men",
+      "year": 2006,
+      "rating": 3
+    },
+    {
+      "title": "Gangs of New York",
+      "year": 2002,
+      "rating": 2.5
+    },
+    {
+      "title": "Life of Brian",
+      "year": 1979,
+      "rating": 4
+    },
+    {
+      "title": "Spy Hard",
+      "year": 1996,
+      "rating": 1.5
+    },
+    {
+      "title": "Dunkirk",
+      "year": 2017,
+      "rating": 4
+    },
+    {
+      "title": "Eternal Sunshine of the Spotless Mind",
+      "year": 2004,
+      "rating": 5
+    },
+    {
+      "title": "The Blues Brothers",
+      "year": 1980,
+      "rating": 4
+    },
+    {
+      "title": "Roman Holiday",
+      "year": 1953,
+      "rating": 4
+    },
+    {
+      "title": "One Flew Over the Cuckoo's Nest",
+      "year": 1975,
+      "rating": 5
+    },
+    {
+      "title": "V for Vendetta",
+      "year": 2005,
+      "rating": 4
+    },
+    {
+      "title": "Over the Garden Wall",
+      "year": 2014,
+      "rating": 4.5
+    },
+    {
+      "title": "The Graduate",
+      "year": 1967,
+      "rating": 5
+    },
+    {
+      "title": "Her",
+      "year": 2013,
+      "rating": 3.5
+    },
+    {
+      "title": "What If",
+      "year": 2013,
+      "rating": 1
+    },
+    {
+      "title": "Memento",
+      "year": 2000,
+      "rating": 4
+    },
+    {
+      "title": "Submarine",
+      "year": 2010,
+      "rating": 3.5
+    },
+    {
+      "title": "The Social Network",
+      "year": 2010,
+      "rating": 3.5
+    },
+    {
+      "title": "The Perks of Being a Wallflower",
+      "year": 2012,
+      "rating": 3
+    },
+    {
+      "title": "The Big Short",
+      "year": 2015,
+      "rating": 4
+    },
+    {
+      "title": "Logan",
+      "year": 2017,
+      "rating": 4
+    },
+    {
+      "title": "Bird Box",
+      "year": 2018,
+      "rating": 2
+    },
+    {
+      "title": "Life Is Beautiful",
+      "year": 1997,
+      "rating": 4
+    },
+    {
+      "title": "A Fish Called Wanda",
+      "year": 1988,
+      "rating": 4
+    },
+    {
+      "title": "Annie Hall",
+      "year": 1977,
+      "rating": 4.5
+    },
+    {
+      "title": "Band of Brothers",
+      "year": 2001,
+      "rating": 4
+    },
+    {
+      "title": "The Mummy",
+      "year": 1999,
+      "rating": 5
+    },
+    {
+      "title": "The Mummy Returns",
+      "year": 2001,
+      "rating": 3
+    },
+    {
+      "title": "The Monuments Men",
+      "year": 2014,
+      "rating": 1.5
+    },
+    {
+      "title": "Lucy",
+      "year": 2014,
+      "rating": 0.5
+    },
+    {
+      "title": "Walking with Dinosaurs",
+      "year": 1999,
+      "rating": 4.5
+    },
+    {
+      "title": "Amadeus",
+      "year": 1984,
+      "rating": 4.5
+    },
+    {
+      "title": "The King's Speech",
+      "year": 2010,
+      "rating": 3.5
+    },
+    {
+      "title": "The Vietnam War",
+      "year": 2017,
+      "rating": 4.5
+    },
+    {
+      "title": "What We Do in the Shadows",
+      "year": 2014,
+      "rating": 4
+    },
+    {
+      "title": "England Is Mine",
+      "year": 2017,
+      "rating": 2
+    },
+    {
+      "title": "Love and Death",
+      "year": 1975,
+      "rating": 3.5
+    },
+    {
+      "title": "The Maltese Falcon",
+      "year": 1941,
+      "rating": 2.5
+    },
+    {
+      "title": "High Fidelity",
+      "year": 2000,
+      "rating": 3.5
+    },
+    {
+      "title": "Avengers: Endgame",
+      "year": 2019,
+      "rating": 3.5
+    },
+    {
+      "title": "Pokémon Detective Pikachu",
+      "year": 2019,
+      "rating": 4
+    },
+    {
+      "title": "Eighth Grade",
+      "year": 2018,
+      "rating": 4
+    },
+    {
+      "title": "Spider-Man: Into the Spider-Verse",
+      "year": 2018,
+      "rating": 3.5
+    },
+    {
+      "title": "Pete Holmes: Dirty Clean",
+      "year": 2018,
+      "rating": 3
+    },
+    {
+      "title": "Vice",
+      "year": 2018,
+      "rating": 3
+    },
+    {
+      "title": "Swiss Army Man",
+      "year": 2016,
+      "rating": 4
+    },
+    {
+      "title": "The Edge of Seventeen",
+      "year": 2016,
+      "rating": 3.5
+    },
+    {
+      "title": "Black Mirror: Striking Vipers",
+      "year": 2019,
+      "rating": 3
+    },
+    {
+      "title": "Black Mirror: Rachel, Jack and Ashley Too",
+      "year": 2019,
+      "rating": 2.5
+    },
+    {
+      "title": "Black Mirror: Smithereens",
+      "year": 2019,
+      "rating": 2.5
+    },
+    {
+      "title": "Chernobyl",
+      "year": 2019,
+      "rating": 4
+    },
+    {
+      "title": "Always Be My Maybe",
+      "year": 2019,
+      "rating": 2.5
+    },
+    {
+      "title": "I Am Easy to Find",
+      "year": 2019,
+      "rating": 4.5
+    },
+    {
+      "title": "Full Metal Jacket",
+      "year": 1987,
+      "rating": 4
+    },
+    {
+      "title": "Yesterday",
+      "year": 2019,
+      "rating": 3.5
+    },
+    {
+      "title": "Ford v Ferrari",
+      "year": 2019,
+      "rating": 4
+    },
+    {
+      "title": "Star Wars: The Rise of Skywalker",
+      "year": 2019,
+      "rating": 3
+    },
+    {
+      "title": "Marriage Story",
+      "year": 2019,
+      "rating": 4
+    },
+    {
+      "title": "Palm Springs",
+      "year": 2020,
+      "rating": 4.5
+    },
+    {
+      "title": "Butch Cassidy and the Sundance Kid",
+      "year": 1969,
+      "rating": 4.5
+    },
+    {
+      "title": "Synecdoche, New York",
+      "year": 2008,
+      "rating": 4.5
+    },
+    {
+      "title": "Chungking Express",
+      "year": 1994,
+      "rating": 4.5
+    },
+    {
+      "title": "Adaptation.",
+      "year": 2002,
+      "rating": 3.5
+    },
+    {
+      "title": "Conspiracy",
+      "year": 2001,
+      "rating": 3.5
+    },
+    {
+      "title": "Superman",
+      "year": 2025,
+      "rating": 3.5
+    },
+    {
+      "title": "Anthropoid",
+      "year": 2016,
+      "rating": 3
+    },
+    {
+      "title": "The Naked Gun",
+      "year": 2025,
+      "rating": 4
+    },
+    {
+      "title": "Aguirre, the Wrath of God",
+      "year": 1972,
+      "rating": 4
+    },
+    {
+      "title": "Master and Commander: The Far Side of the World",
+      "year": 2003,
+      "rating": 4
+    },
+    {
+      "title": "Sentimental Value",
+      "year": 2025,
+      "rating": 2.5
+    },
+    {
+      "title": "Interstella 5555: The 5tory of the 5ecret 5tar 5ystem",
+      "year": 2003,
+      "rating": 4
+    },
+    {
+      "title": "Wake Up Dead Man",
+      "year": 2025,
+      "rating": 4
+    },
+    {
+      "title": "Bugonia",
+      "year": 2025,
+      "rating": 3.5
+    },
+    {
+      "title": "Much Ado About Nothing",
+      "year": 1993,
+      "rating": 4
+    },
+    {
+      "title": "The Drama",
+      "year": 2026,
+      "rating": 3
+    },
+    {
+      "title": "Ridicule",
+      "year": 1996,
+      "rating": 4
+    },
+    {
+      "title": "The Return",
+      "year": 2024,
+      "rating": 2.5
+    },
+    {
+      "title": "Waterloo",
+      "year": 1970,
+      "rating": 2
+    },
+    {
+      "title": "Some Like It Hot",
+      "year": 1959,
+      "rating": 4
+    },
+    {
+      "title": "Les Misérables",
+      "year": 2012,
+      "rating": 3
+    },
+    {
+      "title": "La Belle Époque",
+      "year": 2019,
+      "rating": 4
+    },
+    {
+      "title": "Macbeth",
+      "year": 2015,
+      "rating": 3.5
+    },
+    {
+      "title": "The Odyssey",
+      "year": 2026,
+      "rating": 4
+    },
+    {
+      "title": "Le Notti Bianche",
+      "year": 1957,
+      "rating": 2
+    },
+    {
+      "title": "Lawrence of Arabia",
+      "year": 1962,
+      "rating": 4.5
+    },
+    {
+      "title": "You Can See Everything",
+      "year": 2026,
+      "rating": 5
+    },
+    {
+      "title": "Broadcast News",
+      "year": 1987,
+      "rating": 4
+    }
+  ],
+  "diary": [
+    {
+      "title": "The Cook, the Thief, His Wife & Her Lover",
+      "year": 1989,
+      "watched": "2026-11-20",
+      "rating": null,
+      "rewatch": false
+    },
+    {
+      "title": "Broadcast News",
+      "year": 1987,
+      "watched": "2026-11-17",
+      "rating": 4,
+      "rewatch": false
+    },
+    {
+      "title": "You Can See Everything",
+      "year": 2026,
+      "watched": "2026-10-15",
+      "rating": 5,
+      "rewatch": false
+    },
+    {
+      "title": "The Inventor: Out for Blood in Silicon Valley",
+      "year": 2019,
+      "watched": "2026-10-11",
+      "rating": null,
+      "rewatch": false
+    },
+    {
+      "title": "Lawrence of Arabia",
+      "year": 1962,
+      "watched": "2026-08-30",
+      "rating": 4.5,
+      "rewatch": false
+    },
+    {
+      "title": "Le Notti Bianche",
+      "year": 1957,
+      "watched": "2026-08-02",
+      "rating": 2,
+      "rewatch": false
+    },
+    {
+      "title": "The Odyssey",
+      "year": 2026,
+      "watched": "2026-07-21",
+      "rating": 4,
+      "rewatch": false
+    },
+    {
+      "title": "Zoolander",
+      "year": 2001,
+      "watched": "2026-07-19",
+      "rating": null,
+      "rewatch": false
+    },
+    {
+      "title": "The Monuments Men",
+      "year": 2014,
+      "watched": "2026-06-30",
+      "rating": 1.5,
+      "rewatch": false
+    },
+    {
+      "title": "Macbeth",
+      "year": 2015,
+      "watched": "2026-06-30",
+      "rating": 3.5,
+      "rewatch": false
+    },
+    {
+      "title": "La Belle Époque",
+      "year": 2019,
+      "watched": "2026-06-18",
+      "rating": 4,
+      "rewatch": false
+    },
+    {
+      "title": "Big Fish",
+      "year": 2003,
+      "watched": "2026-06-14",
+      "rating": 3.5,
+      "rewatch": true
+    },
+    {
+      "title": "Les Misérables",
+      "year": 2012,
+      "watched": "2026-06-07",
+      "rating": 3,
+      "rewatch": false
+    },
+    {
+      "title": "Some Like It Hot",
+      "year": 1959,
+      "watched": "2026-06-06",
+      "rating": 4,
+      "rewatch": false
+    },
+    {
+      "title": "Skyfall",
+      "year": 2012,
+      "watched": "2026-06-01",
+      "rating": 4,
+      "rewatch": true
+    },
+    {
+      "title": "Amélie",
+      "year": 2001,
+      "watched": "2026-05-30",
+      "rating": 4,
+      "rewatch": true
+    },
+    {
+      "title": "Waterloo",
+      "year": 1970,
+      "watched": "2026-05-25",
+      "rating": 2,
+      "rewatch": false
+    },
+    {
+      "title": "The Return",
+      "year": 2024,
+      "watched": "2026-05-24",
+      "rating": 2.5,
+      "rewatch": false
+    },
+    {
+      "title": "Ridicule",
+      "year": 1996,
+      "watched": "2026-05-22",
+      "rating": 4,
+      "rewatch": false
+    },
+    {
+      "title": "A Knight's Tale",
+      "year": 2001,
+      "watched": "2026-05-19",
+      "rating": null,
+      "rewatch": true
+    },
+    {
+      "title": "The Drama",
+      "year": 2026,
+      "watched": "2026-04-13",
+      "rating": 3,
+      "rewatch": false
+    },
+    {
+      "title": "Perfect Blue",
+      "year": 1997,
+      "watched": "2026-04-11",
+      "rating": null,
+      "rewatch": false
+    },
+    {
+      "title": "The Mummy Returns",
+      "year": 2001,
+      "watched": "2026-03-29",
+      "rating": 3,
+      "rewatch": true
+    },
+    {
+      "title": "Kingdom of Heaven",
+      "year": 2005,
+      "watched": "2026-03-26",
+      "rating": null,
+      "rewatch": false
+    },
+    {
+      "title": "Being John Malkovich",
+      "year": 1999,
+      "watched": "2026-03-22",
+      "rating": null,
+      "rewatch": true
+    },
+    {
+      "title": "Synecdoche, New York",
+      "year": 2008,
+      "watched": "2026-03-21",
+      "rating": 4.5,
+      "rewatch": true
+    },
+    {
+      "title": "Adaptation.",
+      "year": 2002,
+      "watched": "2026-03-21",
+      "rating": 3.5,
+      "rewatch": true
+    },
+    {
+      "title": "Othello",
+      "year": 2026,
+      "watched": "2026-03-08",
+      "rating": null,
+      "rewatch": false
+    },
+    {
+      "title": "Much Ado About Nothing",
+      "year": 1993,
+      "watched": "2026-03-06",
+      "rating": 4,
+      "rewatch": false
+    },
+    {
+      "title": "Vertigo",
+      "year": 1958,
+      "watched": "2026-02-21",
+      "rating": null,
+      "rewatch": true
+    },
+    {
+      "title": "Bugonia",
+      "year": 2025,
+      "watched": "2026-02-15",
+      "rating": 3.5,
+      "rewatch": false
+    },
+    {
+      "title": "Electroma",
+      "year": 2006,
+      "watched": "2026-01-10",
+      "rating": null,
+      "rewatch": false
+    },
+    {
+      "title": "Wake Up Dead Man",
+      "year": 2025,
+      "watched": "2025-12-23",
+      "rating": 4,
+      "rewatch": false
+    },
+    {
+      "title": "Interstella 5555: The 5tory of the 5ecret 5tar 5ystem",
+      "year": 2003,
+      "watched": "2025-12-21",
+      "rating": 4,
+      "rewatch": false
+    },
+    {
+      "title": "When Harry Met Sally...",
+      "year": 1989,
+      "watched": "2025-12-19",
+      "rating": 4.5,
+      "rewatch": true
+    },
+    {
+      "title": "Phantom of the Paradise",
+      "year": 1974,
+      "watched": "2025-12-18",
+      "rating": null,
+      "rewatch": false
+    },
+    {
+      "title": "Chungking Express",
+      "year": 1994,
+      "watched": "2025-12-07",
+      "rating": 4.5,
+      "rewatch": true
+    },
+    {
+      "title": "Butch Cassidy and the Sundance Kid",
+      "year": 1969,
+      "watched": "2025-12-03",
+      "rating": 4.5,
+      "rewatch": true
+    },
+    {
+      "title": "The Phantom of the Opera",
+      "year": 2004,
+      "watched": "2025-11-19",
+      "rating": null,
+      "rewatch": false
+    },
+    {
+      "title": "Sentimental Value",
+      "year": 2025,
+      "watched": "2025-11-16",
+      "rating": 2.5,
+      "rewatch": false
+    },
+    {
+      "title": "Master and Commander: The Far Side of the World",
+      "year": 2003,
+      "watched": "2025-11-01",
+      "rating": 4,
+      "rewatch": false
+    },
+    {
+      "title": "Mr. Mom",
+      "year": 1983,
+      "watched": "2025-10-26",
+      "rating": null,
+      "rewatch": false
+    },
+    {
+      "title": "Aguirre, the Wrath of God",
+      "year": 1972,
+      "watched": "2025-10-19",
+      "rating": 4,
+      "rewatch": false
+    },
+    {
+      "title": "Amadeus",
+      "year": 1984,
+      "watched": "2025-09-17",
+      "rating": 4.5,
+      "rewatch": false
+    },
+    {
+      "title": "In the Mood for Love",
+      "year": 2000,
+      "watched": "2025-09-13",
+      "rating": null,
+      "rewatch": false
+    },
+    {
+      "title": "In the Mood for Love 2001",
+      "year": 2001,
+      "watched": "2025-09-13",
+      "rating": null,
+      "rewatch": false
+    },
+    {
+      "title": "Seven Samurai",
+      "year": 1954,
+      "watched": "2025-08-23",
+      "rating": null,
+      "rewatch": false
+    },
+    {
+      "title": "Wild Strawberries",
+      "year": 1957,
+      "watched": "2025-08-02",
+      "rating": null,
+      "rewatch": false
+    },
+    {
+      "title": "The Naked Gun",
+      "year": 2025,
+      "watched": "2025-07-31",
+      "rating": 4,
+      "rewatch": false
+    },
+    {
+      "title": "Anthropoid",
+      "year": 2016,
+      "watched": "2025-07-30",
+      "rating": 3,
+      "rewatch": false
+    },
+    {
+      "title": "Eternal Sunshine of the Spotless Mind",
+      "year": 2004,
+      "watched": "2025-07-27",
+      "rating": 5,
+      "rewatch": false
+    },
+    {
+      "title": "The Zone of Interest",
+      "year": 2023,
+      "watched": "2025-07-05",
+      "rating": null,
+      "rewatch": false
+    },
+    {
+      "title": "Synecdoche, New York",
+      "year": 2008,
+      "watched": "2025-06-28",
+      "rating": 4.5,
+      "rewatch": false
+    },
+    {
+      "title": "Cyrano",
+      "year": 2021,
+      "watched": "2021-04-30",
+      "rating": null,
+      "rewatch": false
+    },
+    {
+      "title": "The Squid and the Whale",
+      "year": 2005,
+      "watched": "2020-07-12",
+      "rating": null,
+      "rewatch": false
+    },
+    {
+      "title": "Palm Springs",
+      "year": 2020,
+      "watched": "2020-07-10",
+      "rating": 4.5,
+      "rewatch": false
+    },
+    {
+      "title": "Lady Bird",
+      "year": 2017,
+      "watched": "2020-04-04",
+      "rating": null,
+      "rewatch": false
+    },
+    {
+      "title": "Marriage Story",
+      "year": 2019,
+      "watched": "2019-12-27",
+      "rating": 4,
+      "rewatch": false
+    },
+    {
+      "title": "Star Wars: The Rise of Skywalker",
+      "year": 2019,
+      "watched": "2019-12-20",
+      "rating": 3,
+      "rewatch": false
+    },
+    {
+      "title": "Blade Runner",
+      "year": 1982,
+      "watched": "2019-11-30",
+      "rating": 5,
+      "rewatch": false
+    },
+    {
+      "title": "Pride & Prejudice",
+      "year": 2005,
+      "watched": "2019-11-27",
+      "rating": null,
+      "rewatch": false
+    },
+    {
+      "title": "Ford v Ferrari",
+      "year": 2019,
+      "watched": "2019-11-16",
+      "rating": 4,
+      "rewatch": false
+    },
+    {
+      "title": "Yesterday",
+      "year": 2019,
+      "watched": "2019-11-13",
+      "rating": 3.5,
+      "rewatch": false
+    },
+    {
+      "title": "Kick-Ass",
+      "year": 2010,
+      "watched": "2019-11-12",
+      "rating": null,
+      "rewatch": false
+    },
+    {
+      "title": "Hunt for the Wilderpeople",
+      "year": 2016,
+      "watched": "2019-11-07",
+      "rating": null,
+      "rewatch": false
+    },
+    {
+      "title": "A Clockwork Orange",
+      "year": 1971,
+      "watched": "2019-10-30",
+      "rating": null,
+      "rewatch": false
+    },
+    {
+      "title": "Jojo Rabbit",
+      "year": 2019,
+      "watched": "2019-10-25",
+      "rating": null,
+      "rewatch": false
+    },
+    {
+      "title": "Parasite",
+      "year": 2019,
+      "watched": "2019-10-25",
+      "rating": null,
+      "rewatch": false
+    },
+    {
+      "title": "Spider-Man: Far From Home",
+      "year": 2019,
+      "watched": "2019-10-09",
+      "rating": null,
+      "rewatch": false
+    },
+    {
+      "title": "Juno",
+      "year": 2007,
+      "watched": "2019-09-13",
+      "rating": null,
+      "rewatch": false
+    },
+    {
+      "title": "Full Metal Jacket",
+      "year": 1987,
+      "watched": "2019-08-17",
+      "rating": 4,
+      "rewatch": false
+    },
+    {
+      "title": "O Brother, Where Art Thou?",
+      "year": 2000,
+      "watched": "2019-08-10",
+      "rating": null,
+      "rewatch": false
+    },
+    {
+      "title": "Manhattan",
+      "year": 1979,
+      "watched": "2019-08-02",
+      "rating": null,
+      "rewatch": false
+    },
+    {
+      "title": "About Time",
+      "year": 2013,
+      "watched": "2019-07-19",
+      "rating": 4,
+      "rewatch": false
+    },
+    {
+      "title": "I Am Easy to Find",
+      "year": 2019,
+      "watched": "2019-07-14",
+      "rating": 4.5,
+      "rewatch": false
+    },
+    {
+      "title": "The Last Romantic",
+      "year": 2018,
+      "watched": "2019-06-23",
+      "rating": null,
+      "rewatch": false
+    },
+    {
+      "title": "BlacKkKlansman",
+      "year": 2018,
+      "watched": "2019-06-21",
+      "rating": null,
+      "rewatch": false
+    },
+    {
+      "title": "Always Be My Maybe",
+      "year": 2019,
+      "watched": "2019-06-15",
+      "rating": 2.5,
+      "rewatch": false
+    },
+    {
+      "title": "Chernobyl",
+      "year": 2019,
+      "watched": "2019-06-14",
+      "rating": 4,
+      "rewatch": false
+    },
+    {
+      "title": "We Are Not Princesses",
+      "year": 2018,
+      "watched": "2019-06-13",
+      "rating": null,
+      "rewatch": false
+    },
+    {
+      "title": "Scarface",
+      "year": 1983,
+      "watched": "2019-06-11",
+      "rating": null,
+      "rewatch": false
+    },
+    {
+      "title": "Pulp Fiction",
+      "year": 1994,
+      "watched": "2019-06-10",
+      "rating": null,
+      "rewatch": false
+    },
+    {
+      "title": "Fear and Loathing in Las Vegas",
+      "year": 1998,
+      "watched": "2019-06-09",
+      "rating": null,
+      "rewatch": false
+    },
+    {
+      "title": "The Edge of Seventeen",
+      "year": 2016,
+      "watched": "2019-06-09",
+      "rating": 3.5,
+      "rewatch": false
+    },
+    {
+      "title": "Swiss Army Man",
+      "year": 2016,
+      "watched": "2019-06-08",
+      "rating": 4,
+      "rewatch": false
+    },
+    {
+      "title": "The Lobster",
+      "year": 2015,
+      "watched": "2019-06-07",
+      "rating": null,
+      "rewatch": false
+    },
+    {
+      "title": "Black Mirror: Rachel, Jack and Ashley Too",
+      "year": 2019,
+      "watched": "2019-06-07",
+      "rating": 2.5,
+      "rewatch": false
+    },
+    {
+      "title": "Black Mirror: Smithereens",
+      "year": 2019,
+      "watched": "2019-06-07",
+      "rating": 2.5,
+      "rewatch": false
+    },
+    {
+      "title": "Black Mirror: Striking Vipers",
+      "year": 2019,
+      "watched": "2019-06-06",
+      "rating": 3,
+      "rewatch": false
+    },
+    {
+      "title": "Vice",
+      "year": 2018,
+      "watched": "2019-06-04",
+      "rating": 3,
+      "rewatch": false
+    },
+    {
+      "title": "Eighth Grade",
+      "year": 2018,
+      "watched": "2019-05-29",
+      "rating": 4,
+      "rewatch": false
+    },
+    {
+      "title": "Spider-Man: Into the Spider-Verse",
+      "year": 2018,
+      "watched": "2019-05-29",
+      "rating": 3.5,
+      "rewatch": false
+    },
+    {
+      "title": "Pete Holmes: Dirty Clean",
+      "year": 2018,
+      "watched": "2019-05-29",
+      "rating": 3,
+      "rewatch": false
+    },
+    {
+      "title": "Game of Thrones: The Last Watch",
+      "year": 2019,
+      "watched": "2019-05-28",
+      "rating": null,
+      "rewatch": false
+    },
+    {
+      "title": "Pokémon Detective Pikachu",
+      "year": 2019,
+      "watched": "2019-05-25",
+      "rating": 4,
+      "rewatch": false
+    },
+    {
+      "title": "Avengers: Endgame",
+      "year": 2019,
+      "watched": "2019-04-27",
+      "rating": 3.5,
+      "rewatch": false
+    },
+    {
+      "title": "One Night Stand: Flight of the Conchords",
+      "year": 2005,
+      "watched": "2019-04-21",
+      "rating": null,
+      "rewatch": false
+    },
+    {
+      "title": "Flight of the Conchords: Live in London",
+      "year": 2018,
+      "watched": "2019-04-21",
+      "rating": null,
+      "rewatch": false
+    },
+    {
+      "title": "High Fidelity",
+      "year": 2000,
+      "watched": "2019-04-20",
+      "rating": 3.5,
+      "rewatch": false
+    },
+    {
+      "title": "The Maltese Falcon",
+      "year": 1941,
+      "watched": "2019-04-19",
+      "rating": 2.5,
+      "rewatch": false
+    },
+    {
+      "title": "Love and Death",
+      "year": 1975,
+      "watched": "2019-04-01",
+      "rating": 3.5,
+      "rewatch": false
+    },
+    {
+      "title": "Caddyshack",
+      "year": 1980,
+      "watched": "2019-03-31",
+      "rating": null,
+      "rewatch": false
+    },
+    {
+      "title": "What We Do in the Shadows",
+      "year": 2014,
+      "watched": "2019-03-24",
+      "rating": 4,
+      "rewatch": false
+    },
+    {
+      "title": "The King's Speech",
+      "year": 2010,
+      "watched": "2019-03-10",
+      "rating": 3.5,
+      "rewatch": false
+    },
+    {
+      "title": "Chicago",
+      "year": 2002,
+      "watched": "2019-03-08",
+      "rating": null,
+      "rewatch": false
+    }
+  ]
+}
