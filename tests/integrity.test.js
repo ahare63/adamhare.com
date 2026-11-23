@@ -287,7 +287,8 @@ describe('built site integrity', () => {
   it('travel page lists every museum visit above the photos, linked to its site', () => {
     const html = readFileSync(join(DIST, 'travel/index.html'), 'utf-8');
     const museums = JSON.parse(readFileSync(new URL('../src/data/museums.json', import.meta.url), 'utf-8'));
-    const section = html.slice(html.indexOf('id="museums"'), html.indexOf('id="photos"'));
+    const decode = (s) => s.replace(/&amp;/g, '&').replace(/&#39;/g, "'").replace(/&quot;/g, '"');
+    const section = decode(html.slice(html.indexOf('id="museums"'), html.indexOf('id="photos"')));
     expect(section, 'museums section before the photos').toContain('<table');
     for (const m of museums) {
       expect(section).toContain(m.link ? `<a href="${m.link}">${m.name}</a>` : m.name);
