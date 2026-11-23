@@ -12,9 +12,16 @@ import finished from '../data/finished.json';
 // the newest bullet in books.md, the Substack snapshot, the concert list, the Letterboxd
 // diary and the Live Events tab.
 const esc = (t) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-const latestBooks = newestBooks(booksMd.rawContent(), finished).map((b) => ({
-  ...b, html: esc(b.line).replace(/\*([^*]+)\*/g, '<em>$1</em>'),
-}));
+const italics = (t) => esc(t).replace(/\*([^*]+)\*/g, '<em>$1</em>');
+// The bullet's italic title goes on the main line; what follows it (author, translator,
+// editor, note) goes on the small line with the date.
+const latestBooks = newestBooks(booksMd.rawContent(), finished).map((b) => {
+  const m = b.line.match(/^\*((?:\\.|[^*\\])+)\*(.*)$/);
+  const title = m ? `<em>${esc(m[1].replace(/\\(.)/g, '$1'))}</em>` : italics(b.line);
+  const byline = m ? m[2].replace(/^\s*(by\s+|,\s*)/, '').trim() : '';
+  const when = b.finished ? longDate(b.finished) : `Book ${b.number} of ${b.year}`;
+  return { ...b, title, detail: byline ? `${italics(byline)} · ${when}` : when };
+});
 const latestBook = latestBooks[0] ?? null;
 
 const fmtMonth = (iso) =>
@@ -50,10 +57,10 @@ const columns = [latestBook, recentFilm || recentEvent, recentShow].filter(Boole
     <div class="lately-grid" style={`--cols: ${columns}`}>
       {latestBook && (
         <div>
-          <span class="label">Reading</span>
+          <span class="label">Read</span>
           <ul>
-            {latestBooks.map((b, i) => (
-              <li>{i === 0 ? 'Just finished ' : ''}<Fragment set:html={b.html} /> <span class="when">{b.finished ? longDate(b.finished) : `Book ${b.number} of ${b.year}`}</span></li>
+            {latestBooks.map((b) => (
+              <li><Fragment set:html={b.title} /> <span class="when"><Fragment set:html={b.detail} /></span></li>
             ))}
           </ul>
           <a class="more" href="/books">Everything I’ve read →</a>
@@ -61,13 +68,13 @@ const columns = [latestBook, recentFilm || recentEvent, recentShow].filter(Boole
       )}
       {(recentFilm || recentEvent) && (
         <div>
-          <span class="label">Watching</span>
+          <span class="label">Watched</span>
           <ul>
             {recentFilm && (
-              <li>Watched <em>{recentFilm.title}</em> ({recentFilm.year}) <span class="when">{longDate(recentFilm.watched)}</span></li>
+              <li><em>{recentFilm.title}</em> ({recentFilm.year}) <span class="when">{longDate(recentFilm.watched)}</span></li>
             )}
             {recentEvent && (
-              <li>Saw {recentEvent.link ? <a href={recentEvent.link}><em>{recentEvent.name}</em></a> : <em>{recentEvent.name}</em>}{recentEvent.venue ? ` at ${recentEvent.venue}` : ''} <span class="when">{recentEvent.date}</span></li>
+              <li>{recentEvent.link ? <a href={recentEvent.link}><em>{recentEvent.name}</em></a> : <em>{recentEvent.name}</em>}{recentEvent.venue ? ` at ${recentEvent.venue}` : ''} <span class="when">{recentEvent.date}</span></li>
             )}
           </ul>
           <a class="more" href="/stage-screen">Stage &amp; Screen →</a>
@@ -75,8 +82,8 @@ const columns = [latestBook, recentFilm || recentEvent, recentShow].filter(Boole
       )}
       {recentShow && (
         <div>
-          <span class="label">Listening</span>
-          <p>Saw {recentShow.artist}{recentShow.city ? ` in ${recentShow.city}` : ''}, {recentShow.date}.</p>
+          <span class="label">Listened</span>
+          <p>{recentShow.artist}{recentShow.city ? ` in ${recentShow.city}` : ''} <span class="when">{recentShow.date}</span></p>
           <a class="more" href="/music">Every concert →</a>
         </div>
       )}

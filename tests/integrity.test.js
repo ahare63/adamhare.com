@@ -276,7 +276,7 @@ describe('built site integrity', () => {
     expect(html, `newest book "${title}"`).toContain(title.replace(/&/g, '&amp;'));
   });
 
-  it('home page Reading shows the two newest books, dated when finished.json has them', () => {
+  it('home page Read shows the two newest books: title, then author and date on the small line', () => {
     const html = readFileSync(join(DIST, 'index.html'), 'utf-8');
     const books = readFileSync(new URL('../src/content/books.md', import.meta.url), 'utf-8');
     const finished = JSON.parse(readFileSync(new URL('../src/data/finished.json', import.meta.url), 'utf-8'));
@@ -284,19 +284,23 @@ describe('built site integrity', () => {
     expect(newest).toHaveLength(2);
     const decoded = html.replace(/&amp;/g, '&').replace(/&#39;/g, "'");
     for (const b of newest) {
-      expect(decoded, `book "${b.line}"`).toContain(b.line.match(/\*([^*]+)\*/)[1]);
-      expect(decoded).toContain(b.finished ? longDate(b.finished) : `Book ${b.number} of ${b.year}`);
+      const [, title, rest] = b.line.match(/^\*([^*]+)\*(.*)$/);
+      const author = rest.replace(/^ by /, '').split(/,| \(/)[0].trim();
+      const when = b.finished ? longDate(b.finished) : `Book ${b.number} of ${b.year}`;
+      expect(decoded, `title of "${b.line}"`).toContain(`<em>${title}</em>`);
+      expect(decoded, `author and date of "${b.line}" on the small line`).toMatch(
+        new RegExp(`class="when"[^>]*>[^<]*${author.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}[^<]*· ${when}`));
     }
   });
 
-  it('home page Watching shows the latest recent film and live event, linked to Stage & Screen', () => {
+  it('home page Watched shows the latest recent film and live event, linked to Stage & Screen', () => {
     const html = readFileSync(join(DIST, 'index.html'), 'utf-8');
     const read = (f) => JSON.parse(readFileSync(new URL(`../src/data/${f}`, import.meta.url), 'utf-8'));
     const film = recentFirst(read('movies.json').diary, (d) => Date.parse(d.watched));
     const event = recentFirst(read('live-events.json'), (e) => Date.parse(e.date));
     const esc = (t) => t.replace(/&/g, '&amp;');
-    if (!film && !event) return expect(html).not.toContain('>Watching<');
-    expect(html).toContain('>Watching<');
+    if (!film && !event) return expect(html).not.toContain('>Watched<');
+    expect(html).toContain('>Watched<');
     expect(html).toContain('href="/stage-screen"');
     if (film) expect(html, `film "${film.title}"`).toContain(esc(film.title));
     if (event) expect(html, `event "${event.name}"`).toContain(esc(event.name));
