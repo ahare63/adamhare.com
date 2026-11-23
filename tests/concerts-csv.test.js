@@ -14,10 +14,15 @@ describe('parseConcerts', () => {
     expect(out).toEqual([{ artist: 'Hozier', venue: '', city: 'NYC', date: '8 June 2024', setlist: '' }]);
   });
 
-  it('reads only the Artist, Date and City columns, by header name, ignoring others', () => {
+  it('reads columns by header name, ignoring unknown ones', () => {
     const out = parseConcerts(csv('Notes,City,Seat,Artist,Date', 'private,Boston,12B,Vampire Weekend,6 October 2024'));
     expect(out).toEqual([{ artist: 'Vampire Weekend', venue: '', city: 'Boston', date: '6 October 2024', setlist: '' }]);
     expect(JSON.stringify(out)).not.toContain('private');
+  });
+
+  it('reads an optional Venue column, trimmed', () => {
+    const out = parseConcerts(csv('Artist,Date,City,Venue', 'San Fermin,1 August 2025,NYC, Pioneer Works ', 'Hozier,8 June 2024,NYC,'));
+    expect(out.map((c) => c.venue)).toEqual(['Pioneer Works', '']);
   });
 
   it('drops fully empty rows', () => {

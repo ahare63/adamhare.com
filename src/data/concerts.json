@@ -29,7 +29,7 @@
   },
   {
     "artist": "San Fermin",
-    "venue": "",
+    "venue": "Pioneer Works",
     "city": "NYC",
     "date": "1 August 2025",
     "setlist": ""
@@ -64,7 +64,7 @@
   },
   {
     "artist": "Lord of the Rings in Concert",
-    "venue": "",
+    "venue": "Radio City",
     "city": "NYC",
     "date": "1 March 2025",
     "setlist": ""
@@ -127,7 +127,7 @@
   },
   {
     "artist": "San Fermin",
-    "venue": "",
+    "venue": "Lincoln Hall",
     "city": "Chicago",
     "date": "27 March 2024",
     "setlist": ""
@@ -197,7 +197,7 @@
   },
   {
     "artist": "Lord of the Rings in Concert",
-    "venue": "",
+    "venue": "Radio City",
     "city": "NYC",
     "date": "9 February 2023",
     "setlist": ""
@@ -225,7 +225,7 @@
   },
   {
     "artist": "Arlo Parks",
-    "venue": "",
+    "venue": "Brooklyn Steel",
     "city": "NYC",
     "date": "9 September 2022",
     "setlist": ""
@@ -246,7 +246,7 @@
   },
   {
     "artist": "San Fermin",
-    "venue": "",
+    "venue": "Elsewhere",
     "city": "NYC",
     "date": "27 July 2022",
     "setlist": ""
@@ -288,7 +288,7 @@
   },
   {
     "artist": "San Fermin",
-    "venue": "",
+    "venue": "City Winery",
     "city": "Boston",
     "date": "20 November 2021",
     "setlist": ""
@@ -393,14 +393,14 @@
   },
   {
     "artist": "Seafret",
-    "venue": "",
+    "venue": "The Bullingdon",
     "city": "Oxford",
     "date": "7 March 2017",
     "setlist": ""
   },
   {
     "artist": "Lt. Dan Band",
-    "venue": "",
+    "venue": "Wright-Patterson Air Force Base",
     "city": "Dayton, OH",
     "date": "2 July 2016",
     "setlist": ""
@@ -435,7 +435,7 @@
   },
   {
     "artist": "ZZ Top",
-    "venue": "",
+    "venue": "The Fraze",
     "city": "Kettering, OH",
     "date": "8 August 2011",
     "setlist": ""

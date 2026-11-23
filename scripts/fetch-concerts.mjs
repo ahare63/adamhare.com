@@ -3,14 +3,15 @@
 // sheet is unreachable or malformed, so the committed snapshot stays in place.
 //
 // Rows come from the CSV export. Setlist links come from the .xlsx export (CSV drops
-// hyperlinks), read with the system `unzip`. Venues come from the setlist.fm API (key in
-// SETLIST_FM_API) and are cached by setlist id in src/data/setlist-venues.json, so only new
-// setlists are looked up. Without a key, or when a lookup fails, cached venues are still used.
+// hyperlinks), read with the system `unzip`. A filled-in Venue column wins; otherwise the venue
+// comes from the setlist.fm API (key in SETLIST_FM_API), cached by setlist id in
+// src/data/setlist-venues.json so only new setlists are looked up. Without a key, or when a
+// lookup fails, cached venues are still used.
 import { readFileSync, writeFileSync } from 'node:fs';
 import { parseConcerts } from '../src/lib/concerts-csv.js';
 import { placeOfCity } from '../src/lib/places.js';
 import { xlsxColumnCells } from './xlsx-cells.mjs';
-import { setlistId, venueOf } from '../src/lib/setlist.js';
+import { setlistId, venueOf, fillVenues } from '../src/lib/setlist.js';
 
 const SHEET_ID = '1-CdQRuN3z2tnZ2HZfcWtx97496zCuqgfmxBYf-A6KhY';
 const TAB = 'Concerts';
@@ -54,7 +55,7 @@ if (missing.length && key) {
   const sorted = Object.fromEntries(Object.entries(venues).sort(([a], [b]) => (a < b ? -1 : 1)));
   writeFileSync(VENUES, JSON.stringify(sorted, null, 2) + '\n');
 }
-for (const c of concerts) c.venue = venues[setlistId(c.setlist)] ?? '';
+fillVenues(concerts, venues);
 
 const unmapped = [...new Set(concerts.map((c) => c.city))].filter((city) => !placeOfCity(city));
 if (unmapped.length) {

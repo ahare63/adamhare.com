@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { setlistId, venueOf } from '../src/lib/setlist.js';
+import { setlistId, venueOf, fillVenues } from '../src/lib/setlist.js';
 
 describe('setlistId', () => {
   it('takes the id from the end of a setlist.fm URL', () => {
@@ -29,5 +29,23 @@ describe('venueOf', () => {
   it('returns null when the response has no venue name', () => {
     expect(venueOf({ ...response, venue: {} })).toBeNull();
     expect(venueOf({})).toBeNull();
+  });
+});
+
+describe('fillVenues', () => {
+  const url = 'https://www.setlist.fm/setlist/hozier/2018/eventim-apollo-london-england-6394a257.html';
+  const cache = { '6394a257': 'Eventim Apollo' };
+
+  it('uses the cached setlist.fm venue when the sheet has none', () => {
+    expect(fillVenues([{ venue: '', setlist: url }], cache)[0].venue).toBe('Eventim Apollo');
+  });
+
+  it('prefers the sheet venue over setlist.fm', () => {
+    expect(fillVenues([{ venue: 'Hammersmith Apollo', setlist: url }], cache)[0].venue).toBe('Hammersmith Apollo');
+  });
+
+  it('keeps a sheet venue on a concert with no setlist, and leaves it blank when neither has one', () => {
+    const out = fillVenues([{ venue: 'Pioneer Works', setlist: '' }, { venue: '', setlist: '' }], cache);
+    expect(out.map((c) => c.venue)).toEqual(['Pioneer Works', '']);
   });
 });
