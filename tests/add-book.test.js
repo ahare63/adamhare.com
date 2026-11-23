@@ -50,6 +50,7 @@ const state = () => ({
   languages: { authors: { 'han kang': 'Korean' }, titles: {} },
   pages: { 'taipei story|r.f. kuang': { n: 300 } },
   settings: { 'Taipei Story': ['tw'] },
+  finished: { 'taipei story|r.f. kuang': '2026-11-13' },
 });
 const proposal = (over = {}) => ({
   bulletLine: '- *The Leopard* by Giuseppe Tomasi di Lampedusa, trans. Archibald Colquhoun', year: 2026,
@@ -258,5 +259,49 @@ describe('applyOverrides', () => {
 
   it('rejects a page count that is not a whole number', () => {
     expect(() => applyOverrides(draft(), { pages: 'about 300' })).toThrow(/pages/);
+  });
+
+  it('takes a finished date for a book added late', () => {
+    expect(applyOverrides(draft(), { finished: '2026-11-20' }).finished).toBe('2026-11-20');
+  });
+
+  it('rejects a finished date that is not YYYY-MM-DD', () => {
+    expect(() => applyOverrides(draft(), { finished: '20 November 2026' })).toThrow(/finished/);
+    expect(() => applyOverrides(draft(), { finished: '2026-13-01' })).toThrow(/finished/);
+  });
+});
+
+describe('applyProposal finished dates', () => {
+  const key = 'the leopard|giuseppe tomasi di lampedusa';
+
+  it('records today as the finished date, sorted by key, and marks the file changed', () => {
+    const r = applyProposal(state(), proposal(), { today: '2026-11-23' });
+    expect(r.finished[key]).toBe('2026-11-23');
+    expect(Object.keys(r.finished)).toEqual(['taipei story|r.f. kuang', key]);
+    expect(r.changed).toContain('finished');
+    expect(r.summary.some((l) => l.includes('finished.json'))).toBe(true);
+  });
+
+  it('prefers the proposal\'s own finished date over today', () => {
+    expect(applyProposal(state(), proposal({ finished: '2026-11-20' }), { today: '2026-11-23' }).finished[key]).toBe('2026-11-20');
+  });
+
+  it('keeps a different existing date unless forced', () => {
+    const s = state();
+    s.finished[key] = '2026-01-01';
+    const kept = applyProposal(s, proposal(), { today: '2026-11-23' });
+    expect(kept.finished[key]).toBe('2026-01-01');
+    expect(kept.skipped.some((l) => l.includes('finished.json'))).toBe(true);
+    expect(applyProposal(s, proposal(), { today: '2026-11-23', force: true }).finished[key]).toBe('2026-11-23');
+  });
+
+  it('leaves finished.json alone when no date is given', () => {
+    const r = applyProposal(state(), proposal());
+    expect(r.finished).toEqual(state().finished);
+    expect(r.changed).not.toContain('finished');
+  });
+
+  it('rejects a malformed finished date in the proposal', () => {
+    expect(() => applyProposal(state(), proposal({ finished: 'Nov 20' }), { today: '2026-11-23' })).toThrow(/finished/);
   });
 });

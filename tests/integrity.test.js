@@ -3,6 +3,7 @@
 import { describe, it, expect, beforeAll } from 'vitest';
 import { readFileSync, existsSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
+import { recentFirst, newestBooks, longDate } from '../src/lib/lately.js';
 
 const DIST = new URL('../dist', import.meta.url).pathname;
 
@@ -273,6 +274,37 @@ describe('built site integrity', () => {
     const firstBullet = books.split(/^## /m)[1].split('\n').find((l) => l.startsWith('- '));
     const title = firstBullet.match(/\*([^*]+)\*/)[1];
     expect(html, `newest book "${title}"`).toContain(title.replace(/&/g, '&amp;'));
+  });
+
+  it('home page Read shows the two newest books: title, then author and date on the small line', () => {
+    const html = readFileSync(join(DIST, 'index.html'), 'utf-8');
+    const books = readFileSync(new URL('../src/content/books.md', import.meta.url), 'utf-8');
+    const finished = JSON.parse(readFileSync(new URL('../src/data/finished.json', import.meta.url), 'utf-8'));
+    const newest = newestBooks(books, finished);
+    expect(newest).toHaveLength(2);
+    const decoded = html.replace(/&amp;/g, '&').replace(/&#39;/g, "'");
+    for (const b of newest) {
+      const [, title, rest] = b.line.match(/^\*([^*]+)\*(.*)$/);
+      const author = rest.replace(/^ by /, '').split(/,| \(/)[0].trim();
+      const when = b.finished ? longDate(b.finished) : `Book ${b.number} of ${b.year}`;
+      expect(decoded, `title of "${b.line}"`).toContain(`<em>${title}</em>`);
+      expect(decoded, `author and date of "${b.line}" on the small line`).toMatch(
+        new RegExp(`class="when"[^>]*>[^<]*${author.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}[^<]*· ${when}`));
+    }
+  });
+
+  it('home page Watched shows the latest recent film and live event, linked to Stage & Screen', () => {
+    const html = readFileSync(join(DIST, 'index.html'), 'utf-8');
+    const read = (f) => JSON.parse(readFileSync(new URL(`../src/data/${f}`, import.meta.url), 'utf-8'));
+    const film = recentFirst(read('movies.json').diary, (d) => Date.parse(d.watched));
+    const event = recentFirst(read('live-events.json'), (e) => Date.parse(e.date));
+    const esc = (t) => t.replace(/&/g, '&amp;');
+    if (!film && !event) return expect(html).not.toContain('>Watched<');
+    expect(html).toContain('>Watched<');
+    expect(html).toContain('href="/stage-screen"');
+    if (film) expect(html, `film "${film.title}"`).toContain(esc(film.title));
+    if (event) expect(html, `event "${event.name}"`).toContain(esc(event.name));
+    if (event?.link) expect(html, 'Lately links only to the essay and its own pages, not to events').not.toContain(`href="${event.link}"`);
   });
 
   it('travel page embeds both interactive maps fed by travel data', () => {

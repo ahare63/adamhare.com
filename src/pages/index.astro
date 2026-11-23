@@ -3,28 +3,35 @@ import Base from '../layouts/Base.astro';
 import * as booksMd from '../content/books.md';
 import essays from '../data/essays.json';
 import concerts from '../data/concerts.json';
+import movies from '../data/movies.json';
+import liveEvents from '../data/live-events.json';
+import { recentFirst, longDate, newestBooks } from '../lib/lately.js';
+import finished from '../data/finished.json';
 
 // "Lately" is derived at build time from data that is already kept current:
-// the newest bullet in books.md, the Substack snapshot, and the concert list.
+// the newest bullet in books.md, the Substack snapshot, the concert list, the Letterboxd
+// diary and the Live Events tab.
 const esc = (t) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-const [latestYear = ''] = booksMd.rawContent().split(/^## /m).slice(1);
-const [yearLine = '', ...yearLines] = latestYear.split('\n');
-const yearBullets = yearLines.filter((l) => l.startsWith('- '));
-const latestBook = yearBullets[0]
-  ? esc(yearBullets[0].slice(2)).replace(/\*([^*]+)\*/g, '<em>$1</em>')
-  : null;
+const italics = (t) => esc(t).replace(/\*([^*]+)\*/g, '<em>$1</em>');
+// The bullet's italic title goes on the main line; what follows it (author, translator,
+// editor, note) goes on the small line with the date.
+const latestBooks = newestBooks(booksMd.rawContent(), finished).map((b) => {
+  const m = b.line.match(/^\*((?:\\.|[^*\\])+)\*(.*)$/);
+  const title = m ? `<em>${esc(m[1].replace(/\\(.)/g, '$1'))}</em>` : italics(b.line);
+  const byline = m ? m[2].replace(/^\s*(by\s+|,\s*)/, '').trim() : '';
+  const when = b.finished ? longDate(b.finished) : `Book ${b.number} of ${b.year}`;
+  return { ...b, title, detail: byline ? `${italics(byline)} · ${when}` : when };
+});
+const latestBook = latestBooks[0] ?? null;
 
 const fmtMonth = (iso) =>
   new Date(`${iso}T12:00:00Z`).toLocaleDateString('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' });
-const latestEssays = essays.slice(0, 2);
+const latestEssay = essays[0];
 
-// A concert only counts as "lately" for about three months.
-const RECENT_MS = 100 * 24 * 60 * 60 * 1000;
-const lastShow = concerts[0];
-const lastShowTime = lastShow ? Date.parse(lastShow.date) : NaN;
-const recentShow = Number.isFinite(lastShowTime) && Date.now() - lastShowTime < RECENT_MS && Date.now() >= lastShowTime
-  ? lastShow
-  : null;
+const recentShow = recentFirst(concerts, (c) => Date.parse(c.date));
+const recentFilm = recentFirst(movies.diary, (d) => Date.parse(d.watched));
+const recentEvent = recentFirst(liveEvents, (e) => Date.parse(e.date));
+const columns = [latestBook, recentFilm || recentEvent, recentShow].filter(Boolean).length || 1;
 ---
 <Base description="Adam Hare — technical generalist leading AI products end to end. Head of AI at Zoomi, based in New York City." banner="/images/banners/home.jpg" bannerPosition="center 18%">
   <div class="home-hero">
@@ -47,33 +54,47 @@ const recentShow = Number.isFinite(lastShowTime) && Date.now() - lastShowTime < 
 
   <section class="lately" aria-labelledby="lately-heading">
     <h2 id="lately-heading">Lately</h2>
-    <div class="lately-grid">
+    <div class="lately-grid" style={`--cols: ${columns}`}>
       {latestBook && (
         <div>
-          <span class="label">Reading</span>
-          <p>Just finished <Fragment set:html={latestBook} /> — book {yearBullets.length} of {yearLine.trim()}.</p>
+          <span class="label">Read</span>
+          <ul>
+            {latestBooks.map((b) => (
+              <li><Fragment set:html={b.title} /> <span class="when"><Fragment set:html={b.detail} /></span></li>
+            ))}
+          </ul>
           <a class="more" href="/books">Everything I’ve read →</a>
         </div>
       )}
-      {latestEssays.length > 0 && (
+      {(recentFilm || recentEvent) && (
         <div>
-          <span class="label">Writing</span>
+          <span class="label">Watched</span>
           <ul>
-            {latestEssays.map((e) => (
-              <li><a href={e.url}>{e.title}</a> <span class="when">{fmtMonth(e.date)}</span></li>
-            ))}
+            {recentFilm && (
+              <li><em>{recentFilm.title}</em> ({recentFilm.year}) <span class="when">{longDate(recentFilm.watched)}</span></li>
+            )}
+            {recentEvent && (
+              <li><em>{recentEvent.name}</em>{recentEvent.venue ? ` at ${recentEvent.venue}` : ''} <span class="when">{recentEvent.date}</span></li>
+            )}
           </ul>
-          <a class="more" href="https://ahare63.substack.com/">Within &amp; Without →</a>
+          <a class="more" href="/stage-screen">Stage &amp; Screen →</a>
         </div>
       )}
       {recentShow && (
         <div>
-          <span class="label">Listening</span>
-          <p>Saw {recentShow.artist}{recentShow.city ? ` in ${recentShow.city}` : ''}, {recentShow.date}.</p>
+          <span class="label">Listened</span>
+          <p>{recentShow.artist}{recentShow.city ? ` in ${recentShow.city}` : ''} <span class="when">{recentShow.date}</span></p>
           <a class="more" href="/music">Every concert →</a>
         </div>
       )}
     </div>
+    {latestEssay && (
+      <p class="lately-writing">
+        <span class="label">Writing</span>
+        <span><a href={latestEssay.url}>{latestEssay.title}</a> <span class="when-inline">{fmtMonth(latestEssay.date)}</span></span>
+        <a class="more" href="https://ahare63.substack.com/">Within &amp; Without →</a>
+      </p>
+    )}
   </section>
 
   <div class="card-grid">
@@ -90,8 +111,18 @@ const recentShow = Number.isFinite(lastShowTime) && Date.now() - lastShowTime < 
     .lately h2 { margin-top: 1.5rem; }
     .lately-grid {
       display: grid; gap: 1.6rem;
-      grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+      grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
     }
+    @media (max-width: 40rem) {
+      .lately-grid { grid-template-columns: 1fr; }
+    }
+    .lately .lately-writing {
+      margin-top: 1.6rem; padding-top: 1rem; border-top: 1px solid var(--rule);
+      display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.3rem 1rem;
+    }
+    .lately .lately-writing .label { display: inline; margin: 0; }
+    .lately .lately-writing .more { white-space: nowrap; margin-left: auto; }
+    .lately .when-inline { font-size: 0.8rem; color: var(--ink-soft); }
     .lately .label {
       display: block; font-size: 0.75rem; letter-spacing: 0.09em; text-transform: uppercase;
       color: var(--ink-soft); margin-bottom: 0.35rem;
