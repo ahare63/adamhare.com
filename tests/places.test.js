@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
-import { countriesOfBook, placesOfBook, placeOfCity, countryName, readOnlyCountries } from '../src/lib/places.js';
+import { countriesOfBook, placesOfBook, placeOfCity, countryName, readOnlyCountries, readByYear } from '../src/lib/places.js';
 import { parseBooks } from '../src/lib/books.js';
 
 const data = {
@@ -130,5 +130,26 @@ describe('real data', () => {
     const concerts = JSON.parse(read('../src/data/concerts.json'));
     const unmapped = [...new Set(concerts.map((c) => c.city))].filter((c) => !placeOfCity(c));
     expect(unmapped, `add these cities to src/lib/places.js: ${unmapped.join(', ')}`).toEqual([]);
+  });
+});
+
+describe('readByYear', () => {
+  const books = [{ year: 2017 }, { year: 2020 }, { year: 2018 }, { year: 2023 }];
+  const byCountry = { se: [[0, 'from'], [3, 'about']], jp: [[1, 'from']], be: [[2, 'about']], br: [] };
+
+  it('lists countries with a book read by that year and not yet visited, sorted by code', () => {
+    expect(readByYear(byCountry, books, [], 2018)).toEqual(['be', 'se']);
+  });
+
+  it('counts a country from its first book, whatever later books are read', () => {
+    expect(readByYear(byCountry, books, [], 2017)).toEqual(['se']);
+  });
+
+  it('leaves out countries visited by then', () => {
+    expect(readByYear(byCountry, books, ['se'], 2023)).toEqual(['be', 'jp']);
+  });
+
+  it('is empty before the first book', () => {
+    expect(readByYear(byCountry, books, [], 2016)).toEqual([]);
   });
 });

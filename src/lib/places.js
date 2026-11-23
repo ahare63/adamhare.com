@@ -42,6 +42,16 @@ export function readOnlyCountries(booksByCountry, visitedCodes) {
     .sort((a, b) => a.name.localeCompare(b.name));
 }
 
+// Countries with a book read in or before `year` that aren't in `visitedCodes` (visited by then), sorted by code.
+// `books` is [{year}] (year read), indexed by `booksByCountry` entries.
+export function readByYear(booksByCountry, books, visitedCodes, year) {
+  const visited = new Set(visitedCodes);
+  return Object.entries(booksByCountry)
+    .filter(([code, list]) => !visited.has(code) && list.some(([i]) => books[i].year <= year))
+    .map(([code]) => code)
+    .sort();
+}
+
 // Concert city exactly as written in concerts.json -> displayed city and map regions.
 const CITIES = {
   'NYC': { city: 'New York', state: 'ny', country: 'us' },

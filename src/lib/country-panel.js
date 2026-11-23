@@ -1,6 +1,7 @@
 // Browser-side country picker for the Travel page's world map: makes visited
 // countries, and optionally countries only read about, clickable (map regions
 // and chips) and fills a panel with the books and concerts for the chosen country.
+// Map colouring (visited, lined) is the page's job; this only handles clicks.
 //
 // data: { books: [{title, author, year}], booksByCountry: {code: [[index, why]]},
 //         concertsByCountry: {code: [{artist, city, date}]} } with lowercase codes.
@@ -143,7 +144,6 @@ export function initCountryPanel({ wrap, chips, panel, data }) {
     r.setAttribute('tabindex', '0');
     r.setAttribute('role', 'button');
     const { name } = infoOf(code);
-    r.classList.toggle('read', !visited.has(code));
     r.setAttribute('aria-label', `${name}: show books${data.concertsByCountry[code]?.length ? ' and concerts' : ''}`);
     window.bindMapTip?.(r, name);
     if (r.dataset.tlBound) return;
@@ -157,7 +157,6 @@ export function initCountryPanel({ wrap, chips, panel, data }) {
   function unbind(code) {
     const r = regionOf(code);
     if (!r) return;
-    r.classList.remove('read');
     delete r.dataset.tipName;
     for (const a of ['tabindex', 'role', 'aria-label', 'aria-pressed']) r.removeAttribute(a);
   }

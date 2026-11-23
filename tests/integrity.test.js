@@ -332,6 +332,8 @@ describe('built site integrity', () => {
     const legend = html.match(/<div[^>]*id="read-legend"[^>]*>/);
     expect(legend, 'read-about legend').not.toBeNull();
     expect(legend[0]).toMatch(/\shidden/);
+    const legendBody = html.match(/<div[^>]*id="read-legend"[^>]*>([\s\S]*?)<\/div>/)[1];
+    for (const entry of ['Visited', 'Only read about', 'Neither yet']) expect(legendBody, `legend: ${entry}`).toContain(entry);
   });
 
   it('travel page lists books under the countries they are set in or about, tagged against the author\'s country', () => {

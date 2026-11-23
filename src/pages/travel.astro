@@ -77,6 +77,7 @@ const placesJson = JSON.stringify({ visited: pickable, books, booksByCountry, co
   <div class="read-legend sans" id="read-legend" hidden>
     <span><i class="sw sw-visited"></i>Visited</span>
     <span><i class="sw sw-read"></i>Only read about</span>
+    <span><i class="sw sw-none"></i>Neither yet</span>
   </div>
   <div class="tl-picker">
     <div class="tl-chips" id="tl-chips" role="group" aria-label="Pick a country">
@@ -138,6 +139,7 @@ const placesJson = JSON.stringify({ visited: pickable, books, booksByCountry, co
     .read-legend span { display: inline-flex; align-items: center; gap: 0.4rem; }
     .read-legend .sw { width: 1.1rem; height: 0.75rem; border-radius: 2px; display: inline-block; }
     .sw-visited { background: #4f86d9; }
+    .sw-none { background: #d5d8de; }
     .sw-read { background: repeating-linear-gradient(45deg, #4f86d9 0 1.3px, #e4e7ec 1.3px 4px); }
     .tl-chip-label { width: 100%; margin: 0.5rem 0 0.1rem; font-size: 0.8rem; color: var(--ink-soft); }
     .tl-chip.read { border-style: dashed; border-color: #9ab4dc; background: transparent; }
@@ -216,7 +218,7 @@ const placesJson = JSON.stringify({ visited: pickable, books, booksByCountry, co
     // build-time snapshot already rendered.
     import { fetchSheet } from '../lib/travel-map.js';
     import { initCountryPanel } from '../lib/country-panel.js';
-    import { readOnlyCountries } from '../lib/places.js';
+    import { readOnlyCountries, readByYear } from '../lib/places.js';
 
     // Time slider: show only countries first visited in or before the chosen year.
     const firstVisit = (c) => { const ys = (c.years.match(/\d{4}/g) || []).map(Number); return ys.length ? Math.min(...ys) : null; };
@@ -224,27 +226,32 @@ const placesJson = JSON.stringify({ visited: pickable, books, booksByCountry, co
     const slider = document.getElementById('year-slider');
     const yearOut = document.getElementById('year-out');
     const playBtn = document.getElementById('year-play');
+    const readToggle = document.getElementById('read-toggle');
     const worldWrap = document.querySelector('[data-map="world"]');
     function renderYear() {
       const y = Number(slider.value);
       yearOut.textContent = y < Number(slider.min) + 1 ? `before ${y + 1}` : String(y);
       const shown = timeline.filter((c) => c.first === null || c.first <= y);
       window.applyVisited(worldWrap, Object.fromEntries([['US', 'United States'], ...shown.map((c) => [c.code, c.name])]));
+      // Lined: a book from or about the country read by year y, and not visited by then.
+      const lined = readToggle.checked ? readByYear(places.booksByCountry, places.books, ['us', ...shown.map((c) => c.code.toLowerCase())], y) : [];
+      for (const r of worldWrap.querySelectorAll('svg .read')) r.classList.remove('read');
+      for (const code of lined) worldWrap.querySelector(`svg #${code}`)?.classList.add('read');
     }
     slider.addEventListener('input', renderYear);
 
-    // Country panel: clickable countries follow the visited set, whatever the slider shows.
+    // Country panel: clickable countries and their panels follow today's visits, whatever the slider shows.
     const places = JSON.parse(document.getElementById('travel-places').textContent);
     const picker = initCountryPanel({
       wrap: worldWrap, chips: document.getElementById('tl-chips'), panel: document.getElementById('tl-panel'), data: places,
     });
-    // "Only read about" toggle: countries with books and no visit, hatched on the map. Not tied to the slider.
-    const readToggle = document.getElementById('read-toggle');
+    // "Only read about" toggle: lines on the map follow the slider (renderYear); the clickable set is as of today.
     const readLegend = document.getElementById('read-legend');
     let visitedCodes = places.visited.map((c) => c.code);
     function renderReadOnly() {
       readLegend.hidden = !readToggle.checked;
       picker.setReadOnly(readToggle.checked ? readOnlyCountries(places.booksByCountry, visitedCodes) : []);
+      renderYear();
     }
     readToggle.addEventListener('change', renderReadOnly);
     picker.setVisited(places.visited);
