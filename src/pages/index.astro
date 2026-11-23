@@ -3,9 +3,13 @@ import Base from '../layouts/Base.astro';
 import * as booksMd from '../content/books.md';
 import essays from '../data/essays.json';
 import concerts from '../data/concerts.json';
+import movies from '../data/movies.json';
+import liveEvents from '../data/live-events.json';
+import { recentFirst, longDate } from '../lib/lately.js';
 
 // "Lately" is derived at build time from data that is already kept current:
-// the newest bullet in books.md, the Substack snapshot, and the concert list.
+// the newest bullet in books.md, the Substack snapshot, the concert list, the Letterboxd
+// diary and the Live Events tab.
 const esc = (t) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const [latestYear = ''] = booksMd.rawContent().split(/^## /m).slice(1);
 const [yearLine = '', ...yearLines] = latestYear.split('\n');
@@ -18,13 +22,9 @@ const fmtMonth = (iso) =>
   new Date(`${iso}T12:00:00Z`).toLocaleDateString('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' });
 const latestEssays = essays.slice(0, 2);
 
-// A concert only counts as "lately" for about three months.
-const RECENT_MS = 100 * 24 * 60 * 60 * 1000;
-const lastShow = concerts[0];
-const lastShowTime = lastShow ? Date.parse(lastShow.date) : NaN;
-const recentShow = Number.isFinite(lastShowTime) && Date.now() - lastShowTime < RECENT_MS && Date.now() >= lastShowTime
-  ? lastShow
-  : null;
+const recentShow = recentFirst(concerts, (c) => Date.parse(c.date));
+const recentFilm = recentFirst(movies.diary, (d) => Date.parse(d.watched));
+const recentEvent = recentFirst(liveEvents, (e) => Date.parse(e.date));
 ---
 <Base description="Adam Hare — technical generalist leading AI products end to end. Head of AI at Zoomi, based in New York City." banner="/images/banners/home.jpg" bannerPosition="center 18%">
   <div class="home-hero">
@@ -71,6 +71,20 @@ const recentShow = Number.isFinite(lastShowTime) && Date.now() - lastShowTime < 
           <span class="label">Listening</span>
           <p>Saw {recentShow.artist}{recentShow.city ? ` in ${recentShow.city}` : ''}, {recentShow.date}.</p>
           <a class="more" href="/music">Every concert →</a>
+        </div>
+      )}
+      {(recentFilm || recentEvent) && (
+        <div>
+          <span class="label">Watching</span>
+          <ul>
+            {recentFilm && (
+              <li>Watched <em>{recentFilm.title}</em> ({recentFilm.year}) <span class="when">{longDate(recentFilm.watched)}</span></li>
+            )}
+            {recentEvent && (
+              <li>Saw {recentEvent.link ? <a href={recentEvent.link}><em>{recentEvent.name}</em></a> : <em>{recentEvent.name}</em>}{recentEvent.venue ? ` at ${recentEvent.venue}` : ''} <span class="when">{recentEvent.date}</span></li>
+            )}
+          </ul>
+          <a class="more" href="/stage-screen">Stage &amp; Screen →</a>
         </div>
       )}
     </div>

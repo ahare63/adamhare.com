@@ -3,6 +3,7 @@
 import { describe, it, expect, beforeAll } from 'vitest';
 import { readFileSync, existsSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
+import { recentFirst } from '../src/lib/lately.js';
 
 const DIST = new URL('../dist', import.meta.url).pathname;
 
@@ -273,6 +274,19 @@ describe('built site integrity', () => {
     const firstBullet = books.split(/^## /m)[1].split('\n').find((l) => l.startsWith('- '));
     const title = firstBullet.match(/\*([^*]+)\*/)[1];
     expect(html, `newest book "${title}"`).toContain(title.replace(/&/g, '&amp;'));
+  });
+
+  it('home page Watching shows the latest recent film and live event, linked to Stage & Screen', () => {
+    const html = readFileSync(join(DIST, 'index.html'), 'utf-8');
+    const read = (f) => JSON.parse(readFileSync(new URL(`../src/data/${f}`, import.meta.url), 'utf-8'));
+    const film = recentFirst(read('movies.json').diary, (d) => Date.parse(d.watched));
+    const event = recentFirst(read('live-events.json'), (e) => Date.parse(e.date));
+    const esc = (t) => t.replace(/&/g, '&amp;');
+    if (!film && !event) return expect(html).not.toContain('>Watching<');
+    expect(html).toContain('>Watching<');
+    expect(html).toContain('href="/stage-screen"');
+    if (film) expect(html, `film "${film.title}"`).toContain(esc(film.title));
+    if (event) expect(html, `event "${event.name}"`).toContain(esc(event.name));
   });
 
   it('travel page embeds both interactive maps fed by travel data', () => {
