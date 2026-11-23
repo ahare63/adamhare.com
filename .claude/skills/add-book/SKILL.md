@@ -41,7 +41,9 @@ Work from the repo root. The site is Astro; the Books page reads `src/content/bo
    Never invent a blurb; if `blurb` is null say so and leave it null unless he supplies one (then set
    `library.blurb` in `draft.json`).
 5. **Apply and publish** after confirmation, with the confirmed judgement calls as flags (omit a flag when
-   the value is already known or does not apply; `--pages` only when he gave a count, which is then exact):
+   the value is already known or does not apply; `--pages` only when he gave a count, which is then exact;
+   `--finished YYYY-MM-DD` only when he says he finished it on another day, since the home page shows that date
+   and it defaults to today):
    ```sh
    npm run book:add -- <scratchpad>/draft.json --countries cn --settings cn,in --language Chinese --pages 339 \
      && npm run build && npx vitest run
@@ -59,6 +61,7 @@ Work from the repo root. The site is Astro; the Books page reads `src/content/bo
   `src/data/cover-overrides.json` pointing at an image saved under `public/images/books/covers/`.
 - Wrong or missing description: edit `blurb` in `src/data/library.json`.
 - Page count: edit `src/data/pages.json` (`{ "n": 412 }`, add `"approx": true` for a typical length).
+- Finished date: edit `src/data/finished.json` (`"title|author": "2026-11-20"`, same key as pages.json).
 - Country or language: edit `src/data/author-countries.json` or `src/data/languages.json`.
 - Setting (where a book is set or what it is about): edit `src/data/book-settings.json`, keyed by the exact title.
 - Then `npm run build && npx vitest run`, commit, push.

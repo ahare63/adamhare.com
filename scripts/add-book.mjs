@@ -1,7 +1,8 @@
 // Applies a confirmed book proposal: the books.md bullet plus the library,
 // author-country, book-setting and original-language data entries. Everything is validated
 // and computed first; files are written only if nothing failed.
-// Run: npm run book:add -- <proposal.json> [--countries cn] [--settings cn,in] [--language Chinese] [--pages 339] [--force]
+// Run: npm run book:add -- <proposal.json> [--countries cn] [--settings cn,in] [--language Chinese] [--pages 339] [--finished 2026-11-20] [--force]
+// The finished date (src/data/finished.json) is today unless --finished gives the day he finished it.
 // The flags fill or replace those fields of the proposal (usually a draft from book:lookup --out).
 // Only files whose data changed are rewritten.
 //   { "bulletLine": "- *…*", "year": 2026, "key": "…",
@@ -24,6 +25,18 @@ const COUNTRIES_JSON = new URL('../src/data/author-countries.json', import.meta.
 const LANGUAGES_JSON = new URL('../src/data/languages.json', import.meta.url);
 const PAGES_JSON = new URL('../src/data/pages.json', import.meta.url);
 const SETTINGS_JSON = new URL('../src/data/book-settings.json', import.meta.url);
+const FINISHED_JSON = new URL('../src/data/finished.json', import.meta.url);
+
+// A real calendar date written YYYY-MM-DD.
+const isIsoDate = (s) => {
+  if (typeof s !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(s)) return false;
+  const d = new Date(`${s}T12:00:00Z`);
+  return !Number.isNaN(d.getTime()) && d.toISOString().slice(0, 10) === s;
+};
+
+// finished.json as written to disk: one book per line, sorted by key.
+export const serializeFinished = (data) => `{\n${Object.entries(sortByKey(data))
+  .map(([k, v]) => `  ${JSON.stringify(k)}: ${JSON.stringify(v)}`).join(',\n')}\n}\n`;
 
 const YEAR_HEADING = /^##\s+(\d{4})\s*$/;
 
@@ -85,6 +98,7 @@ function validate(p) {
   }
   if (p.pages != null && !(pageCountOf(p.pages.n) && p.key != null)) throw new Error('pages needs a key and a count n between 10 and 3000');
   if (p.library != null && p.key == null) throw new Error('key is needed to record a library entry');
+  if (p.finished != null && !isIsoDate(p.finished)) throw new Error(`finished must be a YYYY-MM-DD date, got "${p.finished}"`);
 }
 
 // Sets map[key] = value unless it already holds a different value; reports either way.
@@ -100,7 +114,7 @@ function setValue(map, key, value, label, { force, summary, skipped }) {
 }
 
 // Pure core: returns the new file contents plus a summary and the skipped changes.
-export function applyProposal(state, proposal, { force = false } = {}) {
+export function applyProposal(state, proposal, { force = false, today = null } = {}) {
   validate(proposal);
   const summary = [];
   const skipped = [];
@@ -145,13 +159,17 @@ export function applyProposal(state, proposal, { force = false } = {}) {
   const pages = { ...state.pages };
   if (proposal.pages) setValue(pages, proposal.key, { n: proposal.pages.n, ...(proposal.pages.approx ? { approx: true } : {}) }, 'pages.json', ctx);
 
+  const finished = { ...state.finished };
+  const date = proposal.finished ?? today;
+  if (date != null && proposal.key != null) setValue(finished, proposal.key, date, 'finished.json', ctx);
+
   const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
-  const changed = ['booksMd', ...Object.entries({ library, countries, languages, settings, pages })
+  const changed = ['booksMd', ...Object.entries({ library, countries, languages, settings, pages, finished })
     .filter(([name, data]) => !same(data, state[name])).map(([name]) => name)];
 
   return {
     booksMd, library: sortByKey(library), pages: sortByKey(pages), countries: sortedSections(countries, byLocale), languages: sortedSections(languages, byCodeUnit),
-    settings: Object.fromEntries(Object.entries(settings).sort(([a], [b]) => byLocale(a, b))), summary, skipped, changed,
+    settings: Object.fromEntries(Object.entries(settings).sort(([a], [b]) => byLocale(a, b))), finished: sortByKey(finished), summary, skipped, changed,
   };
 }
 
@@ -159,8 +177,12 @@ const codeList = (s) => s.split(',').map((c) => c.trim()).filter(Boolean);
 
 // Fills the judgement calls into a draft from book:lookup --out. Flags are strings as typed:
 // countries and settings are comma-separated ISO-2 codes; pages is the exact count he read.
-export function applyOverrides(draft, { countries, settings, language, pages } = {}) {
+export function applyOverrides(draft, { countries, settings, language, pages, finished } = {}) {
   const p = { ...draft };
+  if (finished != null) {
+    if (!isIsoDate(finished)) throw new Error(`finished must be a YYYY-MM-DD date, got "${finished}"`);
+    p.finished = finished;
+  }
   if (countries != null) p.countries = codeList(countries);
   if (settings != null) p.settings = codeList(settings);
   if (language != null) p.language = language;
@@ -175,9 +197,10 @@ function main() {
   const { values, positionals } = parseArgs({ allowPositionals: true, options: {
     force: { type: 'boolean', default: false },
     countries: { type: 'string' }, settings: { type: 'string' }, language: { type: 'string' }, pages: { type: 'string' },
+    finished: { type: 'string' },
   } });
   if (positionals.length !== 1) {
-    console.error('usage: add-book <proposal.json> [--countries cn] [--settings cn,in] [--language Chinese] [--pages 339] [--force]');
+    console.error('usage: add-book <proposal.json> [--countries cn] [--settings cn,in] [--language Chinese] [--pages 339] [--finished 2026-11-20] [--force]');
     process.exit(2);
   }
   const read = (url) => readFileSync(url, 'utf-8');
@@ -191,7 +214,8 @@ function main() {
       languages: JSON.parse(read(LANGUAGES_JSON)),
       pages: JSON.parse(read(PAGES_JSON)),
       settings: JSON.parse(read(SETTINGS_JSON)),
-    }, proposal, { force: values.force });
+      finished: JSON.parse(read(FINISHED_JSON)),
+    }, proposal, { force: values.force, today: new Date().toLocaleDateString('en-CA') });
   } catch (err) {
     console.error(`add-book: ${err.message}; nothing was changed`);
     process.exit(1);
@@ -203,6 +227,7 @@ function main() {
     languages: [LANGUAGES_JSON, (r) => serializeLanguages(r.languages)],
     pages: [PAGES_JSON, (r) => serializePages(r.pages)],
     settings: [SETTINGS_JSON, (r) => serializeSettings(r.settings)],
+    finished: [FINISHED_JSON, (r) => serializeFinished(r.finished)],
   };
   for (const name of result.changed) {
     const [url, render] = outputs[name];

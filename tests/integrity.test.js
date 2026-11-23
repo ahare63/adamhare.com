@@ -3,7 +3,7 @@
 import { describe, it, expect, beforeAll } from 'vitest';
 import { readFileSync, existsSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
-import { recentFirst } from '../src/lib/lately.js';
+import { recentFirst, newestBooks, longDate } from '../src/lib/lately.js';
 
 const DIST = new URL('../dist', import.meta.url).pathname;
 
@@ -274,6 +274,19 @@ describe('built site integrity', () => {
     const firstBullet = books.split(/^## /m)[1].split('\n').find((l) => l.startsWith('- '));
     const title = firstBullet.match(/\*([^*]+)\*/)[1];
     expect(html, `newest book "${title}"`).toContain(title.replace(/&/g, '&amp;'));
+  });
+
+  it('home page Reading shows the two newest books, dated when finished.json has them', () => {
+    const html = readFileSync(join(DIST, 'index.html'), 'utf-8');
+    const books = readFileSync(new URL('../src/content/books.md', import.meta.url), 'utf-8');
+    const finished = JSON.parse(readFileSync(new URL('../src/data/finished.json', import.meta.url), 'utf-8'));
+    const newest = newestBooks(books, finished);
+    expect(newest).toHaveLength(2);
+    const decoded = html.replace(/&amp;/g, '&').replace(/&#39;/g, "'");
+    for (const b of newest) {
+      expect(decoded, `book "${b.line}"`).toContain(b.line.match(/\*([^*]+)\*/)[1]);
+      expect(decoded).toContain(b.finished ? longDate(b.finished) : `Book ${b.number} of ${b.year}`);
+    }
   });
 
   it('home page Watching shows the latest recent film and live event, linked to Stage & Screen', () => {

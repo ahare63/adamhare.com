@@ -88,3 +88,15 @@ describe('required assets exist', () => {
     expect(existsSync(new URL(`../${p}`, import.meta.url))).toBe(true);
   });
 });
+
+describe('finished dates', () => {
+  it('every finished.json entry is a book in books.md with a real YYYY-MM-DD date', async () => {
+    const { parseBooks, coverKey } = await import('../src/lib/books.js');
+    const keys = new Set(parseBooks(read('src/content/books.md')).map(coverKey));
+    for (const [key, date] of Object.entries(json('src/data/finished.json'))) {
+      expect(keys.has(key), `finished.json "${key}" matches no book in books.md`).toBe(true);
+      expect(date, `finished.json "${key}"`).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+      expect(new Date(`${date}T12:00:00Z`).toISOString().slice(0, 10), `finished.json "${key}" is not a real date`).toBe(date);
+    }
+  });
+});
