@@ -6,13 +6,10 @@
 // hyperlinks), read with the system `unzip`. Venues come from the setlist.fm API (key in
 // SETLIST_FM_API) and are cached by setlist id in src/data/setlist-venues.json, so only new
 // setlists are looked up. Without a key, or when a lookup fails, cached venues are still used.
-import { readFileSync, writeFileSync, mkdtempSync, rmSync } from 'node:fs';
-import { tmpdir } from 'node:os';
-import { join } from 'node:path';
-import { execFileSync } from 'node:child_process';
+import { readFileSync, writeFileSync } from 'node:fs';
 import { parseConcerts } from '../src/lib/concerts-csv.js';
 import { placeOfCity } from '../src/lib/places.js';
-import { sheetPath, columnCells } from '../src/lib/sheet-links.js';
+import { xlsxColumnCells } from './xlsx-cells.mjs';
 import { setlistId, venueOf } from '../src/lib/setlist.js';
 
 const SHEET_ID = '1-CdQRuN3z2tnZ2HZfcWtx97496zCuqgfmxBYf-A6KhY';
@@ -28,24 +25,10 @@ async function get(url, as = 'text') {
   return as === 'buffer' ? Buffer.from(await res.arrayBuffer()) : res.text();
 }
 
-function artistCells(xlsx) {
-  const dir = mkdtempSync(join(tmpdir(), 'concerts-'));
-  try {
-    const file = join(dir, 'sheet.xlsx');
-    writeFileSync(file, xlsx);
-    const part = (name) => execFileSync('unzip', ['-p', file, name], { encoding: 'utf8', maxBuffer: 64 << 20 });
-    const sheet = sheetPath(part('xl/workbook.xml'), part('xl/_rels/workbook.xml.rels'), TAB);
-    const rels = sheet.replace(/([^/]+)$/, '_rels/$1.rels');
-    return columnCells(part(sheet), part(rels), part('xl/sharedStrings.xml'), 'A').filter((c) => c.row > 1);
-  } finally {
-    rmSync(dir, { recursive: true, force: true });
-  }
-}
-
 let concerts;
 try {
   const [csv, xlsx] = await Promise.all([get(`${EXPORT}?format=csv`), get(`${EXPORT}?format=xlsx`, 'buffer')]);
-  concerts = parseConcerts(csv, { cells: artistCells(xlsx) });
+  concerts = parseConcerts(csv, { cells: xlsxColumnCells(xlsx, TAB, 'A') });
 } catch (err) {
   console.error(`concerts.json not updated: ${err.message}`);
   process.exit(1);
