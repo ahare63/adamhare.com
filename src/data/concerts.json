@@ -1,410 +1,478 @@
 [
   {
     "artist": "Motion City Soundtrack",
-    "venue": "",
+    "venue": "Brooklyn Paramount",
     "city": "NYC",
-    "date": "30 January 2026"
+    "date": "30 January 2026",
+    "setlist": "https://www.setlist.fm/setlist/motion-city-soundtrack/2026/brooklyn-paramount-brooklyn-ny-4341ef8f.html"
   },
   {
     "artist": "Of Monsters and Men",
-    "venue": "",
+    "venue": "Brooklyn Paramount",
     "city": "NYC",
-    "date": "2 November 2025"
+    "date": "2 November 2025",
+    "setlist": "https://www.setlist.fm/setlist/of-monsters-and-men/2025/brooklyn-paramount-brooklyn-ny-34fa1bf.html"
   },
   {
     "artist": "Purity Ring",
-    "venue": "",
+    "venue": "Brooklyn Steel",
     "city": "NYC",
-    "date": "30 October 2025"
+    "date": "30 October 2025",
+    "setlist": "https://www.setlist.fm/setlist/purity-ring/2025/brooklyn-steel-brooklyn-ny-b43ddba.html"
   },
   {
     "artist": "The Oh Hellos",
-    "venue": "",
+    "venue": "Roadrunner",
     "city": "NYC",
-    "date": "12 October 2025"
+    "date": "12 October 2025",
+    "setlist": "https://www.setlist.fm/setlist/the-oh-hellos/2025/roadrunner-boston-ma-4b417f2e.html"
   },
   {
     "artist": "San Fermin",
     "venue": "",
     "city": "NYC",
-    "date": "1 August 2025"
+    "date": "1 August 2025",
+    "setlist": ""
   },
   {
     "artist": "Motion City Soundtrack",
-    "venue": "",
+    "venue": "Mercury Lounge",
     "city": "NYC",
-    "date": "17 June 2025"
+    "date": "17 June 2025",
+    "setlist": "https://www.setlist.fm/setlist/motion-city-soundtrack/2025/mercury-lounge-new-york-ny-4344db9f.html"
   },
   {
     "artist": "The Kooks",
-    "venue": "",
+    "venue": "The Rooftop at Pier 17",
     "city": "NYC",
-    "date": "3 June 2025"
+    "date": "3 June 2025",
+    "setlist": "https://www.setlist.fm/setlist/the-kooks/2025/the-rooftop-at-pier-17-new-york-ny-3b44a868.html"
   },
   {
     "artist": "San Fermin",
-    "venue": "",
+    "venue": "Vivarium",
     "city": "NYC",
-    "date": "10 May 2025"
+    "date": "10 May 2025",
+    "setlist": "https://www.setlist.fm/setlist/san-fermin/2025/vivarium-milwaukee-wi-5b46bb08.html"
   },
   {
     "artist": "Snow Patrol",
-    "venue": "",
+    "venue": "Brooklyn Paramount",
     "city": "NYC",
-    "date": "8 April 2025"
+    "date": "8 April 2025",
+    "setlist": "https://www.setlist.fm/setlist/snow-patrol/2025/brooklyn-paramount-brooklyn-ny-3b51f870.html"
   },
   {
     "artist": "Lord of the Rings in Concert",
     "venue": "",
     "city": "NYC",
-    "date": "1 March 2025"
+    "date": "1 March 2025",
+    "setlist": ""
   },
   {
     "artist": "The Mountain Goats",
-    "venue": "",
+    "venue": "McCarter Theatre",
     "city": "Princeton, NJ",
-    "date": "21 October 2024"
+    "date": "21 October 2024",
+    "setlist": "https://www.setlist.fm/setlist/the-mountain-goats/2024/mccarter-theatre-princeton-nj-4b55d3f2.html"
   },
   {
     "artist": "Vampire Weekend",
-    "venue": "",
+    "venue": "Madison Square Garden",
     "city": "NYC",
-    "date": "6 October 2024"
+    "date": "6 October 2024",
+    "setlist": "https://www.setlist.fm/setlist/vampire-weekend/2024/madison-square-garden-new-york-ny-1bab4550.html"
   },
   {
     "artist": "The National",
-    "venue": "",
+    "venue": "Forest Hills Stadium",
     "city": "NYC",
-    "date": "13 September 2024"
+    "date": "13 September 2024",
+    "setlist": "https://www.setlist.fm/setlist/the-national/2024/forest-hills-stadium-queens-ny-33a88001.html"
   },
   {
     "artist": "The Beths",
-    "venue": "",
+    "venue": "Sony Hall",
     "city": "NYC",
-    "date": "10 September 2024"
+    "date": "10 September 2024",
+    "setlist": "https://www.setlist.fm/setlist/the-beths/2024/sony-hall-new-york-ny-4357fb77.html"
   },
   {
     "artist": "The Mountain Goats",
-    "venue": "",
+    "venue": "The Rooftop at Pier 17",
     "city": "NYC",
-    "date": "31 July 2024"
+    "date": "31 July 2024",
+    "setlist": "https://www.setlist.fm/setlist/the-mountain-goats/2024/the-rooftop-at-pier-17-new-york-ny-1ba909dc.html"
   },
   {
     "artist": "The Goo Goo Dolls",
-    "venue": "",
+    "venue": "BMO Pavilion",
     "city": "Milwaukee, WI",
-    "date": "22 June 2024"
+    "date": "22 June 2024",
+    "setlist": "https://www.setlist.fm/setlist/the-goo-goo-dolls/2024/bmo-pavilion-milwaukee-wi-5bab033c.html"
   },
   {
     "artist": "Hozier",
-    "venue": "",
+    "venue": "Forest Hills Stadium",
     "city": "NYC",
-    "date": "8 June 2024"
+    "date": "8 June 2024",
+    "setlist": "https://www.setlist.fm/setlist/hozier/2024/forest-hills-stadium-queens-ny-7b5606c4.html"
   },
   {
     "artist": "San Fermin",
-    "venue": "",
+    "venue": "Racket",
     "city": "NYC",
-    "date": "5 April 2024"
+    "date": "5 April 2024",
+    "setlist": "https://www.setlist.fm/setlist/san-fermin/2024/racket-new-york-ny-23ab04a3.html"
   },
   {
     "artist": "San Fermin",
     "venue": "",
     "city": "Chicago",
-    "date": "27 March 2024"
+    "date": "27 March 2024",
+    "setlist": ""
   },
   {
     "artist": "Fall Out Boy",
-    "venue": "",
+    "venue": "Moody Center",
     "city": "Austin, TX",
-    "date": "8 March 2024"
+    "date": "8 March 2024",
+    "setlist": "https://www.setlist.fm/setlist/fall-out-boy/2024/moody-center-austin-tx-63aaae33.html"
   },
   {
     "artist": "Motion City Soundtrack",
-    "venue": "",
+    "venue": "Warsaw",
     "city": "NYC",
-    "date": "9 January 2024"
+    "date": "9 January 2024",
+    "setlist": "https://www.setlist.fm/setlist/motion-city-soundtrack/2024/warsaw-brooklyn-ny-3af0943.html"
   },
   {
     "artist": "The Postal Service",
-    "venue": "",
+    "venue": "Madison Square Garden",
     "city": "NYC",
-    "date": "19 September 2023"
+    "date": "19 September 2023",
+    "setlist": "https://www.setlist.fm/setlist/the-postal-service/2023/madison-square-garden-new-york-ny-2ba2688a.html"
   },
   {
     "artist": "Death Cab For Cutie",
-    "venue": "",
+    "venue": "Madison Square Garden",
     "city": "NYC",
-    "date": "19 September 2023"
+    "date": "19 September 2023",
+    "setlist": "https://www.setlist.fm/setlist/death-cab-for-cutie/2023/madison-square-garden-new-york-ny-3ba26888.html"
   },
   {
     "artist": "The National",
-    "venue": "",
+    "venue": "Madison Square Garden",
     "city": "NYC",
-    "date": "18 August 2023"
+    "date": "18 August 2023",
+    "setlist": "https://www.setlist.fm/setlist/the-national/2023/madison-square-garden-new-york-ny-53a58bf9.html"
   },
   {
     "artist": "The Mountain Goats",
-    "venue": "",
+    "venue": "The Rooftop at Pier 17",
     "city": "NYC",
-    "date": "4 August 2023"
+    "date": "4 August 2023",
+    "setlist": "https://www.setlist.fm/setlist/the-mountain-goats/2023/the-rooftop-at-pier-17-new-york-ny-6ba41e2e.html"
   },
   {
     "artist": "Fall Out Boy",
-    "venue": "",
+    "venue": "Forest Hills Stadium",
     "city": "NYC",
-    "date": "1 August 2023"
+    "date": "1 August 2023",
+    "setlist": "https://www.setlist.fm/setlist/fall-out-boy/2023/forest-hills-stadium-queens-ny-3a43d0b.html"
   },
   {
     "artist": "Fall Out Boy",
-    "venue": "",
+    "venue": "Wrigley Field",
     "city": "Chicago",
-    "date": "21 June 2023"
+    "date": "21 June 2023",
+    "setlist": "https://www.setlist.fm/setlist/fall-out-boy/2023/wrigley-field-chicago-il-33a67c31.html"
   },
   {
     "artist": "The Beths",
-    "venue": "",
+    "venue": "Brooklyn Steel",
     "city": "NYC",
-    "date": "2 March 2023"
+    "date": "2 March 2023",
+    "setlist": "https://www.setlist.fm/setlist/the-beths/2023/brooklyn-steel-brooklyn-ny-2bba347a.html"
   },
   {
     "artist": "Lord of the Rings in Concert",
     "venue": "",
     "city": "NYC",
-    "date": "9 February 2023"
+    "date": "9 February 2023",
+    "setlist": ""
   },
   {
     "artist": "Death Cab For Cutie",
-    "venue": "",
+    "venue": "Forest Hills Stadium",
     "city": "NYC",
-    "date": "30 September 2022"
+    "date": "30 September 2022",
+    "setlist": "https://www.setlist.fm/setlist/death-cab-for-cutie/2022/forest-hills-stadium-queens-ny-4bb193fe.html"
   },
   {
     "artist": "The National",
-    "venue": "",
+    "venue": "Capitol Theatre",
     "city": "Port Chester, NY",
-    "date": "23 September 2022"
+    "date": "23 September 2022",
+    "setlist": "https://www.setlist.fm/setlist/the-national/2022/capitol-theatre-port-chester-ny-1bb059ac.html"
   },
   {
     "artist": "Bear's Den",
-    "venue": "",
+    "venue": "Webster Hall",
     "city": "NYC",
-    "date": "15 September 2022"
+    "date": "15 September 2022",
+    "setlist": "https://www.setlist.fm/setlist/bears-den/2022/webster-hall-new-york-ny-33b018bd.html"
   },
   {
     "artist": "Arlo Parks",
     "venue": "",
     "city": "NYC",
-    "date": "9 September 2022"
+    "date": "9 September 2022",
+    "setlist": ""
   },
   {
     "artist": "The Mountain Goats",
-    "venue": "",
+    "venue": "Webster Hall",
     "city": "NYC",
-    "date": "30 August 2022"
+    "date": "30 August 2022",
+    "setlist": "https://www.setlist.fm/setlist/the-mountain-goats/2022/webster-hall-new-york-ny-73b0be2d.html"
   },
   {
     "artist": "Glass Animals",
-    "venue": "",
+    "venue": "The Brooklyn Mirage",
     "city": "NYC",
-    "date": "8 August 2022"
+    "date": "8 August 2022",
+    "setlist": "https://www.setlist.fm/setlist/glass-animals/2022/the-brooklyn-mirage-brooklyn-ny-3b3911f.html"
   },
   {
     "artist": "San Fermin",
     "venue": "",
     "city": "NYC",
-    "date": "27 July 2022"
+    "date": "27 July 2022",
+    "setlist": ""
   },
   {
     "artist": "Lucy Dacus",
-    "venue": "",
+    "venue": "SummerStage",
     "city": "NYC",
-    "date": "21 July 2022"
+    "date": "21 July 2022",
+    "setlist": "https://www.setlist.fm/setlist/lucy-dacus/2022/central-park-summerstage-new-york-ny-23b2dc17.html"
   },
   {
     "artist": "Motion City Soundtrack",
-    "venue": "",
+    "venue": "Terminal 5",
     "city": "NYC",
-    "date": "19 June 2022"
+    "date": "19 June 2022",
+    "setlist": "https://www.setlist.fm/setlist/motion-city-soundtrack/2022/terminal-5-new-york-ny-7bb5baf0.html"
   },
   {
     "artist": "Phoebe Bridgers",
-    "venue": "",
+    "venue": "Forest Hills Stadium",
     "city": "NYC",
-    "date": "16 June 2022"
+    "date": "16 June 2022",
+    "setlist": "https://www.setlist.fm/setlist/phoebe-bridgers/2022/forest-hills-stadium-queens-ny-5bb463e4.html"
   },
   {
     "artist": "Car Seat Headrest",
-    "venue": "",
+    "venue": "Brooklyn Steel",
     "city": "NYC",
-    "date": "31 March 2022"
+    "date": "31 March 2022",
+    "setlist": "https://www.setlist.fm/setlist/car-seat-headrest/2022/brooklyn-steel-brooklyn-ny-3bb6b010.html"
   },
   {
     "artist": "The Beths",
-    "venue": "",
+    "venue": "Webster Hall",
     "city": "NYC",
-    "date": "23 February 2022"
+    "date": "23 February 2022",
+    "setlist": "https://www.setlist.fm/setlist/the-beths/2022/webster-hall-new-york-ny-33885481.html"
   },
   {
     "artist": "San Fermin",
     "venue": "",
     "city": "Boston",
-    "date": "20 November 2021"
+    "date": "20 November 2021",
+    "setlist": ""
   },
   {
     "artist": "Florence + The Machine",
-    "venue": "",
+    "venue": "Hyde Park",
     "city": "London",
-    "date": "13 July 2019"
+    "date": "13 July 2019",
+    "setlist": "https://www.setlist.fm/setlist/florence-the-machine/2019/hyde-park-london-england-5b9ef39c.html"
   },
   {
     "artist": "The National",
-    "venue": "",
+    "venue": "Hyde Park",
     "city": "London",
-    "date": "13 July 2019"
+    "date": "13 July 2019",
+    "setlist": "https://www.setlist.fm/setlist/the-national/2019/hyde-park-london-england-539ef39d.html"
   },
   {
     "artist": "The Beths",
-    "venue": "",
+    "venue": "The Bullingdon",
     "city": "Oxford",
-    "date": "8 May 2019"
+    "date": "8 May 2019",
+    "setlist": "https://www.setlist.fm/setlist/the-beths/2019/the-bullingdon-oxford-england-4390df83.html"
   },
   {
     "artist": "Vampire Weekend",
-    "venue": "",
+    "venue": "EartH",
     "city": "London",
-    "date": "21 March 2019"
+    "date": "21 March 2019",
+    "setlist": "https://www.setlist.fm/setlist/vampire-weekend/2019/earth-hackney-england-b9259aa.html"
   },
   {
     "artist": "Death Cab for Cutie",
-    "venue": "",
+    "venue": "Eventim Apollo",
     "city": "London",
-    "date": "1 February 2019"
+    "date": "1 February 2019",
+    "setlist": "https://www.setlist.fm/setlist/death-cab-for-cutie/2019/eventim-apollo-london-england-2b95ccd2.html"
   },
   {
     "artist": "The Beths",
-    "venue": "",
+    "venue": "Eventim Apollo",
     "city": "London",
-    "date": "1 February 2019"
+    "date": "1 February 2019",
+    "setlist": "https://www.setlist.fm/setlist/the-beths/2019/eventim-apollo-london-england-3b95cc00.html"
   },
   {
     "artist": "Hozier",
-    "venue": "",
+    "venue": "Eventim Apollo",
     "city": "London",
-    "date": "11 December 2018"
+    "date": "11 December 2018",
+    "setlist": "https://www.setlist.fm/setlist/hozier/2018/eventim-apollo-london-england-6394a257.html"
   },
   {
     "artist": "Florence + The Machine",
-    "venue": "",
+    "venue": "The O2 Arena",
     "city": "London",
-    "date": "21 November 2018"
+    "date": "21 November 2018",
+    "setlist": "https://www.setlist.fm/setlist/florence-the-machine/2018/the-o2-arena-london-england-1b97cdb4.html"
   },
   {
     "artist": "Florence + The Machine",
-    "venue": "",
+    "venue": "The Pavilion",
     "city": "Dallas, TX",
-    "date": "29 September 2018"
+    "date": "29 September 2018",
+    "setlist": "https://www.setlist.fm/setlist/florence-the-machine/2018/the-pavilion-at-toyota-music-factory-irving-tx-3e90d5b.html"
   },
   {
     "artist": "Fall Out Boy",
-    "venue": "",
+    "venue": "Nationwide Arena",
     "city": "Columbus, OH",
-    "date": "9 September 2018"
+    "date": "9 September 2018",
+    "setlist": "https://www.setlist.fm/setlist/fall-out-boy/2018/nationwide-arena-columbus-oh-13e9a1c9.html"
   },
   {
     "artist": "Arctic Monkeys",
-    "venue": "",
+    "venue": "Petersen Events Center",
     "city": "Pittsburgh, PA",
-    "date": "31 July 2018"
+    "date": "31 July 2018",
+    "setlist": "https://www.setlist.fm/setlist/arctic-monkeys/2018/petersen-events-center-pittsburgh-pa-63eb0e87.html"
   },
   {
     "artist": "Panic! at the Disco",
-    "venue": "",
+    "venue": "Nationwide Arena",
     "city": "Columbus, OH",
-    "date": "15 July 2018"
+    "date": "15 July 2018",
+    "setlist": "https://www.setlist.fm/setlist/panic-at-the-disco/2018/nationwide-arena-columbus-oh-2beb9c5e.html"
   },
   {
     "artist": "The Killers",
-    "venue": "",
+    "venue": "Air Canada Centre",
     "city": "Toronto",
-    "date": "5 January 2018"
+    "date": "5 January 2018",
+    "setlist": "https://www.setlist.fm/setlist/the-killers/2018/air-canada-centre-toronto-on-canada-6be13216.html"
   },
   {
     "artist": "The Killers",
-    "venue": "",
+    "venue": "Terminal 5",
     "city": "NYC",
-    "date": "22 September 2017"
+    "date": "22 September 2017",
+    "setlist": "https://www.setlist.fm/setlist/the-killers/2017/terminal-5-new-york-ny-5be20328.html"
   },
   {
     "artist": "Seafret",
     "venue": "",
     "city": "Oxford",
-    "date": "7 March 2017"
+    "date": "7 March 2017",
+    "setlist": ""
   },
   {
     "artist": "Lt. Dan Band",
     "venue": "",
     "city": "Dayton, OH",
-    "date": "2 July 2016"
+    "date": "2 July 2016",
+    "setlist": ""
   },
   {
     "artist": "Weird Al Yankovic",
-    "venue": "",
+    "venue": "Fraze Pavilion",
     "city": "Kettering, OH",
-    "date": "21 June 2015"
+    "date": "21 June 2015",
+    "setlist": "https://www.setlist.fm/setlist/weird-al-yankovic/2015/fraze-pavilion-kettering-oh-2bc9003a.html"
   },
   {
     "artist": "KISS",
-    "venue": "",
+    "venue": "Riverbend Music Center",
     "city": "Cincinnati, OH",
-    "date": "31 August 2012"
+    "date": "31 August 2012",
+    "setlist": "https://www.setlist.fm/setlist/kiss/2012/riverbend-music-center-cincinnati-oh-6bdc62f2.html"
   },
   {
     "artist": "Mötley Crüe",
-    "venue": "",
+    "venue": "Riverbend Music Center",
     "city": "Cincinnati, OH",
-    "date": "31 August 2012"
+    "date": "31 August 2012",
+    "setlist": "https://www.setlist.fm/setlist/motley-crue/2012/riverbend-music-center-cincinnati-oh-63dc62f7.html"
   },
   {
     "artist": "Judas Priest",
-    "venue": "",
+    "venue": "U.S. Bank Arena",
     "city": "Cincinnati, OH",
-    "date": "8 November 2011"
+    "date": "8 November 2011",
+    "setlist": "https://www.setlist.fm/setlist/judas-priest/2011/us-bank-arena-cincinnati-oh-3d18103.html"
   },
   {
     "artist": "ZZ Top",
     "venue": "",
     "city": "Kettering, OH",
-    "date": "8 August 2011"
+    "date": "8 August 2011",
+    "setlist": ""
   },
   {
     "artist": "Mötley Crüe",
-    "venue": "",
+    "venue": "Riverbend Music Center",
     "city": "Cincinnati, OH",
-    "date": "26 June 2011"
+    "date": "26 June 2011",
+    "setlist": "https://www.setlist.fm/setlist/motley-crue/2011/riverbend-music-center-cincinnati-oh-63d37e13.html"
   },
   {
     "artist": "Poison",
-    "venue": "",
+    "venue": "Riverbend Music Center",
     "city": "Cincinnati, OH",
-    "date": "26 June 2011"
+    "date": "26 June 2011",
+    "setlist": "https://www.setlist.fm/setlist/poison/2011/riverbend-music-center-cincinnati-oh-6bd37e12.html"
   },
   {
     "artist": "KISS",
-    "venue": "",
+    "venue": "Riverbend Music Center",
     "city": "Cincinnati, OH",
-    "date": "30 July 2010"
+    "date": "30 July 2010",
+    "setlist": "https://www.setlist.fm/setlist/kiss/2010/riverbend-music-center-cincinnati-oh-73d44ae5.html"
   },
   {
     "artist": "AC/DC",
-    "venue": "",
+    "venue": "Wachovia Arena",
     "city": "Wilkes-Barre, PA",
-    "date": "26 October 2008"
+    "date": "26 October 2008",
+    "setlist": "https://www.setlist.fm/setlist/acdc/2008/wachovia-arena-wilkes-barre-pa-33d6a475.html"
   },
   {
     "artist": "Weird Al Yankovic",
-    "venue": "",
+    "venue": "National City Pavilion",
     "city": "Cincinnati, OH",
-    "date": "21 July 2008"
+    "date": "21 July 2008",
+    "setlist": "https://www.setlist.fm/setlist/weird-al-yankovic/2008/national-city-pavilion-cincinnati-oh-73e49e85.html"
   }
 ]
