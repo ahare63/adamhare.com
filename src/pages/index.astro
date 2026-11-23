@@ -74,7 +74,7 @@ const columns = [latestBook, recentFilm || recentEvent, recentShow].filter(Boole
               <li><em>{recentFilm.title}</em> ({recentFilm.year}) <span class="when">{longDate(recentFilm.watched)}</span></li>
             )}
             {recentEvent && (
-              <li>{recentEvent.link ? <a href={recentEvent.link}><em>{recentEvent.name}</em></a> : <em>{recentEvent.name}</em>}{recentEvent.venue ? ` at ${recentEvent.venue}` : ''} <span class="when">{recentEvent.date}</span></li>
+              <li><em>{recentEvent.name}</em>{recentEvent.venue ? ` at ${recentEvent.venue}` : ''} <span class="when">{recentEvent.date}</span></li>
             )}
           </ul>
           <a class="more" href="/stage-screen">Stage &amp; Screen →</a>

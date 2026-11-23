@@ -304,6 +304,7 @@ describe('built site integrity', () => {
     expect(html).toContain('href="/stage-screen"');
     if (film) expect(html, `film "${film.title}"`).toContain(esc(film.title));
     if (event) expect(html, `event "${event.name}"`).toContain(esc(event.name));
+    if (event?.link) expect(html, 'Lately links only to the essay and its own pages, not to events').not.toContain(`href="${event.link}"`);
   });
 
   it('travel page embeds both interactive maps fed by travel data', () => {
