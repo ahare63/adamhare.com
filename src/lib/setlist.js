@@ -8,3 +8,9 @@ export function setlistId(url) {
 export function venueOf(setlist) {
   return setlist?.venue?.name?.trim() || null;
 }
+
+// Fills each concert's venue in place: the sheet's venue when it has one, else the cached setlist.fm venue.
+export function fillVenues(concerts, cache) {
+  for (const c of concerts) c.venue ||= cache[setlistId(c.setlist)] ?? '';
+  return concerts;
+}

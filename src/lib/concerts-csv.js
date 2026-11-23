@@ -13,10 +13,11 @@ export function parseDate(text) {
 }
 
 // Concerts-sheet CSV text -> [{artist, venue, city, date, setlist}], newest first.
-// Reads only the Artist, Date and City columns, by header name. `cells` is the
-// sheet's non-empty Artist cells below the header, in order ({text, url}, from columnCells);
-// each pairs with one concert row and gives its setlist link. Throws, naming the problem,
-// on anything that should not replace the committed snapshot.
+// Reads the Artist, Date and City columns and an optional Venue column, by header
+// name. `cells` is the sheet's non-empty Artist cells below the header, in order
+// ({text, url}, from columnCells); each pairs with one concert row and gives its
+// setlist link. Throws, naming the problem, on anything that should not replace the
+// committed snapshot.
 export function parseConcerts(text, { cells } = {}) {
   const rows = parseCSV(text);
   const header = (rows[0] || []).map((h) => h.trim().toLowerCase());
@@ -25,10 +26,11 @@ export function parseConcerts(text, { cells } = {}) {
     col[name] = header.indexOf(name);
     if (col[name] === -1) throw new Error(`concerts sheet has no "${name[0].toUpperCase()}${name.slice(1)}" column`);
   }
+  col.venue = header.indexOf('venue');
   const concerts = [];
   let n = 0;
   rows.slice(1).forEach((r, i) => {
-    const cell = (name) => (r[col[name]] || '').trim();
+    const cell = (name) => (col[name] === -1 ? '' : r[col[name]] || '').trim();
     const artist = cell('artist');
     const date = cell('date');
     const city = cell('city');
@@ -41,7 +43,7 @@ export function parseConcerts(text, { cells } = {}) {
     const sheetCell = cells?.[n++];
     if (cells && !sheetCell) throw new Error(`sheet has ${cells.length} Artist cells but more concerts than that`);
     if (cells && sheetCell.text !== artist) throw new Error(`${row}: CSV says "${artist}" but the linked sheet says "${sheetCell.text}"`);
-    concerts.push({ concert: { artist, venue: '', city, date, setlist: sheetCell?.url ?? '' }, ts });
+    concerts.push({ concert: { artist, venue: cell('venue'), city, date, setlist: sheetCell?.url ?? '' }, ts });
   });
   if (!concerts.length) throw new Error('concerts sheet has no rows');
   if (cells && cells.length !== n) throw new Error(`sheet has ${cells.length} Artist cells but ${n} concerts`);
