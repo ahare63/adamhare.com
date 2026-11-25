@@ -1,5 +1,5 @@
 // Sitemap of the real pages. Redirect stubs, the 404 page and local mockups are left out.
-const PAGES = ['/', '/about', '/background', '/projects', '/interests', '/books', '/music', '/travel', '/linear-b'];
+const PAGES = ['/', '/about', '/background', '/projects', '/interests', '/books', '/music', '/travel'];
 
 export function GET({ site }) {
   const urls = PAGES.map((p) => `  <url><loc>${new URL(p, site).href}</loc></url>`).join('\n');
