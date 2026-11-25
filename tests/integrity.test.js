@@ -217,28 +217,10 @@ describe('built site integrity', () => {
     expect(linked.length).toBeGreaterThanOrEqual(12);
   });
 
-  it('every main page spells its nav links in Linear B and offers a way back to English', () => {
-    const mains = ['index.html', 'about/index.html', 'background/index.html', 'projects/index.html',
-      'interests/index.html', 'books/index.html', 'music/index.html', 'travel/index.html', 'linear-b/index.html'];
-    for (const m of mains) {
-      const html = readFileSync(join(DIST, m), 'utf-8');
-      const nav = html.match(/<nav class="site-nav"[\s\S]*?<\/nav>/)[0];
-      const links = [...nav.matchAll(/<a [^>]*>/g)].map((x) => x[0]);
-      expect(links.length, `${m}: nav links`).toBeGreaterThanOrEqual(4);
-      for (const a of links) {
-        const lb = a.match(/data-lb="([^"]+)"/)?.[1];
-        expect(lb, `${m}: ${a}`).toBeTruthy();
-        expect(lb, `${m}: ${a}`).toMatch(/^[\u{10000}-\u{1003F} ]+$/u);
-      }
-      expect(html, `${m}: brand`).toMatch(/<span[^>]*data-lb="[^"]+"[^>]*>Adam Hare<\/span>/);
-      expect(html, `${m}: footer button`).toMatch(/<button[^>]*class="lb-off"[^>]*>Back to English<\/button>/);
-    }
-  });
-
   it('main pages carry link-preview tags with an absolute image that exists, and a canonical URL', () => {
     const SITE = 'https://www.adamhare.com';
     const mains = ['index.html', 'about/index.html', 'background/index.html', 'projects/index.html',
-      'interests/index.html', 'books/index.html', 'music/index.html', 'travel/index.html', 'linear-b/index.html'];
+      'interests/index.html', 'books/index.html', 'music/index.html', 'travel/index.html'];
     const meta = (html, prop) => (html.match(new RegExp(`<meta (?:property|name)="${prop}" content="([^"]*)"`)) || [])[1];
     for (const m of mains) {
       const html = readFileSync(join(DIST, m), 'utf-8');
@@ -257,10 +239,11 @@ describe('built site integrity', () => {
   it('sitemap lists the real pages only, and robots.txt points at it', () => {
     const xml = readFileSync(join(DIST, 'sitemap.xml'), 'utf-8');
     const urls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
-    for (const p of ['', '/about', '/background', '/projects', '/interests', '/books', '/music', '/travel', '/linear-b']) {
+    for (const p of ['', '/about', '/background', '/projects', '/interests', '/books', '/music', '/travel']) {
       expect(urls, `sitemap should list ${p || '/'}`).toContain('https://www.adamhare.com' + (p || '/'));
     }
     expect(urls.some((u) => /about-me|\/lab|404|peers/.test(u)), 'no redirect stubs, lab pages or 404').toBe(false);
+    expect(urls.some((u) => u.includes('/linear-b')), 'Linear B page is gone').toBe(false);
     const robots = readFileSync(join(DIST, 'robots.txt'), 'utf-8');
     expect(robots).toContain('Sitemap: https://www.adamhare.com/sitemap.xml');
   });
