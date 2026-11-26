@@ -7,6 +7,7 @@ I read a lot and my tastes are rather varied. Below I've included a few favorite
 
 ## 2026
 
+- *Taipei People* by Pai Hsien-yung, trans. the author and Patia Yasin
 - *Forbidden Nation: A History of Taiwan* by Jonathan Manthorpe
 - *Monkey King: Journey to the West* by Wu Cheng'en, trans. Julia Lovell
 - *Taipei Story* by R.F. Kuang
