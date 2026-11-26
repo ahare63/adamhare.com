@@ -66,7 +66,7 @@ describe('buildProposal', () => {
     const lt = proposal().librarything;
     expect(lt).toEqual({
       found: true, ltId: '77', title: 'The Leopard', author: 'Giuseppe Tomasi di Lampedusa', isbn: '0375714065',
-      cover: 'https://ecx.images-amazon.com/images/P/0375714065.01._SX400_SCRM_.jpg',
+      cover: 'https://ecx.images-amazon.com/images/P/0375714065.01._SX400_SCRM_.jpg', original: null,
     });
   });
 
@@ -161,6 +161,13 @@ describe('buildDraft', () => {
     const d = buildDraft(proposal({ book: { ...base, title: 'Beowulf', author: '' }, entries: [] }));
     expect(d.authorKey).toBeNull();
     expect(d.titleKey).toBe('Beowulf');
+  });
+
+  it('keeps the LibraryThing original-language code so the Books page shows the language', () => {
+    const p = proposal({ book: { ...base, translator: 'Archibald Colquhoun' }, entries: [entry({ original: 'ita' })] });
+    const d = buildDraft(p);
+    expect(d.library.lang).toBe('ita');
+    expect(applyProposal(state(), d).library[p.key].lang).toBe('ita');
   });
 
   it('has no page count when none was found', () => {
