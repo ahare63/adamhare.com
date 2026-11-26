@@ -61,7 +61,7 @@ export function buildProposal({ book, entries, booksMd, authorCountries, languag
     key,
     alreadyListed: listedBooks(booksMd).filter((x) => coverKey(x.book) === key).map(({ year, line }) => ({ year, line })),
     librarything: hit
-      ? { found: true, ltId: String(hit.book_id), title: hit.title, author: hit.author_fl, isbn: hit.ISBN_cleaned || null, cover: hit.cover ? largeCover(hit.cover) : null }
+      ? { found: true, ltId: String(hit.book_id), title: hit.title, author: hit.author_fl, isbn: hit.ISBN_cleaned || null, cover: hit.cover ? largeCover(hit.cover) : null, original: hit.original ?? null }
       : { found: false, nearest: nearestTitles(book.title, entries) },
     blurb: blurb ?? null,
     pages: pages ?? null,
@@ -77,7 +77,7 @@ export function buildDraft(proposal) {
   const { book, librarything: lt } = proposal;
   return {
     bulletLine: proposal.bulletLine, year: book.year, key: proposal.key,
-    library: lt.found ? { ltId: lt.ltId, isbn: lt.isbn, cover: lt.cover, blurb: proposal.blurb } : null,
+    library: lt.found ? { ltId: lt.ltId, isbn: lt.isbn, cover: lt.cover, blurb: proposal.blurb, ...(lt.original ? { lang: lt.original } : {}) } : null,
     countries: null, authorKey: book.author || null, titleKey: book.author ? null : book.title, language: null, settings: null,
     pages: proposal.pages ? { n: proposal.pages.n, approx: proposal.pages.approx } : null,
   };

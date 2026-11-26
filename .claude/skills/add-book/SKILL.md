@@ -32,6 +32,8 @@ Work from the repo root. The site is Astro; the Books page reads `src/content/bo
      places that are not regions on the world map cannot be used.
    - `language.needed` true and `known` null: the original language, as a plain English name used in
      `src/data/languages.json` (e.g. "Italian", "Ancient Greek"). If unsure, say so; do not guess.
+     When `known` is already set it comes from `languages.json` or from LibraryThing's original-language
+     code, which `draft.json` carries as `library.lang`; pass `--language` only if he corrects it.
 4. **Show the cover, then ask for confirmation.** Download `librarything.cover` into the session scratchpad
    (`curl -sL -o <scratchpad>/cover.jpg "<url>"`), display it with the Read tool, and give the URL. Then
    give ONE summary: the exact `bulletLine`, year, LibraryThing title and ISBN, cover, blurb, page count
